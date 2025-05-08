@@ -1,7 +1,7 @@
 const items = [
-  { type: "photo", src: "/assets/images/gallery/image1.jpg", alt: "Фото 1" },
-  { type: "photo", src: "/assets/images/gallery/image2.jpg", alt: "Фото 2" },
-  { type: "video", src: "/assets/video/intro.mp4", alt: "Видео 1" }
+  { type: "photo", category: "Паразиты", src: "/assets/images/gallery/parasite1.jpg", alt: "Паразит 1" },
+  { type: "photo", category: "Гистология", src: "/assets/images/gallery/histo1.jpg", alt: "Гистология 1" },
+  { type: "video", category: "Съёмка", src: "/assets/video/dissection.mp4", alt: "Съёмка вскрытия" }
 ];
 
 function renderGallery(filter = "all") {
