@@ -4,12 +4,15 @@ const items = [
   { type: "video", category: "Съёмка", src: "/assets/video/dissection.mp4", alt: "Съёмка вскрытия" }
 ];
 
-function renderGallery(filter = "all") {
+function renderGallery(filterType = "all", filterCategory = "all") {
   const gallery = document.getElementById("gallery");
   gallery.innerHTML = "";
 
   items
-    .filter(item => filter === "all" || item.type === filter)
+    .filter(item =>
+      (filterType === "all" || item.type === filterType) &&
+      (filterCategory === "all" || item.category === filterCategory)
+    )
     .forEach(item => {
       if (item.type === "photo") {
         const img = document.createElement("img");
@@ -28,10 +31,15 @@ function renderGallery(filter = "all") {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderGallery();
+  const filterType = document.getElementById("filter");
+  const filterCategory = document.getElementById("category");
 
-  const filterSelect = document.getElementById("filter");
-  filterSelect.addEventListener("change", () => {
-    renderGallery(filterSelect.value);
-  });
+  function updateFilters() {
+    renderGallery(filterType.value, filterCategory.value);
+  }
+
+  filterType.addEventListener("change", updateFilters);
+  filterCategory.addEventListener("change", updateFilters);
+
+  updateFilters(); // initial render
 });
