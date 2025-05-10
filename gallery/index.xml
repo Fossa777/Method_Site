@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Galleries on Fossa Method</title>
+    <link>https://fossamethod.ru/gallery/</link>
+    <description>Recent content in Galleries on Fossa Method</description>
+    <generator>Hugo -- 0.147.2</generator>
+    <language>ru</language>
+    <lastBuildDate>Sat, 10 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://fossamethod.ru/gallery/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Фото 1</title>
+      <link>https://fossamethod.ru/gallery/photo_1/</link>
+      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/gallery/photo_1/</guid>
+      <description>&lt;p&gt;Описание фото 22222 оно такое.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
