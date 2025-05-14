@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Fossa Method</title>
+    <link>https://fossamethod.ru/</link>
+    <description>Recent content on Fossa Method</description>
+    <generator>Hugo -- 0.147.2</generator>
+    <language>ru</language>
+    <lastBuildDate>Sat, 10 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://fossamethod.ru/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Четвертая, самая важная статья</title>
+      <link>https://fossamethod.ru/posts/tree2/</link>
+      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/posts/tree2/</guid>
+      <description>&lt;div id=&#34;myth&#34; class=&#34;toggle-block&#34;&gt;
+&lt;h2&gt;Образ&lt;/h2&gt;
+&lt;p&gt;Это последняя страница.&lt;/p&gt;
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;https://fossamethod.ru/images/test.jpg&#34;
+         alt=&#34;Игрушка&#34;
+         style=&#34;max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 1em 0;&#34;&gt;
+  &lt;figcaption style=&#34;font-size: 0.9em; color: #555; margin-top: -1em; margin-bottom: 1em;&#34;&gt;Красота&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;video controls style=&#34;max-width: 100%; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 1em 0;&#34;&gt;
+      &lt;source src=&#34;https://fossamethod.ru/videos/Pixeluvo.mp4&#34; type=&#34;video/mp4&#34;&gt;
+      Ваш браузер не поддерживает видео.
+    &lt;/video&gt;
+  &lt;figcaption style=&#34;font-size: 0.9em; color: #555; margin-top: -1em; margin-bottom: 1em;&#34;&gt;Красота&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Итак&amp;hellip;перейдем к следующей части&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;reality&#34; class=&#34;toggle-block&#34; style=&#34;display:none;&#34;&gt;
+&lt;h2&gt;Знание&lt;/h2&gt;
+Татьяна не любит работать, а любит смотреть телевизор.
+&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>О пузырьках</title>
+      <link>https://fossamethod.ru/posts/bublle/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/posts/bublle/</guid>
+      <description>&lt;div id=&#34;antibiotics&#34; class=&#34;toggleblock myth-reality&#34;&gt;
+    &lt;button class=&#34;toggle-btn&#34; onclick=&#34;toggleBlock(&#39;antibiotics&#39;)&#34;&gt;
+      Переключить Миф / Реальность
+    &lt;/button&gt;
+    &lt;div class=&#34;toggle-content first&#34;&gt;&lt;h3 id=&#34;заблуждение&#34;&gt;Заблуждение&lt;/h3&gt;
+&lt;p&gt;&amp;lsquo;Пузырьки воздуха на стекле и растениях опасны — они закупоривают жабры рыб и вызывают гибель&amp;rsquo;.&lt;br&gt;
+Многие аквариумисты путают обычные пузырьки воздуха с проявлениями газовой болезни.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;На самом деле пугающие пузырьки на стекле — это нормальное явление, особенно после подмены воды или включения аэрации.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/div&gt;
+    &lt;div class=&#34;toggle-content second&#34; style=&#34;display:none&#34;&gt;&lt;h3 id=&#34;научный-факт&#34;&gt;Научный факт&lt;/h3&gt;
+&lt;p&gt;Пузырьки воздуха в аквариуме чаще всего безвредны и являются следствием аэрации или фотосинтеза растений.&lt;br&gt;
+Однако избыток растворённых газов в воде (суперсатурация) может приводить к газовой болезни у рыб.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Про антибиотики</title>
+      <link>https://fossamethod.ru/posts/antibiotics/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/posts/antibiotics/</guid>
+      <description>&lt;div id=&#34;antibiotics&#34; class=&#34;toggleblock avers-revers&#34;&gt;
+    &lt;button class=&#34;toggle-btn&#34; onclick=&#34;toggleBlock(&#39;antibiotics&#39;)&#34;&gt;
+      Переключить Аверс / Реверс
+    &lt;/button&gt;
+    &lt;div class=&#34;toggle-content first&#34;&gt;&lt;h3 id=&#34;польза&#34;&gt;Польза&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Антибиотики — эффективный инструмент для лечения бактериальных инфекций у рыб, таких как аэромоноз или колоннбактериоз.&lt;br&gt;
+При правильной диагностике и дозировке они могут спасти жизни ценных животных и остановить развитие эпидемии.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;Рекомендация: перед применением консультируйтесь с ветеринаром или ихтиопатологом.&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+    &lt;div class=&#34;toggle-content second&#34; style=&#34;display:none&#34;&gt;&lt;h3 id=&#34;вред&#34;&gt;Вред&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Бесконтрольное использование антибиотиков в аквариумах приводит к развитию устойчивых штаммов бактерий, угнетает биофильтрацию и убивает полезную микрофлору.&lt;br&gt;
+&lt;code&gt;Это создаёт риски для здоровья рыб и всей системы.&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Про воду</title>
+      <link>https://fossamethod.ru/posts/water/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/posts/water/</guid>
+      <description>&lt;div id=&#34;bubbles&#34; class=&#34;toggleblock myth-reality&#34;&gt;
+    &lt;button class=&#34;toggle-btn&#34; onclick=&#34;toggleBlock(&#39;bubbles&#39;)&#34;&gt;
+      Переключить Миф / Реальность
+    &lt;/button&gt;
+    &lt;div class=&#34;toggle-content first&#34;&gt;&lt;h3 id=&#34;заблуждение&#34;&gt;Заблуждение&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;lsquo;Если вода мутная — значит, аквариум грязный и рыбы погибнут&amp;rsquo;.&lt;br&gt;
+Это популярное мнение заставляет новичков паниковать и немедленно менять всю воду или заливать химические препараты для очистки.&lt;/p&gt;
+&lt;p&gt;Такие меры не только бесполезны, но и вредны, поскольку уничтожают полезные бактерии, которые участвуют в азотном цикле.&lt;/p&gt;
+&lt;hr&gt;
+&lt;/div&gt;
+    &lt;div class=&#34;toggle-content second&#34; style=&#34;display:none&#34;&gt;&lt;h3 id=&#34;реальность&#34;&gt;Реальность&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Многие аквариумисты считают, что вода должна быть кристально чистой, и боятся любого помутнения.&lt;br&gt;
+Однако легкое помутнение в новом аквариуме — &lt;code&gt;нормальный процесс установления биологического баланса.&lt;/code&gt;&lt;br&gt;
+Чрезмерное использование химических средств для &amp;lsquo;очищения&amp;rsquo; воды часто нарушает работу полезных бактерий и вредит здоровью рыб.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Галерея</title>
+      <link>https://fossamethod.ru/gallery/ttt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/gallery/ttt/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

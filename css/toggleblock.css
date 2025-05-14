@@ -1,0 +1,81 @@
+/* Универсальный toggleblock */
+.toggleblock {
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: background 0.3s, color 0.3s;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text-normal);
+}
+
+.toggleblock h3 {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.toggleblock-content {
+  margin-top: 1rem;
+}
+
+/* Кнопка */
+.toggleblock-button {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  background: var(--primary);
+  color: var(--background);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggleblock-button:hover {
+  opacity: 0.9;
+}
+
+/* Тема - адаптация к светлой и темной */
+html[data-theme='light'] .toggleblock {
+  background: #ffffff;
+  color: #333333;
+}
+
+html[data-theme='dark'] .toggleblock {
+  background: #222222;
+  color: #dddddd;
+}
+
+
+/* Универсальное оформление inline code */
+code {
+  background-color: rgba(128, 128, 128, 0.2);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.95em;
+}
+
+/* Для dark theme — чуть светлее фон */
+html[data-theme='dark'] code {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Для light theme — стандарт */
+html[data-theme='light'] code {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #222222;
+}
+
+/* Для кода внутри текстовых блоков — перенос длинных строк */
+code, pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow-x: auto;
+  max-width: 100%;
+}
