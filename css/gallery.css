@@ -1,0 +1,90 @@
+.gallery-wrapper {
+  margin: 1rem 0;
+}
+
+
+.glightbox-clean .gslide-title {
+  font-size: 1em;
+  font-weight: 400;
+  font-family: arial;
+  color: #000;
+  margin-bottom: 19px;
+  line-height: 1.4em;
+  text-align: center;
+}
+
+.filters {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.filters button {
+  margin: 0.2rem 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: var(--gallery-button-bg, #ddd);
+  color: var(--gallery-button-color, #333);
+}
+
+.filters .active {
+  background: var(--gallery-button-active-bg, #333);
+  color: var(--gallery-button-active-color, #fff);
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+}
+
+.image-gallery li {
+  flex: 1 1 200px;
+}
+
+.image-gallery li a {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  position: relative;
+}
+
+.image-gallery li img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.image-gallery li span {
+  display: block;
+  text-align: center;
+  margin-top: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.9rem;
+  color: var(--gallery-text-color, #333);
+  background-color: var(--gallery-caption-bg, rgba(255, 255, 255, 0.8));
+  border-radius: 5px;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --gallery-button-bg: #444;
+    --gallery-button-color: #ddd;
+    --gallery-button-active-bg: #fff;
+    --gallery-button-active-color: #000;
+    --gallery-text-color: #ddd;
+    --gallery-caption-bg: rgba(0, 0, 0, 0.6);
+  }
+}

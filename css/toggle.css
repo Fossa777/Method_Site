@@ -1,0 +1,42 @@
+.toggle-btn {
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.toggle-btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+.toggle-block {
+  border: 1px solid var(--border);
+  padding: 1em;
+  border-radius: 10px;
+  background-color: var(--surface);
+  color: var(--content);
+}
+
+.hidden {
+  display: none;
+}
+
+.breadcrumbs {
+    font-size: 0.9rem;
+    margin: 0 0 2em 0;
+    color: var(theme);
+}
+.breadcrumbs a {
+    text-decoration: none;
+    color: inherit;
+}
+.breadcrumbs span {
+    font-weight: bold;
+}

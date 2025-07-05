@@ -1,0 +1,185 @@
+/* Универсальный toggleblock */
+.toggleblock {
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: background 0.3s, color 0.3s;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text-normal);
+}
+
+.toggleblock h3 {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.toggleblock-content {
+  margin-top: 1rem;
+}
+
+/* Кнопка */
+.toggleblock-button {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  background: var(--primary);
+  color: var(--background);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggleblock-button:hover {
+  opacity: 0.9;
+}
+
+/* Тема - адаптация к светлой и темной */
+html[data-theme='light'] .toggleblock {
+  background: #ffffff;
+  color: #333333;
+}
+
+html[data-theme='dark'] .toggleblock {
+  background: #222222;
+  color: #dddddd;
+}
+
+
+/* Универсальное оформление inline code */
+code {
+  background-color: rgba(128, 128, 128, 0.2);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.95em;
+}
+
+/* Для dark theme — чуть светлее фон */
+html[data-theme='dark'] code {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Для light theme — стандарт */
+html[data-theme='light'] code {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #222222;
+}
+
+/* Для кода внутри текстовых блоков — перенос длинных строк */
+code, pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Блоки кода — pre > code — с адаптацией к теме */
+pre code {
+  display: block;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-size: 0.95em;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  border-left: 4px solid var(--primary);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Светлая тема: светло-серый фон, тёмный текст */
+html[data-theme='light'] pre code {
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+/* Тёмная тема: тёмно-серый фон, светлый текст */
+html[data-theme='dark'] pre code {
+  background-color: #2c2c2c;
+  color: #eee;
+}
+
+.toggleblock p,
+.toggleblock pre,
+.toggleblock blockquote,
+.toggleblock ul,
+.toggleblock ol {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.toggleblock h2,
+.toggleblock h3,
+.toggleblock h4,
+.toggleblock h5 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.toggleblock pre code {
+  display: block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.toggleblock blockquote {
+  margin-left: 1.2em;
+  padding-left: 1em;
+  border-left: 4px solid var(--primary);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Обычное поведение — обтекание */
+figure.float-right {
+  float: right;
+  max-width: 300px;
+  margin: 0 0 1em 1em;
+  text-align: center;
+}
+figure.float-left {
+  float: left;
+  max-width: 300px;
+  margin: 0 1em 1em 0;
+  text-align: center;
+}
+
+/* На мобильных отключаем обтекание */
+@media (max-width: 768px) {
+  figure.float-right,
+  figure.float-left {
+    float: none !important;
+    display: block;
+    margin: 1em auto;
+    max-width: 90%;
+  }
+}
+
+/* Ссылки в тексте */
+a {
+  color: var(--primary);        /* основной цвет ссылок */
+  text-decoration: underline;  /* подчёркивание, если хочешь */
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-hover, darkorange); /* можно задать в :root */
+  text-decoration: none;
+}
+
+/* Для тёмной темы — чуть светлее */
+html[data-theme='dark'] a {
+  color: #80c8ff;
+}
+
+html[data-theme='dark'] a:hover {
+  color: #ffcc66;
+}
