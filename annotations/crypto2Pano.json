@@ -1,0 +1,25 @@
+[
+{
+  "id": "Cryptosporidia",
+  "labels": {
+    "ru": "Криптоспора",
+    "en": "Cryptosporidia"
+  },
+  "description": {
+    "ru": "Внутриклеточные паразитические простейшие, часто поражающие эпителиальные клетки кишечника и печени у рыб и других животных.",
+    "en": "Intracellular parasitic protozoa, commonly infecting epithelial cells of the intestine and liver in fish and other animals."
+  },
+    "color": "#44ff44",
+  "points": [
+    {"x": 0.08269, "y": 0.1829},
+    {"x": 0.01069, "y": 0.2515},
+    {"x": 0.1814, "y": 0.5259},
+    {"x": 0.5443, "y": 0.1207},
+    {"x": 0.6779, "y": 0.663},
+    {"x": 0.7267, "y": 0.6599},
+    {"x": 0.2158, "y": 0.7631},
+    {"x": 0.9226, "y": 0.1084}
+  ]
+}
+
+]

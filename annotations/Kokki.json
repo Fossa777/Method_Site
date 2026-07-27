@@ -1,0 +1,14 @@
+{
+  "id": "cocci",
+  "labels": {
+    "ru": "Кокки",
+    "en": "Cocci"
+  },
+  "description": {
+    "ru": "Мелкие округлые клетки, встречаются одиночно или небольшими скоплениями.",
+    "en": "Small round cells occurring singly or in small clusters."
+  },
+  "points": [
+    {"x": 0.4571, "y": 0.3553}
+  ]
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on Fossa Method</title>
+    <link>https://fossamethod.ru/en/categories/</link>
+    <description>Recent content in Categories on Fossa Method</description>
+    <generator>Hugo -- 0.147.2</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 26 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://fossamethod.ru/en/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Publications</title>
+      <link>https://fossamethod.ru/en/categories/publications/</link>
+      <pubDate>Sun, 26 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/categories/publications/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Method</title>
+      <link>https://fossamethod.ru/en/categories/method/</link>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/categories/method/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Guides</title>
+      <link>https://fossamethod.ru/en/categories/guide/</link>
+      <pubDate>Sun, 31 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/categories/guide/</guid>
+      <description>&lt;div style=&#34;text-align: justify;&#34;&gt;
+&lt;p&gt;In aquaristics and fish pathology, many recommendations are often reduced to short instructions such as “add a medication”, “raise the temperature”, or “give a bath”. Yet such actions are frequently performed without understanding the underlying biological processes. The &lt;strong&gt;“Guides”&lt;/strong&gt; section contains materials explaining methods of diagnosis, observation, and analysis of the condition of aquatic organisms. Particular attention is given to practical tools such as microscopy, interpretation of morphological changes, analysis of clinical signs, and objective evaluation of fish condition. The goal of these materials is to demonstrate how decisions should be made on the basis of observation and evidence, rather than relying on routine treatment recipes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Guides</title>
+      <link>https://fossamethod.ru/en/categories/guides/</link>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/categories/guides/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Myths and Reality</title>
+      <link>https://fossamethod.ru/en/categories/myths-and-reality/</link>
+      <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/categories/myths-and-reality/</guid>
+      <description>&lt;div style=&#34;text-align: justify;&#34;&gt;
+&lt;p&gt;In aquaristics many processes are explained through simple expressions such as “fin rot”, “bacterial bloom”, or “parasites are always present in the aquarium”. Over time such explanations become established myths that are often perceived as obvious facts. In this section common assumptions are compared with morphological observations, microscopy, and real biological mechanisms. The aim of these materials is to show how the processes that are often explained by simplified schemes in aquaristics actually function.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Microscope</title>
+      <link>https://fossamethod.ru/en/categories/microscope/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/categories/microscope/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Avers / Revers</title>
+      <link>https://fossamethod.ru/en/categories/avers-revers/</link>
+      <pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/categories/avers-revers/</guid>
+      <description>&lt;div style=&#34;text-align: justify;&#34;&gt;
+&lt;p&gt;Many methods and treatments in aquaristics are often perceived as universal solutions. However, every intervention has two sides: potential benefit and possible harm. The &lt;strong&gt;“Avers / Revers”&lt;/strong&gt; section examines common approaches to fish treatment, prevention, and husbandry from two opposing perspectives. Both the positive effects and the possible risks associated with the use of medications, dyes, antibiotics, and other interventions are considered. The purpose of these materials is to demonstrate that the effectiveness of a method always depends on context, the physiological condition of the organism, and the characteristics of the system. A thoughtful approach requires evaluating not only the potential benefits, but also the possible consequences of applying a treatment.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Руководство</title>
+      <link>https://fossamethod.ru/en/categories/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/categories/test/</guid>
+      <description>&lt;div style=&#34;text-align: justify;&#34;&gt;
+&lt;p&gt;В аквариумистике и ихтиопатологии многие рекомендации передаются в виде коротких советов: «добавьте препарат», «поднимите температуру», «сделайте ванну». Однако такие действия часто выполняются без понимания механизмов происходящих процессов. В разделе «Руководство» собраны материалы, объясняющие методы диагностики, наблюдения и анализа состояния гидробионтов. Основное внимание уделяется практическим инструментам — микроскопии, морфологии повреждений, интерпретации клинических признаков и корректной оценке состояния рыб. Цель этих материалов — показать, как принимать решения на основе наблюдений и данных, а не на основе шаблонных рецептов лечения.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

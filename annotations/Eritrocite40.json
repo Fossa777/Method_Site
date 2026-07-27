@@ -1,0 +1,14 @@
+{
+  "id": "Erythrocytes",
+  "labels": {
+    "ru": "Эритроциты",
+    "en": "Erythrocytes"
+  },
+  "description": {
+    "ru": "Форма клеток нарушена — или деформация вследствие изменения осмотического давления, а также влияние красителя, приготовленного на водной основе.",
+    "en": "The cells appear swollen or deformed, which may result from shifts in osmotic pressure or from the use of a water-based stain."
+  },
+  "points": [
+    {"x": 0.4346, "y": 0.5091}
+  ]
+} 

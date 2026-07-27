@@ -1,0 +1,232 @@
+{
+  "observations": {
+    "gill_color": {
+      "label": "Цвет жабр",
+      "type": "select",
+      "values": {
+        "normal_red": "красные",
+        "pale": "бледные",
+        "bright_red": "ярко-красные",
+        "dark_red": "тёмно-красные"
+      }
+    },
+    "gill_mucus": {
+      "label": "Слизь на жабрах",
+      "type": "select",
+      "values": {
+        "normal": "норма",
+        "low": "мало",
+        "high": "много"
+      }
+    },
+    "lamellae_integrity": {
+      "label": "Целостность ламелл",
+      "type": "select",
+      "values": {
+        "intact": "сохранена",
+        "damaged": "разрушение"
+      }
+    },
+    "skin_mucus": {
+      "label": "Ослизнение кожи",
+      "type": "select",
+      "values": {
+        "normal": "норма",
+        "increased": "ослизнена"
+      }
+    },
+    "white_spots_amount": {
+      "label": "Белые точки",
+      "type": "select",
+      "values": {
+        "none": "нет",
+        "few": "единичные",
+        "many": "много"
+      }
+    },
+    "liver_size": {
+      "label": "Размер печени",
+      "type": "select",
+      "values": {
+        "normal": "норма",
+        "small": "уменьшена",
+        "large": "увеличена"
+      }
+    },
+    "liver_fat": {
+      "label": "Жир печени",
+      "type": "select",
+      "values": {
+        "normal": "видовая норма",
+        "low": "мало",
+        "high": "много"
+      }
+    },
+    "liver_consistency": {
+      "label": "Консистенция печени",
+      "type": "select",
+      "values": {
+        "normal": "нормальная",
+        "flabby": "дряблая"
+      }
+    },
+    "intestine_fill": {
+      "label": "Наполненность кишечника",
+      "type": "select",
+      "values": {
+        "food": "с едой",
+        "empty": "пустой"
+      }
+    },
+    "intestine_content": {
+      "label": "Содержимое кишечника",
+      "type": "select",
+      "values": {
+        "food": "корм",
+        "mucus": "слизь",
+        "fluid": "жидкость",
+        "white_mass": "белая масса"
+      }
+    },
+    "intestine_wall_relief": {
+      "label": "Рельеф стенки кишечника",
+      "type": "select",
+      "values": {
+        "normal": "рельеф сохранён",
+        "smooth": "гладкая"
+      }
+    },
+    "intestine_wall_transparency": {
+      "label": "Прозрачность стенки кишечника",
+      "type": "select",
+      "values": {
+        "normal": "непрозрачная",
+        "transparent": "прозрачная"
+      }
+    }
+  },
+
+  "signals": {
+    "gill_irritation": "Раздражение жабр",
+    "gill_structural_damage": "Структурное повреждение жабр",
+    "oxidative_or_chemical_gill_damage": "Окислительное / химическое повреждение жабр",
+    "gas_exchange_impairment": "Нарушение газообмена",
+    "external_epithelial_irritation": "Раздражение наружного эпителия",
+    "parasitic_skin_pattern": "Паразитарный кожный паттерн",
+    "hepatic_lipid_disorder": "Жировое изменение печени",
+    "acute_systemic_reaction": "Острая системная реакция",
+    "intestinal_dysfunction": "Нарушение работы кишечника"
+  },
+
+  "single_rules": [
+    {
+      "when": { "gill_mucus": "high" },
+      "add": { "gill_irritation": 2 }
+    },
+    {
+      "when": { "lamellae_integrity": "damaged" },
+      "add": { "gill_structural_damage": 4, "gas_exchange_impairment": 3 }
+    },
+    {
+      "when": { "gill_color": "bright_red" },
+      "add": { "oxidative_or_chemical_gill_damage": 2 }
+    },
+    {
+      "when": { "gill_color": "dark_red" },
+      "add": { "gill_irritation": 2, "gas_exchange_impairment": 1 }
+    },
+    {
+      "when": { "skin_mucus": "increased" },
+      "add": { "external_epithelial_irritation": 3 }
+    },
+    {
+      "when": { "white_spots_amount": "few" },
+      "add": { "parasitic_skin_pattern": 2 }
+    },
+    {
+      "when": { "white_spots_amount": "many" },
+      "add": { "parasitic_skin_pattern": 5 }
+    },
+    {
+      "when": { "liver_fat": "high" },
+      "add": { "hepatic_lipid_disorder": 4 }
+    },
+    {
+      "when": { "liver_consistency": "flabby" },
+      "add": { "hepatic_lipid_disorder": 3, "acute_systemic_reaction": 1 }
+    },
+    {
+      "when": { "intestine_fill": "empty" },
+      "add": { "intestinal_dysfunction": 2 }
+    },
+    {
+      "when": { "intestine_content": "mucus" },
+      "add": { "intestinal_dysfunction": 4 }
+    },
+    {
+      "when": { "intestine_wall_relief": "smooth" },
+      "add": { "intestinal_dysfunction": 3 }
+    },
+    {
+      "when": { "intestine_wall_transparency": "transparent" },
+      "add": { "acute_systemic_reaction": 3 }
+    }
+  ],
+
+  "patterns": [
+    {
+      "id": "bright_gill_chemical_damage",
+      "label": "Паттерн яркого химического / окислительного повреждения жабр",
+      "when": {
+        "gill_color": "bright_red",
+        "gill_mucus": "high",
+        "lamellae_integrity": "damaged"
+      },
+      "add": {
+        "oxidative_or_chemical_gill_damage": 10,
+        "gas_exchange_impairment": 6
+      },
+      "note": "Ярко-красные жабры вместе со слизью и разрушением ламелл сильнее поддерживают вариант окислительного или химического повреждения, чем один цвет жабр отдельно."
+    },
+    {
+      "id": "dark_gill_heavy_damage",
+      "label": "Паттерн тяжёлого внешнего повреждения жабр",
+      "when": {
+        "gill_color": "dark_red",
+        "gill_mucus": "high",
+        "lamellae_integrity": "damaged"
+      },
+      "add": {
+        "gill_irritation": 8,
+        "gill_structural_damage": 8,
+        "gas_exchange_impairment": 6
+      },
+      "note": "Тёмно-красные жабры со слизью и разрушением ламелл поддерживают тяжёлое раздражение, застойную гиперемию и нарушение газообмена."
+    },
+    {
+      "id": "intestinal_mucus_smooth_wall",
+      "label": "Паттерн кишечного нарушения",
+      "when": {
+        "intestine_content": "mucus",
+        "intestine_wall_relief": "smooth"
+      },
+      "add": {
+        "intestinal_dysfunction": 8,
+        "acute_systemic_reaction": 3
+      },
+      "note": "Слизь в кишечнике вместе со сглаженным рельефом стенки сильнее поддерживает нарушение функции кишечника, чем каждый признак по отдельности."
+    },
+    {
+      "id": "fatty_flabby_liver",
+      "label": "Паттерн жировой печени",
+      "when": {
+        "liver_fat": "high",
+        "liver_consistency": "flabby"
+      },
+      "add": {
+        "hepatic_lipid_disorder": 8
+      },
+      "note": "Много жира и дряблая консистенция вместе поддерживают жировое изменение печени."
+    }
+  ]
+}
