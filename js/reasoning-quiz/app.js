@@ -663,12 +663,6 @@ style.textContent = `
     margin-top: 1.2rem;
   }
 
-  @property --rq-angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-  }
-
   .rq-answer {
     position: relative;
     overflow: hidden;
@@ -686,14 +680,13 @@ style.textContent = `
   .rq-answer::before {
     content: "";
     position: absolute;
-    inset: -2px;
+    inset: -60%;
     z-index: 0;
     opacity: 0;
     pointer-events: none;
     border-radius: inherit;
 
     background: conic-gradient(
-      from var(--rq-angle),
       transparent 0deg,
       transparent 255deg,
       rgba(90, 170, 255, 0.95) 300deg,
@@ -701,7 +694,7 @@ style.textContent = `
       transparent 360deg
     );
 
-    animation: rq-border-spin 2.2s linear infinite;
+    animation: rq-answer-border-rotate 2.2s linear infinite;
     transition: opacity 0.18s ease;
   }
 
@@ -740,9 +733,9 @@ style.textContent = `
     opacity: 0.85;
   }
 
-  @keyframes rq-border-spin {
+  @keyframes rq-answer-border-rotate {
     to {
-      --rq-angle: 360deg;
+      transform: rotate(360deg);
     }
   }
 

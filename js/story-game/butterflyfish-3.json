@@ -1,0 +1,980 @@
+{
+    "title": "Рыбки-бабочки 3. Диагностический тренажёр",
+    "data": {
+        "stitches": {
+            "punctuatedStitch": {
+                "content": [
+                    "Наступил следующий день"
+                ]
+            },
+            "punctuatedStitch1": {
+                "content": [
+                    "Ещё через сутки нового массового падежа нет.",
+                    {
+                        "option": "Открыть разбор",
+                        "linkPath": "punctuatedStitch34",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "punctuatedStitch2": {
+                "content": [
+                    "Утренний осмотр. В аквариуме 300 л содержатся 15 морских рыб-бабочек.\nОдна рыба погибла.",
+                    {
+                        "divert": "punctuatedStitch3"
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "punctuatedStitch3": {
+                "content": [
+                    "По словам сотрудников, у оставшихся частое дыхание. Корм берут хуже обычного. На теле у части рыб заметен белёсый мутный налёт.",
+                    {
+                        "option": "Осмотреть рыб в аквариуме",
+                        "linkPath": "punctuatedStitch4",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Уточнить у сотрудников, когда заметили изменения",
+                        "linkPath": "punctuatedStitch5",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Проверить основные параметры воды",
+                        "linkPath": "PHCPpt",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Начать обработку препаратами, чтобы не потерять время",
+                        "linkPath": "punctuatedStitch6",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Ничего не делать",
+                        "linkPath": "punctuatedStitch7",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "punctuatedStitch4": {
+                "content": [
+                    "Осмотр рыб в ёмкости.\n\nДыхание частое. На теле есть белёсая мутная слизь.",
+                    {
+                        "option": "Осмотреть погибшую рыбу",
+                        "linkPath": "punctuatedStitch8",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Взять слизь с тела живых рыб",
+                        "linkPath": "punctuatedStitch9",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Осмотреть жабры и сделать промыв жабр",
+                        "linkPath": "punctuatedStitch10",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Начать обработку препаратами",
+                        "linkPath": "punctuatedStitch6",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Вернуться к вопросу в конце дня",
+                        "linkPath": "punctuatedStitch11",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "inspected_fish"
+                    }
+                ]
+            },
+            "punctuatedStitch5": {
+                "content": [
+                    "Сотрудники сообщают: вчера явных изменений не заметили. Сегодня утром рыбы стояли у течения и чаще дышали.\n\nОдин сотрудник называет признак белым налётом. Другой вспоминает, что часть рыб хуже ела накануне.",
+                    {
+                        "option": "Принять версию поражения наружными простейшими как рабочую и начать обработку",
+                        "linkPath": "punctuatedStitch6",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Проверить рыб перед выбором обработки",
+                        "linkPath": "punctuatedStitch4",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Проверить воду перед выбором обработки",
+                        "linkPath": "PHCPpt",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Взять слизь с тела, чтобы подтвердить наружных паразитов",
+                        "linkPath": "punctuatedStitch9",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "checked_staff_claim"
+                    }
+                ]
+            },
+            "PHCPpt": {
+                "content": [
+                    "Экспресс-проверка воды:\n\npH 7,9. Температура 24 °C. Солёность 32 ppt. Аммиак по тесту без уверенного положительного результата.",
+                    {
+                        "option": "Поднять pH до более привычного значения для морской воды",
+                        "linkPath": "pH",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Поднять температуру, чтобы ускорить течение предполагаемой паразитарной инфекции",
+                        "linkPath": "C",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Осмотреть рыб в аквариуме",
+                        "linkPath": "punctuatedStitch4",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Начать обработку",
+                        "linkPath": "punctuatedStitch6",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "checked_water"
+                    }
+                ]
+            },
+            "punctuatedStitch6": {
+                "content": [
+                    "Доступные варианты срочного вмешательства:",
+                    {
+                        "option": "Начать антибиотик",
+                        "linkPath": "blankStitch1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Начать обработку малахитовым зелёным",
+                        "linkPath": "blankStitch2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Внести метиленовый синий",
+                        "linkPath": "blankStitch",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Внести медь",
+                        "linkPath": "blankStitch3",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Ждать до следующего дня",
+                        "linkPath": "punctuatedStitch7",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Вернуться к диагностике",
+                        "linkPath": "punctuatedStitch13",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "punctuatedStitch7": {
+                "content": [
+                    "Следующее утро.\n\nПогибли ещё две рыбы. Белёсая слизь сходит плёнками. На части рыб появились небольшие овальные язвы.",
+                    {
+                        "option": "Выбрать лечение",
+                        "linkPath": "punctuatedStitch14",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Ждать дальше",
+                        "linkPath": "punctuatedStitch29",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Провести диагностику",
+                        "linkPath": "punctuatedStitch13",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "event_day"
+                    },
+                    {
+                        "flagName": "event_wait"
+                    }
+                ]
+            },
+            "punctuatedStitch8": {
+                "content": [
+                    "Осмотрена погибшая рыба.\n\nВ препаратах со слизью видны инфузории, длинные бактериальные формы и клеточный детрит.",
+                    {
+                        "image": "https://fossamethod.ru/images/Story/ciliate_skin.gif"
+                    },
+                    {
+                        "option": "Взять слизь с живых рыб",
+                        "linkPath": "punctuatedStitch9",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Осмотреть жабры",
+                        "linkPath": "punctuatedStitch10",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Перейти к выбору действия по имеющимся данным",
+                        "linkPath": "punctuatedStitch12",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Начать обработку препаратом широкого действия",
+                        "linkPath": "punctuatedStitch6",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "checked_dead_fish"
+                    }
+                ]
+            },
+            "punctuatedStitch9": {
+                "content": [
+                    "Мазок с поверхности тела живой рыбы.\n\nВ поле зрения слизь, клеточный детрит, длинные бактериальные формы и подвижные инфузории.",
+                    {
+                        "image": "https://fossamethod.ru/images/Story/ciliate_jills_2.gif"
+                    },
+                    {
+                        "option": "Начать противопаразитарное лечение",
+                        "linkPath": "punctuatedStitch14",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Осмотреть жабры",
+                        "linkPath": "punctuatedStitch15",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Внести метиленовый синий",
+                        "linkPath": "blankStitch",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "sampled_body_mucus"
+                    }
+                ]
+            },
+            "punctuatedStitch10": {
+                "content": [
+                    "Проверка жабр. Жабры бледные. Слизи на жабрах больше обычного.\n\nВ промыве жабр видны инфузории, длинные бактериальные формы, слизь и клеточный детрит.",
+                    {
+                        "image": "https://fossamethod.ru/images/Story/ciliate_jills_2.gif"
+                    },
+                    {
+                        "option": "Проверить слизь с тела живых рыб, мазки с погибшей рыбы и окрашенные препараты",
+                        "linkPath": "punctuatedStitch30",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Рассмотреть инфузорий подробнее",
+                        "linkPath": "punctuatedStitch12",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Начать обработку препаратом широкого действия",
+                        "linkPath": "punctuatedStitch6",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "checked_gills"
+                    }
+                ]
+            },
+            "punctuatedStitch11": {
+                "content": [
+                    "К вечеру две рыбы по-прежнему держатся у течения. У одной рыбы дыхание чаще, чем утром.",
+                    {
+                        "option": "Вернуться к диагностике",
+                        "linkPath": "punctuatedStitch13",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Начать обработку препаратами",
+                        "linkPath": "punctuatedStitch6",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "punctuatedStitch12": {
+                "content": [
+                    "Большее увеличение.\n\nИнфузории видны отчётливо. В препарате также есть слизь, клеточный детрит и длинные бактериальные формы.",
+                    {
+                        "image": "https://fossamethod.ru/images/Story/ciliate_jills_1.gif"
+                    },
+                    {
+                        "option": "Собрать материал с живых рыб и жабр",
+                        "linkPath": "punctuatedStitch30",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Начать обработку препаратом широкого действия",
+                        "linkPath": "punctuatedStitch6",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Начать антибиотик",
+                        "linkPath": "blankStitch1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Подождать до следующего дня",
+                        "linkPath": "punctuatedStitch7",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "checked_gills"
+                    }
+                ]
+            },
+            "punctuatedStitch13": {
+                "content": [
+                    "Доступны осмотр рыб, проверка воды и микроскопия.",
+                    {
+                        "option": "Осмотреть рыб в аквариуме",
+                        "linkPath": "punctuatedStitch4",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Проверить воду",
+                        "linkPath": "PHCPpt",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Осмотреть погибшую рыбу и взять мазки",
+                        "linkPath": "punctuatedStitch8",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Взять слизь с тела",
+                        "linkPath": "punctuatedStitch9",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Осмотреть жабры и сделать промыв жабр",
+                        "linkPath": "punctuatedStitch10",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "returned_to_diagnostics"
+                    }
+                ]
+            },
+            "punctuatedStitch14": {
+                "content": [
+                    "Какое действие выбрать?",
+                    {
+                        "option": "Начать антибиотик",
+                        "linkPath": "blankStitch1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Внести малахитовый зелёный",
+                        "linkPath": "blankStitch2",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Внести метиленовый синий",
+                        "linkPath": "blankStitch",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Внести медь",
+                        "linkPath": "blankStitch3",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Осмотреть жабры",
+                        "linkPath": "punctuatedStitch15",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "overinterpreted_body_mucus"
+                    }
+                ]
+            },
+            "punctuatedStitch15": {
+                "content": [
+                    "Дополнительно осмотрены жабры погибшей рыбы.\n\nЖабры бледные, со слизью. В препаратах видны инфузории, длинные бактериальные формы и клеточный детрит.",
+                    {
+                        "image": "https://fossamethod.ru/images/Story/ciliate_jills_1.gif"
+                    },
+                    {
+                        "option": "Что делать после полученных данных?",
+                        "linkPath": "punctuatedStitch19",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "checked_gills"
+                    }
+                ]
+            },
+            "blankStitch": {
+                "content": [
+                    "",
+                    {
+                        "divert": "punctuatedStitch25"
+                    },
+                    {
+                        "flagName": "premature_intervention"
+                    }
+                ]
+            },
+            "blankStitch1": {
+                "content": [
+                    "",
+                    {
+                        "divert": "punctuatedStitch16"
+                    },
+                    {
+                        "flagName": "premature_intervention"
+                    }
+                ]
+            },
+            "punctuatedStitch16": {
+                "content": [
+                    "Начат антибиотик.\n\nСледующая оценка — утром.",
+                    {
+                        "option": "Дождаться следующего утра",
+                        "linkPath": "punctuatedStitch17",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "used_antibiotic"
+                    }
+                ]
+            },
+            "blankStitch2": {
+                "content": [
+                    "",
+                    {
+                        "divert": "punctuatedStitch24"
+                    },
+                    {
+                        "flagName": "premature_intervention"
+                    }
+                ]
+            },
+            "blankStitch3": {
+                "content": [
+                    "",
+                    {
+                        "divert": "punctuatedStitch26"
+                    },
+                    {
+                        "flagName": "premature_intervention"
+                    }
+                ]
+            },
+            "punctuatedStitch17": {
+                "content": [
+                    "Следующее утро.",
+                    {
+                        "divert": "punctuatedStitch18"
+                    },
+                    {
+                        "flagName": "event_day"
+                    },
+                    {
+                        "flagName": "selected_antibiotic"
+                    }
+                ]
+            },
+            "punctuatedStitch18": {
+                "content": [
+                    "Погибли ещё две рыбы. У оставшихся дыхание частое. На коже сохраняются мутная слизь и очаги повреждения. На части рыб появились мелкие овальные язвы.",
+                    {
+                        "option": "Продолжить наблюдение",
+                        "linkPath": "punctuatedStitch20",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Осмотреть рыб и взять материал",
+                        "linkPath": "punctuatedStitch30",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Сменить лекарство",
+                        "linkPath": "blankStitch4",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "punctuatedStitch19": {
+                "content": [
+                    "Смена препарата.",
+                    {
+                        "divert": "punctuatedStitch23"
+                    },
+                    {
+                        "flagName": "event_change_treatment"
+                    }
+                ]
+            },
+            "punctuatedStitch20": {
+                "content": [
+                    "Следующее утро.",
+                    {
+                        "divert": "punctuatedStitch21"
+                    },
+                    {
+                        "flagName": "event_change_treatment"
+                    }
+                ]
+            },
+            "punctuatedStitch21": {
+                "content": [
+                    "Погибла ещё одна рыба. Новых язв у большинства рыб не появилось. Корм берут единичные особи.",
+                    {
+                        "option": "Продолжить наблюдение",
+                        "linkPath": "punctuatedStitch22",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Провести микроскопию",
+                        "linkPath": "punctuatedStitch30",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Сменить препарат",
+                        "linkPath": "punctuatedStitch19",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "blankStitch4": {
+                "content": [
+                    "",
+                    {
+                        "divert": "punctuatedStitch19"
+                    },
+                    {
+                        "flagName": "event_change_treatment"
+                    }
+                ]
+            },
+            "punctuatedStitch22": {
+                "content": [
+                    "Новых погибших рыб нет. Дыхание у большей части оставшихся рыб менее частое. Повреждения кожи сохраняются.",
+                    {
+                        "option": "Открыть разбор",
+                        "linkPath": "punctuatedStitch34",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "punctuatedStitch23": {
+                "content": [
+                    "Следующий шаг:",
+                    {
+                        "option": "Начать антибиотик",
+                        "linkPath": "blankStitch5",
+                        "ifConditions": null,
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "used_antibiotic"
+                            }
+                        ]
+                    },
+                    {
+                        "option": "Внести малахитовый зелёный",
+                        "linkPath": "punctuatedStitch24",
+                        "ifConditions": null,
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "used_malachite_green"
+                            }
+                        ]
+                    },
+                    {
+                        "option": "Внести метиленовый синий",
+                        "linkPath": "punctuatedStitch25",
+                        "ifConditions": null,
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "used_methylene_blue"
+                            }
+                        ]
+                    },
+                    {
+                        "option": "Внести медь",
+                        "linkPath": "punctuatedStitch26",
+                        "ifConditions": null,
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "used_copper"
+                            }
+                        ]
+                    },
+                    {
+                        "option": "Подождать до следующего дня",
+                        "linkPath": "punctuatedStitch7",
+                        "ifConditions": null,
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "event_change_treatment"
+                            }
+                        ]
+                    },
+                    {
+                        "option": "Вернуться к диагностике",
+                        "linkPath": "punctuatedStitch13",
+                        "ifConditions": null,
+                        "notIfConditions": [
+                            {
+                                "notIfCondition": "event_change_treatment"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "blankStitch5": {
+                "content": [
+                    "",
+                    {
+                        "divert": "punctuatedStitch16"
+                    },
+                    {
+                        "flagName": "selected_treatment_after_diagnosis"
+                    }
+                ]
+            },
+            "punctuatedStitch24": {
+                "content": [
+                    "Внесён малахитовый зелёный.\n\nСледующая оценка — утром.",
+                    {
+                        "option": "Дождаться следующего утра",
+                        "linkPath": "punctuatedStitch27",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "used_malachite_green"
+                    }
+                ]
+            },
+            "punctuatedStitch25": {
+                "content": [
+                    "Внесён метиленовый синий.\n\nВода стала синей.\n\nСледующая оценка — утром.",
+                    {
+                        "option": "Дождаться следующего утра",
+                        "linkPath": "punctuatedStitch31",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "used_methylene_blue"
+                    }
+                ]
+            },
+            "punctuatedStitch26": {
+                "content": [
+                    "Внесена медь.\n\nСледующая оценка — утром.",
+                    {
+                        "option": "Дождаться следующего утра",
+                        "linkPath": "punctuatedStitch32",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "used_copper"
+                    }
+                ]
+            },
+            "punctuatedStitch27": {
+                "content": [
+                    "Следующее утро.\n\nПогибли ещё три рыбы. У оставшихся дыхание частое. На теле меньше инфузорий. Появляются участки повреждения кожи.",
+                    {
+                        "option": "Сменить лечение",
+                        "linkPath": "punctuatedStitch28",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Вернуться к диагностике",
+                        "linkPath": "punctuatedStitch13",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Ждать дальше",
+                        "linkPath": "punctuatedStitch29",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "event_day"
+                    }
+                ]
+            },
+            "punctuatedStitch28": {
+                "content": [
+                    "Необходимо срочно решить, какое лечение действительно поможет.",
+                    {
+                        "divert": "punctuatedStitch19"
+                    },
+                    {
+                        "flagName": "event_change_treatment"
+                    }
+                ]
+            },
+            "punctuatedStitch29": {
+                "content": [
+                    "Следующее утро.\n\nПогибли ещё пять рыб. У оставшихся выраженное учащённое дыхание. Язвы увеличились, слизь матово-белая.",
+                    {
+                        "option": "Вернуться к выбору лечения",
+                        "linkPath": "punctuatedStitch19",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Ждать дальше",
+                        "linkPath": "punctuatedStitch33",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Открыть разбор",
+                        "linkPath": "punctuatedStitch34",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "event_day"
+                    },
+                    {
+                        "flagName": "event_wait"
+                    }
+                ]
+            },
+            "pH": {
+                "content": [
+                    "pH поднят до 8,1.",
+                    {
+                        "option": "Дождаться следующего утра",
+                        "linkPath": "punctuatedStitch7",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "changed_ph"
+                    },
+                    {
+                        "flagName": "premature_intervention"
+                    }
+                ]
+            },
+            "C": {
+                "content": [
+                    "Температура поднята до 28 °C.\n\nЧерез 2 часа дыхание у части рыб стало чаще. Две рыбы остаются у течения.",
+                    {
+                        "option": "Дождаться следующего утра",
+                        "linkPath": "punctuatedStitch7",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "raised_temperature"
+                    },
+                    {
+                        "flagName": "premature_intervention"
+                    }
+                ]
+            },
+            "punctuatedStitch30": {
+                "content": [
+                    "Проверены погибшая рыба, слизь с тела живых рыб, промыв жабр и окрашенные препараты.\n\nВ препаратах видны инфузории, длинные бактериальные формы, слизь и клеточный детрит. На коже и жабрах есть участки повреждения.",
+                    {
+                        "option": "Что делать после полученных данных?",
+                        "linkPath": "punctuatedStitch19",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "inspected_fish"
+                    },
+                    {
+                        "flagName": "checked_dead_fish"
+                    },
+                    {
+                        "flagName": "sampled_body_mucus"
+                    },
+                    {
+                        "flagName": "checked_gills"
+                    },
+                    {
+                        "flagName": "complete_microview"
+                    },
+                    {
+                        "flagName": "stained_smear_confirmed_bacteria"
+                    }
+                ]
+            },
+            "punctuatedStitch31": {
+                "content": [
+                    "Следующее утро.\n\nПогибли ещё три рыбы. Белёсая слизь сходит с тела плёнками. На части рыб появились овальные язвы.",
+                    {
+                        "option": "Сменить лечение",
+                        "linkPath": "punctuatedStitch28",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Вернуться к диагностике",
+                        "linkPath": "punctuatedStitch13",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Ждать дальше",
+                        "linkPath": "punctuatedStitch29",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "event_day"
+                    }
+                ]
+            },
+            "punctuatedStitch32": {
+                "content": [
+                    "Следующее утро.\n\nПогибли ещё четыре рыбы. У оставшихся дыхание частое. На теле выражены участки повреждения кожи.",
+                    {
+                        "option": "Сменить лечение",
+                        "linkPath": "punctuatedStitch28",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Вернуться к диагностике",
+                        "linkPath": "punctuatedStitch13",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Ждать дальше",
+                        "linkPath": "punctuatedStitch29",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "event_day"
+                    }
+                ]
+            },
+            "punctuatedStitch33": {
+                "content": [
+                    "Через следующие сутки оставшиеся рыбы погибли. Разбор открыт.",
+                    {
+                        "option": "Открыть разбор",
+                        "linkPath": "punctuatedStitch34",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "flagName": "fatal_delay"
+                    },
+                    {
+                        "flagName": "event_day"
+                    }
+                ]
+            },
+            "punctuatedStitch34": {
+                "content": [
+                    "Итог.",
+                    {
+                        "divert": "punctuatedStitch35"
+                    }
+                ]
+            },
+            "punctuatedStitch35": {
+                "content": [
+                    "Итог.\n\nВ препаратах были заметны инфузории, но повторяющаяся картина включала мутную слизь, повреждение покровов, длинные бактериальные формы и клеточный детрит.\n\nКлючевые выводы:\n- Самый заметный подвижный объект не всегда является главной причиной.\n- Лечение против инфузорий не охватывало всю картину поражения.\n- Метиленовый синий не был достаточным основным вмешательством при таком поражении.\n- Медь была крайним вмешательством широкого действия, а не точным ответом на найденную картину.\n- Антибиотик был наиболее логичным направлением после оценки бактериальной картины, но не гарантировал мгновенной остановки падежа.\n- Потери зависели не только от выбранного препарата, но и от времени до направленного действия.\n- Правильный путь уменьшает потери, но не отменяет уже начавшийся падёж."
+                ]
+            }
+        },
+        "initial": "punctuatedStitch2",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "blankStitch4",
+            "libraryVisible": false,
+            "authorName": "Артём",
+            "textSize": 0
+        }
+    },
+    "url_key": 278796
+}
