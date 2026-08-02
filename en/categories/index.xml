@@ -9,11 +9,12 @@
     <lastBuildDate>Sun, 02 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://fossamethod.ru/en/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Мифы И Реальность</title>
-      <link>https://fossamethod.ru/en/categories/%D0%BC%D0%B8%D1%84%D1%8B-%D0%B8-%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C/</link>
+      <title>Myths and Reality</title>
+      <link>https://fossamethod.ru/en/categories/myths-and-reality/</link>
       <pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>https://fossamethod.ru/en/categories/%D0%BC%D0%B8%D1%84%D1%8B-%D0%B8-%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C/</guid>
-      <description></description>
+      <guid>https://fossamethod.ru/en/categories/myths-and-reality/</guid>
+      <description>&lt;div style=&#34;text-align: justify;&#34;&gt;
+&lt;p&gt;In aquaristics many processes are explained through simple expressions such as “fin rot”, “bacterial bloom”, or “parasites are always present in the aquarium”. Over time such explanations become established myths that are often perceived as obvious facts. In this section common assumptions are compared with morphological observations, microscopy, and real biological mechanisms. The aim of these materials is to show how the processes that are often explained by simplified schemes in aquaristics actually function.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Guides</title>
@@ -43,14 +44,6 @@
       <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/categories/guides/</guid>
       <description></description>
-    </item>
-    <item>
-      <title>Myths and Reality</title>
-      <link>https://fossamethod.ru/en/categories/myths-and-reality/</link>
-      <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://fossamethod.ru/en/categories/myths-and-reality/</guid>
-      <description>&lt;div style=&#34;text-align: justify;&#34;&gt;
-&lt;p&gt;In aquaristics many processes are explained through simple expressions such as “fin rot”, “bacterial bloom”, or “parasites are always present in the aquarium”. Over time such explanations become established myths that are often perceived as obvious facts. In this section common assumptions are compared with morphological observations, microscopy, and real biological mechanisms. The aim of these materials is to show how the processes that are often explained by simplified schemes in aquaristics actually function.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microscope</title>
