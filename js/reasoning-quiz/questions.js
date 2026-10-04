@@ -4686,6 +4686,1841 @@ export const quiz = [
         }
       }
     ]
+  },
+  {
+    "id": "oxygen-measurement-timing",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Ночью рыбы держались у поверхности. Утром содержание кислорода было обычным. Что показывает измерение?",
+      "en": "The fish stayed near the surface overnight. In the morning, the oxygen level was within its usual range. What does the measurement show?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Нехватка кислорода ночью маловероятна.",
+          "en": "Low oxygen overnight is unlikely."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "data_limit",
+        "scores": {
+          "observation": 0,
+          "caution": 0,
+          "data": 0
+        },
+        "explain": {
+          "ru": "Утреннее измерение не позволяет оценить содержание кислорода ночью. Условия между наблюдением и измерением могли измениться.",
+          "en": "A morning measurement cannot establish the overnight oxygen level. Conditions may have changed between the observation and the measurement."
+        }
+      },
+      {
+        "text": {
+          "ru": "Утром содержание кислорода было обычным.",
+          "en": "Morning oxygen was within its usual range."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "observation": 3,
+          "caution": 3,
+          "data": 3
+        },
+        "explain": {
+          "ru": "Измерение описывает условия в момент его проведения. Оно не восстанавливает ночные значения и не устанавливает причину поведения.",
+          "en": "The measurement describes conditions at the time it was taken. It neither reconstructs overnight levels nor establishes the cause of the behavior."
+        }
+      },
+      {
+        "text": {
+          "ru": "Причину следует искать в состоянии жабр.",
+          "en": "The cause should be sought in the gills."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "premature_conclusion",
+        "scores": {
+          "observation": 0,
+          "caution": 0,
+          "data": 0
+        },
+        "explain": {
+          "ru": "Состояние жабр можно исследовать, но это измерение не даёт оснований выделить их как причину поведения.",
+          "en": "The gills can be examined, but this measurement does not identify them as the cause of the behavior."
+        }
+      },
+      {
+        "text": {
+          "ru": "Ночное поведение связано с другими факторами.",
+          "en": "Other factors explain the overnight behavior."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "premature_conclusion",
+        "scores": {
+          "observation": 0,
+          "caution": 0,
+          "data": 0
+        },
+        "explain": {
+          "ru": "Причину поведения нельзя определить по утреннему измерению. Ночное изменение кислорода ещё не исключено.",
+          "en": "A morning measurement cannot establish the cause of the behavior. An overnight oxygen change has not been ruled out."
+        }
+      }
+    ]
+  },
+  {
+    "id": "dead-fish-comparison-group",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "У всех обследованных погибших рыб обнаружен один организм. Какое сравнение поможет оценить его связь с гибелью?",
+      "en": "The same organism was found in every dead fish examined. Which comparison would help assess its association with death?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Его встречаемость у живых рыб этой группы.",
+          "en": "Its occurrence in live fish from this group."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "method": 3,
+          "data": 3,
+          "causality": 3
+        },
+        "explain": {
+          "ru": "Сравнение с живыми рыбами той же группы помогает понять, связана ли находка с гибелью. Само сравнение ещё не доказывает причинность.",
+          "en": "Comparison with live fish from the same group helps assess an association with death. The comparison alone does not prove causation."
+        }
+      },
+      {
+        "text": {
+          "ru": "Его численность на разных участках одного препарата.",
+          "en": "Its abundance in different areas of one slide."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "data": 1,
+          "causality": 1
+        },
+        "explain": {
+          "ru": "Это уточнит распределение организмов в препарате, но не покажет, характерна ли находка именно для погибших рыб.",
+          "en": "This describes the distribution of organisms on the slide, but does not show whether the finding is specific to dead fish."
+        }
+      },
+      {
+        "text": {
+          "ru": "Его размеры на фотографиях погибших рыб.",
+          "en": "Its size in photographs from dead fish."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "causality": 0
+        },
+        "explain": {
+          "ru": "Размеры могут помочь описанию и определению организма. Они не заменяют сравнение его встречаемости у живых и погибших рыб.",
+          "en": "Size may help describe and identify the organism. It does not replace comparison of its occurrence in live and dead fish."
+        }
+      },
+      {
+        "text": {
+          "ru": "Его встречаемость у рыб другого вида.",
+          "en": "Its occurrence in fish of another species."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "data_limit",
+        "scores": {
+          "method": 1,
+          "data": 1,
+          "causality": 1
+        },
+        "explain": {
+          "ru": "Видовые различия могут влиять на встречаемость организма. Живые рыбы той же группы дают более сопоставимое сравнение.",
+          "en": "Species differences may affect the organism's occurrence. Live fish from the same group provide a more comparable reference."
+        }
+      }
+    ]
+  },
+  {
+    "id": "missing-mortality-records",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "В журнале за три дня нет записей о падеже. Как обозначить эти дни при анализе?",
+      "en": "The log has no mortality entries for three days. How should those days be recorded in the analysis?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Как дни без зарегистрированных случаев гибели.",
+          "en": "As days with no recorded deaths."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "data_limit",
+        "scores": {
+          "data": 1,
+          "caution": 1,
+          "method": 1
+        },
+        "explain": {
+          "ru": "Отсутствие записей не подтверждает нулевой падёж. Без проверки полноты учёта такая отметка может скрыть пропуск данных.",
+          "en": "Missing entries do not establish zero mortality. Without checking whether records are complete, this label can conceal missing data."
+        }
+      },
+      {
+        "text": {
+          "ru": "Как дни со средним для месяца падежом.",
+          "en": "As days with the month's average mortality."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "data": 0,
+          "caution": 0,
+          "method": 0
+        },
+        "explain": {
+          "ru": "Среднее значение будет расчётной подстановкой, а не наблюдением. Его нельзя записывать вместо отсутствующих фактических данных без отдельной отметки.",
+          "en": "The average would be an imputed estimate, not an observation. It must not replace missing observations without being explicitly marked."
+        }
+      },
+      {
+        "text": {
+          "ru": "Как дни с отсутствующими данными учёта.",
+          "en": "As days with missing mortality records."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "data": 3,
+          "caution": 3,
+          "method": 3
+        },
+        "explain": {
+          "ru": "Так сохраняется различие между отсутствием данных и отсутствием гибели. После уточнения журнала отметку можно обновить.",
+          "en": "This preserves the distinction between missing data and no deaths. The entry can be updated after the records are checked."
+        }
+      },
+      {
+        "text": {
+          "ru": "Как дни, исключённые из периода наблюдения.",
+          "en": "As days excluded from the observation period."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "data": 0,
+          "caution": 0,
+          "method": 0
+        },
+        "explain": {
+          "ru": "Исключение меняет период анализа и может сместить оценку. Пропуск нужно явно обозначить, а не просто убрать.",
+          "en": "Exclusion changes the analysis period and may bias the estimate. The gap should be explicitly recorded rather than simply removed."
+        }
+      }
+    ]
+  },
+  {
+    "id": "inspection-detection-change",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "После изменения порядка осмотра стали чаще регистрировать повреждения кожи. Что проверить перед сравнением периодов?",
+      "en": "More skin lesions were recorded after the inspection procedure changed. What should be checked before comparing the periods?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Одинаково ли выявляли и регистрировали повреждения.",
+          "en": "Whether lesions were detected and recorded consistently."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "method": 3,
+          "data": 3,
+          "causality": 3
+        },
+        "explain": {
+          "ru": "Более тщательный осмотр или новые правила записи могут увеличить число находок без изменения состояния рыб.",
+          "en": "More thorough inspections or new recording rules can increase recorded findings without a change in the fish's condition."
+        }
+      },
+      {
+        "text": {
+          "ru": "Одинаковые ли препараты применяли при повреждениях.",
+          "en": "Whether the same treatments were used for lesions."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "data": 1,
+          "causality": 1
+        },
+        "explain": {
+          "ru": "Лечение может иметь значение для состояния рыб, но сначала нужно проверить сопоставимость выявления и регистрации.",
+          "en": "Treatment may affect fish condition, but the comparability of detection and recording must be checked first."
+        }
+      },
+      {
+        "text": {
+          "ru": "Одинаково ли быстро заживали обнаруженные повреждения.",
+          "en": "Whether the observed lesions healed at similar rates."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "data": 1,
+          "causality": 1
+        },
+        "explain": {
+          "ru": "Скорость заживления характеризует течение повреждений. Она не объясняет, почему после изменения осмотра их стали чаще регистрировать.",
+          "en": "Healing rate describes the course of the lesions. It does not resolve why more were recorded after the inspection procedure changed."
+        }
+      },
+      {
+        "text": {
+          "ru": "Одинаковые ли участки кожи повреждались чаще.",
+          "en": "Whether lesions occurred in the same skin areas."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "data": 1,
+          "causality": 1
+        },
+        "explain": {
+          "ru": "Локализация полезна для описания находок, но не заменяет проверку того, одинаково ли их искали и учитывали.",
+          "en": "Location is useful for describing findings, but does not replace checking whether they were sought and recorded consistently."
+        }
+      }
+    ]
+  },
+  {
+    "id": "ph-instrument-disagreement",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Два прибора показывают разный pH одной пробы. Как проверить расхождение?",
+      "en": "Two meters give different pH readings for the same sample. How should the discrepancy be checked?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Сравнить стоимость и характеристики обоих приборов.",
+          "en": "Compare the prices and specifications of both meters."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "data": 1
+        },
+        "explain": {
+          "ru": "Характеристики помогают выбрать прибор, но цена и паспортные данные не подтверждают правильность текущего измерения.",
+          "en": "Specifications help with instrument selection, but price and published specifications do not establish that a current reading is correct."
+        }
+      },
+      {
+        "text": {
+          "ru": "Рассчитать среднее из показаний обоих приборов.",
+          "en": "Calculate the average of both meters' readings."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "method": 0,
+          "data": 0
+        },
+        "explain": {
+          "ru": "Усреднение не устраняет неизвестную систематическую ошибку. Сначала нужно проверить работу приборов.",
+          "en": "Averaging does not remove an unknown systematic error. The meters must be checked first."
+        }
+      },
+      {
+        "text": {
+          "ru": "Сопоставить показания с привычными значениями аквариума.",
+          "en": "Compare the readings with the aquarium's usual values."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "method": 0,
+          "data": 0
+        },
+        "explain": {
+          "ru": "Ожидаемое значение не является проверочным стандартом. Выбор привычного показания может скрыть реальное изменение.",
+          "en": "An expected value is not a reference standard. Choosing the familiar reading may conceal a real change."
+        }
+      },
+      {
+        "text": {
+          "ru": "Проверить калибровку обоих приборов по стандартам.",
+          "en": "Check both meters' calibration using reference standards."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "method": 3,
+          "data": 3
+        },
+        "explain": {
+          "ru": "Стандарты позволяют проверить показания относительно известных значений. Сравнение проводят с учётом одинаковых условий измерения.",
+          "en": "Reference standards allow readings to be checked against known values. The comparison should also use consistent measurement conditions."
+        }
+      }
+    ]
+  },
+  {
+    "id": "repeated-slide-photographs",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Один участок препарата с пятью паразитами сфотографировали десять раз. Сколько паразитов учтено этими снимками?",
+      "en": "One area of a slide containing five parasites was photographed ten times. How many parasites do these images account for?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Пятьдесят: суммируются находки на всех снимках.",
+          "en": "Fifty: add the findings across all images."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "observation": 0,
+          "method": 0,
+          "data": 0
+        },
+        "explain": {
+          "ru": "На снимках повторно представлены одни и те же организмы. Суммирование приводит к многократному учёту.",
+          "en": "The images show the same organisms repeatedly. Adding them together counts those organisms multiple times."
+        }
+      },
+      {
+        "text": {
+          "ru": "Пять: повторно сняты те же организмы.",
+          "en": "Five: the same organisms were photographed repeatedly."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "observation": 3,
+          "method": 3,
+          "data": 3
+        },
+        "explain": {
+          "ru": "Число изображений не равно числу организмов. Здесь десять снимков документируют пять паразитов.",
+          "en": "The number of images is not the number of organisms. Here, ten images document five parasites."
+        }
+      },
+      {
+        "text": {
+          "ru": "Десять: каждый снимок считается отдельной находкой.",
+          "en": "Ten: each image counts as a separate finding."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "observation": 0,
+          "method": 0,
+          "data": 0
+        },
+        "explain": {
+          "ru": "Единицей подсчёта в вопросе является паразит, а не снимок. Повторная фотография не создаёт новой находки.",
+          "en": "The unit being counted is a parasite, not an image. Another photograph does not create a new finding."
+        }
+      },
+      {
+        "text": {
+          "ru": "Неизвестно: снимки не позволяют считать организмы.",
+          "en": "Unknown: images cannot be used to count organisms."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "observation": 0,
+          "method": 0,
+          "data": 0
+        },
+        "explain": {
+          "ru": "На снимках можно считать различимые организмы. Нужно лишь избегать повторного учёта одних и тех же особей.",
+          "en": "Distinct organisms can be counted in images. The same individuals must not be counted repeatedly."
+        }
+      }
+    ]
+  },
+  {
+    "id": "method-confounded-with-tank",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Один метод применили в аквариуме А, другой — в аквариуме Б. В каждом по 30 рыб. Что ограничивает сравнение методов?",
+      "en": "One method was used in aquarium A and another in aquarium B. Each holds 30 fish. What limits the comparison of the methods?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Большое число рыб в каждом аквариуме.",
+          "en": "The large number of fish in each aquarium."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "causality": 0
+        },
+        "explain": {
+          "ru": "Само число рыб не объясняет ограничение. Все рыбы одного аквариума разделяют его условия.",
+          "en": "The number of fish itself does not explain the limitation. All fish in one aquarium share that aquarium's conditions."
+        }
+      },
+      {
+        "text": {
+          "ru": "Одинаковая численность рыб в обеих группах.",
+          "en": "The equal number of fish in both groups."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "causality": 0
+        },
+        "explain": {
+          "ru": "Равная численность не мешает сравнению и не устраняет различия аквариумов. Число рыб не заменяет повторность на уровне аквариумов.",
+          "en": "Equal group sizes neither prevent comparison nor remove differences between aquariums. Fish numbers do not replace aquarium-level replication."
+        }
+      },
+      {
+        "text": {
+          "ru": "Совпадение метода с условиями конкретного аквариума.",
+          "en": "Each method is tied to one aquarium's conditions."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "method": 3,
+          "data": 3,
+          "causality": 3
+        },
+        "explain": {
+          "ru": "Нельзя отделить влияние метода от особенностей аквариума. Тридцать рыб в одной системе не дают тридцать независимых повторов метода.",
+          "en": "The method's effect cannot be separated from aquarium-specific conditions. Thirty fish in one system are not thirty independent replicates of the method."
+        }
+      },
+      {
+        "text": {
+          "ru": "Одновременное наблюдение за двумя разными группами.",
+          "en": "Observing two different groups at the same time."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "causality": 0
+        },
+        "explain": {
+          "ru": "Одновременное наблюдение само по себе не мешает сравнению. Проблема в том, что каждый метод представлен только одним аквариумом.",
+          "en": "Simultaneous observation is not itself a limitation. The problem is that each method is represented by only one aquarium."
+        }
+      }
+    ]
+  },
+  {
+    "id": "treatment-baseline-differences",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Недавно привезённым и давно содержащимся рыбам назначили разные обработки. Что затрудняет сравнение выживаемости?",
+      "en": "Newly arrived fish and long-established fish received different treatments. What makes their survival difficult to compare?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Различия исходного состояния двух групп.",
+          "en": "Differences between the groups' initial conditions."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "data": 3,
+          "causality": 3,
+          "caution": 3
+        },
+        "explain": {
+          "ru": "История и состояние групп до обработки могли различаться. Разницу выживаемости нельзя приписать только обработке.",
+          "en": "The groups' histories and conditions may have differed before treatment. A survival difference cannot be attributed solely to treatment."
+        }
+      },
+      {
+        "text": {
+          "ru": "Различия названий применённых для обработки препаратов.",
+          "en": "Differences in the names of the treatments used."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "data": 0,
+          "causality": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Сравнение разных обработок и является задачей. Названия препаратов не определяют сопоставимость исходного состояния групп.",
+          "en": "Comparing different treatments is the aim. Product names do not determine whether the groups were comparable at baseline."
+        }
+      },
+      {
+        "text": {
+          "ru": "Отсутствие фотографий каждого этапа обработки.",
+          "en": "Missing photographs of every treatment stage."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "data": 0,
+          "causality": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Фотографии могут дополнять наблюдение, но не устраняют исходные различия между недавно привезёнными и давно содержащимися рыбами.",
+          "en": "Photographs can supplement observations, but do not remove baseline differences between newly arrived and established fish."
+        }
+      },
+      {
+        "text": {
+          "ru": "Отсутствие общего показателя для обеих групп.",
+          "en": "The lack of a common outcome for both groups."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "data": 0,
+          "causality": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Общий показатель уже указан: выживаемость. Ограничение связано с различиями групп до обработки.",
+          "en": "A common outcome has already been specified: survival. The limitation concerns differences between the groups before treatment."
+        }
+      }
+    ]
+  },
+  {
+    "id": "new-feed-hypothesis-comparison",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Предполагается, что ухудшение состояния связано с новым кормом. Как лучше проверить эту связь?",
+      "en": "A decline in condition is suspected to be linked to a new feed. How can this association best be tested?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Собрать описания похожих случаев с новым кормом.",
+          "en": "Collect reports of similar cases with the new feed."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "causality": 1,
+          "data": 1
+        },
+        "explain": {
+          "ru": "Такие случаи помогают сформулировать гипотезу, но без сравнения трудно отделить влияние корма от других условий.",
+          "en": "Similar cases can help develop a hypothesis, but without comparison it is difficult to distinguish feed effects from other conditions."
+        }
+      },
+      {
+        "text": {
+          "ru": "Сравнить состав нового корма с рекомендациями производителя.",
+          "en": "Compare the new feed's composition with manufacturer guidance."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "causality": 1,
+          "data": 1
+        },
+        "explain": {
+          "ru": "Состав полезен для оценки корма. Соответствие рекомендациям само по себе не проверяет связь с наблюдаемым ухудшением.",
+          "en": "Composition is useful for assessing feed. Compliance with guidance alone does not test its association with the observed decline."
+        }
+      },
+      {
+        "text": {
+          "ru": "Проследить состояние всей группы на новом корме.",
+          "en": "Monitor the entire group while using the new feed."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "causality": 1,
+          "data": 1
+        },
+        "explain": {
+          "ru": "Наблюдение покажет динамику состояния, но без сопоставимой группы другие объяснения изменения останутся неразделёнными.",
+          "en": "Monitoring describes changes over time, but without a comparable group alternative explanations remain unresolved."
+        }
+      },
+      {
+        "text": {
+          "ru": "Сравнить сопоставимые группы на новом и прежнем корме.",
+          "en": "Compare similar groups receiving the new and previous feeds."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "method": 3,
+          "causality": 3,
+          "data": 3
+        },
+        "explain": {
+          "ru": "Такое сравнение помогает проверить различия, связанные с кормом. Важно учитывать исходное состояние групп и остальные условия.",
+          "en": "This comparison helps test differences associated with feed. Baseline group condition and other conditions must also be considered."
+        }
+      }
+    ]
+  },
+  {
+    "id": "diagnosis-disconfirming-evidence",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Специалист собирает сведения в пользу первоначального диагноза. Что стоит добавить к проверке?",
+      "en": "A specialist is collecting evidence supporting an initial diagnosis. What should be added to the assessment?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Больше описаний случаев с таким же диагнозом.",
+          "en": "More case reports with the same diagnosis."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "caution": 1,
+          "data": 1
+        },
+        "explain": {
+          "ru": "Дополнительные похожие случаи не заменяют проверку данных, которые могли бы противоречить диагнозу.",
+          "en": "Additional similar cases do not replace checking evidence that could contradict the diagnosis."
+        }
+      },
+      {
+        "text": {
+          "ru": "Поиск противоречащих данных и проверку других объяснений.",
+          "en": "A search for conflicting evidence and alternative explanations."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "method": 3,
+          "caution": 3,
+          "data": 3
+        },
+        "explain": {
+          "ru": "Гипотезу проверяют не только подтверждениями. Противоречия и альтернативы помогают оценить, выдерживает ли диагноз проверку.",
+          "en": "A hypothesis is not tested only through supporting evidence. Conflicting findings and alternatives help assess whether the diagnosis holds up."
+        }
+      },
+      {
+        "text": {
+          "ru": "Мнения коллег, согласных с первоначальным диагнозом.",
+          "en": "Opinions from colleagues who agree with the initial diagnosis."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "authority",
+        "scores": {
+          "method": 0,
+          "caution": 0,
+          "data": 0
+        },
+        "explain": {
+          "ru": "Согласие коллег может быть полезным обсуждением, но само по себе не добавляет проверку противоречий и альтернатив.",
+          "en": "Agreement from colleagues may support useful discussion, but does not itself test conflicting evidence or alternatives."
+        }
+      },
+      {
+        "text": {
+          "ru": "Повторное описание уже найденных характерных признаков.",
+          "en": "A further description of the characteristic signs already found."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "method": 0,
+          "caution": 0,
+          "data": 0
+        },
+        "explain": {
+          "ru": "Повторное описание тех же признаков не даёт новых независимых оснований и не проверяет альтернативные объяснения.",
+          "en": "Describing the same signs again adds no new independent evidence and does not test alternative explanations."
+        }
+      }
+    ]
+  },
+  {
+    "id": "outcome-selected-after-results",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "До наблюдения главным показателем выбрали выживаемость. После анализа главным назвали другой показатель, который улучшился. Что изменилось?",
+      "en": "Survival was chosen as the primary outcome before observation. After analysis, a different outcome that improved was called primary. What changed?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Наблюдение стало точнее отражать состояние рыб.",
+          "en": "The observations now reflect fish condition more accurately."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "premature_conclusion",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Выбор улучшившегося показателя не доказывает, что он точнее характеризует состояние рыб.",
+          "en": "Selecting an outcome that improved does not establish that it reflects fish condition more accurately."
+        }
+      },
+      {
+        "text": {
+          "ru": "Дополнительный показатель подтвердил исходное предположение.",
+          "en": "The additional outcome confirmed the initial hypothesis."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "premature_conclusion",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Улучшение другого показателя не подменяет результат по заранее выбранному показателю выживаемости.",
+          "en": "Improvement in another outcome does not replace the result for the prespecified survival outcome."
+        }
+      },
+      {
+        "text": {
+          "ru": "Критерий успеха выбрали после получения результатов.",
+          "en": "The success criterion was chosen after seeing the results."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "method": 3,
+          "data": 3,
+          "caution": 3
+        },
+        "explain": {
+          "ru": "Выбор по результатам может создать впечатление успеха. Дополнительный анализ нужно отличать от заранее запланированного.",
+          "en": "Selecting an outcome after seeing results can create an impression of success. Exploratory analysis should be distinguished from prespecified analysis."
+        }
+      },
+      {
+        "text": {
+          "ru": "Исходный критерий потерял диагностическое значение.",
+          "en": "The original outcome lost its diagnostic value."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "premature_conclusion",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Из условия не следует, что выживаемость потеряла значение. Изменился выбор показателя, а не установленная пригодность исходного критерия.",
+          "en": "Nothing in the scenario establishes that survival lost its value. The selected outcome changed; the original outcome was not shown to be unsuitable."
+        }
+      }
+    ]
+  },
+  {
+    "id": "measurement-difference-within-error",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Прибор показал сначала 7,2, затем 7,3. Его погрешность — ±0,2. Как оценить разницу?",
+      "en": "A meter first read 7.2 and then 7.3. Its stated measurement error is ±0.2. How should the difference be assessed?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Значение выросло на одну десятую единицы.",
+          "en": "The measured quantity increased by one tenth of a unit."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "data_limit",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "На одну десятую изменилось показание. Это ещё не устанавливает такое же изменение самой измеряемой величины.",
+          "en": "The reading changed by one tenth. That does not establish the same change in the quantity being measured."
+        }
+      },
+      {
+        "text": {
+          "ru": "Значение изменилось достаточно для принятия решения.",
+          "en": "The change is large enough to support a decision."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "premature_decision",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Порог для решения не задан, а разница требует оценки погрешности. Этих данных недостаточно для такого вывода.",
+          "en": "No decision threshold is given, and the difference must be assessed against measurement error. These data do not support that conclusion."
+        }
+      },
+      {
+        "text": {
+          "ru": "Разница свидетельствует о нарушении работы прибора.",
+          "en": "The difference indicates a meter malfunction."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "premature_conclusion",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Небольшая разница показаний не доказывает неисправность. Нужна проверка прибора и условий измерения.",
+          "en": "A small difference in readings does not establish a malfunction. The meter and measurement conditions would need to be checked."
+        }
+      },
+      {
+        "text": {
+          "ru": "Разница может укладываться в погрешность измерения.",
+          "en": "The difference may fall within the measurement error."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "method": 3,
+          "data": 3,
+          "caution": 3
+        },
+        "explain": {
+          "ru": "По двум показаниям с такой погрешностью нельзя уверенно установить реальный рост на 0,1. Нужны данные о повторяемости и условиях измерения.",
+          "en": "These two readings with the stated error do not establish a real increase of 0.1. Information on repeatability and measurement conditions is needed."
+        }
+      }
+    ]
+  },
+  {
+    "id": "density-species-confounding",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "При большей плотности посадки чаще отмечали повреждения. При этом различался и видовой состав. Какой вывод обоснован?",
+      "en": "Lesions were recorded more often at higher stocking densities, but species composition also differed. Which conclusion is supported?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Влияние плотности и видового состава пока не разделено.",
+          "en": "The effects of density and species composition remain unresolved."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "causality": 3,
+          "data": 3,
+          "caution": 3
+        },
+        "explain": {
+          "ru": "Оба фактора менялись вместе. Наблюдаемая связь не позволяет приписать различия только одному из них.",
+          "en": "Both factors varied together. The observed association does not allow the differences to be attributed to either factor alone."
+        }
+      },
+      {
+        "text": {
+          "ru": "Плотность важнее видового состава в появлении повреждений.",
+          "en": "Density matters more than species composition for lesion occurrence."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "causality_error",
+        "scores": {
+          "causality": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Вклад факторов не сравнивали независимо. Преимущество одного объяснения из этих данных не следует.",
+          "en": "The factors were not assessed independently. These data do not establish that one explanation contributes more than the other."
+        }
+      },
+      {
+        "text": {
+          "ru": "Видовой состав объясняет различия лучше плотности посадки.",
+          "en": "Species composition explains the differences better than stocking density."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "causality_error",
+        "scores": {
+          "causality": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Видовой состав может иметь значение, но его преимущество перед плотностью не установлено.",
+          "en": "Species composition may matter, but it has not been shown to explain the differences better than density."
+        }
+      },
+      {
+        "text": {
+          "ru": "Различия условий исключают связь плотности с повреждениями.",
+          "en": "Differences in conditions rule out a link with density."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "data_limit",
+        "scores": {
+          "causality": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Различия условий ограничивают причинный вывод, но не исключают возможную роль плотности.",
+          "en": "Differences in conditions limit causal conclusions, but do not rule out a possible role for density."
+        }
+      }
+    ]
+  },
+  {
+    "id": "easy-to-catch-sample",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Из 20 рыб обследовали трёх, которых было проще поймать. Признаков заболевания не выявили. Что известно об остальных?",
+      "en": "Three of 20 fish were examined because they were easier to catch. No signs of disease were found. What is known about the remaining fish?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Их состояние, вероятно, соответствует состоянию обследованных рыб.",
+          "en": "Their condition probably matches that of the examined fish."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "data_limit",
+        "scores": {
+          "data": 0,
+          "method": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Рыб отбирали по удобству поимки. Не установлено, что такая выборка представляет остальных рыб.",
+          "en": "The fish were selected for ease of capture. This sample has not been shown to represent the remaining fish."
+        }
+      },
+      {
+        "text": {
+          "ru": "Они менее доступны для осмотра из-за заболевания.",
+          "en": "They are harder to examine because they are diseased."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "premature_conclusion",
+        "scores": {
+          "data": 0,
+          "method": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Причина трудности поимки не установлена. Нельзя превращать её в признак заболевания.",
+          "en": "The reason they were harder to catch is unknown. Difficulty of capture cannot be treated as evidence of disease."
+        }
+      },
+      {
+        "text": {
+          "ru": "Их состояние по этой выборке надёжно не установлено.",
+          "en": "This sample does not reliably establish their condition."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "data": 3,
+          "method": 3,
+          "caution": 3
+        },
+        "explain": {
+          "ru": "Результат относится к обследованным рыбам. Способ отбора ограничивает перенос вывода на всю группу.",
+          "en": "The result applies to the fish examined. The selection method limits how far the finding can be generalized to the whole group."
+        }
+      },
+      {
+        "text": {
+          "ru": "Их обследование мало изменит оценку состояния группы.",
+          "en": "Examining them would add little to the group assessment."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "data_limit",
+        "scores": {
+          "data": 0,
+          "method": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Без данных об остальных рыбах нельзя оценить, насколько изменится вывод после их обследования.",
+          "en": "Without information on the remaining fish, it is not possible to assess how much examining them would change the conclusion."
+        }
+      }
+    ]
+  },
+  {
+    "id": "published-success-denominator",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Опубликованы десять успешных применений метода. Общее число попыток неизвестно. Можно ли оценить долю успехов?",
+      "en": "Ten successful uses of a method have been published. The total number of attempts is unknown. Can the success rate be estimated?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Да: успешными оказались все десять описанных случаев.",
+          "en": "Yes: all ten reported cases were successful."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "survivorship",
+        "scores": {
+          "data": 0,
+          "method": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Опубликованные успешные случаи могут быть отобранной частью всех попыток. Доля среди публикаций не равна доле среди применений.",
+          "en": "Published successes may be a selected subset of all attempts. The proportion among reports is not the proportion among all uses."
+        }
+      },
+      {
+        "text": {
+          "ru": "Нет: неизвестно число всех попыток применения метода.",
+          "en": "No: the total number of attempts is unknown."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "data": 3,
+          "method": 3,
+          "caution": 3
+        },
+        "explain": {
+          "ru": "Для доли успехов нужны успешные случаи и общее число попыток, включая неудачные.",
+          "en": "A success rate requires both the number of successes and the total number of attempts, including failures."
+        }
+      },
+      {
+        "text": {
+          "ru": "Да: десяти случаев достаточно для предварительной оценки.",
+          "en": "Yes: ten cases suffice for a preliminary estimate."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "data_limit",
+        "scores": {
+          "data": 0,
+          "method": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Число описаний не восполняет неизвестный знаменатель. Даже предварительная доля требует учёта всех попыток в оцениваемой группе.",
+          "en": "The number of reports does not supply the missing denominator. Even a preliminary rate requires accounting for all attempts in the group assessed."
+        }
+      },
+      {
+        "text": {
+          "ru": "Нет: сначала нужно установить механизм действия метода.",
+          "en": "No: the method's mechanism must be established first."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "data": 0,
+          "method": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Механизм действия и доля успехов — разные вопросы. Здесь расчёту мешает отсутствие общего числа попыток.",
+          "en": "Mechanism and success rate are different questions. Here, the missing total number of attempts prevents calculation."
+        }
+      }
+    ]
+  },
+  {
+    "id": "same-sample-repeatability",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Один образец дважды исследовали одним методом. Результаты совпали. Что это показывает?",
+      "en": "One sample was examined twice using the same method. The results matched. What does this show?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "Правильность вывода о причине заболевания.",
+          "en": "That the conclusion about the disease cause is correct."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "premature_conclusion",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Повторение результата не устанавливает причину заболевания. Для причинного вывода нужны дополнительные основания.",
+          "en": "A repeated result does not establish the cause of disease. A causal conclusion requires additional evidence."
+        }
+      },
+      {
+        "text": {
+          "ru": "Отсутствие ошибки при отборе материала.",
+          "en": "That no error occurred during sample collection."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Одна и та же ошибка отбора могла сохраниться в обоих исследованиях одного образца.",
+          "en": "The same collection error could be present in both examinations of the sample."
+        }
+      },
+      {
+        "text": {
+          "ru": "Независимое подтверждение первоначального результата.",
+          "en": "Independent confirmation of the original result."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "method": 0,
+          "data": 0,
+          "caution": 0
+        },
+        "explain": {
+          "ru": "Исследования используют тот же образец и метод. Общие ограничения и систематические ошибки могут повторяться.",
+          "en": "Both examinations use the same sample and method. Shared limitations and systematic errors may recur."
+        }
+      },
+      {
+        "text": {
+          "ru": "Повторяемость результата при таком исследовании.",
+          "en": "Repeatability of the result in this examination."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "method": 3,
+          "data": 3,
+          "caution": 3
+        },
+        "explain": {
+          "ru": "Результат воспроизвёлся при повторном исследовании. Это полезно, но не исключает общей ошибки и не подтверждает диагноз само по себе.",
+          "en": "The result was reproduced on repeat examination. This is useful, but does not exclude a shared error or establish a diagnosis by itself."
+        }
+      }
+    ]
+  },
+  {
+    "id": "equipment-testable-hypothesis",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "Какая гипотеза задаёт наиболее конкретную проверку роли нового оборудования?",
+      "en": "Which hypothesis provides the most specific test of the new equipment's role?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "При его включении снижается измеряемый поток воды.",
+          "en": "Switching it on reduces the measured water flow."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "hypothesis",
+        "scores": {
+          "method": 3,
+          "causality": 3
+        },
+        "explain": {
+          "ru": "Указаны воздействие и измеряемое следствие. Можно проверить, меняется ли поток при включении оборудования в сопоставимых условиях.",
+          "en": "The hypothesis specifies an intervention and a measurable outcome. Flow can be compared when the equipment is switched on under comparable conditions."
+        }
+      },
+      {
+        "text": {
+          "ru": "После его установки рыбы выглядят несколько иначе.",
+          "en": "The fish look somewhat different after its installation."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "causality": 1
+        },
+        "explain": {
+          "ru": "Не определено, какое изменение внешнего вида оценивается. Формулировка не задаёт конкретного критерия проверки.",
+          "en": "The change in appearance is unspecified. This wording does not define a concrete assessment criterion."
+        }
+      },
+      {
+        "text": {
+          "ru": "Его работа неблагоприятно влияет на состояние системы.",
+          "en": "Its operation adversely affects the system's condition."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "causality": 1
+        },
+        "explain": {
+          "ru": "Нужно указать, какой показатель меняется и как его измерять. Общая оценка не задаёт конкретной проверки.",
+          "en": "The affected variable and how to measure it need to be specified. A general assessment does not define a concrete test."
+        }
+      },
+      {
+        "text": {
+          "ru": "Его использование связано с ухудшением условий содержания.",
+          "en": "Its use is associated with poorer housing conditions."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "causality": 1
+        },
+        "explain": {
+          "ru": "Не уточнены условия, показатель ухудшения и ожидаемое изменение. Связь пока сформулирована слишком широко.",
+          "en": "The conditions, outcome measure, and expected change are unspecified. The proposed association is still too broad."
+        }
+      }
+    ]
+  },
+  {
+    "id": "filtration-system-tradeoff",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "После изменения фильтрации вода стала прозрачнее, но уменьшился поток через систему. Как оценить результат?",
+      "en": "After filtration was changed, the water became clearer but flow through the system decreased. How should the result be assessed?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "По прозрачности: она была целью изменения.",
+          "en": "By clarity: that was the aim of the change."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "data": 1,
+          "caution": 1
+        },
+        "explain": {
+          "ru": "Целевой показатель улучшился, но это не отражает последствий снижения потока для всей системы.",
+          "en": "The target outcome improved, but that does not capture the consequences of reduced flow for the whole system."
+        }
+      },
+      {
+        "text": {
+          "ru": "По потоку: он характеризует работу системы.",
+          "en": "By flow: it describes how the system operates."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "data": 1,
+          "caution": 1
+        },
+        "explain": {
+          "ru": "Поток важен, но оценка только по нему исключает достигнутое улучшение прозрачности и общий баланс последствий.",
+          "en": "Flow matters, but assessing it alone omits the improvement in clarity and the overall balance of consequences."
+        }
+      },
+      {
+        "text": {
+          "ru": "По обоим показателям и последствиям их изменений.",
+          "en": "By both measures and the consequences of their changes."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "method": 3,
+          "data": 3,
+          "caution": 3
+        },
+        "explain": {
+          "ru": "Улучшение одной части системы может создавать ограничения в другой. Нужно оценить оба изменения и их значение для работы системы.",
+          "en": "Improving one part of a system may impose constraints elsewhere. Both changes and their effects on system operation need to be assessed."
+        }
+      },
+      {
+        "text": {
+          "ru": "По длительности сохранения достигнутой прозрачности воды.",
+          "en": "By how long the improved water clarity lasts."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "method": 1,
+          "data": 1,
+          "caution": 1
+        },
+        "explain": {
+          "ru": "Длительность улучшения полезна, но не заменяет оценку изменения потока и его последствий.",
+          "en": "The duration of the improvement is useful, but does not replace assessing the flow change and its consequences."
+        }
+      }
+    ]
+  },
+  {
+    "id": "treatment-benefit-and-harm",
+    "title": {
+      "ru": "Ситуация",
+      "en": "Scenario"
+    },
+    "text": {
+      "ru": "После обработки повреждений стало меньше, а кормление ухудшилось. Как оценить результат?",
+      "en": "After treatment, lesions decreased but feeding worsened. How should the result be assessed?"
+    },
+    "answers": [
+      {
+        "text": {
+          "ru": "По повреждениям, ради которых проводилась обработка.",
+          "en": "By the lesions that the treatment targeted."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "method_error",
+        "scores": {
+          "data": 1,
+          "caution": 1,
+          "causality": 1
+        },
+        "explain": {
+          "ru": "Уменьшение повреждений важно, но оценка только по цели обработки пропускает ухудшение кормления.",
+          "en": "Fewer lesions matter, but evaluating only the treatment target overlooks the decline in feeding."
+        }
+      },
+      {
+        "text": {
+          "ru": "По обоим изменениям с проверкой их причин.",
+          "en": "By both changes, while investigating their causes."
+        },
+        "level": {
+          "ru": "Корректное рассуждение",
+          "en": "Sound reasoning"
+        },
+        "tone": "good",
+        "thinking": "observation",
+        "scores": {
+          "data": 3,
+          "caution": 3,
+          "causality": 3
+        },
+        "explain": {
+          "ru": "Нужно учитывать улучшение и возможный ущерб. Последовательность событий ещё не доказывает, что оба изменения вызваны обработкой.",
+          "en": "Both improvement and possible harm should be considered. The sequence of events does not establish that treatment caused both changes."
+        }
+      },
+      {
+        "text": {
+          "ru": "По кормлению как признаку переносимости обработки.",
+          "en": "By feeding as an indicator of treatment tolerance."
+        },
+        "level": {
+          "ru": "Неполная оценка",
+          "en": "Incomplete assessment"
+        },
+        "tone": "warn",
+        "thinking": "causality_error",
+        "scores": {
+          "data": 1,
+          "caution": 1,
+          "causality": 1
+        },
+        "explain": {
+          "ru": "Ухудшение кормления стоит учитывать, но его связь с переносимостью обработки нужно проверить. Одного показателя недостаточно.",
+          "en": "Reduced feeding should be considered, but its relationship to treatment tolerance needs checking. One outcome is insufficient."
+        }
+      },
+      {
+        "text": {
+          "ru": "По показателю, который изменился наиболее заметно.",
+          "en": "By whichever outcome changed most noticeably."
+        },
+        "level": {
+          "ru": "Ошибка рассуждения",
+          "en": "Reasoning error"
+        },
+        "tone": "bad",
+        "thinking": "method_error",
+        "scores": {
+          "data": 0,
+          "caution": 0,
+          "causality": 0
+        },
+        "explain": {
+          "ru": "Заметность изменения не определяет его значение. Нельзя исключать другой показатель только потому, что он изменился меньше.",
+          "en": "How noticeable a change is does not determine its importance. The other outcome cannot be omitted simply because its change was smaller."
+        }
+      }
+    ]
   }
 ];
 

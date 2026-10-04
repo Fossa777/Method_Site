@@ -391,6 +391,7 @@ const answers = shuffleArray(q.answers);
       scrollElementIntoComfortView(document.querySelector(".rq-explain"));
 
       document.getElementById("rq-next").addEventListener("click", () => {
+        document.getElementById("rq-next").disabled = true;
         current++;
 
         if (current < quizOrder.length) {
@@ -398,7 +399,7 @@ const answers = shuffleArray(q.answers);
         } else {
           fadeRender(renderResultIntro, { scrollToTop: true });
         }
-      });
+      }, { once: true });
     });
   });
 }
