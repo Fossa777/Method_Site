@@ -41,6 +41,45 @@
                 href="https://fossamethod.ru/en/posts/fossa-method/"
                 />
   </url><url>
+    <loc>https://fossamethod.ru/en/posts/index_metod/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/posts/index_metod/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/posts/index_metod/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/posts/index_desease/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/posts/index_desease/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/posts/index_desease/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/posts/index_fish_scrab/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/posts/index_fish_scrab/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/posts/index_fish_scrab/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/posts/science/</loc>
     <lastmod>2026-04-18T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -54,11 +93,8 @@
                 href="https://fossamethod.ru/en/posts/science/"
                 />
   </url><url>
-    <loc>https://fossamethod.ru/en/tags/aquarium-systems/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://fossamethod.ru/en/categories/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -70,14 +106,11 @@
                 href="https://fossamethod.ru/en/categories/"
                 />
   </url><url>
-    <loc>https://fossamethod.ru/en/tags/evolution/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fossamethod.ru/en/tags/fish-treatment/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
+    <loc>https://fossamethod.ru/en/tags/diagnostics/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fossamethod.ru/en/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -88,6 +121,63 @@
                 hreflang="en"
                 href="https://fossamethod.ru/en/"
                 />
+  </url><url>
+    <loc>https://fossamethod.ru/en/categories/method/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/categories/method/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/categories/method/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/tags/method/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fossamethod.ru/en/posts/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/posts/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/tags/reasoning/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fossamethod.ru/en/tags/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/tags/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/tags/treatment/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fossamethod.ru/en/tags/aquarium-systems/</loc>
+    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fossamethod.ru/en/tags/evolution/</loc>
+    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fossamethod.ru/en/tags/fish-treatment/</loc>
+    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fossamethod.ru/en/tags/health/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
@@ -113,32 +203,6 @@
   </url><url>
     <loc>https://fossamethod.ru/en/tags/parasites/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fossamethod.ru/en/posts/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru"
-                href="https://fossamethod.ru/ru/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://fossamethod.ru/en/posts/"
-                />
-  </url><url>
-    <loc>https://fossamethod.ru/en/tags/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru"
-                href="https://fossamethod.ru/ru/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://fossamethod.ru/en/tags/"
-                />
   </url><url>
     <loc>https://fossamethod.ru/en/tags/cryptocaryon/</loc>
     <lastmod>2026-08-01T00:00:00+00:00</lastmod>
@@ -179,9 +243,6 @@
     <lastmod>2026-07-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fossamethod.ru/en/tags/conferences/</loc>
-    <lastmod>2026-07-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fossamethod.ru/en/tags/diagnostics/</loc>
     <lastmod>2026-07-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fossamethod.ru/en/tags/fish-pathology/</loc>
@@ -231,19 +292,6 @@
                 href="https://fossamethod.ru/en/tags/fossa-method/"
                 />
   </url><url>
-    <loc>https://fossamethod.ru/en/categories/method/</loc>
-    <lastmod>2026-07-04T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru"
-                href="https://fossamethod.ru/ru/categories/method/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://fossamethod.ru/en/categories/method/"
-                />
-  </url><url>
     <loc>https://fossamethod.ru/en/tags/primary-data/</loc>
     <lastmod>2026-07-04T00:00:00+00:00</lastmod>
   </url><url>
@@ -267,9 +315,6 @@
   </url><url>
     <loc>https://fossamethod.ru/en/tags/thinking/</loc>
     <lastmod>2026-05-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fossamethod.ru/en/tags/method/</loc>
-    <lastmod>2026-04-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fossamethod.ru/en/tags/brain/</loc>
     <lastmod>2026-04-17T00:00:00+00:00</lastmod>
@@ -603,9 +648,6 @@
     <lastmod>2025-07-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fossamethod.ru/en/tags/formalin/</loc>
-    <lastmod>2025-07-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fossamethod.ru/en/tags/treatment/</loc>
     <lastmod>2025-07-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fossamethod.ru/en/posts/medicines_poisons/</loc>
