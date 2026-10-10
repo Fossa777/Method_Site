@@ -106,6 +106,9 @@
                 href="https://fossamethod.ru/en/categories/"
                 />
   </url><url>
+    <loc>https://fossamethod.ru/en/tags/critical-thinking/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://fossamethod.ru/en/tags/diagnostics/</loc>
     <lastmod>2026-10-05T00:00:00+00:00</lastmod>
   </url><url>
@@ -136,6 +139,9 @@
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/tags/method/</loc>
+    <lastmod>2026-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fossamethod.ru/en/tags/methods/</loc>
     <lastmod>2026-10-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fossamethod.ru/en/posts/</loc>
@@ -268,9 +274,6 @@
     <lastmod>2026-07-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fossamethod.ru/en/tags/artificial-intelligence/</loc>
-    <lastmod>2026-07-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fossamethod.ru/en/tags/critical-thinking/</loc>
     <lastmod>2026-07-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fossamethod.ru/en/tags/documentation/</loc>
