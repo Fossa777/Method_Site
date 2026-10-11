@@ -472,6 +472,11 @@ And those are fundamentally different things.</p></blockquote>
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    --specimen-card-bg: color-mix(in srgb, var(--entry, #ffffff) 90%, var(--secondary, #777777) 10%);
+    --specimen-preview-bg: color-mix(in srgb, var(--theme, #ffffff) 92%, var(--secondary, #777777) 8%);
+    --specimen-border: var(--border, #d8d8d8);
+    --specimen-fg: var(--primary, #222222);
+    --specimen-accent: #da695d;
 }
 
 .scope-container {
@@ -523,77 +528,100 @@ And those are fundamentally different things.</p></blockquote>
 .buttons-scroll-container {
     max-height: 800px;
     overflow-y: auto;
-    border: 1px solid #e0e0e0;
+    overflow-x: hidden;
+    padding: 5px 5px 14px;
+     
+    border: 0;
     border-radius: 12px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    padding-right: 25px;
+    background: transparent;
+    scrollbar-width: thin;
+    scrollbar-color: var(--tertiary, #aaa) transparent;
 }
 
 .collection-buttons {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    justify-content: left;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    align-items: stretch;
 }
 
 .specimen-btn {
     width: 100%;
-    height: 190px;
-    background: white;
-    border: 2px solid #e0e0e0;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    position: relative;
     overflow: hidden;
-    padding: 0;
-    max-width: 280px;
-    margin: 0 auto;
+    position: relative;
+    border: 1px solid var(--specimen-border);
+    border-radius: 12px;
+    background: var(--specimen-card-bg);
+    color: var(--specimen-fg);
+    font: inherit;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
 }
 
 .specimen-btn-image-container {
-    flex: 0 0 140px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    flex: 0 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     overflow: hidden;
-    border-bottom: 1px solid #f0f0f0;
-}  
-
-.specimen-btn:hover {
-    border-color: #007cba;
-    transform: translateY(-10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.specimen-btn.active {
-    border-color: #ba2200;
-    background: #cbc1d4;
-    box-shadow: 0 4px 12px rgba(0, 124, 186, 0.2);
+    background: var(--specimen-preview-bg);
+    border-bottom: 1px solid var(--specimen-border);
 }
 
 .specimen-btn-image {
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    padding: 5px;
+    padding: 0;
+    object-fit: contain;  
 }
 
 .specimen-btn-text {
-    flex: 1;
-    font-size: 15px;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    line-height: 1.3;
-    padding: 12px 8px;
+    min-width: 0;
+    min-height: 54px;
+    flex: 1 0 auto;
+    padding: 10px 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 50px;
+    color: var(--specimen-fg);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: center;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+}
+
+@media (hover: hover) {
+    .specimen-btn:hover {
+        border-color: var(--secondary, #888);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 16px rgba(0, 0, 0, 0.14);
+    }
+}
+
+.specimen-btn.active {
+    border-color: var(--specimen-accent);
+    box-shadow: inset 0 0 0 1px var(--specimen-accent), 0 3px 12px rgba(218, 105, 93, .15);
+}
+
+.specimen-btn.active .specimen-btn-text {
+    color: var(--specimen-fg);
+}
+
+.specimen-btn:focus-visible {
+    outline: 2px solid var(--specimen-accent);
+    outline-offset: 3px;
 }
 
 .scope-wrapper {
@@ -796,17 +824,8 @@ And those are fundamentally different things.</p></blockquote>
     }
     
     .collection-buttons {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
-        justify-items: center;
-        margin-right: 0;
-    }
-    
-    .specimen-btn {
-        height: 160px;
-        width: 100%;
-        max-width: 260px;
-        margin: 0 auto;
     }
 }
 
@@ -845,23 +864,23 @@ And those are fundamentally different things.</p></blockquote>
     }
     
     .buttons-scroll-container {
-        max-height: 400px;
-        padding: 12px;
-        padding-right: 20px;
+        max-height: 480px;
+        padding: 4px 4px 12px;
     }
-    
+
     .collection-buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
-        margin-right: 0;
-        grid-template-columns: 1fr;
-        justify-items: center;
     }
-    
-    .specimen-btn {
-        height: 150px;
-        width: 240px;
-        max-width: 100%;
-        margin: 0 auto;
+
+    .specimen-btn-image-container {
+        aspect-ratio: 4 / 3;
+    }
+
+    .specimen-btn-text {
+        min-height: 58px;
+        padding: 8px 6px;
+        font-size: 12px;
     }
 
     .collection-title {
@@ -880,17 +899,16 @@ And those are fundamentally different things.</p></blockquote>
 }
 
 .buttons-scroll-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
+    background: transparent;
 }
 
 .buttons-scroll-container::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 4px;
+    background: var(--tertiary, #aaa);
+    border-radius: 8px;
 }
 
 .buttons-scroll-container::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+    background: var(--secondary, #888);
 }
 
  
@@ -1245,8 +1263,8 @@ And those are fundamentally different things.</p></blockquote>
 
  
 .annotation-toggle-btn {
-    background: var(--content-bg, #f8f9fa);
-    border: 1px solid var(--border-color, #dee2e6);
+    background: var(--entry, #f8f9fa);
+    border: 1px solid var(--border, #dee2e6);
     padding: 8px 16px;
     border-radius: 6px;
     cursor: pointer;
@@ -1254,25 +1272,25 @@ And those are fundamentally different things.</p></blockquote>
     transition: all 0.3s ease;
     margin: 0 auto 10px auto;
     display: block;
-    color: var(--body-color, #212529);
+    color: var(--primary, #212529);
     font-family: inherit;
 }
 
 .annotation-toggle-btn:hover {
-    background: var(--content-bg-hover, #e9ecef);
-    border-color: var(--border-color-hover, #adb5bd);
+    background: var(--code-bg, #e9ecef);
+    border-color: var(--secondary, #adb5bd);
     transform: translateY(-1px);
 }
 
 .annotation-toggle-btn.active {
-    background: var(--primary-color, #007cba);
-    color: var(--button-text, white);
-    border-color: var(--primary-color-dark, #0069a3);
-    box-shadow: 0 2px 4px rgba(0, 124, 186, 0.2);
+    background: #bd5147;
+    color: white;
+    border-color: #bd5147;
+    box-shadow: 0 2px 6px rgba(189, 81, 71, 0.22);
 }
 
 .annotation-toggle-btn:focus {
-    outline: 2px solid var(--primary-color, #007cba);
+    outline: 2px solid #bd5147;
     outline-offset: 2px;
 }
  
@@ -2931,25 +2949,25 @@ Explicitly notes that different acids, including hydrochloric, sulfuric, and nit
             <span class="hoverlink-title">Is It Ever Too Late for a Fish Autopsy?</span><span class="hoverlink-desc">Debunking the myth: why you can examine a fish hours after death—not just in the first 30 minutes.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/bublle/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Gas Bubble Disease: It&#39;s<br>Not About the Bubbles</a>
+        <a href="https://fossamethod.ru/en/posts/ai_forever/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">What Is Your Evidence?</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/jills_fish.webp" alt="Gas Bubble Disease: It&#39;s Not About the Bubbles" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/ai_forever.webp" alt="What Is Your Evidence?" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Gas Bubble Disease: It&#39;s Not About the Bubbles</span><span class="hoverlink-desc">Gas Bubble Disease in fish is not caused by air bubbles entering the gills but by dissolved gas supersaturation. This article explains the …</span></span>
+            <span class="hoverlink-title">What Is Your Evidence?</span><span class="hoverlink-desc">Why photographs, videos, and polished explanations are no longer enough in the age of generative AI. A practical look at provenance, …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/science/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Scientific Method. A Practical<br>Guide.</a>
+        <a href="https://fossamethod.ru/en/posts/index_fish_scrab/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Traditions Instead of Science.<br>III</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/science.webp" alt="Scientific Method. A Practical Guide." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/index_fish_scrab.webp" alt="Traditions Instead of Science. III" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Scientific Method. A Practical Guide.</span><span class="hoverlink-desc">How knowledge is formed, why confidence often outpaces understanding, and how the scientific method helps distinguish observation from …</span></span>
+            <span class="hoverlink-title">Traditions Instead of Science. III</span><span class="hoverlink-desc">A fish rubs against the substrate — but is it really “itching,” let alone “scratching its gills”? We examine where observation ends and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/operation/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Surgical Procedures on Aquatic<br>Animals</a>
+        <a href="https://fossamethod.ru/en/posts/health-is-not-sterility/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Health Does Not Mean<br>Sterility</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Hirurg.webp" alt="Surgical Procedures on Aquatic Animals" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/health-is-not-sterility.webp" alt="Health Does Not Mean Sterility" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Surgical Procedures on Aquatic Animals</span><span class="hoverlink-desc">A Guide on performing surgical procedures on fish.</span></span>
+            <span class="hoverlink-title">Health Does Not Mean Sterility</span><span class="hoverlink-desc">Why the presence of microorganisms and parasites does not always mean disease, why immunity does not have to eliminate them completely, and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/en/posts/histoplasma-like/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Granulomatous lesions in fish:<br>a histoplasma-like case</a>
@@ -2959,11 +2977,11 @@ Explicitly notes that different acids, including hydrochloric, sulfuric, and nit
             <span class="hoverlink-title">Granulomatous lesions in fish: a histoplasma-like case</span><span class="hoverlink-desc">Granulomas in fish kidneys and spleen with negative results for mycobacteria. Detection of intracellular yeast-like organisms and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/intracellular/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Granulomas and intracellular agents<br>in fish</a>
+        <a href="https://fossamethod.ru/en/posts/operation/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Surgical Procedures on Aquatic<br>Animals</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/intracellular.webp" alt="Granulomas and intracellular agents in fish" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Hirurg.webp" alt="Surgical Procedures on Aquatic Animals" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Granulomas and intracellular agents in fish</span><span class="hoverlink-desc">A collection of real observations: intracellular yeast-like organisms, coccidia, cryptosporidia, and fungal structures in fish.</span></span>
+            <span class="hoverlink-title">Surgical Procedures on Aquatic Animals</span><span class="hoverlink-desc">A Guide on performing surgical procedures on fish.</span></span>
         </span>
       </span></div>
 </section>
