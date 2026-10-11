@@ -61,7 +61,7 @@
 <meta name="twitter:description" content="An interactive collection of panoramic microscope specimens with deep-zoom and visual lens effects.">
 <meta name="twitter:image" content="https://fossamethod.ru/images/covers/microscope-collection.webp">
 <meta name="twitter:image:alt" content="Virtual Microscope">
-<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.b307ebe67a18bcb8195dcc4dd1acd8bf5d33c309ffe222f59e80342d14bd8fee.css" integrity="sha256-swfr5noYvLgZXcxN0azYv10zwwn/4iL1noA0LRS9j&#43;4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.5384506e4d9efb77c951e84471c10fdbb97778bf8ece4b8197c641ba31c91421.css" integrity="sha256-U4RQbk2e&#43;3fJUehEccEP27l3eL&#43;OzkuBl8ZBujHJFCE=" rel="preload stylesheet" as="style">
 
 <link rel="stylesheet" href="https://fossamethod.ru/css/sidebar.min.583daaeafeca4f43d9a84a439d388dc7effe087a9198822207db69739a848b92.css">
 <link rel="stylesheet" href="https://fossamethod.ru/css/toggleblock.css">
@@ -255,17 +255,123 @@
   
   
 
-  <div class="category-nav">
-    
-      <a href="https://fossamethod.ru/en/">All</a>
-      <a href="https://fossamethod.ru/en/categories/myths-and-reality/" class="">Myths & Reality</a>
-      <a href="https://fossamethod.ru/en/categories/guide/" class="">Guide</a>
-      <a href="https://fossamethod.ru/en/categories/avers-revers/" class="">Avers-Revers</a>
-      <a href="https://fossamethod.ru/en/categories/method/" class="">Method</a>
-      <a href="https://fossamethod.ru/en/categories/test/" class="menu-test "><span>Tests</span></a>
-      <a href="https://fossamethod.ru/en/publications/" class="menu-test "><span>Publications</span></a>
-    
-  </div>
+
+<div class="category-nav">
+  
+
+    <a href="https://fossamethod.ru/en/"
+       data-hint="All FossaMethod articles and materials">
+      All
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/myths-and-reality/"
+       class=""
+       data-hint="Questioning common beliefs and separating evidence from misconceptions">
+      Myths & Reality
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/guide/"
+       class=""
+       data-hint="Practical guidance, observations, and solutions for working with aquatic organisms">
+      Guide
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/avers-revers/"
+       class=""
+       data-hint="Exploring problems from different perspectives and considering alternative explanations">
+      Avers-Revers
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/method/"
+       class=""
+       data-hint="Exploring research methods, their capabilities, limitations, and scientific validity">
+      Method
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/test/"
+       class="menu-test "
+       data-hint="Test your knowledge, observation skills, and diagnostic reasoning">
+      <span>Tests</span>
+    </a>
+
+    <a href="https://fossamethod.ru/en/publications/"
+       class="menu-test "
+       data-hint="Scientific papers, conference materials, and research findings">
+      <span>Publications</span>
+    </a>
+
+  
+</div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const links = document.querySelectorAll(
+        '.category-nav a[data-hint]'
+    );
+
+    if (!links.length) return;
+
+    const hint = document.createElement('div');
+    hint.className = 'fossa-hint';
+    hint.setAttribute('role', 'tooltip');
+    document.body.appendChild(hint);
+
+    function showHint(link) {
+        const text = link.dataset.hint;
+        if (!text) return;
+
+        hint.textContent = text;
+        hint.classList.remove('visible');
+
+        const rect = link.getBoundingClientRect();
+
+        
+        const width = hint.offsetWidth;
+        const height = hint.offsetHeight;
+
+        
+        let left = rect.left + rect.width / 2 - width / 2;
+
+        
+        left = Math.max(
+            10,
+            Math.min(left, window.innerWidth - width - 10)
+        );
+
+        let top = rect.bottom + 10;
+
+        
+        if (top + height > window.innerHeight - 10) {
+            top = rect.top - height - 10;
+        }
+
+        hint.style.left = left + 'px';
+        hint.style.top = top + 'px';
+        hint.classList.add('visible');
+    }
+
+    function hideHint() {
+        hint.classList.remove('visible');
+    }
+
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => showHint(link));
+        link.addEventListener('mouseleave', hideHint);
+
+        link.addEventListener('focus', () => showHint(link));
+        link.addEventListener('blur', hideHint);
+    });
+
+    window.addEventListener('scroll', hideHint, true);
+    window.addEventListener('resize', hideHint);
+
+});
+</script>
+
+
 
 </nav>
 </header>
@@ -518,6 +624,12 @@ updateThemeText();
     flex-direction: column;
     align-items: center;
     gap: 15px;
+     
+    pointer-events: none;
+}
+
+.scope-loader * {
+    pointer-events: none;
 }
 
 .loader-spinner {
@@ -536,9 +648,67 @@ updateThemeText();
     text-align: center;
 }
 
-.loader-progress {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 12px;
+ 
+.scope-tile-status {
+    position: absolute;
+    left: 50%;
+    bottom: 32px;
+    z-index: 30;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: calc(100% - 36px);
+    padding: 7px 12px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 999px;
+    background: rgba(23, 27, 34, .88);
+    color: #fff;
+    font: 500 12px/1.3 system-ui, sans-serif;
+    white-space: nowrap;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .18);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 5px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+}
+
+.scope-tile-status.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+.scope-tile-status-spinner {
+    width: 12px;
+    height: 12px;
+    flex: none;
+    border: 2px solid rgba(255, 255, 255, .3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: scope-tile-spin .8s linear infinite;
+}
+
+.scope-tile-status[data-state="complete"] .scope-tile-status-spinner {
+    display: none;
+}
+
+@keyframes scope-tile-spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+    .scope-tile-status {
+        bottom: 18px;
+        padding: 5px 9px;
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scope-tile-status-spinner { animation: none; }
+    .scope-tile-status { transition: none; }
 }
 
 @keyframes spin {
@@ -1201,12 +1371,18 @@ updateThemeText();
                 
                 <div class="scope-loader" id="loader-0">
                     <div class="loader-spinner"></div>
-                    <div class="loader-text">Загрузка панорамы</div>
-                    <div class="loader-progress" id="progress-0">0%</div>
+                    <div class="loader-text" id="loader-text-0">Loading image…</div>
                 </div>
                 <div class="scope-aberration"></div>
                 <div class="scope-glare"></div>
                 <div class="scope-vignette"></div>
+                <div class="scope-tile-status" id="tile-status-0"
+                     role="status" aria-live="polite" aria-atomic="true"
+                     data-text-loading="Loading details…"
+                     data-text-complete="Loaded">
+                    <span class="scope-tile-status-spinner" aria-hidden="true"></span>
+                    <span class="scope-tile-status-text"></span>
+                </div>
             </div>
         </div>
     </div>
@@ -1273,7 +1449,9 @@ updateThemeText();
     const shortcodeSlide = "";
     const singleMode = false;
     const loader = document.getElementById("loader-" + id);
-    const progress = document.getElementById("progress-" + id);
+    const loaderText = document.getElementById("loader-text-" + id);
+    const tileStatus = document.getElementById("tile-status-" + id);
+    const tileStatusText = tileStatus ? tileStatus.querySelector('.scope-tile-status-text') : null;
     const specimenName = document.getElementById("specimen-name-" + id);
     const specimenDesc = document.getElementById("specimen-desc-" + id);
     const specimenButtons = document.getElementById("specimen-buttons-" + id);
@@ -1669,6 +1847,65 @@ updateThemeText();
     let currentZoomLevel = 1;
     let lastZoomLevel = 1;
     let zoomLevelTimeout = null;
+
+    
+    
+    let firstTileDrawn = false;
+    let tilesPending = false;
+    let tileShowTimer = null;
+    let tileHideTimer = null;
+    let firstTileFallbackTimer = null;
+
+    function resetTileStatus() {
+        clearTimeout(tileShowTimer);
+        clearTimeout(tileHideTimer);
+        clearTimeout(firstTileFallbackTimer);
+        tileShowTimer = null;
+        tileHideTimer = null;
+        firstTileFallbackTimer = null;
+        tilesPending = false;
+        firstTileDrawn = false;
+        if (tileStatus) {
+            tileStatus.classList.remove('is-visible');
+            tileStatus.dataset.state = '';
+        }
+    }
+
+    function updateTileStatus(fullyLoaded) {
+        if (!tileStatus || !tileStatusText || !firstTileDrawn) return;
+
+        if (!fullyLoaded) {
+            tilesPending = true;
+            clearTimeout(tileHideTimer);
+            tileHideTimer = null;
+            if (tileStatus.dataset.state === 'loading') return;
+
+            
+            tileStatus.classList.remove('is-visible');
+            clearTimeout(tileShowTimer);
+            tileShowTimer = setTimeout(() => {
+                if (!tilesPending || !firstTileDrawn) return;
+                tileStatus.dataset.state = 'loading';
+                tileStatusText.textContent = tileStatus.dataset.textLoading;
+                tileStatus.classList.add('is-visible');
+            }, 160);
+            return;
+        }
+
+        if (!tilesPending) return;
+        tilesPending = false;
+        clearTimeout(tileShowTimer);
+        tileShowTimer = null;
+        if (tileStatus.dataset.state !== 'loading') return;
+
+        tileStatus.dataset.state = 'complete';
+        tileStatusText.textContent = tileStatus.dataset.textComplete;
+        tileStatus.classList.add('is-visible');
+        clearTimeout(tileHideTimer);
+        tileHideTimer = setTimeout(() => {
+            tileStatus.classList.remove('is-visible');
+        }, 1100);
+    }
 
    
 
@@ -2213,9 +2450,43 @@ barText.textContent = `${displayValue} ${displayUnit}`;
             console.log('OpenSeadragon инициализирован');
 
             
-            viewer.addHandler('open', function() {
-                console.log('DZI загружен успешно');
+            
+            viewer.world.addHandler('add-item', function(event) {
+                const tiledImage = event.item;
+                tiledImage.addHandler('fully-loaded-change', function(state) {
+                    if (viewer.world.getItemAt(0) !== tiledImage) return;
+                    updateTileStatus(state.fullyLoaded);
+                });
+            });
+
+            
+            
+            function onFirstTileReady(tiledImage) {
+                if (!tiledImage || tiledImage !== viewer.world.getItemAt(0) || firstTileDrawn) return;
+                firstTileDrawn = true;
+                clearTimeout(firstTileFallbackTimer);
+                firstTileFallbackTimer = null;
                 hideLoader();
+                updateTileStatus(tiledImage.getFullyLoaded());
+            }
+
+            viewer.addHandler('tile-loaded', function(event) {
+                onFirstTileReady(event.tiledImage);
+            });
+            viewer.addHandler('tile-drawn', function(event) {
+                onFirstTileReady(event.tiledImage);
+            });
+
+            viewer.addHandler('open', function() {
+                console.log('DZI открыт');
+
+                
+                
+                const openedImage = viewer.world.getItemAt(0);
+                clearTimeout(firstTileFallbackTimer);
+                firstTileFallbackTimer = setTimeout(() => {
+                    onFirstTileReady(openedImage);
+                }, 1800);
                 
                 
                 currentZoomLevel = viewer.viewport.getZoom(true);
@@ -2247,13 +2518,10 @@ barText.textContent = `${displayValue} ${displayUnit}`;
 
             viewer.addHandler('open-failed', function(event) {
                 console.error('Ошибка загрузки DZI:', event.message);
-                progress.textContent = 'Ошибка загрузки';
+                loaderText.textContent = 'Loading failed';
+                resetTileStatus();
                 setTimeout(hideLoader, 2000);
                 isTransitioning = false;
-            });
-
-            viewer.addHandler('tile-loaded', function() {
-                progress.textContent = 'Загрузка тайлов...';
             });
 
         } catch (error) {
@@ -2420,33 +2688,18 @@ if (toggleBtn) {
 
 
     function loadDZIPanorama(dziFile) {
+        resetTileStatus();
+        loaderText.textContent = 'Loading image…';
         showLoader();
-        progress.textContent = '0%';
-        
+
         if (!viewer) {
             console.error('OpenSeadragon viewer не инициализирован');
             return;
         }
 
-        let loadProgress = 0;
-        const progressInterval = setInterval(() => {
-            loadProgress += 5;
-            if (loadProgress <= 95) {
-                progress.textContent = loadProgress + '%';
-            }
-        }, 100);
-
         const dziPath = "/dzi/" + dziFile;
         console.log('Загружаем DZI:', dziPath);
-        
-
         viewer.open(dziPath);
-        
- 
-        setTimeout(() => {
-            clearInterval(progressInterval);
-            progress.textContent = '100%';
-        }, 2000);
     }
 
     function showLoader() {

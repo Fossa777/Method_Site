@@ -45,7 +45,7 @@
 <meta property="og:site_name" content="Fossa Method">
 <meta property="og:logo" content="https://fossamethod.ru/favicon-96x96.png">
 <meta property="og:locale" content="en_US">
-<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.b307ebe67a18bcb8195dcc4dd1acd8bf5d33c309ffe222f59e80342d14bd8fee.css" integrity="sha256-swfr5noYvLgZXcxN0azYv10zwwn/4iL1noA0LRS9j&#43;4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.5384506e4d9efb77c951e84471c10fdbb97778bf8ece4b8197c641ba31c91421.css" integrity="sha256-U4RQbk2e&#43;3fJUehEccEP27l3eL&#43;OzkuBl8ZBujHJFCE=" rel="preload stylesheet" as="style">
 
 <link rel="stylesheet" href="https://fossamethod.ru/css/sidebar.min.583daaeafeca4f43d9a84a439d388dc7effe087a9198822207db69739a848b92.css">
 <link rel="stylesheet" href="https://fossamethod.ru/css/toggleblock.css">
@@ -266,17 +266,123 @@
   
   
 
-  <div class="category-nav">
-    
-      <a href="https://fossamethod.ru/en/">All</a>
-      <a href="https://fossamethod.ru/en/categories/myths-and-reality/" class="">Myths & Reality</a>
-      <a href="https://fossamethod.ru/en/categories/guide/" class="">Guide</a>
-      <a href="https://fossamethod.ru/en/categories/avers-revers/" class="">Avers-Revers</a>
-      <a href="https://fossamethod.ru/en/categories/method/" class="">Method</a>
-      <a href="https://fossamethod.ru/en/categories/test/" class="menu-test "><span>Tests</span></a>
-      <a href="https://fossamethod.ru/en/publications/" class="menu-test "><span>Publications</span></a>
-    
-  </div>
+
+<div class="category-nav">
+  
+
+    <a href="https://fossamethod.ru/en/"
+       data-hint="All FossaMethod articles and materials">
+      All
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/myths-and-reality/"
+       class=""
+       data-hint="Questioning common beliefs and separating evidence from misconceptions">
+      Myths & Reality
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/guide/"
+       class=""
+       data-hint="Practical guidance, observations, and solutions for working with aquatic organisms">
+      Guide
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/avers-revers/"
+       class=""
+       data-hint="Exploring problems from different perspectives and considering alternative explanations">
+      Avers-Revers
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/method/"
+       class=""
+       data-hint="Exploring research methods, their capabilities, limitations, and scientific validity">
+      Method
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/test/"
+       class="menu-test "
+       data-hint="Test your knowledge, observation skills, and diagnostic reasoning">
+      <span>Tests</span>
+    </a>
+
+    <a href="https://fossamethod.ru/en/publications/"
+       class="menu-test "
+       data-hint="Scientific papers, conference materials, and research findings">
+      <span>Publications</span>
+    </a>
+
+  
+</div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const links = document.querySelectorAll(
+        '.category-nav a[data-hint]'
+    );
+
+    if (!links.length) return;
+
+    const hint = document.createElement('div');
+    hint.className = 'fossa-hint';
+    hint.setAttribute('role', 'tooltip');
+    document.body.appendChild(hint);
+
+    function showHint(link) {
+        const text = link.dataset.hint;
+        if (!text) return;
+
+        hint.textContent = text;
+        hint.classList.remove('visible');
+
+        const rect = link.getBoundingClientRect();
+
+        
+        const width = hint.offsetWidth;
+        const height = hint.offsetHeight;
+
+        
+        let left = rect.left + rect.width / 2 - width / 2;
+
+        
+        left = Math.max(
+            10,
+            Math.min(left, window.innerWidth - width - 10)
+        );
+
+        let top = rect.bottom + 10;
+
+        
+        if (top + height > window.innerHeight - 10) {
+            top = rect.top - height - 10;
+        }
+
+        hint.style.left = left + 'px';
+        hint.style.top = top + 'px';
+        hint.classList.add('visible');
+    }
+
+    function hideHint() {
+        hint.classList.remove('visible');
+    }
+
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => showHint(link));
+        link.addEventListener('mouseleave', hideHint);
+
+        link.addEventListener('focus', () => showHint(link));
+        link.addEventListener('blur', hideHint);
+    });
+
+    window.addEventListener('scroll', hideHint, true);
+    window.addEventListener('resize', hideHint);
+
+});
+</script>
+
+
 
 </nav>
 </header>
@@ -307,32 +413,25 @@
   <h2>See also</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/finerosion/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fin Rot</a>
+        <a href="https://fossamethod.ru/en/posts/fossa-method/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fossa Method</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/fish-fin-ray-erosion-lepidotrichia.webp" alt="Fin Rot" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/fossa-method.webp" alt="Fossa Method" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Fin Rot</span><span class="hoverlink-desc">A scientific explanation of fin destruction in fish: the difference between fin erosion and bacterial infections, the role of nutrition, …</span></span>
+            <span class="hoverlink-title">Fossa Method</span><span class="hoverlink-desc">Observation, constraints, models, understanding, and the search for mechanisms. A collection of principles that gradually emerged from …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/size/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Patient Size Doesn’t Matter<br>— Why Fish Don’t<br>Die From Diagnostics</a>
+        <a href="https://fossamethod.ru/en/posts/goussia/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fish coccidia: Goussia</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/size.webp" alt="Patient Size Doesn’t Matter — Why Fish Don’t Die From Diagnostics" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Goussia.webp" alt="Fish coccidia: Goussia" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Patient Size Doesn’t Matter — Why Fish Don’t Die From Diagnostics</span><span class="hoverlink-desc">Debunking the myth that diagnostic procedures kill fish. Non-lethal examination techniques, compensatory physiology, and why mortality …</span></span>
+            <span class="hoverlink-title">Fish coccidia: Goussia</span><span class="hoverlink-desc">Coccidia of the genus Goussia in fish. Morphology of oocysts, sporocysts, and sporozoites, with diagnostic interpretation of microscopic …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/bubble_diagnoz/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Gas Bubble Disease. Part<br>II. Consequences.</a>
+        <a href="https://fossamethod.ru/en/posts/medicines_poisons/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Two Sides of One<br>Dosage</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Bublle2.webp" alt="Gas Bubble Disease. Part II. Consequences." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/nematoda_fish.webp" alt="Two Sides of One Dosage" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Gas Bubble Disease. Part II. Consequences.</span><span class="hoverlink-desc">Comparison of normal and pathological findings in fish necropsy: liver, kidney, gills, and brain. How to distinguish acceptable variation …</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/elephantfly/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Flying Elephants</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/elephantfly.webp" alt="Flying Elephants" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Flying Elephants</span><span class="hoverlink-desc">Why science requires more than an elegant hypothesis. The role of photographs, videos, specimens, and primary data in building and verifying …</span></span>
+            <span class="hoverlink-title">Two Sides of One Dosage</span><span class="hoverlink-desc">Aquarium medications: remedy or threat? Pros and cons of antibiotics, formalin, methylene blue, malachite green, and the FMC mixture.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/en/posts/bublle/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Gas Bubble Disease: It&#39;s<br>Not About the Bubbles</a>
@@ -340,6 +439,13 @@
               <img src="https://fossamethod.ru/images/covers/jills_fish.webp" alt="Gas Bubble Disease: It&#39;s Not About the Bubbles" loading="lazy">
             </span><span class="hoverlink-content">
             <span class="hoverlink-title">Gas Bubble Disease: It&#39;s Not About the Bubbles</span><span class="hoverlink-desc">Gas Bubble Disease in fish is not caused by air bubbles entering the gills but by dissolved gas supersaturation. This article explains the …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/en/posts/bubble_diagnoz/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Gas Bubble Disease. Part<br>II. Consequences.</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/Bublle2.webp" alt="Gas Bubble Disease. Part II. Consequences." loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Gas Bubble Disease. Part II. Consequences.</span><span class="hoverlink-desc">Comparison of normal and pathological findings in fish necropsy: liver, kidney, gills, and brain. How to distinguish acceptable variation …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/en/posts/coming/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Initial Diagnostics After Fish<br>Transportation</a>

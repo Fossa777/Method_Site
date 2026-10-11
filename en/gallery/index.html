@@ -63,7 +63,7 @@
 <meta name="twitter:description" content="Images, videos, and visual observations">
 <meta name="twitter:image" content="https://fossamethod.ru/gallery/GranulomasWithMycobacteria1.jpg">
 <meta name="twitter:image:alt" content="Gallery">
-<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.b307ebe67a18bcb8195dcc4dd1acd8bf5d33c309ffe222f59e80342d14bd8fee.css" integrity="sha256-swfr5noYvLgZXcxN0azYv10zwwn/4iL1noA0LRS9j&#43;4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.5384506e4d9efb77c951e84471c10fdbb97778bf8ece4b8197c641ba31c91421.css" integrity="sha256-U4RQbk2e&#43;3fJUehEccEP27l3eL&#43;OzkuBl8ZBujHJFCE=" rel="preload stylesheet" as="style">
 
 <link rel="stylesheet" href="https://fossamethod.ru/css/sidebar.min.583daaeafeca4f43d9a84a439d388dc7effe087a9198822207db69739a848b92.css">
 <link rel="stylesheet" href="https://fossamethod.ru/css/toggleblock.css">
@@ -256,17 +256,123 @@
   
   
 
-  <div class="category-nav">
-    
-      <a href="https://fossamethod.ru/en/">All</a>
-      <a href="https://fossamethod.ru/en/categories/myths-and-reality/" class="">Myths & Reality</a>
-      <a href="https://fossamethod.ru/en/categories/guide/" class="">Guide</a>
-      <a href="https://fossamethod.ru/en/categories/avers-revers/" class="">Avers-Revers</a>
-      <a href="https://fossamethod.ru/en/categories/method/" class="">Method</a>
-      <a href="https://fossamethod.ru/en/categories/test/" class="menu-test "><span>Tests</span></a>
-      <a href="https://fossamethod.ru/en/publications/" class="menu-test "><span>Publications</span></a>
-    
-  </div>
+
+<div class="category-nav">
+  
+
+    <a href="https://fossamethod.ru/en/"
+       data-hint="All FossaMethod articles and materials">
+      All
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/myths-and-reality/"
+       class=""
+       data-hint="Questioning common beliefs and separating evidence from misconceptions">
+      Myths & Reality
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/guide/"
+       class=""
+       data-hint="Practical guidance, observations, and solutions for working with aquatic organisms">
+      Guide
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/avers-revers/"
+       class=""
+       data-hint="Exploring problems from different perspectives and considering alternative explanations">
+      Avers-Revers
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/method/"
+       class=""
+       data-hint="Exploring research methods, their capabilities, limitations, and scientific validity">
+      Method
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/test/"
+       class="menu-test "
+       data-hint="Test your knowledge, observation skills, and diagnostic reasoning">
+      <span>Tests</span>
+    </a>
+
+    <a href="https://fossamethod.ru/en/publications/"
+       class="menu-test "
+       data-hint="Scientific papers, conference materials, and research findings">
+      <span>Publications</span>
+    </a>
+
+  
+</div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const links = document.querySelectorAll(
+        '.category-nav a[data-hint]'
+    );
+
+    if (!links.length) return;
+
+    const hint = document.createElement('div');
+    hint.className = 'fossa-hint';
+    hint.setAttribute('role', 'tooltip');
+    document.body.appendChild(hint);
+
+    function showHint(link) {
+        const text = link.dataset.hint;
+        if (!text) return;
+
+        hint.textContent = text;
+        hint.classList.remove('visible');
+
+        const rect = link.getBoundingClientRect();
+
+        
+        const width = hint.offsetWidth;
+        const height = hint.offsetHeight;
+
+        
+        let left = rect.left + rect.width / 2 - width / 2;
+
+        
+        left = Math.max(
+            10,
+            Math.min(left, window.innerWidth - width - 10)
+        );
+
+        let top = rect.bottom + 10;
+
+        
+        if (top + height > window.innerHeight - 10) {
+            top = rect.top - height - 10;
+        }
+
+        hint.style.left = left + 'px';
+        hint.style.top = top + 'px';
+        hint.classList.add('visible');
+    }
+
+    function hideHint() {
+        hint.classList.remove('visible');
+    }
+
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => showHint(link));
+        link.addEventListener('mouseleave', hideHint);
+
+        link.addEventListener('focus', () => showHint(link));
+        link.addEventListener('blur', hideHint);
+    });
+
+    window.addEventListener('scroll', hideHint, true);
+    window.addEventListener('resize', hideHint);
+
+});
+</script>
+
+
 
 </nav>
 </header>
@@ -766,7 +872,7 @@
 
       <li class="gallery-item" data-category="Bacteria">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Bacteria_BacteriaOnTheWound_maxi.png" class="glightbox" data-gallery="gallery" data-title="Bacteria on the wound">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Bacteria_BacteriaOnTheWound_maxi.png" class="glightbox" data-gallery="gallery" data-title="Bacteria on the wound" data-description="Bacterial accumulation on the surface of a fish skin ulcer">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Bacteria_BacteriaOnTheWound_mini.png" alt="Bacterial accumulation on the surface of a fish skin ulcer" title="Bacteria on the wound">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -814,7 +920,7 @@
 
       <li class="gallery-item" data-category="Ciliate">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_CryptocaryonIrritans2_maxi.png" class="glightbox" data-gallery="gallery" data-title="CryptocaryonIrritans2">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_CryptocaryonIrritans2_maxi.png" class="glightbox" data-gallery="gallery" data-title="CryptocaryonIrritans2" data-description="CryptocaryonIrritans2">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ciliate_CryptocaryonIrritans2_mini.png" alt="CryptocaryonIrritans2" title="CryptocaryonIrritans2">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -864,7 +970,7 @@
 
       <li class="gallery-item" data-category="Cryptosporidium">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptosporidium_Crypto3_maxi.png" class="glightbox" data-gallery="gallery" data-title="Cryptosporidium">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptosporidium_Crypto3_maxi.png" class="glightbox" data-gallery="gallery" data-title="Cryptosporidium" data-description="Cryptosporidium oocyst">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Cryptosporidium_Crypto3_mini.png" alt="Cryptosporidium oocyst" title="Cryptosporidium">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -914,7 +1020,7 @@
 
       <li class="gallery-item" data-category="Dinoflagellata">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Dinoflagellata_Oodinium2_maxi.png" class="glightbox" data-gallery="gallery" data-title="Oodinium">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Dinoflagellata_Oodinium2_maxi.png" class="glightbox" data-gallery="gallery" data-title="Oodinium" data-description="Parasitic dinoflagellate Oodinium">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Dinoflagellata_Oodinium2_mini.png" alt="Parasitic dinoflagellate Oodinium" title="Oodinium">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -964,7 +1070,7 @@
 
       <li class="gallery-item" data-category="Microsporea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia2_maxi.png" class="glightbox" data-gallery="gallery" data-title="Microsporea. Microsporidia">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia2_maxi.png" class="glightbox" data-gallery="gallery" data-title="Microsporea. Microsporidia" data-description="Microsporea. Microsporidia">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Microsporea_Microsporidia2_mini.png" alt="Microsporea. Microsporidia" title="Microsporea. Microsporidia">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1014,7 +1120,7 @@
 
       <li class="gallery-item" data-category="Microsporea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia7_maxi.png" class="glightbox" data-gallery="gallery" data-title="Microsporea. Spores">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia7_maxi.png" class="glightbox" data-gallery="gallery" data-title="Microsporea. Spores" data-description="Microsporidian spores observed microscopically">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Microsporea_Microsporidia7_mini.png" alt="Microsporidian spores observed microscopically" title="Microsporea. Spores">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1064,7 +1170,7 @@
 
       <li class="gallery-item" data-category="Mycobacterium">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain100x_maxi.png" class="glightbox" data-gallery="gallery" data-title="Mycobacteria - Ziehl&#39;s stain">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain100x_maxi.png" class="glightbox" data-gallery="gallery" data-title="Mycobacteria - Ziehl&#39;s stain" data-description="Mycobacteria - Ziehl&#39;s stain">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain100x_mini.png" alt="Mycobacteria - Ziehl&#39;s stain" title="Mycobacteria - Ziehl&#39;s stain">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1114,7 +1220,7 @@
 
       <li class="gallery-item" data-category="Bacteria">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Bacteria_BacteriaFoundUlcers_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Bacteria are often found on ulcers">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Bacteria_BacteriaFoundUlcers_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Bacteria are often found on ulcers" data-description="Bacterial accumulations commonly found on the surface of ulcerative skin lesions in fish">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Bacteria_BacteriaFoundUlcers_mini.jpg" alt="Bacterial accumulations commonly found on the surface of ulcerative skin lesions in fish" title="Bacteria are often found on ulcers">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1164,7 +1270,7 @@
 
       <li class="gallery-item" data-category="Cestodes">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Cestodes_LarvaNybelinia1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Larva cestodes Nybelinia">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Cestodes_LarvaNybelinia1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Larva cestodes Nybelinia" data-description="Larval cestode of the genus Nybelinia">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Cestodes_LarvaNybelinia1_mini.jpg" alt="Larval cestode of the genus Nybelinia" title="Larva cestodes Nybelinia">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1214,7 +1320,7 @@
 
       <li class="gallery-item" data-category="Cestodes">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Cestodes_LarvaNybelinia2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Larva cestodes Nybelinia">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Cestodes_LarvaNybelinia2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Larva cestodes Nybelinia" data-description="Larval cestode of the genus Nybelinia">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Cestodes_LarvaNybelinia2_mini.jpg" alt="Larval cestode of the genus Nybelinia" title="Larva cestodes Nybelinia">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1264,7 +1370,7 @@
 
       <li class="gallery-item" data-category="Cestodes">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Cestodes_LarvaNybelinia3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Larva cestodes Nybelinia">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Cestodes_LarvaNybelinia3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Larva cestodes Nybelinia" data-description="Larval cestode of the genus Nybelinia">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Cestodes_LarvaNybelinia3_mini.jpg" alt="Larval cestode of the genus Nybelinia" title="Larva cestodes Nybelinia">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1314,7 +1420,7 @@
 
       <li class="gallery-item" data-category="Ciliate">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_Cnidocyte_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cnidocyte">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_Cnidocyte_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cnidocyte" data-description="Cnidocyte of a coral polyp">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ciliate_Cnidocyte_mini.jpg" alt="Cnidocyte of a coral polyp" title="Cnidocyte">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1364,7 +1470,7 @@
 
       <li class="gallery-item" data-category="Ciliate">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_IchthyophthiriusFish1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Ichthyophthirius on fish">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_IchthyophthiriusFish1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Ichthyophthirius on fish" data-description="Ichthyophthirius multifiliis trophont on a fish">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ciliate_IchthyophthiriusFish1_mini.jpg" alt="Ichthyophthirius multifiliis trophont on a fish" title="Ichthyophthirius on fish">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1414,7 +1520,7 @@
 
       <li class="gallery-item" data-category="Ciliate">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_SkeletonTrichodina1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Skeleton of Trichodina">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_SkeletonTrichodina1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Skeleton of Trichodina" data-description="Skeletal structure of the ciliate Trichodina">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ciliate_SkeletonTrichodina1_mini.jpg" alt="Skeletal structure of the ciliate Trichodina" title="Skeleton of Trichodina">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1464,7 +1570,7 @@
 
       <li class="gallery-item" data-category="Ciliate">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_TrichodinaSP2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Parasitic ciliate Trichodina">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_TrichodinaSP2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Parasitic ciliate Trichodina" data-description="Parasitic ciliate Trichodina">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ciliate_TrichodinaSP2_mini.jpg" alt="Parasitic ciliate Trichodina" title="Parasitic ciliate Trichodina">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1514,7 +1620,7 @@
 
       <li class="gallery-item" data-category="Ciliate">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_TrichodinaSP3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Parasitic ciliate Trichodina">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_TrichodinaSP3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Parasitic ciliate Trichodina" data-description="Parasitic ciliate Trichodina">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ciliate_TrichodinaSP3_mini.jpg" alt="Parasitic ciliate Trichodina" title="Parasitic ciliate Trichodina">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1564,7 +1670,7 @@
 
       <li class="gallery-item" data-category="Coccidia">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Coccidia_CoccidiaGenusGoussia1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Goussia sp. Oocyst with elongated sporozoites">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Coccidia_CoccidiaGenusGoussia1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Goussia sp. Oocyst with elongated sporozoites" data-description="Oocyst of Goussia sp. containing elongated sporozoites">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Coccidia_CoccidiaGenusGoussia1_mini.jpg" alt="Oocyst of Goussia sp. containing elongated sporozoites" title="Goussia sp. Oocyst with elongated sporozoites">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1614,7 +1720,7 @@
 
       <li class="gallery-item" data-category="Coccidia">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Coccidia_CoccidiaGenusGoussia2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Goussia sp. Oocyst with elongated sporozoites">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Coccidia_CoccidiaGenusGoussia2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Goussia sp. Oocyst with elongated sporozoites" data-description="Oocyst of Goussia sp. containing elongated sporozoites">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Coccidia_CoccidiaGenusGoussia2_mini.jpg" alt="Oocyst of Goussia sp. containing elongated sporozoites" title="Goussia sp. Oocyst with elongated sporozoites">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1664,7 +1770,7 @@
 
       <li class="gallery-item" data-category="Coccidia">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Coccidia_CoccidiaGenusGoussia3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Goussia sp. Oocyst with elongated sporozoites">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Coccidia_CoccidiaGenusGoussia3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Goussia sp. Oocyst with elongated sporozoites" data-description="Oocyst of Goussia sp. containing elongated sporozoites">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Coccidia_CoccidiaGenusGoussia3_mini.jpg" alt="Oocyst of Goussia sp. containing elongated sporozoites" title="Goussia sp. Oocyst with elongated sporozoites">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1714,7 +1820,7 @@
 
       <li class="gallery-item" data-category="Copepods">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Copepods_ParasiticCopepodHaemobaphes_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Parasitic copepod Haemobaphes">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Copepods_ParasiticCopepodHaemobaphes_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Parasitic copepod Haemobaphes" data-description="Parasitic copepod of the genus Haemobaphes attached to a fish">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Copepods_ParasiticCopepodHaemobaphes_mini.jpg" alt="Parasitic copepod of the genus Haemobaphes attached to a fish" title="Parasitic copepod Haemobaphes">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1764,7 +1870,7 @@
 
       <li class="gallery-item" data-category="Copepods">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Copepods_ParasiticCopepods_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Parasitic copepods">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Copepods_ParasiticCopepods_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Parasitic copepods" data-description="Parasitic copepods observed on a fish">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Copepods_ParasiticCopepods_mini.jpg" alt="Parasitic copepods observed on a fish" title="Parasitic copepods">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1814,7 +1920,7 @@
 
       <li class="gallery-item" data-category="Crustacea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Crustacea_Daphnia1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Daphnia">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Crustacea_Daphnia1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Daphnia" data-description="Daphnia observed microscopically">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Crustacea_Daphnia1_mini.jpg" alt="Daphnia observed microscopically" title="Daphnia">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1864,7 +1970,7 @@
 
       <li class="gallery-item" data-category="Crustacea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Crustacea_Daphnia2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Daphnia">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Crustacea_Daphnia2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Daphnia" data-description="Daphnia observed microscopically">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Crustacea_Daphnia2_mini.jpg" alt="Daphnia observed microscopically" title="Daphnia">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1914,7 +2020,7 @@
 
       <li class="gallery-item" data-category="Crustacea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Crustacea_Daphnia3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Daphnia">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Crustacea_Daphnia3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Daphnia" data-description="Daphnia observed microscopically">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Crustacea_Daphnia3_mini.jpg" alt="Daphnia observed microscopically" title="Daphnia">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -1964,7 +2070,7 @@
 
       <li class="gallery-item" data-category="Cryptosporidium">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptosporidium_Crypto_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cryptosporidium">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptosporidium_Crypto_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cryptosporidium" data-description="Cryptosporidium oocyst">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Cryptosporidium_Crypto_mini.jpg" alt="Cryptosporidium oocyst" title="Cryptosporidium">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2014,7 +2120,7 @@
 
       <li class="gallery-item" data-category="Cryptosporidium">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptosporidium_Crypto2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cryptosporidium">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptosporidium_Crypto2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cryptosporidium" data-description="Cryptosporidium oocyst">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Cryptosporidium_Crypto2_mini.jpg" alt="Cryptosporidium oocyst" title="Cryptosporidium">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2064,7 +2170,7 @@
 
       <li class="gallery-item" data-category="Dinoflagellata">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Dinoflagellata_Oodinium1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Oodinium">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Dinoflagellata_Oodinium1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Oodinium" data-description="Parasitic dinoflagellate Oodinium">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Dinoflagellata_Oodinium1_mini.jpg" alt="Parasitic dinoflagellate Oodinium" title="Oodinium">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2114,7 +2220,7 @@
 
       <li class="gallery-item" data-category="Fungi">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Fungi_CoenocyteHyphaeIntestine_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Coenocytic hyphae. Intestine">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Fungi_CoenocyteHyphaeIntestine_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Coenocytic hyphae. Intestine" data-description="Coenocytic hyphae observed in intestinal contents or tissues of a fish">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Fungi_CoenocyteHyphaeIntestine_mini.jpg" alt="Coenocytic hyphae observed in intestinal contents or tissues of a fish" title="Coenocytic hyphae. Intestine">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2164,7 +2270,7 @@
 
       <li class="gallery-item" data-category="Fungi">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Fungi_CoenocyteHyphaeIntestine2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Coenocyte hyphae. Intestine">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Fungi_CoenocyteHyphaeIntestine2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Coenocyte hyphae. Intestine" data-description="Coenocytic hyphae observed in the intestine of a fish">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Fungi_CoenocyteHyphaeIntestine2_mini.jpg" alt="Coenocytic hyphae observed in the intestine of a fish" title="Coenocyte hyphae. Intestine">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2214,7 +2320,7 @@
 
       <li class="gallery-item" data-category="Fungi">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Fungi_Conidia1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Fungal spore — conidium">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Fungi_Conidia1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Fungal spore — conidium" data-description="Fungal conidium observed in a microscopic preparation">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Fungi_Conidia1_mini.jpg" alt="Fungal conidium observed in a microscopic preparation" title="Fungal spore — conidium">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2264,7 +2370,7 @@
 
       <li class="gallery-item" data-category="Ichthyobodo">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ichthyobodo_Ichthyobodo1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Ichthyobodo">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ichthyobodo_Ichthyobodo1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Ichthyobodo" data-description="Ichthyobodo">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ichthyobodo_Ichthyobodo1_mini.jpg" alt="Ichthyobodo" title="Ichthyobodo">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2314,7 +2420,7 @@
 
       <li class="gallery-item" data-category="Ichthyobodo">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ichthyobodo_Ichthyobodo2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Ichthyobodo">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ichthyobodo_Ichthyobodo2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Ichthyobodo" data-description="Ichthyobodo flagellate observed in a microscopic preparation">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ichthyobodo_Ichthyobodo2_mini.jpg" alt="Ichthyobodo flagellate observed in a microscopic preparation" title="Ichthyobodo">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2364,7 +2470,7 @@
 
       <li class="gallery-item" data-category="Isopod">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Isopod_TongueEating1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cymothoa. Tongue-eating louse">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Isopod_TongueEating1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cymothoa. Tongue-eating louse" data-description="Parasitic isopod Cymothoa, commonly known as the tongue-eating louse">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Isopod_TongueEating1_mini.jpg" alt="Parasitic isopod Cymothoa, commonly known as the tongue-eating louse" title="Cymothoa. Tongue-eating louse">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2414,7 +2520,7 @@
 
       <li class="gallery-item" data-category="Isopod">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Isopod_TongueEating2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cymothoa. Tongue-eating Macrica">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Isopod_TongueEating2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cymothoa. Tongue-eating Macrica" data-description="Cymothoa. Tongue-eating Macrica">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Isopod_TongueEating2_mini.jpg" alt="Cymothoa. Tongue-eating Macrica" title="Cymothoa. Tongue-eating Macrica">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2464,7 +2570,7 @@
 
       <li class="gallery-item" data-category="Isopod">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Isopod_TongueEating3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cymothoa. Tongue-eating Macrica">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Isopod_TongueEating3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cymothoa. Tongue-eating Macrica" data-description="Cymothoa. Tongue-eating Macrica">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Isopod_TongueEating3_mini.jpg" alt="Cymothoa. Tongue-eating Macrica" title="Cymothoa. Tongue-eating Macrica">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2514,7 +2620,7 @@
 
       <li class="gallery-item" data-category="Isopod">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Isopod_TongueEating4_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cymothoa. Tongue-eating Macrica">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Isopod_TongueEating4_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Cymothoa. Tongue-eating Macrica" data-description="Cymothoa. Tongue-eating Macrica">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Isopod_TongueEating4_mini.jpg" alt="Cymothoa. Tongue-eating Macrica" title="Cymothoa. Tongue-eating Macrica">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2564,7 +2670,7 @@
 
       <li class="gallery-item" data-category="Microsporea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Microsporea. Microsporidia">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Microsporea. Microsporidia" data-description="Microsporea. Microsporidia">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Microsporea_Microsporidia1_mini.jpg" alt="Microsporea. Microsporidia" title="Microsporea. Microsporidia">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2614,7 +2720,7 @@
 
       <li class="gallery-item" data-category="Microsporea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Microsporea. May-Grunwald&#39;s stain">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Microsporea. May-Grunwald&#39;s stain" data-description="Microsporea. May-Grunwald&#39;s stain">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Microsporea_Microsporidia3_mini.jpg" alt="Microsporea. May-Grunwald&#39;s stain" title="Microsporea. May-Grunwald&#39;s stain">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2664,7 +2770,7 @@
 
       <li class="gallery-item" data-category="Microsporea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia4_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Microsporea. Spore">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia4_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Microsporea. Spore" data-description="Microsporea. Spore">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Microsporea_Microsporidia4_mini.jpg" alt="Microsporea. Spore" title="Microsporea. Spore">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2714,7 +2820,7 @@
 
       <li class="gallery-item" data-category="Microsporea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia5_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Microsporea. Spore">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia5_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Microsporea. Spore" data-description="Microsporea. Spore">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Microsporea_Microsporidia5_mini.jpg" alt="Microsporea. Spore" title="Microsporea. Spore">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2764,7 +2870,7 @@
 
       <li class="gallery-item" data-category="Microsporea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia6_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Microsporidia. Spore">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Microsporea_Microsporidia6_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Microsporidia. Spore" data-description="Microsporidian spore observed in a microscopic preparation">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Microsporea_Microsporidia6_mini.jpg" alt="Microsporidian spore observed in a microscopic preparation" title="Microsporidia. Spore">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2814,7 +2920,7 @@
 
       <li class="gallery-item" data-category="Monogenea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_CapsalidaeEgg1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Capsalidae egg">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_CapsalidaeEgg1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Capsalidae egg" data-description="Egg of a capsalid monogenean">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Monogenea_CapsalidaeEgg1_mini.jpg" alt="Egg of a capsalid monogenean" title="Capsalidae egg">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2864,7 +2970,7 @@
 
       <li class="gallery-item" data-category="Monogenea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_CapsalidaeEgg2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Capsalidae egg">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_CapsalidaeEgg2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Capsalidae egg" data-description="Egg of a capsalid monogenean">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Monogenea_CapsalidaeEgg2_mini.jpg" alt="Egg of a capsalid monogenean" title="Capsalidae egg">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2914,7 +3020,7 @@
 
       <li class="gallery-item" data-category="Monogenea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_Monogenea1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Monogenea">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_Monogenea1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Monogenea" data-description="Monogenean flatworm observed on fish gills">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Monogenea_Monogenea1_mini.jpg" alt="Monogenean flatworm observed on fish gills" title="Monogenea">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -2964,7 +3070,7 @@
 
       <li class="gallery-item" data-category="Monogenea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrus2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Monogenea of ​​the genus Dactylogyrus">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrus2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Monogenea of ​​the genus Dactylogyrus" data-description="Monogenea of ​​the genus Dactylogyrus">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrus2_mini.jpg" alt="Monogenea of ​​the genus Dactylogyrus" title="Monogenea of ​​the genus Dactylogyrus">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3014,7 +3120,7 @@
 
       <li class="gallery-item" data-category="Monogenea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrus3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Monogenea of ​​the genus Dactylogyrus">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrus3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Monogenea of ​​the genus Dactylogyrus" data-description="Monogenea of ​​the genus Dactylogyrus">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrus3_mini.jpg" alt="Monogenea of ​​the genus Dactylogyrus" title="Monogenea of ​​the genus Dactylogyrus">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3064,7 +3170,7 @@
 
       <li class="gallery-item" data-category="Monogenea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrusEggs1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Egg of a monogenean of the genus Dactylogyrus">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrusEggs1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Egg of a monogenean of the genus Dactylogyrus" data-description="Egg of a monogenean parasite of the genus Dactylogyrus">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrusEggs1_mini.jpg" alt="Egg of a monogenean parasite of the genus Dactylogyrus" title="Egg of a monogenean of the genus Dactylogyrus">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3114,7 +3220,7 @@
 
       <li class="gallery-item" data-category="Mycobacterium">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_GranulomasWithMycobacteria1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Granulomas with mycobacteria (Mycobacterium)">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_GranulomasWithMycobacteria1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Granulomas with mycobacteria (Mycobacterium)" data-description="Granulomatous inflammation associated with mycobacteria of the genus Mycobacterium">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Mycobacterium_GranulomasWithMycobacteria1_mini.jpg" alt="Granulomatous inflammation associated with mycobacteria of the genus Mycobacterium" title="Granulomas with mycobacteria (Mycobacterium)">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3164,7 +3270,7 @@
 
       <li class="gallery-item" data-category="Mycobacterium">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Mycobacteria — Ziehl–Neelsen stain">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Mycobacteria — Ziehl–Neelsen stain" data-description="Mycobacteria in a smear stained by the Ziehl–Neelsen method">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain_mini.jpg" alt="Mycobacteria in a smear stained by the Ziehl–Neelsen method" title="Mycobacteria — Ziehl–Neelsen stain">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3214,7 +3320,7 @@
 
       <li class="gallery-item" data-category="Mycobacterium">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Mycobacteria - Ziehl&#39;s stain">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Mycobacteria - Ziehl&#39;s stain" data-description="Mycobacteria - Ziehl&#39;s stain">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain2_mini.jpg" alt="Mycobacteria - Ziehl&#39;s stain" title="Mycobacteria - Ziehl&#39;s stain">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3264,7 +3370,7 @@
 
       <li class="gallery-item" data-category="Mycobacterium">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Mycobacteria. Ziehl&#39;s stain">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Mycobacteria. Ziehl&#39;s stain" data-description="Mycobacteria. Ziehl&#39;s stain">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain3_mini.jpg" alt="Mycobacteria. Ziehl&#39;s stain" title="Mycobacteria. Ziehl&#39;s stain">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3314,7 +3420,7 @@
 
       <li class="gallery-item" data-category="Mycobacterium">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain4_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Mycobacteria. Ziehl&#39;s stain">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain4_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Mycobacteria. Ziehl&#39;s stain" data-description="Mycobacteria. Ziehl&#39;s stain">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Mycobacterium_MycobacteriaZiehlsStain4_mini.jpg" alt="Mycobacteria. Ziehl&#39;s stain" title="Mycobacteria. Ziehl&#39;s stain">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3364,7 +3470,7 @@
 
       <li class="gallery-item" data-category="Nematodes">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Nematodes_NematodeIntestine1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Nematode. Intestine">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Nematodes_NematodeIntestine1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Nematode. Intestine" data-description="Nematode observed in the intestine of a fish">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Nematodes_NematodeIntestine1_mini.jpg" alt="Nematode observed in the intestine of a fish" title="Nematode. Intestine">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3414,7 +3520,7 @@
 
       <li class="gallery-item" data-category="Nematodes">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Nematodes_NematodeIntestine2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Nematode. Intestine">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Nematodes_NematodeIntestine2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Nematode. Intestine" data-description="Nematode observed in the intestine of a fish">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Nematodes_NematodeIntestine2_mini.jpg" alt="Nematode observed in the intestine of a fish" title="Nematode. Intestine">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3464,7 +3570,7 @@
 
       <li class="gallery-item" data-category="Nematodes">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Nematodes_NematodeIntestine3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Nematode. Intestine">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Nematodes_NematodeIntestine3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Nematode. Intestine" data-description="Nematode observed in the intestine of a fish">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Nematodes_NematodeIntestine3_mini.jpg" alt="Nematode observed in the intestine of a fish" title="Nematode. Intestine">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3514,7 +3620,7 @@
 
       <li class="gallery-item" data-category="Opalina">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Opalina genus Zellerialla">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Opalina genus Zellerialla" data-description="Opalinid protist of the genus Zellerialla">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla2_mini.jpg" alt="Opalinid protist of the genus Zellerialla" title="Opalina genus Zellerialla">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3564,7 +3670,7 @@
 
       <li class="gallery-item" data-category="Opalina">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Opalina genus Zellerialla">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Opalina genus Zellerialla" data-description="Opalinid protist of the genus Zellerialla">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla3_mini.jpg" alt="Opalinid protist of the genus Zellerialla" title="Opalina genus Zellerialla">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3614,7 +3720,7 @@
 
       <li class="gallery-item" data-category="Opalina">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla4_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Opalina genus Zellerialla">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla4_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Opalina genus Zellerialla" data-description="Opalinid protist of the genus Zellerialla">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla4_mini.jpg" alt="Opalinid protist of the genus Zellerialla" title="Opalina genus Zellerialla">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3664,7 +3770,7 @@
 
       <li class="gallery-item" data-category="Opalina">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla5_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Opalina genus Zellerialla">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla5_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Opalina genus Zellerialla" data-description="Opalinid protist of the genus Zellerialla">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Opalina_OpalinaGenusZellerialla5_mini.jpg" alt="Opalinid protist of the genus Zellerialla" title="Opalina genus Zellerialla">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3714,7 +3820,7 @@
 
       <li class="gallery-item" data-category="Opalines">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Opalines_OpalinaGenusZellerialla1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Opalina genus Zellerialla">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Opalines_OpalinaGenusZellerialla1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Opalina genus Zellerialla" data-description="Opalinid protist of the genus Zellerialla">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Opalines_OpalinaGenusZellerialla1_mini.jpg" alt="Opalinid protist of the genus Zellerialla" title="Opalina genus Zellerialla">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3764,7 +3870,7 @@
 
       <li class="gallery-item" data-category="Trematodes">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Trematodes_MetacircariaTrematodes1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Metacircaria trematodes">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Trematodes_MetacircariaTrematodes1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Metacircaria trematodes" data-description="Trematode metacercaria within host tissues">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Trematodes_MetacircariaTrematodes1_mini.jpg" alt="Trematode metacercaria within host tissues" title="Metacircaria trematodes">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3814,7 +3920,7 @@
 
       <li class="gallery-item" data-category="Trematodes">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Trematodes_Trematodes1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Trematodes">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Trematodes_Trematodes1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Trematodes" data-description="Trematode observed microscopically">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Trematodes_Trematodes1_mini.jpg" alt="Trematode observed microscopically" title="Trematodes">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3864,7 +3970,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_ChrysipteraEggs1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Chrysiptera eggs">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_ChrysipteraEggs1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Chrysiptera eggs" data-description="Eggs of a fish of the genus Chrysiptera">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_ChrysipteraEggs1_mini.jpg" alt="Eggs of a fish of the genus Chrysiptera" title="Chrysiptera eggs">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3914,7 +4020,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_CiliatesPorpostoma1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Ciliates Porpostoma">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_CiliatesPorpostoma1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Ciliates Porpostoma" data-description="Ciliates of the genus Porpostoma">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_CiliatesPorpostoma1_mini.jpg" alt="Ciliates of the genus Porpostoma" title="Ciliates Porpostoma">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -3964,7 +4070,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_DiciemidOctopus1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Diciemid from octopus">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_DiciemidOctopus1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Diciemid from octopus" data-description="Dicyemid parasite associated with an octopus">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_DiciemidOctopus1_mini.jpg" alt="Dicyemid parasite associated with an octopus" title="Diciemid from octopus">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4014,7 +4120,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_FishScales1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Fish scales">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_FishScales1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Fish scales" data-description="Fish scales observed microscopically">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_FishScales1_mini.jpg" alt="Fish scales observed microscopically" title="Fish scales">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4064,7 +4170,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_LiparisEgg1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Liparis egg">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_LiparisEgg1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Liparis egg" data-description="Egg of a fish of the genus Liparis">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_LiparisEgg1_mini.jpg" alt="Egg of a fish of the genus Liparis" title="Liparis egg">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4114,7 +4220,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_LiparisEgg2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Liparis egg">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_LiparisEgg2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Liparis egg" data-description="Egg of a fish of the genus Liparis">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_LiparisEgg2_mini.jpg" alt="Egg of a fish of the genus Liparis" title="Liparis egg">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4164,7 +4270,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_LiparisEgg3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Liparis egg">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_LiparisEgg3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Liparis egg" data-description="Egg of a fish of the genus Liparis">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_LiparisEgg3_mini.jpg" alt="Egg of a fish of the genus Liparis" title="Liparis egg">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4214,7 +4320,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_MadrepoveStar1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Madrepove plate of sea star">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_MadrepoveStar1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Madrepove plate of sea star" data-description="Madreporite of a sea star">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_MadrepoveStar1_mini.jpg" alt="Madreporite of a sea star" title="Madrepove plate of sea star">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4264,7 +4370,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_PerccottusEggs1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Perccottus egg">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_PerccottusEggs1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Perccottus egg" data-description="Egg of a fish of the genus Perccottus">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_PerccottusEggs1_mini.jpg" alt="Egg of a fish of the genus Perccottus" title="Perccottus egg">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4314,7 +4420,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_Rotifer1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Rotifer. Phase contrast">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_Rotifer1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Rotifer. Phase contrast" data-description="Rotifer observed using phase-contrast microscopy">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_Rotifer1_mini.jpg" alt="Rotifer observed using phase-contrast microscopy" title="Rotifer. Phase contrast">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4364,7 +4470,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SeaSpongeLarva1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Sea sponge larva">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SeaSpongeLarva1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Sea sponge larva" data-description="Larva of a marine sponge">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_SeaSpongeLarva1_mini.jpg" alt="Larva of a marine sponge" title="Sea sponge larva">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4414,7 +4520,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SepiolaCuttlefish1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Sepiola cuttlefish (Sepiola birostrata)">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SepiolaCuttlefish1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Sepiola cuttlefish (Sepiola birostrata)" data-description="Cuttlefish Sepiola birostrata">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_SepiolaCuttlefish1_mini.jpg" alt="Cuttlefish Sepiola birostrata" title="Sepiola cuttlefish (Sepiola birostrata)">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4464,7 +4570,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SepiolaCuttlefish2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Sepiola cuttlefish (Sepiola birostrata)">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SepiolaCuttlefish2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Sepiola cuttlefish (Sepiola birostrata)" data-description="Cuttlefish Sepiola birostrata">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_SepiolaCuttlefish2_mini.jpg" alt="Cuttlefish Sepiola birostrata" title="Sepiola cuttlefish (Sepiola birostrata)">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4514,7 +4620,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SessileCiliates1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Sessile ciliates">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SessileCiliates1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Sessile ciliates" data-description="Sessile ciliates attached to a substrate">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_SessileCiliates1_mini.jpg" alt="Sessile ciliates attached to a substrate" title="Sessile ciliates">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4564,7 +4670,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SpionidWorms1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Spionid worms">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SpionidWorms1_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Spionid worms" data-description="Polychaete worms of the family Spionidae">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_SpionidWorms1_mini.jpg" alt="Polychaete worms of the family Spionidae" title="Spionid worms">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4614,7 +4720,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SpionidWorms2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Spionid worms">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SpionidWorms2_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Spionid worms" data-description="Polychaete worms of the family Spionidae">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_SpionidWorms2_mini.jpg" alt="Polychaete worms of the family Spionidae" title="Spionid worms">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4664,7 +4770,7 @@
 
       <li class="gallery-item" data-category="Varied">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SpionidWorms3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Spionid worms">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Varied_SpionidWorms3_maxi.jpg" class="glightbox" data-gallery="gallery" data-title="Spionid worms" data-description="Polychaete worms of the family Spionidae">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Varied_SpionidWorms3_mini.jpg" alt="Polychaete worms of the family Spionidae" title="Spionid worms">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4716,7 +4822,7 @@
 
       <li class="gallery-item" data-category="Amoeba">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Amoeba_Amoeba1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Amoeba from a seahorse">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Amoeba_Amoeba1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Amoeba from a seahorse" data-description="Amoeba observed in association with a seahorse">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Amoeba_Amoeba1_mini.gif" alt="Amoeba observed in association with a seahorse" title="Amoeba from a seahorse">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4774,7 +4880,7 @@
 
       <li class="gallery-item" data-category="Bacteria">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Bacteria_BacterColorNative_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Bacteria - stained and native">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Bacteria_BacterColorNative_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Bacteria - stained and native" data-description="Comparison of bacterial cells in stained and native preparations">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Bacteria_BacterColorNative_mini.gif" alt="Comparison of bacterial cells in stained and native preparations" title="Bacteria - stained and native">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4832,7 +4938,7 @@
 
       <li class="gallery-item" data-category="Ciliate">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_CryptocaryonIrritans1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Cryptocaryon irritans">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_CryptocaryonIrritans1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Cryptocaryon irritans" data-description="Microscopic image of the ciliate Cryptocaryon irritans">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ciliate_CryptocaryonIrritans1_mini.gif" alt="Microscopic image of the ciliate Cryptocaryon irritans" title="Cryptocaryon irritans">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4890,7 +4996,7 @@
 
       <li class="gallery-item" data-category="Ciliate">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_Ichthyophthirius1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Ichthyophthirius multifiliis">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_Ichthyophthirius1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Ichthyophthirius multifiliis" data-description="Microscopic image of Ichthyophthirius multifiliis trophont">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ciliate_Ichthyophthirius1_mini.gif" alt="Microscopic image of Ichthyophthirius multifiliis trophont" title="Ichthyophthirius multifiliis">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -4948,7 +5054,7 @@
 
       <li class="gallery-item" data-category="Ciliate">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_Ichthyophthirius2_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Ichthyophthirius multifiliis">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_Ichthyophthirius2_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Ichthyophthirius multifiliis" data-description="Microscopic image of Ichthyophthirius multifiliis trophont">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ciliate_Ichthyophthirius2_mini.gif" alt="Microscopic image of Ichthyophthirius multifiliis trophont" title="Ichthyophthirius multifiliis">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -5006,7 +5112,7 @@
 
       <li class="gallery-item" data-category="Ciliate">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_TrihodinaSp1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Parasitic ciliate Trichodina">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Ciliate_TrihodinaSp1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Parasitic ciliate Trichodina" data-description="Parasitic ciliate Trichodina observed on a fish">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Ciliate_TrihodinaSp1_mini.gif" alt="Parasitic ciliate Trichodina observed on a fish" title="Parasitic ciliate Trichodina">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -5064,7 +5170,7 @@
 
       <li class="gallery-item" data-category="Cryptobia">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptobia_Cryptobia_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Cryptobia">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptobia_Cryptobia_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Cryptobia" data-description="Cryptobia">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Cryptobia_Cryptobia_mini.gif" alt="Cryptobia" title="Cryptobia">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -5122,7 +5228,7 @@
 
       <li class="gallery-item" data-category="Cryptobia">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptobia_Trichomonas1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Trichomonas">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptobia_Trichomonas1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Trichomonas" data-description="Trichomonas">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Cryptobia_Trichomonas1_mini.gif" alt="Trichomonas" title="Trichomonas">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -5180,7 +5286,7 @@
 
       <li class="gallery-item" data-category="Cryptobia">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptobia_Trichomonas2_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Trichomonas">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Cryptobia_Trichomonas2_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Trichomonas" data-description="Trichomonas flagellate observed in a native wet mount">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Cryptobia_Trichomonas2_mini.gif" alt="Trichomonas flagellate observed in a native wet mount" title="Trichomonas">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -5238,7 +5344,7 @@
 
       <li class="gallery-item" data-category="Fungi">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Fungi_ZoosporesComeOut_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Zoospores emerge from the hypha of an oomycete">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Fungi_ZoosporesComeOut_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Zoospores emerge from the hypha of an oomycete" data-description="Zoospores emerging from a coenocytic hypha of an oomycete">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Fungi_ZoosporesComeOut_mini.gif" alt="Zoospores emerging from a coenocytic hypha of an oomycete" title="Zoospores emerge from the hypha of an oomycete">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -5296,7 +5402,7 @@
 
       <li class="gallery-item" data-category="Hexamitids">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Hexamitids_Hexamitids1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Hexamitids">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Hexamitids_Hexamitids1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Hexamitids" data-description="Hexamitid flagellates observed in a native wet mount">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Hexamitids_Hexamitids1_mini.gif" alt="Hexamitid flagellates observed in a native wet mount" title="Hexamitids">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -5354,7 +5460,7 @@
 
       <li class="gallery-item" data-category="Monogenea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_Capsalidae2_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Capsalidae">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_Capsalidae2_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Capsalidae" data-description="Monogenean parasite of the family Capsalidae">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Monogenea_Capsalidae2_mini.gif" alt="Monogenean parasite of the family Capsalidae" title="Capsalidae">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -5412,7 +5518,7 @@
 
       <li class="gallery-item" data-category="Monogenea">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrus1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Monogenean of the genus Dactylogyrus">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrus1_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Monogenean of the genus Dactylogyrus" data-description="Monogenean fluke of the genus Dactylogyrus, a gill parasite of fish">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Monogenea_MonogeneaDactylogyrus1_mini.gif" alt="Monogenean fluke of the genus Dactylogyrus, a gill parasite of fish" title="Monogenean of the genus Dactylogyrus">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">
@@ -5470,7 +5576,7 @@
 
       <li class="gallery-item" data-category="Trematodes">
         <figure>
-          <a loading="lazy" href="https://fossamethod.ru/gallery/Trematodes_Trematodes2_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Trematodes">
+          <a loading="lazy" href="https://fossamethod.ru/gallery/Trematodes_Trematodes2_maxi.gif" class="glightbox" data-gallery="gallery" data-title="Trematodes" data-description="Trematode observed microscopically">
             <img loading="lazy" src="https://fossamethod.ru/gallery/Trematodes_Trematodes2_mini.gif" alt="Trematode observed microscopically" title="Trematodes">
           </a>
           <figcaption class="caption" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; justify-content: center;">

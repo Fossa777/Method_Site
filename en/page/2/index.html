@@ -62,7 +62,7 @@
 <meta name="twitter:description" content="Fish disease diagnostics, microscopy, pathology, aquarium systems, and scientific reasoning without myths.">
 <meta name="twitter:image" content="https://fossamethod.ru/images/covers/fossa-method-og.webp">
 <meta name="twitter:image:alt" content="Fossa Method">
-<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.b307ebe67a18bcb8195dcc4dd1acd8bf5d33c309ffe222f59e80342d14bd8fee.css" integrity="sha256-swfr5noYvLgZXcxN0azYv10zwwn/4iL1noA0LRS9j&#43;4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.5384506e4d9efb77c951e84471c10fdbb97778bf8ece4b8197c641ba31c91421.css" integrity="sha256-U4RQbk2e&#43;3fJUehEccEP27l3eL&#43;OzkuBl8ZBujHJFCE=" rel="preload stylesheet" as="style">
 
 <link rel="stylesheet" href="https://fossamethod.ru/css/sidebar.min.583daaeafeca4f43d9a84a439d388dc7effe087a9198822207db69739a848b92.css">
 <link rel="stylesheet" href="https://fossamethod.ru/css/toggleblock.css">
@@ -262,17 +262,123 @@
   
   
 
-  <div class="category-nav">
-    
-      <a href="https://fossamethod.ru/en/">All</a>
-      <a href="https://fossamethod.ru/en/categories/myths-and-reality/" class="">Myths & Reality</a>
-      <a href="https://fossamethod.ru/en/categories/guide/" class="">Guide</a>
-      <a href="https://fossamethod.ru/en/categories/avers-revers/" class="">Avers-Revers</a>
-      <a href="https://fossamethod.ru/en/categories/method/" class="">Method</a>
-      <a href="https://fossamethod.ru/en/categories/test/" class="menu-test "><span>Tests</span></a>
-      <a href="https://fossamethod.ru/en/publications/" class="menu-test "><span>Publications</span></a>
-    
-  </div>
+
+<div class="category-nav">
+  
+
+    <a href="https://fossamethod.ru/en/"
+       data-hint="All FossaMethod articles and materials">
+      All
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/myths-and-reality/"
+       class=""
+       data-hint="Questioning common beliefs and separating evidence from misconceptions">
+      Myths & Reality
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/guide/"
+       class=""
+       data-hint="Practical guidance, observations, and solutions for working with aquatic organisms">
+      Guide
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/avers-revers/"
+       class=""
+       data-hint="Exploring problems from different perspectives and considering alternative explanations">
+      Avers-Revers
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/method/"
+       class=""
+       data-hint="Exploring research methods, their capabilities, limitations, and scientific validity">
+      Method
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/test/"
+       class="menu-test "
+       data-hint="Test your knowledge, observation skills, and diagnostic reasoning">
+      <span>Tests</span>
+    </a>
+
+    <a href="https://fossamethod.ru/en/publications/"
+       class="menu-test "
+       data-hint="Scientific papers, conference materials, and research findings">
+      <span>Publications</span>
+    </a>
+
+  
+</div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const links = document.querySelectorAll(
+        '.category-nav a[data-hint]'
+    );
+
+    if (!links.length) return;
+
+    const hint = document.createElement('div');
+    hint.className = 'fossa-hint';
+    hint.setAttribute('role', 'tooltip');
+    document.body.appendChild(hint);
+
+    function showHint(link) {
+        const text = link.dataset.hint;
+        if (!text) return;
+
+        hint.textContent = text;
+        hint.classList.remove('visible');
+
+        const rect = link.getBoundingClientRect();
+
+        
+        const width = hint.offsetWidth;
+        const height = hint.offsetHeight;
+
+        
+        let left = rect.left + rect.width / 2 - width / 2;
+
+        
+        left = Math.max(
+            10,
+            Math.min(left, window.innerWidth - width - 10)
+        );
+
+        let top = rect.bottom + 10;
+
+        
+        if (top + height > window.innerHeight - 10) {
+            top = rect.top - height - 10;
+        }
+
+        hint.style.left = left + 'px';
+        hint.style.top = top + 'px';
+        hint.classList.add('visible');
+    }
+
+    function hideHint() {
+        hint.classList.remove('visible');
+    }
+
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => showHint(link));
+        link.addEventListener('mouseleave', hideHint);
+
+        link.addEventListener('focus', () => showHint(link));
+        link.addEventListener('blur', hideHint);
+    });
+
+    window.addEventListener('scroll', hideHint, true);
+    window.addEventListener('resize', hideHint);
+
+});
+</script>
+
+
 
 </nav>
 </header>

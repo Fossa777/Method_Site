@@ -61,7 +61,7 @@
 <meta name="twitter:description" content="Why hexamitids are not a normal component of fish intestinal microflora, where the myth of &#39;internal parasites&#39; comes from, and how intestinal pathology actually develops.">
 <meta name="twitter:image" content="https://fossamethod.ru/images/covers/Hexa-og.webp">
 <meta name="twitter:image:alt" content="Hexamitids Without Myths">
-<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.b307ebe67a18bcb8195dcc4dd1acd8bf5d33c309ffe222f59e80342d14bd8fee.css" integrity="sha256-swfr5noYvLgZXcxN0azYv10zwwn/4iL1noA0LRS9j&#43;4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.5384506e4d9efb77c951e84471c10fdbb97778bf8ece4b8197c641ba31c91421.css" integrity="sha256-U4RQbk2e&#43;3fJUehEccEP27l3eL&#43;OzkuBl8ZBujHJFCE=" rel="preload stylesheet" as="style">
 
 <link rel="stylesheet" href="https://fossamethod.ru/css/sidebar.min.583daaeafeca4f43d9a84a439d388dc7effe087a9198822207db69739a848b92.css">
 <link rel="stylesheet" href="https://fossamethod.ru/css/toggleblock.css">
@@ -288,17 +288,123 @@
   
   
 
-  <div class="category-nav">
-    
-      <a href="https://fossamethod.ru/en/">All</a>
-      <a href="https://fossamethod.ru/en/categories/myths-and-reality/" class="active">Myths & Reality</a>
-      <a href="https://fossamethod.ru/en/categories/guide/" class="">Guide</a>
-      <a href="https://fossamethod.ru/en/categories/avers-revers/" class="">Avers-Revers</a>
-      <a href="https://fossamethod.ru/en/categories/method/" class="">Method</a>
-      <a href="https://fossamethod.ru/en/categories/test/" class="menu-test "><span>Tests</span></a>
-      <a href="https://fossamethod.ru/en/publications/" class="menu-test "><span>Publications</span></a>
-    
-  </div>
+
+<div class="category-nav">
+  
+
+    <a href="https://fossamethod.ru/en/"
+       data-hint="All FossaMethod articles and materials">
+      All
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/myths-and-reality/"
+       class="active"
+       data-hint="Questioning common beliefs and separating evidence from misconceptions">
+      Myths & Reality
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/guide/"
+       class=""
+       data-hint="Practical guidance, observations, and solutions for working with aquatic organisms">
+      Guide
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/avers-revers/"
+       class=""
+       data-hint="Exploring problems from different perspectives and considering alternative explanations">
+      Avers-Revers
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/method/"
+       class=""
+       data-hint="Exploring research methods, their capabilities, limitations, and scientific validity">
+      Method
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/test/"
+       class="menu-test "
+       data-hint="Test your knowledge, observation skills, and diagnostic reasoning">
+      <span>Tests</span>
+    </a>
+
+    <a href="https://fossamethod.ru/en/publications/"
+       class="menu-test "
+       data-hint="Scientific papers, conference materials, and research findings">
+      <span>Publications</span>
+    </a>
+
+  
+</div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const links = document.querySelectorAll(
+        '.category-nav a[data-hint]'
+    );
+
+    if (!links.length) return;
+
+    const hint = document.createElement('div');
+    hint.className = 'fossa-hint';
+    hint.setAttribute('role', 'tooltip');
+    document.body.appendChild(hint);
+
+    function showHint(link) {
+        const text = link.dataset.hint;
+        if (!text) return;
+
+        hint.textContent = text;
+        hint.classList.remove('visible');
+
+        const rect = link.getBoundingClientRect();
+
+        
+        const width = hint.offsetWidth;
+        const height = hint.offsetHeight;
+
+        
+        let left = rect.left + rect.width / 2 - width / 2;
+
+        
+        left = Math.max(
+            10,
+            Math.min(left, window.innerWidth - width - 10)
+        );
+
+        let top = rect.bottom + 10;
+
+        
+        if (top + height > window.innerHeight - 10) {
+            top = rect.top - height - 10;
+        }
+
+        hint.style.left = left + 'px';
+        hint.style.top = top + 'px';
+        hint.classList.add('visible');
+    }
+
+    function hideHint() {
+        hint.classList.remove('visible');
+    }
+
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => showHint(link));
+        link.addEventListener('mouseleave', hideHint);
+
+        link.addEventListener('focus', () => showHint(link));
+        link.addEventListener('blur', hideHint);
+    });
+
+    window.addEventListener('scroll', hideHint, true);
+    window.addEventListener('resize', hideHint);
+
+});
+</script>
+
+
 
 </nav>
 </header>
@@ -510,20 +616,6 @@ No. Stress may worsen the condition but does not create parasites.</p>
   <h2>See also</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/bubble_diagnoz/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Gas Bubble Disease. Part<br>II. Consequences.</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Bublle2.webp" alt="Gas Bubble Disease. Part II. Consequences." loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Gas Bubble Disease. Part II. Consequences.</span><span class="hoverlink-desc">Comparison of normal and pathological findings in fish necropsy: liver, kidney, gills, and brain. How to distinguish acceptable variation …</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/fish-autopsy-myth/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Is It Ever Too<br>Late for a Fish<br>Autopsy?</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/autopsy_fish.jpg" alt="Is It Ever Too Late for a Fish Autopsy?" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Is It Ever Too Late for a Fish Autopsy?</span><span class="hoverlink-desc">Debunking the myth: why you can examine a fish hours after death—not just in the first 30 minutes.</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/en/posts/finerosion/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fin Rot</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
               <img src="https://fossamethod.ru/images/covers/fish-fin-ray-erosion-lepidotrichia.webp" alt="Fin Rot" loading="lazy">
@@ -531,25 +623,39 @@ No. Stress may worsen the condition but does not create parasites.</p>
             <span class="hoverlink-title">Fin Rot</span><span class="hoverlink-desc">A scientific explanation of fin destruction in fish: the difference between fin erosion and bacterial infections, the role of nutrition, …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/en/posts/crypt/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptocaryon irritans: Not Just<br>White Spots</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/crypt_fish.webp" alt="Cryptocaryon irritans: Not Just White Spots" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Cryptocaryon irritans: Not Just White Spots</span><span class="hoverlink-desc">Cryptocaryon irritans. is a ciliated protozoan parasite, often visible to the naked eye. Tangs, butterflyfish, and boxfish are particularly …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/en/posts/size/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Patient Size Doesn’t Matter<br>— Why Fish Don’t<br>Die From Diagnostics</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/size.webp" alt="Patient Size Doesn’t Matter — Why Fish Don’t Die From Diagnostics" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Patient Size Doesn’t Matter — Why Fish Don’t Die From Diagnostics</span><span class="hoverlink-desc">Debunking the myth that diagnostic procedures kill fish. Non-lethal examination techniques, compensatory physiology, and why mortality …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/en/posts/index_desease/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Traditions Instead of Science.<br>II</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/index_desease.webp" alt="Traditions Instead of Science. II" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Traditions Instead of Science. II</span><span class="hoverlink-desc">Why a familiar treatment protocol does not automatically become evidence-based therapy. Using FMC as an example, we examine how …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/en/posts/operation/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Surgical Procedures on Aquatic<br>Animals</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/Hirurg.webp" alt="Surgical Procedures on Aquatic Animals" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Surgical Procedures on Aquatic Animals</span><span class="hoverlink-desc">A Guide on performing surgical procedures on fish.</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/en/posts/crypto/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptococcus-like structures in fish</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
               <img src="https://fossamethod.ru/images/covers/Crypto.webp" alt="Cryptococcus-like structures in fish" loading="lazy">
             </span><span class="hoverlink-content">
             <span class="hoverlink-title">Cryptococcus-like structures in fish</span><span class="hoverlink-desc">Round structures with a distinct halo, morphologically resembling cryptococci. Morphological analysis and limitations of interpretation.</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/intracellular/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Granulomas and intracellular agents<br>in fish</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/intracellular.webp" alt="Granulomas and intracellular agents in fish" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Granulomas and intracellular agents in fish</span><span class="hoverlink-desc">A collection of real observations: intracellular yeast-like organisms, coccidia, cryptosporidia, and fungal structures in fish.</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/health-is-not-sterility/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Health Does Not Mean<br>Sterility</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/health-is-not-sterility.webp" alt="Health Does Not Mean Sterility" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Health Does Not Mean Sterility</span><span class="hoverlink-desc">Why the presence of microorganisms and parasites does not always mean disease, why immunity does not have to eliminate them completely, and …</span></span>
         </span>
       </span></div>
 </section>

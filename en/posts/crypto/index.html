@@ -63,7 +63,7 @@
 <meta name="twitter:description" content="Round structures with a distinct halo, morphologically resembling cryptococci. Morphological analysis and limitations of interpretation.">
 <meta name="twitter:image" content="https://fossamethod.ru/images/covers/Crypto-og.webp">
 <meta name="twitter:image:alt" content="Cryptococcus-like structures in fish">
-<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.b307ebe67a18bcb8195dcc4dd1acd8bf5d33c309ffe222f59e80342d14bd8fee.css" integrity="sha256-swfr5noYvLgZXcxN0azYv10zwwn/4iL1noA0LRS9j&#43;4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.5384506e4d9efb77c951e84471c10fdbb97778bf8ece4b8197c641ba31c91421.css" integrity="sha256-U4RQbk2e&#43;3fJUehEccEP27l3eL&#43;OzkuBl8ZBujHJFCE=" rel="preload stylesheet" as="style">
 
 <link rel="stylesheet" href="https://fossamethod.ru/css/sidebar.min.583daaeafeca4f43d9a84a439d388dc7effe087a9198822207db69739a848b92.css">
 <link rel="stylesheet" href="https://fossamethod.ru/css/toggleblock.css">
@@ -290,17 +290,123 @@
   
   
 
-  <div class="category-nav">
-    
-      <a href="https://fossamethod.ru/en/">All</a>
-      <a href="https://fossamethod.ru/en/categories/myths-and-reality/" class="">Myths & Reality</a>
-      <a href="https://fossamethod.ru/en/categories/guide/" class="">Guide</a>
-      <a href="https://fossamethod.ru/en/categories/avers-revers/" class="">Avers-Revers</a>
-      <a href="https://fossamethod.ru/en/categories/method/" class="">Method</a>
-      <a href="https://fossamethod.ru/en/categories/test/" class="menu-test "><span>Tests</span></a>
-      <a href="https://fossamethod.ru/en/publications/" class="menu-test "><span>Publications</span></a>
-    
-  </div>
+
+<div class="category-nav">
+  
+
+    <a href="https://fossamethod.ru/en/"
+       data-hint="All FossaMethod articles and materials">
+      All
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/myths-and-reality/"
+       class=""
+       data-hint="Questioning common beliefs and separating evidence from misconceptions">
+      Myths & Reality
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/guide/"
+       class=""
+       data-hint="Practical guidance, observations, and solutions for working with aquatic organisms">
+      Guide
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/avers-revers/"
+       class=""
+       data-hint="Exploring problems from different perspectives and considering alternative explanations">
+      Avers-Revers
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/method/"
+       class=""
+       data-hint="Exploring research methods, their capabilities, limitations, and scientific validity">
+      Method
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/test/"
+       class="menu-test "
+       data-hint="Test your knowledge, observation skills, and diagnostic reasoning">
+      <span>Tests</span>
+    </a>
+
+    <a href="https://fossamethod.ru/en/publications/"
+       class="menu-test "
+       data-hint="Scientific papers, conference materials, and research findings">
+      <span>Publications</span>
+    </a>
+
+  
+</div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const links = document.querySelectorAll(
+        '.category-nav a[data-hint]'
+    );
+
+    if (!links.length) return;
+
+    const hint = document.createElement('div');
+    hint.className = 'fossa-hint';
+    hint.setAttribute('role', 'tooltip');
+    document.body.appendChild(hint);
+
+    function showHint(link) {
+        const text = link.dataset.hint;
+        if (!text) return;
+
+        hint.textContent = text;
+        hint.classList.remove('visible');
+
+        const rect = link.getBoundingClientRect();
+
+        
+        const width = hint.offsetWidth;
+        const height = hint.offsetHeight;
+
+        
+        let left = rect.left + rect.width / 2 - width / 2;
+
+        
+        left = Math.max(
+            10,
+            Math.min(left, window.innerWidth - width - 10)
+        );
+
+        let top = rect.bottom + 10;
+
+        
+        if (top + height > window.innerHeight - 10) {
+            top = rect.top - height - 10;
+        }
+
+        hint.style.left = left + 'px';
+        hint.style.top = top + 'px';
+        hint.classList.add('visible');
+    }
+
+    function hideHint() {
+        hint.classList.remove('visible');
+    }
+
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => showHint(link));
+        link.addEventListener('mouseleave', hideHint);
+
+        link.addEventListener('focus', () => showHint(link));
+        link.addEventListener('blur', hideHint);
+    });
+
+    window.addEventListener('scroll', hideHint, true);
+    window.addEventListener('resize', hideHint);
+
+});
+</script>
+
+
 
 </nav>
 </header>
@@ -449,6 +555,20 @@ The process was systemic, involving parenchymal organs. Granulomatous inflammati
   <h2>See also</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/en/posts/fungi/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fungal structures in fish:<br>colonization or invasive process</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/Fungi.webp" alt="Fungal structures in fish: colonization or invasive process" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Fungal structures in fish: colonization or invasive process</span><span class="hoverlink-desc">Fungal structures in fish may represent either surface colonization or an invasive process. This article discusses morphological features, …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/en/posts/goussia/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fish coccidia: Goussia</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/Goussia.webp" alt="Fish coccidia: Goussia" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Fish coccidia: Goussia</span><span class="hoverlink-desc">Coccidia of the genus Goussia in fish. Morphology of oocysts, sporocysts, and sporozoites, with diagnostic interpretation of microscopic …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/en/posts/histoplasma-like/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Granulomatous lesions in fish:<br>a histoplasma-like case</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
               <img src="https://fossamethod.ru/images/covers/Histoplasma.webp" alt="Granulomatous lesions in fish: a histoplasma-like case" loading="lazy">
@@ -456,39 +576,25 @@ The process was systemic, involving parenchymal organs. Granulomatous inflammati
             <span class="hoverlink-title">Granulomatous lesions in fish: a histoplasma-like case</span><span class="hoverlink-desc">Granulomas in fish kidneys and spleen with negative results for mycobacteria. Detection of intracellular yeast-like organisms and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/size/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Patient Size Doesn’t Matter<br>— Why Fish Don’t<br>Die From Diagnostics</a>
+        <a href="https://fossamethod.ru/en/posts/fossa-method/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fossa Method</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/size.webp" alt="Patient Size Doesn’t Matter — Why Fish Don’t Die From Diagnostics" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/fossa-method.webp" alt="Fossa Method" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Patient Size Doesn’t Matter — Why Fish Don’t Die From Diagnostics</span><span class="hoverlink-desc">Debunking the myth that diagnostic procedures kill fish. Non-lethal examination techniques, compensatory physiology, and why mortality …</span></span>
+            <span class="hoverlink-title">Fossa Method</span><span class="hoverlink-desc">Observation, constraints, models, understanding, and the search for mechanisms. A collection of principles that gradually emerged from …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/intracellular/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Granulomas and intracellular agents<br>in fish</a>
+        <a href="https://fossamethod.ru/en/posts/science/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Scientific Method. A Practical<br>Guide.</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/intracellular.webp" alt="Granulomas and intracellular agents in fish" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/science.webp" alt="Scientific Method. A Practical Guide." loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Granulomas and intracellular agents in fish</span><span class="hoverlink-desc">A collection of real observations: intracellular yeast-like organisms, coccidia, cryptosporidia, and fungal structures in fish.</span></span>
+            <span class="hoverlink-title">Scientific Method. A Practical Guide.</span><span class="hoverlink-desc">How knowledge is formed, why confidence often outpaces understanding, and how the scientific method helps distinguish observation from …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/index_metod/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Tradition Instead of Science<br>I. The Method.</a>
+        <a href="https://fossamethod.ru/en/posts/coming/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Initial Diagnostics After Fish<br>Transportation</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/index_metod.webp" alt="Tradition Instead of Science I. The Method." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/bacter_fish.webp" alt="Initial Diagnostics After Fish Transportation" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Tradition Instead of Science I. The Method.</span><span class="hoverlink-desc">What can staining still reveal when the classic Ziehl–Neelsen method cannot be performed in full? Exploring the roles of phenol, heat, and …</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/rules/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Simple Rules for Working<br>with Aquarium Fish</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/rules.webp" alt="Simple Rules for Working with Aquarium Fish" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Simple Rules for Working with Aquarium Fish</span><span class="hoverlink-desc">Basic guidelines for diagnosing and caring for aquarium fish: what to do in case of mortality, how to interpret appetite, and when to treat …</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/elephantfly/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Flying Elephants</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/elephantfly.webp" alt="Flying Elephants" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Flying Elephants</span><span class="hoverlink-desc">Why science requires more than an elegant hypothesis. The role of photographs, videos, specimens, and primary data in building and verifying …</span></span>
+            <span class="hoverlink-title">Initial Diagnostics After Fish Transportation</span><span class="hoverlink-desc">Microscopy, smears, staining methods, and common mistakes in early diagnostics.</span></span>
         </span>
       </span></div>
 </section>
