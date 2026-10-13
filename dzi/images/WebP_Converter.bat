@@ -4,9 +4,13 @@ setlocal
 if not exist "webp" mkdir "webp"
 if not exist "thumbs" mkdir "thumbs"
 
-for %%i in (*.png) do (
+for %%i in (*.png *.jpg *.jpeg) do (
     magick "%%i" -quality 92 -define webp:method=6 "webp\%%~ni.webp"
-    magick "%%i" -resize 800x -quality 82 -define webp:method=6 "thumbs\%%~ni.webp"
+
+)
+
+for %%i in (*.gif) do (
+    magick "%%i" -quality 82 -define webp:method=6 "webp\%%~ni.webp"
 )
 
 echo Done
