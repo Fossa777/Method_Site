@@ -46,12 +46,13 @@
 <meta property="og:site_name" content="Fossa Method">
 <meta property="og:logo" content="https://fossamethod.ru/favicon-96x96.png">
 <meta property="og:locale" content="en_US">
-<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.1d19381b81648e020b6c51efd1756c4acab9b8cce9a39f8ba7527aa791af69f4.css" integrity="sha256-HRk4G4FkjgILbFHv0XVsSsq5uMzpo5&#43;Lp1J6p5GvafQ=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="https://fossamethod.ru/assets/css/stylesheet.3d70e499688208beeee2ce6c62e1ab4abc8104bdf1a912710a623a66ba5d1d0d.css" integrity="sha256-PXDkmWiCCL7u4s5sYuGrSryBBL3xqRJxCmI6ZrpdHQ0=" rel="preload stylesheet" as="style">
 
 <link rel="stylesheet" href="https://fossamethod.ru/css/sidebar.min.583daaeafeca4f43d9a84a439d388dc7effe087a9198822207db69739a848b92.css">
 <link rel="stylesheet" href="https://fossamethod.ru/css/toggleblock.css">
 <link rel="stylesheet" href="https://fossamethod.ru/css/search.css">
 <link rel="stylesheet" href="https://fossamethod.ru/css/tiff-stack.css">
+<link rel="stylesheet" href="https://fossamethod.ru/css/relatedlinks.css">
 <script src="https://fossamethod.ru/js/toggle.js" defer></script>
 
 <meta name="theme-color" content="#2e2e33">
@@ -222,17 +223,123 @@
   
   
 
-  <div class="category-nav">
-    
-      <a href="https://fossamethod.ru/en/">All</a>
-      <a href="https://fossamethod.ru/en/categories/myths-and-reality/" class="">Myths & Reality</a>
-      <a href="https://fossamethod.ru/en/categories/guide/" class="">Guide</a>
-      <a href="https://fossamethod.ru/en/categories/avers-revers/" class="">Avers-Revers</a>
-      <a href="https://fossamethod.ru/en/categories/method/" class="">Method</a>
-      <a href="https://fossamethod.ru/en/categories/test/" class="menu-test "><span>Tests</span></a>
-      <a href="https://fossamethod.ru/en/publications/" class="menu-test "><span>Publications</span></a>
-    
-  </div>
+
+<div class="category-nav">
+  
+
+    <a href="https://fossamethod.ru/en/"
+       data-hint="All FossaMethod articles and materials">
+      All
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/myths-and-reality/"
+       class=""
+       data-hint="Questioning common beliefs and separating evidence from misconceptions">
+      Myths & Reality
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/guide/"
+       class=""
+       data-hint="Practical guidance, observations, and solutions for working with aquatic organisms">
+      Guide
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/avers-revers/"
+       class=""
+       data-hint="Exploring problems from different perspectives and considering alternative explanations">
+      Avers-Revers
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/method/"
+       class=""
+       data-hint="Exploring research methods, their capabilities, limitations, and scientific validity">
+      Method
+    </a>
+
+    <a href="https://fossamethod.ru/en/categories/test/"
+       class="menu-test "
+       data-hint="Test your knowledge, observation skills, and diagnostic reasoning">
+      <span>Tests</span>
+    </a>
+
+    <a href="https://fossamethod.ru/en/publications/"
+       class="menu-test "
+       data-hint="Scientific papers, conference materials, and research findings">
+      <span>Publications</span>
+    </a>
+
+  
+</div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const links = document.querySelectorAll(
+        '.category-nav a[data-hint]'
+    );
+
+    if (!links.length) return;
+
+    const hint = document.createElement('div');
+    hint.className = 'fossa-hint';
+    hint.setAttribute('role', 'tooltip');
+    document.body.appendChild(hint);
+
+    function showHint(link) {
+        const text = link.dataset.hint;
+        if (!text) return;
+
+        hint.textContent = text;
+        hint.classList.remove('visible');
+
+        const rect = link.getBoundingClientRect();
+
+        
+        const width = hint.offsetWidth;
+        const height = hint.offsetHeight;
+
+        
+        let left = rect.left + rect.width / 2 - width / 2;
+
+        
+        left = Math.max(
+            10,
+            Math.min(left, window.innerWidth - width - 10)
+        );
+
+        let top = rect.bottom + 10;
+
+        
+        if (top + height > window.innerHeight - 10) {
+            top = rect.top - height - 10;
+        }
+
+        hint.style.left = left + 'px';
+        hint.style.top = top + 'px';
+        hint.classList.add('visible');
+    }
+
+    function hideHint() {
+        hint.classList.remove('visible');
+    }
+
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => showHint(link));
+        link.addEventListener('mouseleave', hideHint);
+
+        link.addEventListener('focus', () => showHint(link));
+        link.addEventListener('blur', hideHint);
+    });
+
+    window.addEventListener('scroll', hideHint, true);
+    window.addEventListener('resize', hideHint);
+
+});
+</script>
+
+
 
 </nav>
 </header>
@@ -245,6 +352,84 @@
 
 <div class="list-page-wide">
   <div class="post-grid">
+
+    <article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="https://fossamethod.ru/images/covers/index_granulomas.webp" alt="Гранулематозные и узловые образования у рыб">
+</figure>
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Белые точки в органах рыбы. Это туберкулёз?
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Две похожие селезёнки, разные находки под микроскопом. История о том, почему белые узелки и гранулёмы ещё не диагноз.</p>
+      </div>
+      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;3 min</footer>
+      <a class="entry-link" aria-label="post link to Белые точки в органах рыбы. Это туберкулёз?" href="https://fossamethod.ru/en/f/index_granulomas/"></a>
+    </article>
+
+    <article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="https://fossamethod.ru/images/covers/index_granulomas.webp" alt="Гранулематозные и узловые образования у рыб">
+</figure>
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Гранулёмы у рыб: что показывает строение и чего оно не доказывает
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Макроскопический узелок ещё не гранулёма, а гранулёма ещё не микобактериоз. Объясняем механизм, морфологические признаки и этапы проверки диагноза.</p>
+      </div>
+      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;4 min</footer>
+      <a class="entry-link" aria-label="post link to Гранулёмы у рыб: что показывает строение и чего оно не доказывает" href="https://fossamethod.ru/en/fo/index_granulomas/"></a>
+    </article>
+
+    <article class="post-entry tag-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Красные палочки: зачем я изменил привычный метод
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Можно ли получить полезную информацию из препарата, когда нет всех реактивов? История одного опыта и трёх окрашиваний.</p>
+      </div>
+      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;4 min</footer>
+      <a class="entry-link" aria-label="post link to Красные палочки: зачем я изменил привычный метод" href="https://fossamethod.ru/en/f/index_metod/"></a>
+    </article>
+
+    <article class="post-entry tag-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Окраска без фенола: что меняется в методе и выводах
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Разбираем роль фенола, нагревания и кислоты на примере трёх вариантов окраски материала селезёнки скалярии.</p>
+      </div>
+      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;6 min</footer>
+      <a class="entry-link" aria-label="post link to Окраска без фенола: что меняется в методе и выводах" href="https://fossamethod.ru/en/fo/index_metod/"></a>
+    </article>
+
+    <article class="post-entry tag-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">FMC: почему лечебная ванна ещё не означает лечение
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Почему десятиминутную ванну FMC нельзя обосновать одним названием препарата и что нужно проверить до и после обработки.</p>
+      </div>
+      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;5 min</footer>
+      <a class="entry-link" aria-label="post link to FMC: почему лечебная ванна ещё не означает лечение" href="https://fossamethod.ru/en/fo/index_desease/"></a>
+    </article>
+
+    <article class="post-entry tag-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Рыба трётся о предметы: поведение, причина и диагноз
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Flashing — наблюдаемое поведение, но не локализация поражения и не диагноз. Разбираем мысленный эксперимент, физиологию раздражения и пределы клинических выводов.</p>
+      </div>
+      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;5 min</footer>
+      <a class="entry-link" aria-label="post link to Рыба трётся о предметы: поведение, причина и диагноз" href="https://fossamethod.ru/en/fo/index_fish_scrab/"></a>
+    </article>
   </div>
 </div>
   </main>
@@ -478,13 +663,27 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/en/posts/fossa-method/">Fossa Method</a></li>
       
-        <li><a href="https://fossamethod.ru/en/posts/index_metod/">Traditions Instead of Science. I</a></li>
-      
         <li><a href="https://fossamethod.ru/en/posts/index_desease/">Traditions Instead of Science. II</a></li>
       
         <li><a href="https://fossamethod.ru/en/posts/index_fish_scrab/">Traditions Instead of Science. III</a></li>
       
         <li><a href="https://fossamethod.ru/en/posts/science/">Scientific Method. A Practical Guide.</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/posts/index_metod/">Tradition Instead of Science I. The Method.</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/f/index_granulomas/">Белые точки в органах рыбы. Это туберкулёз?</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/fo/index_granulomas/">Гранулёмы у рыб: что показывает строение и чего оно не доказывает</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/f/index_metod/">Красные палочки: зачем я изменил привычный метод</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/fo/index_metod/">Окраска без фенола: что меняется в методе и выводах</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/posts/index_granulomas/">Traditions Instead of Science IV. Diagnosis.</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/fo/index_desease/">FMC: почему лечебная ванна ещё не означает лечение</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/fo/index_fish_scrab/">Рыба трётся о предметы: поведение, причина и диагноз</a></li>
       
         <li><a href="https://fossamethod.ru/en/posts/health-is-not-sterility/">Health Does Not Mean Sterility</a></li>
       

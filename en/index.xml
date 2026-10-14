@@ -6,7 +6,7 @@
     <description>Recent content on Fossa Method</description>
     <generator>Hugo -- 0.147.2</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 07 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://fossamethod.ru/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Flying Elephants</title>
@@ -58,11 +58,53 @@
       <description>What can staining still reveal when the classic Ziehl–Neelsen method cannot be performed in full? Exploring the roles of phenol, heat, and acid decolorization—and learning to distinguish what we observe from what the method actually demonstrates.</description>
     </item>
     <item>
+      <title>Белые точки в органах рыбы. Это туберкулёз?</title>
+      <link>https://fossamethod.ru/en/f/index_granulomas/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_granulomas/</guid>
+      <description>На двух селезёнках рыб видны похожие белые узелки. Почему по внешнему виду нельзя решить, что причина — микобактерии.</description>
+    </item>
+    <item>
+      <title>Гранулёмы у рыб: что показывает строение и чего оно не доказывает</title>
+      <link>https://fossamethod.ru/en/fo/index_granulomas/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_granulomas/</guid>
+      <description>Гранулёматозная реакция, микобактериоз и дифференциальная диагностика: как отделить морфологическую находку от причины поражения.</description>
+    </item>
+    <item>
+      <title>Красные палочки: зачем я изменил привычный метод</title>
+      <link>https://fossamethod.ru/en/f/index_metod/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_metod/</guid>
+      <description>История о том, как три варианта окраски одной селезёнки скалярии помогли увидеть бактерии — и почему увидеть их ещё не значит поставить диагноз.</description>
+    </item>
+    <item>
+      <title>Окраска без фенола: что меняется в методе и выводах</title>
+      <link>https://fossamethod.ru/en/fo/index_metod/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_metod/</guid>
+      <description>Почему исключение фенола не обязательно мешает выявлению бактерий, а отказ от кислотного обесцвечивания меняет сам диагностический вопрос.</description>
+    </item>
+    <item>
       <title>Traditions Instead of Science IV. Diagnosis.</title>
       <link>https://fossamethod.ru/en/posts/index_granulomas/</link>
       <pubDate>Wed, 07 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/posts/index_granulomas/</guid>
       <description>Granulomas, necrosis, and fish mycobacteriosis: why similar morphological findings do not necessarily have the same etiology and cannot establish a diagnosis on their own.</description>
+    </item>
+    <item>
+      <title>FMC: почему лечебная ванна ещё не означает лечение</title>
+      <link>https://fossamethod.ru/en/fo/index_desease/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_desease/</guid>
+      <description>Разбор применения FMC у рыб: состав смеси, исторические режимы, концентрация и экспозиция, чувствительность паразита и границы выводов об эффективности.</description>
+    </item>
+    <item>
+      <title>Рыба трётся о предметы: поведение, причина и диагноз</title>
+      <link>https://fossamethod.ru/en/fo/index_fish_scrab/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_fish_scrab/</guid>
+      <description>Почему flashing не позволяет сам по себе различить раздражение кожи, поражение жабр и другие причины. Наблюдение, интерпретация и проверка гипотезы.</description>
     </item>
     <item>
       <title>Health Does Not Mean Sterility</title>

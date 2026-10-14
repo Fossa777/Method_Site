@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Foes on Fossa Method</title>
+    <link>https://fossamethod.ru/en/fo/</link>
+    <description>Recent content in Foes on Fossa Method</description>
+    <generator>Hugo -- 0.147.2</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://fossamethod.ru/en/fo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Гранулёмы у рыб: что показывает строение и чего оно не доказывает</title>
+      <link>https://fossamethod.ru/en/fo/index_granulomas/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_granulomas/</guid>
+      <description>Гранулёматозная реакция, микобактериоз и дифференциальная диагностика: как отделить морфологическую находку от причины поражения.</description>
+    </item>
+    <item>
+      <title>Окраска без фенола: что меняется в методе и выводах</title>
+      <link>https://fossamethod.ru/en/fo/index_metod/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_metod/</guid>
+      <description>Почему исключение фенола не обязательно мешает выявлению бактерий, а отказ от кислотного обесцвечивания меняет сам диагностический вопрос.</description>
+    </item>
+    <item>
+      <title>FMC: почему лечебная ванна ещё не означает лечение</title>
+      <link>https://fossamethod.ru/en/fo/index_desease/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_desease/</guid>
+      <description>Разбор применения FMC у рыб: состав смеси, исторические режимы, концентрация и экспозиция, чувствительность паразита и границы выводов об эффективности.</description>
+    </item>
+    <item>
+      <title>Рыба трётся о предметы: поведение, причина и диагноз</title>
+      <link>https://fossamethod.ru/en/fo/index_fish_scrab/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_fish_scrab/</guid>
+      <description>Почему flashing не позволяет сам по себе различить раздражение кожи, поражение жабр и другие причины. Наблюдение, интерпретация и проверка гипотезы.</description>
+    </item>
+  </channel>
+</rss>
