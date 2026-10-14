@@ -58,39 +58,39 @@
       <description>What can staining still reveal when the classic Ziehl–Neelsen method cannot be performed in full? Exploring the roles of phenol, heat, and acid decolorization—and learning to distinguish what we observe from what the method actually demonstrates.</description>
     </item>
     <item>
-      <title>Белые точки в органах рыбы. Это туберкулёз?</title>
-      <link>https://fossamethod.ru/en/f/index_granulomas/</link>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
-      <guid>https://fossamethod.ru/en/f/index_granulomas/</guid>
-      <description>На двух селезёнках рыб видны похожие белые узелки. Почему по внешнему виду нельзя решить, что причина — микобактерии.</description>
-    </item>
-    <item>
-      <title>Гранулёмы у рыб: что показывает строение и чего оно не доказывает</title>
+      <title>Granulomas in Fish: What Their Structure Reveals—and What It Cannot Prove</title>
       <link>https://fossamethod.ru/en/fo/index_granulomas/</link>
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/fo/index_granulomas/</guid>
-      <description>Гранулёматозная реакция, микобактериоз и дифференциальная диагностика: как отделить морфологическую находку от причины поражения.</description>
+      <description>Granulomatous reactions, mycobacteriosis, and differential diagnosis: how to distinguish a morphological finding from the cause of a lesion.</description>
     </item>
     <item>
-      <title>Красные палочки: зачем я изменил привычный метод</title>
-      <link>https://fossamethod.ru/en/f/index_metod/</link>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
-      <guid>https://fossamethod.ru/en/f/index_metod/</guid>
-      <description>История о том, как три варианта окраски одной селезёнки скалярии помогли увидеть бактерии — и почему увидеть их ещё не значит поставить диагноз.</description>
-    </item>
-    <item>
-      <title>Окраска без фенола: что меняется в методе и выводах</title>
+      <title>Phenol-Free Staining: What Changes in the Method and the Conclusions</title>
       <link>https://fossamethod.ru/en/fo/index_metod/</link>
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/fo/index_metod/</guid>
-      <description>Почему исключение фенола не обязательно мешает выявлению бактерий, а отказ от кислотного обесцвечивания меняет сам диагностический вопрос.</description>
+      <description>Why omitting phenol does not necessarily prevent bacteria from being detected, while skipping acid decolorization changes the diagnostic question itself.</description>
+    </item>
+    <item>
+      <title>Red Rods: Why I Changed the Usual Method</title>
+      <link>https://fossamethod.ru/en/f/index_metod/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_metod/</guid>
+      <description>How three staining methods applied to samples from the same angelfish spleen helped reveal bacteria—and why seeing them is not the same as making a diagnosis.</description>
+    </item>
+    <item>
+      <title>White Spots in Fish Organs: Is It Tuberculosis?</title>
+      <link>https://fossamethod.ru/en/f/index_granulomas/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_granulomas/</guid>
+      <description>Two fish spleens have similar-looking white nodules. Why appearance alone cannot tell us whether mycobacteria are responsible.</description>
     </item>
     <item>
       <title>Traditions Instead of Science IV. Diagnosis.</title>
       <link>https://fossamethod.ru/en/posts/index_granulomas/</link>
       <pubDate>Wed, 07 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/posts/index_granulomas/</guid>
-      <description>Granulomas, necrosis, and fish mycobacteriosis: why similar morphological findings do not necessarily have the same etiology and cannot establish a diagnosis on their own.</description>
+      <description>Granulomas, necrosis, and mycobacteriosis in fish: why similar morphological findings do not imply the same etiology and cannot, on their own, establish a diagnosis.</description>
     </item>
     <item>
       <title>FMC: почему лечебная ванна ещё не означает лечение</title>
@@ -100,11 +100,25 @@
       <description>Разбор применения FMC у рыб: состав смеси, исторические режимы, концентрация и экспозиция, чувствительность паразита и границы выводов об эффективности.</description>
     </item>
     <item>
-      <title>Рыба трётся о предметы: поведение, причина и диагноз</title>
+      <title>We Gave the Fish a Bath. But Did We Cure It?</title>
+      <link>https://fossamethod.ru/en/f/index_desease/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_desease/</guid>
+      <description>Why ten minutes in a medicated bath does not necessarily mean a fish has recovered. A simple story about FMC, parasites, and the habit of treating fish by following a routine.</description>
+    </item>
+    <item>
+      <title>Fish Rubbing Against Objects: Behavior, Cause, and Diagnosis</title>
       <link>https://fossamethod.ru/en/fo/index_fish_scrab/</link>
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/fo/index_fish_scrab/</guid>
-      <description>Почему flashing не позволяет сам по себе различить раздражение кожи, поражение жабр и другие причины. Наблюдение, интерпретация и проверка гипотезы.</description>
+      <description>Why flashing alone cannot distinguish skin irritation, gill disease, and other possible causes. Observation, interpretation, and hypothesis testing.</description>
+    </item>
+    <item>
+      <title>The Fish Is Scratching. But Why?</title>
+      <link>https://fossamethod.ru/en/f/index_fish_scrab/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_fish_scrab/</guid>
+      <description>A fish rubs against rocks — does that mean it has parasites? Why a single movement cannot tell us what is happening to its skin or gills.</description>
     </item>
     <item>
       <title>Health Does Not Mean Sterility</title>

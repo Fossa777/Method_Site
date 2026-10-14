@@ -9,18 +9,18 @@
     <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://fossamethod.ru/en/fo/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Гранулёмы у рыб: что показывает строение и чего оно не доказывает</title>
+      <title>Granulomas in Fish: What Their Structure Reveals—and What It Cannot Prove</title>
       <link>https://fossamethod.ru/en/fo/index_granulomas/</link>
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/fo/index_granulomas/</guid>
-      <description>Гранулёматозная реакция, микобактериоз и дифференциальная диагностика: как отделить морфологическую находку от причины поражения.</description>
+      <description>Granulomatous reactions, mycobacteriosis, and differential diagnosis: how to distinguish a morphological finding from the cause of a lesion.</description>
     </item>
     <item>
-      <title>Окраска без фенола: что меняется в методе и выводах</title>
+      <title>Phenol-Free Staining: What Changes in the Method and the Conclusions</title>
       <link>https://fossamethod.ru/en/fo/index_metod/</link>
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/fo/index_metod/</guid>
-      <description>Почему исключение фенола не обязательно мешает выявлению бактерий, а отказ от кислотного обесцвечивания меняет сам диагностический вопрос.</description>
+      <description>Why omitting phenol does not necessarily prevent bacteria from being detected, while skipping acid decolorization changes the diagnostic question itself.</description>
     </item>
     <item>
       <title>FMC: почему лечебная ванна ещё не означает лечение</title>
@@ -30,11 +30,11 @@
       <description>Разбор применения FMC у рыб: состав смеси, исторические режимы, концентрация и экспозиция, чувствительность паразита и границы выводов об эффективности.</description>
     </item>
     <item>
-      <title>Рыба трётся о предметы: поведение, причина и диагноз</title>
+      <title>Fish Rubbing Against Objects: Behavior, Cause, and Diagnosis</title>
       <link>https://fossamethod.ru/en/fo/index_fish_scrab/</link>
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/fo/index_fish_scrab/</guid>
-      <description>Почему flashing не позволяет сам по себе различить раздражение кожи, поражение жабр и другие причины. Наблюдение, интерпретация и проверка гипотезы.</description>
+      <description>Why flashing alone cannot distinguish skin irritation, gill disease, and other possible causes. Observation, interpretation, and hypothesis testing.</description>
     </item>
   </channel>
 </rss>

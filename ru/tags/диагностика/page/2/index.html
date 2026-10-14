@@ -38,7 +38,6 @@
 
 <link rel="canonical" href="https://fossamethod.ru/ru/tags/%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0/">
 <link rel="alternate" hreflang="ru" href="https://fossamethod.ru/ru/tags/%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0/">
-<link rel="alternate" hreflang="en" href="https://fossamethod.ru/en/tags/%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0/">
 <meta property="og:title" content="Диагностика">
 <meta property="og:description" content="Сайт Fossa Method о морской биологии и аквариумистике">
 <meta property="og:url" content="https://fossamethod.ru/ru/tags/%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0/">
@@ -124,12 +123,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                    <li>
-                        <a href="https://fossamethod.ru/en/tags/%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0/" title="English"
-                            aria-label="English">En</a>
-                    </li>
-                </ul>
             </div>
         </div>
 <a href="https://fossamethod.ru/" class="site-logo">
@@ -521,6 +514,22 @@ document.addEventListener("click", function (e) {
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("article blockquote").forEach(outer => {
+    const inner = outer.querySelector(":scope > blockquote");
+
+    if (!inner) return;
+
+    
+    inner.replaceWith(...inner.childNodes);
+
+    
+    outer.classList.add("callout");
+  });
+});
+</script>
+
 
 <script>
     let menu = document.getElementById('menu')
@@ -679,7 +688,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/ru/posts/index_granulomas/">Традиции вместо науки IV. Диагноз.</a></li>
       
-        <li><a href="https://fossamethod.ru/ru/fo/index_desease/">FMC: почему лечебная ванна ещё не означает лечение</a></li>
+        <li><a href="https://fossamethod.ru/ru/fo/index_desease/">FMC: Why a Treatment Bath Is Not the Same as Effective Treatment</a></li>
       
         <li><a href="https://fossamethod.ru/ru/f/index_desease/">Рыбу искупали. А вылечили?</a></li>
       

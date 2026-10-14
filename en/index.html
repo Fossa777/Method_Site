@@ -501,7 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </h2>
       </header>
       <div class="entry-content">
-        <p>Granulomas do not necessarily mean mycobacteriosis. Their shape, size, necrosis, and capsule development describe a pathological process, but do not identify its cause. Using examples of different lesions in fish, we examine the limits of morphological diagnosis and the danger of turning observations into ready-made diagnoses.</p>
+        <p>Granulomas do not necessarily mean mycobacteriosis. Shape, size, necrosis, and capsule development characterize a pathological process but do not identify its cause. Using examples of different lesions in fish, we examine the limits of morphological diagnosis and the danger of turning observations into ready-made diagnoses.</p>
       </div>
       <footer class="entry-footer"><span title='2026-10-07 00:00:00 +0000 UTC'>October 7, 2026</span>&nbsp;·&nbsp;11 min</footer>
       <a class="entry-link" aria-label="post link to Traditions Instead of Science IV. Diagnosis." href="https://fossamethod.ru/en/posts/index_granulomas/"></a>
@@ -865,6 +865,22 @@ document.addEventListener("click", function (e) {
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("article blockquote").forEach(outer => {
+    const inner = outer.querySelector(":scope > blockquote");
+
+    if (!inner) return;
+
+    
+    inner.replaceWith(...inner.childNodes);
+
+    
+    outer.classList.add("callout");
+  });
+});
+</script>
+
 
 <script>
     let menu = document.getElementById('menu')
@@ -1015,19 +1031,23 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/en/posts/index_metod/">Tradition Instead of Science I. The Method.</a></li>
       
-        <li><a href="https://fossamethod.ru/en/f/index_granulomas/">Белые точки в органах рыбы. Это туберкулёз?</a></li>
+        <li><a href="https://fossamethod.ru/en/fo/index_granulomas/">Granulomas in Fish: What Their Structure Reveals—and What It Cannot Prove</a></li>
       
-        <li><a href="https://fossamethod.ru/en/fo/index_granulomas/">Гранулёмы у рыб: что показывает строение и чего оно не доказывает</a></li>
+        <li><a href="https://fossamethod.ru/en/fo/index_metod/">Phenol-Free Staining: What Changes in the Method and the Conclusions</a></li>
       
-        <li><a href="https://fossamethod.ru/en/f/index_metod/">Красные палочки: зачем я изменил привычный метод</a></li>
+        <li><a href="https://fossamethod.ru/en/f/index_metod/">Red Rods: Why I Changed the Usual Method</a></li>
       
-        <li><a href="https://fossamethod.ru/en/fo/index_metod/">Окраска без фенола: что меняется в методе и выводах</a></li>
+        <li><a href="https://fossamethod.ru/en/f/index_granulomas/">White Spots in Fish Organs: Is It Tuberculosis?</a></li>
       
         <li><a href="https://fossamethod.ru/en/posts/index_granulomas/">Traditions Instead of Science IV. Diagnosis.</a></li>
       
         <li><a href="https://fossamethod.ru/en/fo/index_desease/">FMC: почему лечебная ванна ещё не означает лечение</a></li>
       
-        <li><a href="https://fossamethod.ru/en/fo/index_fish_scrab/">Рыба трётся о предметы: поведение, причина и диагноз</a></li>
+        <li><a href="https://fossamethod.ru/en/f/index_desease/">We Gave the Fish a Bath. But Did We Cure It?</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/fo/index_fish_scrab/">Fish Rubbing Against Objects: Behavior, Cause, and Diagnosis</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/f/index_fish_scrab/">The Fish Is Scratching. But Why?</a></li>
       
         <li><a href="https://fossamethod.ru/en/posts/health-is-not-sterility/">Health Does Not Mean Sterility</a></li>
       

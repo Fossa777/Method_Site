@@ -408,14 +408,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <article class="post-entry"> 
       <header class="entry-header">
-        <h2 class="entry-hint-parent">FMC: почему лечебная ванна ещё не означает лечение
+        <h2 class="entry-hint-parent">FMC: Why a Treatment Bath Is Not the Same as Effective Treatment
         </h2>
       </header>
       <div class="entry-content">
-        <p>Почему десятиминутную ванну FMC нельзя обосновать одним названием препарата и что нужно проверить до и после обработки.</p>
+        <p>Why a ten-minute FMC bath cannot be justified by the product name alone, and what should be checked before and after treatment.</p>
       </div>
-      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>октября 14, 2026</span>&nbsp;·&nbsp;5 минут</footer>
-      <a class="entry-link" aria-label="post link to FMC: почему лечебная ванна ещё не означает лечение" href="https://fossamethod.ru/ru/fo/index_desease/"></a>
+      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>октября 14, 2026</span>&nbsp;·&nbsp;7 минут</footer>
+      <a class="entry-link" aria-label="post link to FMC: Why a Treatment Bath Is Not the Same as Effective Treatment" href="https://fossamethod.ru/ru/fo/index_desease/"></a>
     </article>
 
     <article class="post-entry"> 
@@ -520,6 +520,22 @@ document.addEventListener("click", function (e) {
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("article blockquote").forEach(outer => {
+    const inner = outer.querySelector(":scope > blockquote");
+
+    if (!inner) return;
+
+    
+    inner.replaceWith(...inner.childNodes);
+
+    
+    outer.classList.add("callout");
+  });
+});
+</script>
+
 
 <script>
     let menu = document.getElementById('menu')
@@ -678,7 +694,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/ru/posts/index_granulomas/">Традиции вместо науки IV. Диагноз.</a></li>
       
-        <li><a href="https://fossamethod.ru/ru/fo/index_desease/">FMC: почему лечебная ванна ещё не означает лечение</a></li>
+        <li><a href="https://fossamethod.ru/ru/fo/index_desease/">FMC: Why a Treatment Bath Is Not the Same as Effective Treatment</a></li>
       
         <li><a href="https://fossamethod.ru/ru/f/index_desease/">Рыбу искупали. А вылечили?</a></li>
       

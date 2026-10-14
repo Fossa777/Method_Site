@@ -9,18 +9,32 @@
     <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://fossamethod.ru/en/f/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Белые точки в органах рыбы. Это туберкулёз?</title>
-      <link>https://fossamethod.ru/en/f/index_granulomas/</link>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
-      <guid>https://fossamethod.ru/en/f/index_granulomas/</guid>
-      <description>На двух селезёнках рыб видны похожие белые узелки. Почему по внешнему виду нельзя решить, что причина — микобактерии.</description>
-    </item>
-    <item>
-      <title>Красные палочки: зачем я изменил привычный метод</title>
+      <title>Red Rods: Why I Changed the Usual Method</title>
       <link>https://fossamethod.ru/en/f/index_metod/</link>
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/f/index_metod/</guid>
-      <description>История о том, как три варианта окраски одной селезёнки скалярии помогли увидеть бактерии — и почему увидеть их ещё не значит поставить диагноз.</description>
+      <description>How three staining methods applied to samples from the same angelfish spleen helped reveal bacteria—and why seeing them is not the same as making a diagnosis.</description>
+    </item>
+    <item>
+      <title>White Spots in Fish Organs: Is It Tuberculosis?</title>
+      <link>https://fossamethod.ru/en/f/index_granulomas/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_granulomas/</guid>
+      <description>Two fish spleens have similar-looking white nodules. Why appearance alone cannot tell us whether mycobacteria are responsible.</description>
+    </item>
+    <item>
+      <title>We Gave the Fish a Bath. But Did We Cure It?</title>
+      <link>https://fossamethod.ru/en/f/index_desease/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_desease/</guid>
+      <description>Why ten minutes in a medicated bath does not necessarily mean a fish has recovered. A simple story about FMC, parasites, and the habit of treating fish by following a routine.</description>
+    </item>
+    <item>
+      <title>The Fish Is Scratching. But Why?</title>
+      <link>https://fossamethod.ru/en/f/index_fish_scrab/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_fish_scrab/</guid>
+      <description>A fish rubs against rocks — does that mean it has parasites? Why a single movement cannot tell us what is happening to its skin or gills.</description>
     </item>
   </channel>
 </rss>

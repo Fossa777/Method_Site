@@ -354,60 +354,6 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="post-grid">
 
     <article class="post-entry tag-entry"> 
-<figure class="entry-cover">
-        <img loading="lazy" src="https://fossamethod.ru/images/covers/index_granulomas.webp" alt="Гранулематозные и узловые образования у рыб">
-</figure>
-      <header class="entry-header">
-        <h2 class="entry-hint-parent">Белые точки в органах рыбы. Это туберкулёз?
-        </h2>
-      </header>
-      <div class="entry-content">
-        <p>Две похожие селезёнки, разные находки под микроскопом. История о том, почему белые узелки и гранулёмы ещё не диагноз.</p>
-      </div>
-      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;3 min</footer>
-      <a class="entry-link" aria-label="post link to Белые точки в органах рыбы. Это туберкулёз?" href="https://fossamethod.ru/en/f/index_granulomas/"></a>
-    </article>
-
-    <article class="post-entry tag-entry"> 
-<figure class="entry-cover">
-        <img loading="lazy" src="https://fossamethod.ru/images/covers/index_granulomas.webp" alt="Гранулематозные и узловые образования у рыб">
-</figure>
-      <header class="entry-header">
-        <h2 class="entry-hint-parent">Гранулёмы у рыб: что показывает строение и чего оно не доказывает
-        </h2>
-      </header>
-      <div class="entry-content">
-        <p>Макроскопический узелок ещё не гранулёма, а гранулёма ещё не микобактериоз. Объясняем механизм, морфологические признаки и этапы проверки диагноза.</p>
-      </div>
-      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;4 min</footer>
-      <a class="entry-link" aria-label="post link to Гранулёмы у рыб: что показывает строение и чего оно не доказывает" href="https://fossamethod.ru/en/fo/index_granulomas/"></a>
-    </article>
-
-    <article class="post-entry tag-entry"> 
-      <header class="entry-header">
-        <h2 class="entry-hint-parent">Красные палочки: зачем я изменил привычный метод
-        </h2>
-      </header>
-      <div class="entry-content">
-        <p>Можно ли получить полезную информацию из препарата, когда нет всех реактивов? История одного опыта и трёх окрашиваний.</p>
-      </div>
-      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;4 min</footer>
-      <a class="entry-link" aria-label="post link to Красные палочки: зачем я изменил привычный метод" href="https://fossamethod.ru/en/f/index_metod/"></a>
-    </article>
-
-    <article class="post-entry tag-entry"> 
-      <header class="entry-header">
-        <h2 class="entry-hint-parent">Окраска без фенола: что меняется в методе и выводах
-        </h2>
-      </header>
-      <div class="entry-content">
-        <p>Разбираем роль фенола, нагревания и кислоты на примере трёх вариантов окраски материала селезёнки скалярии.</p>
-      </div>
-      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;6 min</footer>
-      <a class="entry-link" aria-label="post link to Окраска без фенола: что меняется в методе и выводах" href="https://fossamethod.ru/en/fo/index_metod/"></a>
-    </article>
-
-    <article class="post-entry tag-entry"> 
       <header class="entry-header">
         <h2 class="entry-hint-parent">FMC: почему лечебная ванна ещё не означает лечение
         </h2>
@@ -417,18 +363,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;5 min</footer>
       <a class="entry-link" aria-label="post link to FMC: почему лечебная ванна ещё не означает лечение" href="https://fossamethod.ru/en/fo/index_desease/"></a>
-    </article>
-
-    <article class="post-entry tag-entry"> 
-      <header class="entry-header">
-        <h2 class="entry-hint-parent">Рыба трётся о предметы: поведение, причина и диагноз
-        </h2>
-      </header>
-      <div class="entry-content">
-        <p>Flashing — наблюдаемое поведение, но не локализация поражения и не диагноз. Разбираем мысленный эксперимент, физиологию раздражения и пределы клинических выводов.</p>
-      </div>
-      <footer class="entry-footer"><span title='2026-10-14 00:00:00 +0000 UTC'>October 14, 2026</span>&nbsp;·&nbsp;5 min</footer>
-      <a class="entry-link" aria-label="post link to Рыба трётся о предметы: поведение, причина и диагноз" href="https://fossamethod.ru/en/fo/index_fish_scrab/"></a>
     </article>
   </div>
 </div>
@@ -521,6 +455,22 @@ document.addEventListener("click", function (e) {
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("article blockquote").forEach(outer => {
+    const inner = outer.querySelector(":scope > blockquote");
+
+    if (!inner) return;
+
+    
+    inner.replaceWith(...inner.childNodes);
+
+    
+    outer.classList.add("callout");
+  });
+});
+</script>
+
 
 <script>
     let menu = document.getElementById('menu')
@@ -671,19 +621,23 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/en/posts/index_metod/">Tradition Instead of Science I. The Method.</a></li>
       
-        <li><a href="https://fossamethod.ru/en/f/index_granulomas/">Белые точки в органах рыбы. Это туберкулёз?</a></li>
+        <li><a href="https://fossamethod.ru/en/fo/index_granulomas/">Granulomas in Fish: What Their Structure Reveals—and What It Cannot Prove</a></li>
       
-        <li><a href="https://fossamethod.ru/en/fo/index_granulomas/">Гранулёмы у рыб: что показывает строение и чего оно не доказывает</a></li>
+        <li><a href="https://fossamethod.ru/en/fo/index_metod/">Phenol-Free Staining: What Changes in the Method and the Conclusions</a></li>
       
-        <li><a href="https://fossamethod.ru/en/f/index_metod/">Красные палочки: зачем я изменил привычный метод</a></li>
+        <li><a href="https://fossamethod.ru/en/f/index_metod/">Red Rods: Why I Changed the Usual Method</a></li>
       
-        <li><a href="https://fossamethod.ru/en/fo/index_metod/">Окраска без фенола: что меняется в методе и выводах</a></li>
+        <li><a href="https://fossamethod.ru/en/f/index_granulomas/">White Spots in Fish Organs: Is It Tuberculosis?</a></li>
       
         <li><a href="https://fossamethod.ru/en/posts/index_granulomas/">Traditions Instead of Science IV. Diagnosis.</a></li>
       
         <li><a href="https://fossamethod.ru/en/fo/index_desease/">FMC: почему лечебная ванна ещё не означает лечение</a></li>
       
-        <li><a href="https://fossamethod.ru/en/fo/index_fish_scrab/">Рыба трётся о предметы: поведение, причина и диагноз</a></li>
+        <li><a href="https://fossamethod.ru/en/f/index_desease/">We Gave the Fish a Bath. But Did We Cure It?</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/fo/index_fish_scrab/">Fish Rubbing Against Objects: Behavior, Cause, and Diagnosis</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/f/index_fish_scrab/">The Fish Is Scratching. But Why?</a></li>
       
         <li><a href="https://fossamethod.ru/en/posts/health-is-not-sterility/">Health Does Not Mean Sterility</a></li>
       

@@ -557,6 +557,22 @@ document.addEventListener("click", function (e) {
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("article blockquote").forEach(outer => {
+    const inner = outer.querySelector(":scope > blockquote");
+
+    if (!inner) return;
+
+    
+    inner.replaceWith(...inner.childNodes);
+
+    
+    outer.classList.add("callout");
+  });
+});
+</script>
+
 
 <script>
     let menu = document.getElementById('menu')
@@ -715,7 +731,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/ru/posts/index_granulomas/">Традиции вместо науки IV. Диагноз.</a></li>
       
-        <li><a href="https://fossamethod.ru/ru/fo/index_desease/">FMC: почему лечебная ванна ещё не означает лечение</a></li>
+        <li><a href="https://fossamethod.ru/ru/fo/index_desease/">FMC: Why a Treatment Bath Is Not the Same as Effective Treatment</a></li>
       
         <li><a href="https://fossamethod.ru/ru/f/index_desease/">Рыбу искупали. А вылечили?</a></li>
       
