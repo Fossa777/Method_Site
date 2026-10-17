@@ -1699,7 +1699,7 @@ That is why it is better to describe what is actually visible first:</p>
     script.dataset.fossaOpenseadragon = 'true';
 
     script.addEventListener('load', function () {
-        console.log('OpenSeadragon загружен для встроенного микроскопа');
+        console.log('YYYYY');
     });
 
     script.addEventListener('error', function () {
@@ -2212,7 +2212,7 @@ function updateAnnotationButtonText() {
 
 
 async function loadAnnotations(roiFilePath) {
-    console.log('Загрузка аннотаций из:', roiFilePath);
+  
     
     if (!roiFilePath || roiFilePath === '""' || roiFilePath === '') {
         console.log('Путь к аннотациям пустой или не указан');
@@ -2224,11 +2224,11 @@ async function loadAnnotations(roiFilePath) {
 
         const cleanPath = roiFilePath.replace(/^"|"$/g, ''); 
         const fullPath = cleanPath.startsWith('http') ? cleanPath : window.location.origin + cleanPath;
-        console.log('Полный URL для загрузки:', fullPath);
+  
         
-        console.log('Отправляем запрос...');
+ 
         const response = await fetch(fullPath);
-        console.log('Ответ получен. Статус:', response.status, response.statusText);
+       
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -2279,7 +2279,6 @@ function renderAnnotations() {
         
         const groupColor = group.color || '#ff4444';
         
-        console.log(`Группа ${groupIndex}: ${group.id}, цвет: ${groupColor}, точек: ${group.points.length}`);
 
         group.points.forEach((point, pointIndex) => {
             const marker = document.createElement('div');
@@ -2305,11 +2304,7 @@ function renderAnnotations() {
 
 
 function updateMarkerPosition() {
-    if (!viewer || !viewer.world || !viewer.world.getItemAt(0)) {
-        console.log('Viewer не готов для расчета позиций');
-        return;
-    }
-    
+        
     try {
      
         const tiledImage = viewer.world.getItemAt(0);
@@ -2344,11 +2339,11 @@ function updateMarkerPosition() {
             marker.style.height = markerSize + 'px';
             marker.style.borderWidth = Math.max(1, 2 * zoomFactor) + 'px';
         } else {
-            console.log('Неверные координаты экрана:', screenPoint);
+            console.log('X', screenPoint);
         }
         
     } catch (error) {
-        console.log('Ошибка при расчете позиции маркера:', error);
+        console.log('XX', error);
     }
 }
 
@@ -2366,12 +2361,7 @@ marker.addEventListener('click', (e) => {
         );
         const viewportPoint = tiledImage.imageToViewportCoordinates(imagePoint);
         
-        console.log('Центрируем на точку:', {
-            normalized: point,
-            image: imagePoint,
-            viewport: viewportPoint
-        });
-        
+              
         viewer.viewport.panTo(viewportPoint, true);
         viewer.viewport.zoomTo(8, null, true);
     }
@@ -2417,7 +2407,7 @@ marker.addEventListener('wheel', (e) => {
 
         const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
         
-        console.log('ZoomBy относительно точки:', viewportPoint);
+ 
         
  
         viewer.viewport.zoomBy(zoomFactor, viewportPoint);
@@ -2465,8 +2455,6 @@ marker.addEventListener('wheel', (e) => {
     const button = document.getElementById(`toggle-annotations-${id}`);
     const annotationsLayer = document.getElementById(`annotations-${id}`);
 
-    console.log('Переключение аннотаций:', showAnnotations, 'Групп:', currentAnnotations.length);
-
   
     updateAnnotationButtonText();
 
@@ -2475,8 +2463,6 @@ marker.addEventListener('wheel', (e) => {
         if (currentAnnotations.length > 0) {
             renderAnnotations();
         } else {
-            console.log('Нет аннотаций для отображения');
-            
             setTimeout(() => {
                 showAnnotations = false;
                 updateAnnotationButtonText();
@@ -2515,9 +2501,8 @@ function initialize() {
         toggleBtn.classList.remove('active');
         
         toggleBtn.addEventListener('click', toggleAnnotations);
-        console.log('Обработчик кнопки аннотаций добавлен');
     } else {
-        console.log('Кнопка аннотаций не найдена!');
+        console.log('XXX');
     }
 
     let resizeTimeout;
@@ -2534,39 +2519,6 @@ function initialize() {
         setTimeout(() => loadSpecimen(0), 500);
     }
 }
-
-
-
-function debugLoadAnnotations() {
-  
-    currentAnnotations = [];
-    
-    
-    if (currentSpecimen && currentSpecimen.roi_file) {
-        loadAnnotations(currentSpecimen.roi_file).then(() => {
-            console.log('Результат загрузки:', {
-                showAnnotations: showAnnotations,
-                currentAnnotations: currentAnnotations,
-                length: currentAnnotations.length
-            });
-            
-            if (currentAnnotations.length > 0) {
-                showAnnotations = true;
-                const button = document.getElementById(`toggle-annotations-${id}`);
-                if (button) {
-                    button.textContent = 'Аннотации: Вкл';
-                    button.classList.add('active');
-                }
-                renderAnnotations();
-            }
-        });
-    } else {
-        console.log('Нет текущего препарата или ROI файла');
-    }
-}
-
-
-
 
 
 
@@ -2642,14 +2594,6 @@ if (targetMicrons >= 1000) {
 
 barText.textContent = `${displayValue} ${displayUnit}`;
         
-        console.log('Scale bar:', {
-            targetMicrons, 
-            screenPixels, 
-            clampedPixels,
-            scopeScale,
-            scopeWidth
-        });
-	console.log("currentSpecimen:", currentSpecimen);
     }
 }
 
@@ -2658,7 +2602,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
         if (isTransitioning) return;
         
         isTransitioning = true;
-        console.log('Эффект линзы при смене уровня масштабирования:', isZoomIn ? 'увеличение' : 'уменьшение');
         
         
         lensEffect.className = 'lens-effect';
@@ -2683,7 +2626,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
             
             setTimeout(() => {
                 isTransitioning = false;
-                console.log('Эффект линзы завершен');
             }, 800);
         }, 50);
     }
@@ -2709,7 +2651,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
 
 
     function initOpenSeadragon() {
-        console.log('Инициализируем OpenSeadragon для микроскопа...');
         
         if (!viewerContainer) {
             console.error('Контейнер DZI viewer не найден');
@@ -2736,7 +2677,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
                 loadTilesWithAjax: false
             });
 
-            console.log('OpenSeadragon инициализирован');
 
             
             
@@ -2767,7 +2707,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
             });
 
             viewer.addHandler('open', function() {
-                console.log('DZI открыт');
 
                 
                 
@@ -2914,7 +2853,6 @@ function loadSpecimen(specimenId) {
     const specimen = specimens[specimenId];
     if (!specimen) return;
 
-    console.log('Загружаем препарат:', specimen.name);
 
     showAnnotations = false;
     updateAnnotationButtonText();
@@ -2959,12 +2897,12 @@ if (toggleBtn) {
     updateSpecimenUrl(specimen);
     
     
-    console.log('Проверка ROI файла:', specimen.roi_file);
+ 
     
     if (specimen.roi_file && specimen.roi_file !== '""' && specimen.roi_file !== '') {
         loadAnnotations(specimen.roi_file);
     } else {
-        console.log('ROI файл не указан или пустой в препарате');
+
         currentAnnotations = [];
         if (annotationsLayer) {
             annotationsLayer.innerHTML = '';
@@ -2987,7 +2925,6 @@ if (toggleBtn) {
         }
 
         const dziPath = "/dzi/" + dziFile;
-        console.log('Загружаем DZI:', dziPath);
         viewer.open(dziPath);
     }
 
@@ -3001,10 +2938,9 @@ if (toggleBtn) {
 
 
     function initialize() {
-        console.log('Инициализация коллекции микроскопа', id);
+
         
         if (typeof OpenSeadragon === 'undefined') {
-            console.log('⏳ OpenSeadragon еще не загружен, ждем...');
             setTimeout(initialize, 100);
             return;
         }
@@ -3015,13 +2951,12 @@ if (toggleBtn) {
         }
 
         const toggleBtn = document.getElementById(`toggle-annotations-${id}`);
-        console.log('Поиск кнопки аннотаций:', `toggle-annotations-${id}`, 'Найдено:', toggleBtn);
         
         if (toggleBtn) {
             toggleBtn.addEventListener('click', toggleAnnotations);
-            console.log('Обработчик кнопки аннотаций добавлен');
+            console.log('YYYYY');
         } else {
-            console.log('Кнопка аннотаций не найдена!');
+            console.log('XXXXX');
         }
 
         let resizeTimeout;
@@ -3036,7 +2971,6 @@ if (toggleBtn) {
 
 if (specimens.length > 0) {
     const initialSpecimenId = getSpecimenIdFromUrl();
-    console.log('Initial microscope slide:', shortcodeSlide, 'specimen id:', initialSpecimenId, 'single:', singleMode);
 
     setTimeout(() => {
         loadSpecimen(initialSpecimenId);
@@ -3050,7 +2984,7 @@ if (specimens.length > 0) {
         initialize();
     }
 
-    console.log('Microscope DZI collection with annotations initialized with', specimens.length, 'specimens');
+
 })();
 </script>
 <hr>
@@ -4049,7 +3983,7 @@ if (specimens.length > 0) {
     script.dataset.fossaOpenseadragon = 'true';
 
     script.addEventListener('load', function () {
-        console.log('OpenSeadragon загружен для встроенного микроскопа');
+        console.log('YYYYY');
     });
 
     script.addEventListener('error', function () {
@@ -4562,7 +4496,7 @@ function updateAnnotationButtonText() {
 
 
 async function loadAnnotations(roiFilePath) {
-    console.log('Загрузка аннотаций из:', roiFilePath);
+  
     
     if (!roiFilePath || roiFilePath === '""' || roiFilePath === '') {
         console.log('Путь к аннотациям пустой или не указан');
@@ -4574,11 +4508,11 @@ async function loadAnnotations(roiFilePath) {
 
         const cleanPath = roiFilePath.replace(/^"|"$/g, ''); 
         const fullPath = cleanPath.startsWith('http') ? cleanPath : window.location.origin + cleanPath;
-        console.log('Полный URL для загрузки:', fullPath);
+  
         
-        console.log('Отправляем запрос...');
+ 
         const response = await fetch(fullPath);
-        console.log('Ответ получен. Статус:', response.status, response.statusText);
+       
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -4629,7 +4563,6 @@ function renderAnnotations() {
         
         const groupColor = group.color || '#ff4444';
         
-        console.log(`Группа ${groupIndex}: ${group.id}, цвет: ${groupColor}, точек: ${group.points.length}`);
 
         group.points.forEach((point, pointIndex) => {
             const marker = document.createElement('div');
@@ -4655,11 +4588,7 @@ function renderAnnotations() {
 
 
 function updateMarkerPosition() {
-    if (!viewer || !viewer.world || !viewer.world.getItemAt(0)) {
-        console.log('Viewer не готов для расчета позиций');
-        return;
-    }
-    
+        
     try {
      
         const tiledImage = viewer.world.getItemAt(0);
@@ -4694,11 +4623,11 @@ function updateMarkerPosition() {
             marker.style.height = markerSize + 'px';
             marker.style.borderWidth = Math.max(1, 2 * zoomFactor) + 'px';
         } else {
-            console.log('Неверные координаты экрана:', screenPoint);
+            console.log('X', screenPoint);
         }
         
     } catch (error) {
-        console.log('Ошибка при расчете позиции маркера:', error);
+        console.log('XX', error);
     }
 }
 
@@ -4716,12 +4645,7 @@ marker.addEventListener('click', (e) => {
         );
         const viewportPoint = tiledImage.imageToViewportCoordinates(imagePoint);
         
-        console.log('Центрируем на точку:', {
-            normalized: point,
-            image: imagePoint,
-            viewport: viewportPoint
-        });
-        
+              
         viewer.viewport.panTo(viewportPoint, true);
         viewer.viewport.zoomTo(8, null, true);
     }
@@ -4767,7 +4691,7 @@ marker.addEventListener('wheel', (e) => {
 
         const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
         
-        console.log('ZoomBy относительно точки:', viewportPoint);
+ 
         
  
         viewer.viewport.zoomBy(zoomFactor, viewportPoint);
@@ -4815,8 +4739,6 @@ marker.addEventListener('wheel', (e) => {
     const button = document.getElementById(`toggle-annotations-${id}`);
     const annotationsLayer = document.getElementById(`annotations-${id}`);
 
-    console.log('Переключение аннотаций:', showAnnotations, 'Групп:', currentAnnotations.length);
-
   
     updateAnnotationButtonText();
 
@@ -4825,8 +4747,6 @@ marker.addEventListener('wheel', (e) => {
         if (currentAnnotations.length > 0) {
             renderAnnotations();
         } else {
-            console.log('Нет аннотаций для отображения');
-            
             setTimeout(() => {
                 showAnnotations = false;
                 updateAnnotationButtonText();
@@ -4865,9 +4785,8 @@ function initialize() {
         toggleBtn.classList.remove('active');
         
         toggleBtn.addEventListener('click', toggleAnnotations);
-        console.log('Обработчик кнопки аннотаций добавлен');
     } else {
-        console.log('Кнопка аннотаций не найдена!');
+        console.log('XXX');
     }
 
     let resizeTimeout;
@@ -4884,39 +4803,6 @@ function initialize() {
         setTimeout(() => loadSpecimen(0), 500);
     }
 }
-
-
-
-function debugLoadAnnotations() {
-  
-    currentAnnotations = [];
-    
-    
-    if (currentSpecimen && currentSpecimen.roi_file) {
-        loadAnnotations(currentSpecimen.roi_file).then(() => {
-            console.log('Результат загрузки:', {
-                showAnnotations: showAnnotations,
-                currentAnnotations: currentAnnotations,
-                length: currentAnnotations.length
-            });
-            
-            if (currentAnnotations.length > 0) {
-                showAnnotations = true;
-                const button = document.getElementById(`toggle-annotations-${id}`);
-                if (button) {
-                    button.textContent = 'Аннотации: Вкл';
-                    button.classList.add('active');
-                }
-                renderAnnotations();
-            }
-        });
-    } else {
-        console.log('Нет текущего препарата или ROI файла');
-    }
-}
-
-
-
 
 
 
@@ -4992,14 +4878,6 @@ if (targetMicrons >= 1000) {
 
 barText.textContent = `${displayValue} ${displayUnit}`;
         
-        console.log('Scale bar:', {
-            targetMicrons, 
-            screenPixels, 
-            clampedPixels,
-            scopeScale,
-            scopeWidth
-        });
-	console.log("currentSpecimen:", currentSpecimen);
     }
 }
 
@@ -5008,7 +4886,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
         if (isTransitioning) return;
         
         isTransitioning = true;
-        console.log('Эффект линзы при смене уровня масштабирования:', isZoomIn ? 'увеличение' : 'уменьшение');
         
         
         lensEffect.className = 'lens-effect';
@@ -5033,7 +4910,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
             
             setTimeout(() => {
                 isTransitioning = false;
-                console.log('Эффект линзы завершен');
             }, 800);
         }, 50);
     }
@@ -5059,7 +4935,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
 
 
     function initOpenSeadragon() {
-        console.log('Инициализируем OpenSeadragon для микроскопа...');
         
         if (!viewerContainer) {
             console.error('Контейнер DZI viewer не найден');
@@ -5086,7 +4961,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
                 loadTilesWithAjax: false
             });
 
-            console.log('OpenSeadragon инициализирован');
 
             
             
@@ -5117,7 +4991,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
             });
 
             viewer.addHandler('open', function() {
-                console.log('DZI открыт');
 
                 
                 
@@ -5264,7 +5137,6 @@ function loadSpecimen(specimenId) {
     const specimen = specimens[specimenId];
     if (!specimen) return;
 
-    console.log('Загружаем препарат:', specimen.name);
 
     showAnnotations = false;
     updateAnnotationButtonText();
@@ -5309,12 +5181,12 @@ if (toggleBtn) {
     updateSpecimenUrl(specimen);
     
     
-    console.log('Проверка ROI файла:', specimen.roi_file);
+ 
     
     if (specimen.roi_file && specimen.roi_file !== '""' && specimen.roi_file !== '') {
         loadAnnotations(specimen.roi_file);
     } else {
-        console.log('ROI файл не указан или пустой в препарате');
+
         currentAnnotations = [];
         if (annotationsLayer) {
             annotationsLayer.innerHTML = '';
@@ -5337,7 +5209,6 @@ if (toggleBtn) {
         }
 
         const dziPath = "/dzi/" + dziFile;
-        console.log('Загружаем DZI:', dziPath);
         viewer.open(dziPath);
     }
 
@@ -5351,10 +5222,9 @@ if (toggleBtn) {
 
 
     function initialize() {
-        console.log('Инициализация коллекции микроскопа', id);
+
         
         if (typeof OpenSeadragon === 'undefined') {
-            console.log('⏳ OpenSeadragon еще не загружен, ждем...');
             setTimeout(initialize, 100);
             return;
         }
@@ -5365,13 +5235,12 @@ if (toggleBtn) {
         }
 
         const toggleBtn = document.getElementById(`toggle-annotations-${id}`);
-        console.log('Поиск кнопки аннотаций:', `toggle-annotations-${id}`, 'Найдено:', toggleBtn);
         
         if (toggleBtn) {
             toggleBtn.addEventListener('click', toggleAnnotations);
-            console.log('Обработчик кнопки аннотаций добавлен');
+            console.log('YYYYY');
         } else {
-            console.log('Кнопка аннотаций не найдена!');
+            console.log('XXXXX');
         }
 
         let resizeTimeout;
@@ -5386,7 +5255,6 @@ if (toggleBtn) {
 
 if (specimens.length > 0) {
     const initialSpecimenId = getSpecimenIdFromUrl();
-    console.log('Initial microscope slide:', shortcodeSlide, 'specimen id:', initialSpecimenId, 'single:', singleMode);
 
     setTimeout(() => {
         loadSpecimen(initialSpecimenId);
@@ -5400,7 +5268,7 @@ if (specimens.length > 0) {
         initialize();
     }
 
-    console.log('Microscope DZI collection with annotations initialized with', specimens.length, 'specimens');
+
 })();
 </script>
 <hr>
@@ -6443,7 +6311,7 @@ Sometimes two lesions lie close together in the tissue. Their outer zones of res
     script.dataset.fossaOpenseadragon = 'true';
 
     script.addEventListener('load', function () {
-        console.log('OpenSeadragon загружен для встроенного микроскопа');
+        console.log('YYYYY');
     });
 
     script.addEventListener('error', function () {
@@ -6956,7 +6824,7 @@ function updateAnnotationButtonText() {
 
 
 async function loadAnnotations(roiFilePath) {
-    console.log('Загрузка аннотаций из:', roiFilePath);
+  
     
     if (!roiFilePath || roiFilePath === '""' || roiFilePath === '') {
         console.log('Путь к аннотациям пустой или не указан');
@@ -6968,11 +6836,11 @@ async function loadAnnotations(roiFilePath) {
 
         const cleanPath = roiFilePath.replace(/^"|"$/g, ''); 
         const fullPath = cleanPath.startsWith('http') ? cleanPath : window.location.origin + cleanPath;
-        console.log('Полный URL для загрузки:', fullPath);
+  
         
-        console.log('Отправляем запрос...');
+ 
         const response = await fetch(fullPath);
-        console.log('Ответ получен. Статус:', response.status, response.statusText);
+       
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -7023,7 +6891,6 @@ function renderAnnotations() {
         
         const groupColor = group.color || '#ff4444';
         
-        console.log(`Группа ${groupIndex}: ${group.id}, цвет: ${groupColor}, точек: ${group.points.length}`);
 
         group.points.forEach((point, pointIndex) => {
             const marker = document.createElement('div');
@@ -7049,11 +6916,7 @@ function renderAnnotations() {
 
 
 function updateMarkerPosition() {
-    if (!viewer || !viewer.world || !viewer.world.getItemAt(0)) {
-        console.log('Viewer не готов для расчета позиций');
-        return;
-    }
-    
+        
     try {
      
         const tiledImage = viewer.world.getItemAt(0);
@@ -7088,11 +6951,11 @@ function updateMarkerPosition() {
             marker.style.height = markerSize + 'px';
             marker.style.borderWidth = Math.max(1, 2 * zoomFactor) + 'px';
         } else {
-            console.log('Неверные координаты экрана:', screenPoint);
+            console.log('X', screenPoint);
         }
         
     } catch (error) {
-        console.log('Ошибка при расчете позиции маркера:', error);
+        console.log('XX', error);
     }
 }
 
@@ -7110,12 +6973,7 @@ marker.addEventListener('click', (e) => {
         );
         const viewportPoint = tiledImage.imageToViewportCoordinates(imagePoint);
         
-        console.log('Центрируем на точку:', {
-            normalized: point,
-            image: imagePoint,
-            viewport: viewportPoint
-        });
-        
+              
         viewer.viewport.panTo(viewportPoint, true);
         viewer.viewport.zoomTo(8, null, true);
     }
@@ -7161,7 +7019,7 @@ marker.addEventListener('wheel', (e) => {
 
         const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
         
-        console.log('ZoomBy относительно точки:', viewportPoint);
+ 
         
  
         viewer.viewport.zoomBy(zoomFactor, viewportPoint);
@@ -7209,8 +7067,6 @@ marker.addEventListener('wheel', (e) => {
     const button = document.getElementById(`toggle-annotations-${id}`);
     const annotationsLayer = document.getElementById(`annotations-${id}`);
 
-    console.log('Переключение аннотаций:', showAnnotations, 'Групп:', currentAnnotations.length);
-
   
     updateAnnotationButtonText();
 
@@ -7219,8 +7075,6 @@ marker.addEventListener('wheel', (e) => {
         if (currentAnnotations.length > 0) {
             renderAnnotations();
         } else {
-            console.log('Нет аннотаций для отображения');
-            
             setTimeout(() => {
                 showAnnotations = false;
                 updateAnnotationButtonText();
@@ -7259,9 +7113,8 @@ function initialize() {
         toggleBtn.classList.remove('active');
         
         toggleBtn.addEventListener('click', toggleAnnotations);
-        console.log('Обработчик кнопки аннотаций добавлен');
     } else {
-        console.log('Кнопка аннотаций не найдена!');
+        console.log('XXX');
     }
 
     let resizeTimeout;
@@ -7278,39 +7131,6 @@ function initialize() {
         setTimeout(() => loadSpecimen(0), 500);
     }
 }
-
-
-
-function debugLoadAnnotations() {
-  
-    currentAnnotations = [];
-    
-    
-    if (currentSpecimen && currentSpecimen.roi_file) {
-        loadAnnotations(currentSpecimen.roi_file).then(() => {
-            console.log('Результат загрузки:', {
-                showAnnotations: showAnnotations,
-                currentAnnotations: currentAnnotations,
-                length: currentAnnotations.length
-            });
-            
-            if (currentAnnotations.length > 0) {
-                showAnnotations = true;
-                const button = document.getElementById(`toggle-annotations-${id}`);
-                if (button) {
-                    button.textContent = 'Аннотации: Вкл';
-                    button.classList.add('active');
-                }
-                renderAnnotations();
-            }
-        });
-    } else {
-        console.log('Нет текущего препарата или ROI файла');
-    }
-}
-
-
-
 
 
 
@@ -7386,14 +7206,6 @@ if (targetMicrons >= 1000) {
 
 barText.textContent = `${displayValue} ${displayUnit}`;
         
-        console.log('Scale bar:', {
-            targetMicrons, 
-            screenPixels, 
-            clampedPixels,
-            scopeScale,
-            scopeWidth
-        });
-	console.log("currentSpecimen:", currentSpecimen);
     }
 }
 
@@ -7402,7 +7214,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
         if (isTransitioning) return;
         
         isTransitioning = true;
-        console.log('Эффект линзы при смене уровня масштабирования:', isZoomIn ? 'увеличение' : 'уменьшение');
         
         
         lensEffect.className = 'lens-effect';
@@ -7427,7 +7238,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
             
             setTimeout(() => {
                 isTransitioning = false;
-                console.log('Эффект линзы завершен');
             }, 800);
         }, 50);
     }
@@ -7453,7 +7263,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
 
 
     function initOpenSeadragon() {
-        console.log('Инициализируем OpenSeadragon для микроскопа...');
         
         if (!viewerContainer) {
             console.error('Контейнер DZI viewer не найден');
@@ -7480,7 +7289,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
                 loadTilesWithAjax: false
             });
 
-            console.log('OpenSeadragon инициализирован');
 
             
             
@@ -7511,7 +7319,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
             });
 
             viewer.addHandler('open', function() {
-                console.log('DZI открыт');
 
                 
                 
@@ -7658,7 +7465,6 @@ function loadSpecimen(specimenId) {
     const specimen = specimens[specimenId];
     if (!specimen) return;
 
-    console.log('Загружаем препарат:', specimen.name);
 
     showAnnotations = false;
     updateAnnotationButtonText();
@@ -7703,12 +7509,12 @@ if (toggleBtn) {
     updateSpecimenUrl(specimen);
     
     
-    console.log('Проверка ROI файла:', specimen.roi_file);
+ 
     
     if (specimen.roi_file && specimen.roi_file !== '""' && specimen.roi_file !== '') {
         loadAnnotations(specimen.roi_file);
     } else {
-        console.log('ROI файл не указан или пустой в препарате');
+
         currentAnnotations = [];
         if (annotationsLayer) {
             annotationsLayer.innerHTML = '';
@@ -7731,7 +7537,6 @@ if (toggleBtn) {
         }
 
         const dziPath = "/dzi/" + dziFile;
-        console.log('Загружаем DZI:', dziPath);
         viewer.open(dziPath);
     }
 
@@ -7745,10 +7550,9 @@ if (toggleBtn) {
 
 
     function initialize() {
-        console.log('Инициализация коллекции микроскопа', id);
+
         
         if (typeof OpenSeadragon === 'undefined') {
-            console.log('⏳ OpenSeadragon еще не загружен, ждем...');
             setTimeout(initialize, 100);
             return;
         }
@@ -7759,13 +7563,12 @@ if (toggleBtn) {
         }
 
         const toggleBtn = document.getElementById(`toggle-annotations-${id}`);
-        console.log('Поиск кнопки аннотаций:', `toggle-annotations-${id}`, 'Найдено:', toggleBtn);
         
         if (toggleBtn) {
             toggleBtn.addEventListener('click', toggleAnnotations);
-            console.log('Обработчик кнопки аннотаций добавлен');
+            console.log('YYYYY');
         } else {
-            console.log('Кнопка аннотаций не найдена!');
+            console.log('XXXXX');
         }
 
         let resizeTimeout;
@@ -7780,7 +7583,6 @@ if (toggleBtn) {
 
 if (specimens.length > 0) {
     const initialSpecimenId = getSpecimenIdFromUrl();
-    console.log('Initial microscope slide:', shortcodeSlide, 'specimen id:', initialSpecimenId, 'single:', singleMode);
 
     setTimeout(() => {
         loadSpecimen(initialSpecimenId);
@@ -7794,7 +7596,7 @@ if (specimens.length > 0) {
         initialize();
     }
 
-    console.log('Microscope DZI collection with annotations initialized with', specimens.length, 'specimens');
+
 })();
 </script>
 <div style="clear: both;"></div>
@@ -7850,18 +7652,11 @@ Pagán, A.J., Ramakrishnan, L., 2015. Immunity and Immunopathology in the Tuberc
   <h2>See also</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/elephantfly/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Flying Elephants</a>
+        <a href="https://fossamethod.ru/en/posts/index_fish_scrab/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Traditions Instead of Science.<br>III</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/elephantfly.webp" alt="Flying Elephants" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/index_fish_scrab.webp" alt="Traditions Instead of Science. III" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Flying Elephants</span><span class="hoverlink-desc">Why science requires more than an elegant hypothesis. The role of photographs, videos, specimens, and primary data in building and verifying …</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/index_desease/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Traditions Instead of Science.<br>II</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/index_desease.webp" alt="Traditions Instead of Science. II" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Traditions Instead of Science. II</span><span class="hoverlink-desc">Why a familiar treatment protocol does not automatically become evidence-based therapy. Using FMC as an example, we examine how …</span></span>
+            <span class="hoverlink-title">Traditions Instead of Science. III</span><span class="hoverlink-desc">A fish rubs against the substrate — but is it really “itching,” let alone “scratching its gills”? We examine where observation ends and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/en/posts/index_metod/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Tradition Instead of Science<br>I. The Method.</a>
@@ -7871,25 +7666,32 @@ Pagán, A.J., Ramakrishnan, L., 2015. Immunity and Immunopathology in the Tuberc
             <span class="hoverlink-title">Tradition Instead of Science I. The Method.</span><span class="hoverlink-desc">What can staining still reveal when the classic Ziehl–Neelsen method cannot be performed in full? Exploring the roles of phenol, heat, and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/fish-autopsy-myth/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Is It Ever Too<br>Late for a Fish<br>Autopsy?</a>
+        <a href="https://fossamethod.ru/en/posts/index_desease/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Traditions Instead of Science.<br>II</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/autopsy_fish.jpg" alt="Is It Ever Too Late for a Fish Autopsy?" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/index_desease.webp" alt="Traditions Instead of Science. II" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Is It Ever Too Late for a Fish Autopsy?</span><span class="hoverlink-desc">Debunking the myth: why you can examine a fish hours after death—not just in the first 30 minutes.</span></span>
+            <span class="hoverlink-title">Traditions Instead of Science. II</span><span class="hoverlink-desc">Why a familiar treatment protocol does not automatically become evidence-based therapy. Using FMC as an example, we examine how …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/ichthyophthirius/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Ichthyophthiriosis Without Myths</a>
+        <a href="https://fossamethod.ru/en/posts/size/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Patient Size Doesn’t Matter<br>— Why Fish Don’t<br>Die From Diagnostics</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Ichthyophthirius.webp" alt="Ichthyophthiriosis Without Myths" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/size.webp" alt="Patient Size Doesn’t Matter — Why Fish Don’t Die From Diagnostics" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Ichthyophthiriosis Without Myths</span><span class="hoverlink-desc">A science-based analysis of Ichthyophthirius multifiliis: life cycle, cyst terminology, the myth of parasite ubiquity, and real mechanisms …</span></span>
+            <span class="hoverlink-title">Patient Size Doesn’t Matter — Why Fish Don’t Die From Diagnostics</span><span class="hoverlink-desc">Debunking the myth that diagnostic procedures kill fish. Non-lethal examination techniques, compensatory physiology, and why mortality …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/intracellular/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Granulomas and intracellular agents<br>in fish</a>
+        <a href="https://fossamethod.ru/en/posts/bubble_diagnoz/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Gas Bubble Disease. Part<br>II. Consequences.</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/intracellular.webp" alt="Granulomas and intracellular agents in fish" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Bublle2.webp" alt="Gas Bubble Disease. Part II. Consequences." loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Granulomas and intracellular agents in fish</span><span class="hoverlink-desc">A collection of real observations: intracellular yeast-like organisms, coccidia, cryptosporidia, and fungal structures in fish.</span></span>
+            <span class="hoverlink-title">Gas Bubble Disease. Part II. Consequences.</span><span class="hoverlink-desc">Comparison of normal and pathological findings in fish necropsy: liver, kidney, gills, and brain. How to distinguish acceptable variation …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/en/posts/crypt/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptocaryon irritans: Not Just<br>White Spots</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/crypt_fish.webp" alt="Cryptocaryon irritans: Not Just White Spots" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Cryptocaryon irritans: Not Just White Spots</span><span class="hoverlink-desc">Cryptocaryon irritans. is a ciliated protozoan parasite, often visible to the naked eye. Tangs, butterflyfish, and boxfish are particularly …</span></span>
         </span>
       </span></div>
 </section>
@@ -8338,71 +8140,37 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/en/video/buble/">Bubble formation</a></li>
       
-        <li><a href="https://fossamethod.ru/en/videos/buble/">Bubble formation</a></li>
-      
         <li><a href="https://fossamethod.ru/en/video/ciliated-epithelium/">Ciliated Epithelium of the Kidney</a></li>
-      
-        <li><a href="https://fossamethod.ru/en/videos/ciliated-epithelium/">Ciliated Epithelium of the Kidney</a></li>
       
         <li><a href="https://fossamethod.ru/en/video/ciliate-and-bacter/">Ciliates and Bacteria on Fish Surfaces</a></li>
       
-        <li><a href="https://fossamethod.ru/en/videos/ciliate-and-bacter/">Ciliates and Bacteria on Fish Surfaces</a></li>
-      
         <li><a href="https://fossamethod.ru/en/video/cryptobia-run/">Cryptobia Moving Through Detritus</a></li>
       
-        <li><a href="https://fossamethod.ru/en/videos/cryptobia-run/">Cryptobia Moving Through Detritus</a></li>
-      
         <li><a href="https://fossamethod.ru/en/video/cryptocaryon/">Cryptocaryon irritans in gills</a></li>
-      
-        <li><a href="https://fossamethod.ru/en/videos/cryptocaryon/">Cryptocaryon irritans in gills</a></li>
       
         <li><a href="https://fossamethod.ru/en/test/reasoning-test/">Diagnostic Thinking</a></li>
       
         <li><a href="https://fossamethod.ru/en/video/ichthyophthirius/">Division of Ichthyophthirius multifiliis</a></li>
       
-        <li><a href="https://fossamethod.ru/en/videos/ichthyophthirius/">Division of Ichthyophthirius multifiliis</a></li>
-      
-        <li><a href="https://fossamethod.ru/en/videos/ichthyophthiriusdivision/">Division of Ichthyophthirius multifiliis</a></li>
-      
         <li><a href="https://fossamethod.ru/en/video/fin-erosion/">Fin ray structure</a></li>
-      
-        <li><a href="https://fossamethod.ru/en/videos/fin-erosion/">Fin ray structure</a></li>
       
         <li><a href="https://fossamethod.ru/en/video/autopsy/">Fish necropsy</a></li>
       
-        <li><a href="https://fossamethod.ru/en/videos/autopsy/">Fish necropsy</a></li>
-      
         <li><a href="https://fossamethod.ru/en/video/fungi-in-fish/">Fungal Hyphae in Fish Tissues</a></li>
-      
-        <li><a href="https://fossamethod.ru/en/videos/fungi-in-fish/">Fungal Hyphae in Fish Tissues</a></li>
       
         <li><a href="https://fossamethod.ru/en/video/fungi-native/">Fungal Structures in a Native Preparation</a></li>
       
-        <li><a href="https://fossamethod.ru/en/videos/fungi-native/">Fungal Structures in a Native Preparation</a></li>
-      
         <li><a href="https://fossamethod.ru/en/video/heat-fish/">Heart of an Amur Sleeper Larva Under the Microscope</a></li>
-      
-        <li><a href="https://fossamethod.ru/en/videos/heat-fish/">Heart of an Amur Sleeper Larva Under the Microscope</a></li>
       
         <li><a href="https://fossamethod.ru/en/video/ichtiobodo/">Ichthyobodo spp.: Comparing Morphotypes</a></li>
       
-        <li><a href="https://fossamethod.ru/en/videos/ichtiobodo/">Ichthyobodo spp.: Comparing Morphotypes</a></li>
-      
         <li><a href="https://fossamethod.ru/en/video/ziehl/">Loeffler vs Ziehl–Neelsen</a></li>
-      
-        <li><a href="https://fossamethod.ru/en/videos/ziehl/">Loeffler vs Ziehl–Neelsen</a></li>
       
         <li><a href="https://fossamethod.ru/en/video/color/">Pigment or Cocci?</a></li>
       
-        <li><a href="https://fossamethod.ru/en/videos/color/">Pigment or Cocci?</a></li>
-      
         <li><a href="https://fossamethod.ru/en/video/praziquantel/">Praziquantel in Water</a></li>
       
-        <li><a href="https://fossamethod.ru/en/videos/praziquantel/">Praziquantel in Water</a></li>
-      
         <li><a href="https://fossamethod.ru/en/video/hexamitids/">What &#39;many hexamitids&#39; actually looks like</a></li>
-      
-        <li><a href="https://fossamethod.ru/en/videos/hexamitids/">What &#39;many hexamitids&#39; actually looks like</a></li>
       
     </ul>
   </nav>

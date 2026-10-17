@@ -1715,7 +1715,7 @@ document.addEventListener('DOMContentLoaded', () => {
     script.dataset.fossaOpenseadragon = 'true';
 
     script.addEventListener('load', function () {
-        console.log('OpenSeadragon загружен для встроенного микроскопа');
+        console.log('YYYYY');
     });
 
     script.addEventListener('error', function () {
@@ -2228,7 +2228,7 @@ function updateAnnotationButtonText() {
 
 
 async function loadAnnotations(roiFilePath) {
-    console.log('Загрузка аннотаций из:', roiFilePath);
+  
     
     if (!roiFilePath || roiFilePath === '""' || roiFilePath === '') {
         console.log('Путь к аннотациям пустой или не указан');
@@ -2240,11 +2240,11 @@ async function loadAnnotations(roiFilePath) {
 
         const cleanPath = roiFilePath.replace(/^"|"$/g, ''); 
         const fullPath = cleanPath.startsWith('http') ? cleanPath : window.location.origin + cleanPath;
-        console.log('Полный URL для загрузки:', fullPath);
+  
         
-        console.log('Отправляем запрос...');
+ 
         const response = await fetch(fullPath);
-        console.log('Ответ получен. Статус:', response.status, response.statusText);
+       
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -2295,7 +2295,6 @@ function renderAnnotations() {
         
         const groupColor = group.color || '#ff4444';
         
-        console.log(`Группа ${groupIndex}: ${group.id}, цвет: ${groupColor}, точек: ${group.points.length}`);
 
         group.points.forEach((point, pointIndex) => {
             const marker = document.createElement('div');
@@ -2321,11 +2320,7 @@ function renderAnnotations() {
 
 
 function updateMarkerPosition() {
-    if (!viewer || !viewer.world || !viewer.world.getItemAt(0)) {
-        console.log('Viewer не готов для расчета позиций');
-        return;
-    }
-    
+        
     try {
      
         const tiledImage = viewer.world.getItemAt(0);
@@ -2360,11 +2355,11 @@ function updateMarkerPosition() {
             marker.style.height = markerSize + 'px';
             marker.style.borderWidth = Math.max(1, 2 * zoomFactor) + 'px';
         } else {
-            console.log('Неверные координаты экрана:', screenPoint);
+            console.log('X', screenPoint);
         }
         
     } catch (error) {
-        console.log('Ошибка при расчете позиции маркера:', error);
+        console.log('XX', error);
     }
 }
 
@@ -2382,12 +2377,7 @@ marker.addEventListener('click', (e) => {
         );
         const viewportPoint = tiledImage.imageToViewportCoordinates(imagePoint);
         
-        console.log('Центрируем на точку:', {
-            normalized: point,
-            image: imagePoint,
-            viewport: viewportPoint
-        });
-        
+              
         viewer.viewport.panTo(viewportPoint, true);
         viewer.viewport.zoomTo(8, null, true);
     }
@@ -2433,7 +2423,7 @@ marker.addEventListener('wheel', (e) => {
 
         const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
         
-        console.log('ZoomBy относительно точки:', viewportPoint);
+ 
         
  
         viewer.viewport.zoomBy(zoomFactor, viewportPoint);
@@ -2481,8 +2471,6 @@ marker.addEventListener('wheel', (e) => {
     const button = document.getElementById(`toggle-annotations-${id}`);
     const annotationsLayer = document.getElementById(`annotations-${id}`);
 
-    console.log('Переключение аннотаций:', showAnnotations, 'Групп:', currentAnnotations.length);
-
   
     updateAnnotationButtonText();
 
@@ -2491,8 +2479,6 @@ marker.addEventListener('wheel', (e) => {
         if (currentAnnotations.length > 0) {
             renderAnnotations();
         } else {
-            console.log('Нет аннотаций для отображения');
-            
             setTimeout(() => {
                 showAnnotations = false;
                 updateAnnotationButtonText();
@@ -2531,9 +2517,8 @@ function initialize() {
         toggleBtn.classList.remove('active');
         
         toggleBtn.addEventListener('click', toggleAnnotations);
-        console.log('Обработчик кнопки аннотаций добавлен');
     } else {
-        console.log('Кнопка аннотаций не найдена!');
+        console.log('XXX');
     }
 
     let resizeTimeout;
@@ -2550,39 +2535,6 @@ function initialize() {
         setTimeout(() => loadSpecimen(0), 500);
     }
 }
-
-
-
-function debugLoadAnnotations() {
-  
-    currentAnnotations = [];
-    
-    
-    if (currentSpecimen && currentSpecimen.roi_file) {
-        loadAnnotations(currentSpecimen.roi_file).then(() => {
-            console.log('Результат загрузки:', {
-                showAnnotations: showAnnotations,
-                currentAnnotations: currentAnnotations,
-                length: currentAnnotations.length
-            });
-            
-            if (currentAnnotations.length > 0) {
-                showAnnotations = true;
-                const button = document.getElementById(`toggle-annotations-${id}`);
-                if (button) {
-                    button.textContent = 'Аннотации: Вкл';
-                    button.classList.add('active');
-                }
-                renderAnnotations();
-            }
-        });
-    } else {
-        console.log('Нет текущего препарата или ROI файла');
-    }
-}
-
-
-
 
 
 
@@ -2658,14 +2610,6 @@ if (targetMicrons >= 1000) {
 
 barText.textContent = `${displayValue} ${displayUnit}`;
         
-        console.log('Scale bar:', {
-            targetMicrons, 
-            screenPixels, 
-            clampedPixels,
-            scopeScale,
-            scopeWidth
-        });
-	console.log("currentSpecimen:", currentSpecimen);
     }
 }
 
@@ -2674,7 +2618,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
         if (isTransitioning) return;
         
         isTransitioning = true;
-        console.log('Эффект линзы при смене уровня масштабирования:', isZoomIn ? 'увеличение' : 'уменьшение');
         
         
         lensEffect.className = 'lens-effect';
@@ -2699,7 +2642,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
             
             setTimeout(() => {
                 isTransitioning = false;
-                console.log('Эффект линзы завершен');
             }, 800);
         }, 50);
     }
@@ -2725,7 +2667,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
 
 
     function initOpenSeadragon() {
-        console.log('Инициализируем OpenSeadragon для микроскопа...');
         
         if (!viewerContainer) {
             console.error('Контейнер DZI viewer не найден');
@@ -2752,7 +2693,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
                 loadTilesWithAjax: false
             });
 
-            console.log('OpenSeadragon инициализирован');
 
             
             
@@ -2783,7 +2723,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
             });
 
             viewer.addHandler('open', function() {
-                console.log('DZI открыт');
 
                 
                 
@@ -2930,7 +2869,6 @@ function loadSpecimen(specimenId) {
     const specimen = specimens[specimenId];
     if (!specimen) return;
 
-    console.log('Загружаем препарат:', specimen.name);
 
     showAnnotations = false;
     updateAnnotationButtonText();
@@ -2975,12 +2913,12 @@ if (toggleBtn) {
     updateSpecimenUrl(specimen);
     
     
-    console.log('Проверка ROI файла:', specimen.roi_file);
+ 
     
     if (specimen.roi_file && specimen.roi_file !== '""' && specimen.roi_file !== '') {
         loadAnnotations(specimen.roi_file);
     } else {
-        console.log('ROI файл не указан или пустой в препарате');
+
         currentAnnotations = [];
         if (annotationsLayer) {
             annotationsLayer.innerHTML = '';
@@ -3003,7 +2941,6 @@ if (toggleBtn) {
         }
 
         const dziPath = "/dzi/" + dziFile;
-        console.log('Загружаем DZI:', dziPath);
         viewer.open(dziPath);
     }
 
@@ -3017,10 +2954,9 @@ if (toggleBtn) {
 
 
     function initialize() {
-        console.log('Инициализация коллекции микроскопа', id);
+
         
         if (typeof OpenSeadragon === 'undefined') {
-            console.log('⏳ OpenSeadragon еще не загружен, ждем...');
             setTimeout(initialize, 100);
             return;
         }
@@ -3031,13 +2967,12 @@ if (toggleBtn) {
         }
 
         const toggleBtn = document.getElementById(`toggle-annotations-${id}`);
-        console.log('Поиск кнопки аннотаций:', `toggle-annotations-${id}`, 'Найдено:', toggleBtn);
         
         if (toggleBtn) {
             toggleBtn.addEventListener('click', toggleAnnotations);
-            console.log('Обработчик кнопки аннотаций добавлен');
+            console.log('YYYYY');
         } else {
-            console.log('Кнопка аннотаций не найдена!');
+            console.log('XXXXX');
         }
 
         let resizeTimeout;
@@ -3052,7 +2987,6 @@ if (toggleBtn) {
 
 if (specimens.length > 0) {
     const initialSpecimenId = getSpecimenIdFromUrl();
-    console.log('Initial microscope slide:', shortcodeSlide, 'specimen id:', initialSpecimenId, 'single:', singleMode);
 
     setTimeout(() => {
         loadSpecimen(initialSpecimenId);
@@ -3066,7 +3000,7 @@ if (specimens.length > 0) {
         initialize();
     }
 
-    console.log('Microscope DZI collection with annotations initialized with', specimens.length, 'specimens');
+
 })();
 </script>
 <p>После интенсивного окрашивания фуксином препарат можно докрасить контрастным красителем. В моём случае использовалась докраска по Леффлеру. Ранее интенсивно окрасившиеся палочки сохраняли ярко-красный цвет.<br>
@@ -3612,25 +3546,39 @@ World Health Organization, n.d. <em>Ziehl–Neelsen procedure: fundamentals.</em
   <h2>См. также</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/bubble_diagnoz/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Газопузырьковая болезнь. Часть II.<br>Последствия.</a>
+        <a href="https://fossamethod.ru/ru/posts/crypt/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptocaryon irritans. Паразит, а<br>не просто белые точки</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Bublle2.webp" alt="Газопузырьковая болезнь. Часть II. Последствия." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/crypt_fish.webp" alt="Cryptocaryon irritans. Паразит, а не просто белые точки" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Газопузырьковая болезнь. Часть II. Последствия.</span><span class="hoverlink-desc">Сравнение нормы и патологии при вскрытии рыб: печень, почки, жабры и головной мозг. Как отличать допустимые варианты от признаков застоя, …</span></span>
+            <span class="hoverlink-title">Cryptocaryon irritans. Паразит, а не просто белые точки</span><span class="hoverlink-desc">Научно обоснованный разбор биологии Cryptocaryon irritans: жизненный цикл, терминология tomont, theront, trophont, миф о «вездесущем …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/hexa/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Гексамитиды</a>
+        <a href="https://fossamethod.ru/ru/posts/size/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Размер пациента не важен<br>/ почему рыбы не<br>умирают от диагностики</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Hexa.webp" alt="Гексамитиды" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/size.webp" alt="Размер пациента не важен / почему рыбы не умирают от диагностики" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Гексамитиды</span><span class="hoverlink-desc">Почему гексамитиды не являются нормальной микрофлорой кишечника рыб, откуда берётся миф о «внутренних паразитах», и как на самом деле …</span></span>
+            <span class="hoverlink-title">Размер пациента не важен / почему рыбы не умирают от диагностики</span><span class="hoverlink-desc">Разбор мифа о смертельности диагностических процедур у рыб. Почему соскобы, мазки и осмотр являются нелетальными и в каких случаях рыбы …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/rules/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Простые правила при работе<br>с аквариумной рыбой</a>
+        <a href="https://fossamethod.ru/ru/posts/bublle/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Газопузырьковая болезнь. Не в<br>пузырьках дело...</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/rules.webp" alt="Простые правила при работе с аквариумной рыбой" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/jills_fish.webp" alt="Газопузырьковая болезнь. Не в пузырьках дело..." loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Простые правила при работе с аквариумной рыбой</span><span class="hoverlink-desc">Базовые рекомендации по диагностике и уходу за аквариумными рыбами: что делать при падеже, как интерпретировать аппетит, когда лечить …</span></span>
+            <span class="hoverlink-title">Газопузырьковая болезнь. Не в пузырьках дело...</span><span class="hoverlink-desc">Газопузырьковая болезнь у рыб — не результат попадания пузырьков в жабры, а следствие перенасыщения воды растворёнными газами. В статье …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/ru/posts/ai_forever/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Какие ваши доказательства?</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/ai_forever.webp" alt="Какие ваши доказательства?" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Какие ваши доказательства?</span><span class="hoverlink-desc">Почему в эпоху искусственного интеллекта уже недостаточно фотографии, видео и убедительного текста. О происхождении данных, проверяемости …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/ru/posts/medicines_poisons/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Две стороны одной дозировки</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/nematoda_fish.webp" alt="Две стороны одной дозировки" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Две стороны одной дозировки</span><span class="hoverlink-desc">Лекарства в аквариумистике: спасение или угроза? Разбираем плюсы и минусы антибиотиков, формалина, метиленовой сини и малахитового зелёного.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/ru/posts/health-is-not-sterility/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Здоровье не означает стерильность</a>
@@ -3638,20 +3586,6 @@ World Health Organization, n.d. <em>Ziehl–Neelsen procedure: fundamentals.</em
               <img src="https://fossamethod.ru/images/covers/health-is-not-sterility.webp" alt="Здоровье не означает стерильность" loading="lazy">
             </span><span class="hoverlink-content">
             <span class="hoverlink-title">Здоровье не означает стерильность</span><span class="hoverlink-desc">Почему присутствие микроорганизмов и паразитов не всегда означает болезнь, иммунитет не обязан уничтожать их полностью, а применение …</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/operation/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Хирургические операции на гидробионтах</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Hirurg.webp" alt="Хирургические операции на гидробионтах" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Хирургические операции на гидробионтах</span><span class="hoverlink-desc">Руководство по проведению хирургических операций на рыбах</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/crypto/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptococcus-like структуры у рыб</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Crypto.webp" alt="Cryptococcus-like структуры у рыб" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Cryptococcus-like структуры у рыб</span><span class="hoverlink-desc">Округлые структуры с выраженным halo, морфологически сходные с криптококками. Разбор морфологии и ограничений интерпретации.</span></span>
         </span>
       </span></div>
 </section>

@@ -1442,7 +1442,7 @@ updateThemeText();
     script.dataset.fossaOpenseadragon = 'true';
 
     script.addEventListener('load', function () {
-        console.log('OpenSeadragon загружен для встроенного микроскопа');
+        console.log('YYYYY');
     });
 
     script.addEventListener('error', function () {
@@ -1955,7 +1955,7 @@ function updateAnnotationButtonText() {
 
 
 async function loadAnnotations(roiFilePath) {
-    console.log('Загрузка аннотаций из:', roiFilePath);
+  
     
     if (!roiFilePath || roiFilePath === '""' || roiFilePath === '') {
         console.log('Путь к аннотациям пустой или не указан');
@@ -1967,11 +1967,11 @@ async function loadAnnotations(roiFilePath) {
 
         const cleanPath = roiFilePath.replace(/^"|"$/g, ''); 
         const fullPath = cleanPath.startsWith('http') ? cleanPath : window.location.origin + cleanPath;
-        console.log('Полный URL для загрузки:', fullPath);
+  
         
-        console.log('Отправляем запрос...');
+ 
         const response = await fetch(fullPath);
-        console.log('Ответ получен. Статус:', response.status, response.statusText);
+       
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -2022,7 +2022,6 @@ function renderAnnotations() {
         
         const groupColor = group.color || '#ff4444';
         
-        console.log(`Группа ${groupIndex}: ${group.id}, цвет: ${groupColor}, точек: ${group.points.length}`);
 
         group.points.forEach((point, pointIndex) => {
             const marker = document.createElement('div');
@@ -2048,11 +2047,7 @@ function renderAnnotations() {
 
 
 function updateMarkerPosition() {
-    if (!viewer || !viewer.world || !viewer.world.getItemAt(0)) {
-        console.log('Viewer не готов для расчета позиций');
-        return;
-    }
-    
+        
     try {
      
         const tiledImage = viewer.world.getItemAt(0);
@@ -2087,11 +2082,11 @@ function updateMarkerPosition() {
             marker.style.height = markerSize + 'px';
             marker.style.borderWidth = Math.max(1, 2 * zoomFactor) + 'px';
         } else {
-            console.log('Неверные координаты экрана:', screenPoint);
+            console.log('X', screenPoint);
         }
         
     } catch (error) {
-        console.log('Ошибка при расчете позиции маркера:', error);
+        console.log('XX', error);
     }
 }
 
@@ -2109,12 +2104,7 @@ marker.addEventListener('click', (e) => {
         );
         const viewportPoint = tiledImage.imageToViewportCoordinates(imagePoint);
         
-        console.log('Центрируем на точку:', {
-            normalized: point,
-            image: imagePoint,
-            viewport: viewportPoint
-        });
-        
+              
         viewer.viewport.panTo(viewportPoint, true);
         viewer.viewport.zoomTo(8, null, true);
     }
@@ -2160,7 +2150,7 @@ marker.addEventListener('wheel', (e) => {
 
         const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
         
-        console.log('ZoomBy относительно точки:', viewportPoint);
+ 
         
  
         viewer.viewport.zoomBy(zoomFactor, viewportPoint);
@@ -2208,8 +2198,6 @@ marker.addEventListener('wheel', (e) => {
     const button = document.getElementById(`toggle-annotations-${id}`);
     const annotationsLayer = document.getElementById(`annotations-${id}`);
 
-    console.log('Переключение аннотаций:', showAnnotations, 'Групп:', currentAnnotations.length);
-
   
     updateAnnotationButtonText();
 
@@ -2218,8 +2206,6 @@ marker.addEventListener('wheel', (e) => {
         if (currentAnnotations.length > 0) {
             renderAnnotations();
         } else {
-            console.log('Нет аннотаций для отображения');
-            
             setTimeout(() => {
                 showAnnotations = false;
                 updateAnnotationButtonText();
@@ -2258,9 +2244,8 @@ function initialize() {
         toggleBtn.classList.remove('active');
         
         toggleBtn.addEventListener('click', toggleAnnotations);
-        console.log('Обработчик кнопки аннотаций добавлен');
     } else {
-        console.log('Кнопка аннотаций не найдена!');
+        console.log('XXX');
     }
 
     let resizeTimeout;
@@ -2277,39 +2262,6 @@ function initialize() {
         setTimeout(() => loadSpecimen(0), 500);
     }
 }
-
-
-
-function debugLoadAnnotations() {
-  
-    currentAnnotations = [];
-    
-    
-    if (currentSpecimen && currentSpecimen.roi_file) {
-        loadAnnotations(currentSpecimen.roi_file).then(() => {
-            console.log('Результат загрузки:', {
-                showAnnotations: showAnnotations,
-                currentAnnotations: currentAnnotations,
-                length: currentAnnotations.length
-            });
-            
-            if (currentAnnotations.length > 0) {
-                showAnnotations = true;
-                const button = document.getElementById(`toggle-annotations-${id}`);
-                if (button) {
-                    button.textContent = 'Аннотации: Вкл';
-                    button.classList.add('active');
-                }
-                renderAnnotations();
-            }
-        });
-    } else {
-        console.log('Нет текущего препарата или ROI файла');
-    }
-}
-
-
-
 
 
 
@@ -2385,14 +2337,6 @@ if (targetMicrons >= 1000) {
 
 barText.textContent = `${displayValue} ${displayUnit}`;
         
-        console.log('Scale bar:', {
-            targetMicrons, 
-            screenPixels, 
-            clampedPixels,
-            scopeScale,
-            scopeWidth
-        });
-	console.log("currentSpecimen:", currentSpecimen);
     }
 }
 
@@ -2401,7 +2345,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
         if (isTransitioning) return;
         
         isTransitioning = true;
-        console.log('Эффект линзы при смене уровня масштабирования:', isZoomIn ? 'увеличение' : 'уменьшение');
         
         
         lensEffect.className = 'lens-effect';
@@ -2426,7 +2369,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
             
             setTimeout(() => {
                 isTransitioning = false;
-                console.log('Эффект линзы завершен');
             }, 800);
         }, 50);
     }
@@ -2452,7 +2394,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
 
 
     function initOpenSeadragon() {
-        console.log('Инициализируем OpenSeadragon для микроскопа...');
         
         if (!viewerContainer) {
             console.error('Контейнер DZI viewer не найден');
@@ -2479,7 +2420,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
                 loadTilesWithAjax: false
             });
 
-            console.log('OpenSeadragon инициализирован');
 
             
             
@@ -2510,7 +2450,6 @@ barText.textContent = `${displayValue} ${displayUnit}`;
             });
 
             viewer.addHandler('open', function() {
-                console.log('DZI открыт');
 
                 
                 
@@ -2657,7 +2596,6 @@ function loadSpecimen(specimenId) {
     const specimen = specimens[specimenId];
     if (!specimen) return;
 
-    console.log('Загружаем препарат:', specimen.name);
 
     showAnnotations = false;
     updateAnnotationButtonText();
@@ -2702,12 +2640,12 @@ if (toggleBtn) {
     updateSpecimenUrl(specimen);
     
     
-    console.log('Проверка ROI файла:', specimen.roi_file);
+ 
     
     if (specimen.roi_file && specimen.roi_file !== '""' && specimen.roi_file !== '') {
         loadAnnotations(specimen.roi_file);
     } else {
-        console.log('ROI файл не указан или пустой в препарате');
+
         currentAnnotations = [];
         if (annotationsLayer) {
             annotationsLayer.innerHTML = '';
@@ -2730,7 +2668,6 @@ if (toggleBtn) {
         }
 
         const dziPath = "/dzi/" + dziFile;
-        console.log('Загружаем DZI:', dziPath);
         viewer.open(dziPath);
     }
 
@@ -2744,10 +2681,9 @@ if (toggleBtn) {
 
 
     function initialize() {
-        console.log('Инициализация коллекции микроскопа', id);
+
         
         if (typeof OpenSeadragon === 'undefined') {
-            console.log('⏳ OpenSeadragon еще не загружен, ждем...');
             setTimeout(initialize, 100);
             return;
         }
@@ -2758,13 +2694,12 @@ if (toggleBtn) {
         }
 
         const toggleBtn = document.getElementById(`toggle-annotations-${id}`);
-        console.log('Поиск кнопки аннотаций:', `toggle-annotations-${id}`, 'Найдено:', toggleBtn);
         
         if (toggleBtn) {
             toggleBtn.addEventListener('click', toggleAnnotations);
-            console.log('Обработчик кнопки аннотаций добавлен');
+            console.log('YYYYY');
         } else {
-            console.log('Кнопка аннотаций не найдена!');
+            console.log('XXXXX');
         }
 
         let resizeTimeout;
@@ -2779,7 +2714,6 @@ if (toggleBtn) {
 
 if (specimens.length > 0) {
     const initialSpecimenId = getSpecimenIdFromUrl();
-    console.log('Initial microscope slide:', shortcodeSlide, 'specimen id:', initialSpecimenId, 'single:', singleMode);
 
     setTimeout(() => {
         loadSpecimen(initialSpecimenId);
@@ -2793,7 +2727,7 @@ if (specimens.length > 0) {
         initialize();
     }
 
-    console.log('Microscope DZI collection with annotations initialized with', specimens.length, 'specimens');
+
 })();
 </script>
 <blockquote>
