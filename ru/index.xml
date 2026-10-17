@@ -6,7 +6,7 @@
     <description>Recent content on Fossa Method</description>
     <generator>Hugo -- 0.147.2</generator>
     <language>ru</language>
-    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://fossamethod.ru/ru/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Летающие слоны</title>
@@ -121,6 +121,20 @@
       <description>О том, как формируется знание, почему уверенность часто опережает понимание и как научный метод помогает не путать наблюдение с объяснением.</description>
     </item>
     <item>
+      <title>Обтрёпанные плавники. Кто виноват?</title>
+      <link>https://fossamethod.ru/ru/f/finerosion/</link>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/f/finerosion/</guid>
+      <description>У рыбы разрушаются плавники — значит, бактериальная гниль? Наглядный опыт с плавниковым лучом и история о том, почему внешний вид ещё не объясняет причину.</description>
+    </item>
+    <item>
+      <title>Разрушение плавников: эрозия, инфекция и строение лучей</title>
+      <link>https://fossamethod.ru/ru/fo/finerosion/</link>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/fo/finerosion/</guid>
+      <description>Почему одинаково обтрёпанные плавники могут иметь разные причины: строение лепидотрихий, неинфекционная эрозия, колумнариоз и роль микроскопии.</description>
+    </item>
+    <item>
       <title>Здоровье не означает стерильность</title>
       <link>https://fossamethod.ru/ru/posts/health-is-not-sterility/</link>
       <pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
@@ -188,7 +202,7 @@
       <link>https://fossamethod.ru/ru/posts/finerosion/</link>
       <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/ru/posts/finerosion/</guid>
-      <description>Научно обоснованный разбор разрушения плавников у рыб: различие между fin erosion и бактериальными инфекциями, роль питания, метаболических нарушений и травм, а также распространённые заблуждения аквариумистов о «плавниковой гнили».</description>
+      <description>Разрушение плавников у рыб не всегда связано с бактериальной инфекцией. Строение лепидотрихий, неинфекционная эрозия, колумнариоз и границы диагностики.</description>
     </item>
     <item>
       <title>Гексамитиды</title>

@@ -29,7 +29,7 @@
 <meta name="license" content="Permission required for reuse. See the license page for details.">
 <meta name="language" content="en">
 <meta name="author" content="Artem Stepankov">
-<title>Traditions Instead of Science. II</title>
+<title>FMC in Fish Treatment: Formulation, Historical Protocols, and Limitations</title>
 <meta name="description" content="Why a familiar treatment protocol does not automatically become evidence-based therapy. Using FMC as an example, we examine how concentration, exposure time, the suspected pathogen, and the condition of the fish determine whether a treatment makes sense.">
 
 <meta name="keywords" content="FMC, formalin, malachite green, methylene blue, fish treatment, exposure time">
@@ -433,24 +433,26 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="fossa-depth">
   <span class="fossa-depth__label">Depth of analysis</span>
   <nav class="fossa-depth__nav" aria-label="Select the depth of analysis">
-    <a href="https://fossamethod.ru/en/f/index_desease/" class="fossa-depth__link" title="Simple story" >F.</a>
-    <a href="https://fossamethod.ru/en/fo/index_desease/" class="fossa-depth__link" title="Explanation of the method" >F.O.</a>
-    <a href="https://fossamethod.ru/en/posts/index_desease/" class="fossa-depth__link is-active" title="Full analysis with references" aria-current="page">F.O.S.</a>
+    <a href="https://fossamethod.ru/en/f/index_desease/" data-fossa-level="f" class="fossa-depth__link" title="Simple story" >F.</a>
+    <a href="https://fossamethod.ru/en/fo/index_desease/" data-fossa-level="fo" class="fossa-depth__link" title="Explanation of the method" >F.O.</a>
+    <a href="https://fossamethod.ru/en/posts/index_desease/" data-fossa-level="fos" class="fossa-depth__link is-active" title="Full analysis with references" aria-current="page">F.O.S.</a>
   </nav>
 </div>
 
 <script>
 (() => {
-  const isFOS = true;
+  const currentLevel = "fos";
+  const switcher = document.currentScript.previousElementSibling;
+  const links = switcher.querySelectorAll("a[data-fossa-level]");
+  const storageKey = "fossa-preferred-depth";
 
   function updateFossaLogo() {
     const myth = document.getElementById("logo-myth");
     const reality = document.getElementById("logo-reality");
-
     if (!myth || !reality) return;
 
-    myth.style.display = isFOS ? "none" : "block";
-    reality.style.display = isFOS ? "block" : "none";
+    myth.style.display = currentLevel === "fos" ? "none" : "block";
+    reality.style.display = currentLevel === "fos" ? "block" : "none";
   }
 
   if (document.readyState === "loading") {
@@ -458,6 +460,53 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     updateFossaLogo();
   }
+
+  
+  for (const link of links) {
+    link.addEventListener("click", (event) => {
+      if (event.defaultPrevented || event.button !== 0 ||
+          event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      try {
+        localStorage.setItem(storageKey, link.dataset.fossaLevel);
+      } catch (_) {
+        
+      }
+    });
+  }
+
+  let preferred;
+  try {
+    preferred = localStorage.getItem(storageKey);
+  } catch (_) {
+    return;
+  }
+  if (!["f", "fo", "fos"].includes(preferred) || preferred === currentLevel) return;
+
+  
+  
+  let fromThisSite = false;
+  try {
+    fromThisSite = Boolean(document.referrer) &&
+      new URL(document.referrer).origin === location.origin;
+  } catch (_) {}
+  if (!fromThisSite) return;
+
+  const target = Array.from(links).find(link => link.dataset.fossaLevel === preferred);
+  if (!target) return;
+
+  
+  fetch(target.href, { method: "HEAD", credentials: "same-origin" })
+    .then(response => {
+      if (!response.ok) return;
+      
+      const wanted = new URL(target.href);
+      const actual = new URL(response.url);
+      if (actual.origin !== wanted.origin || actual.pathname !== wanted.pathname) return;
+      location.replace(target.href);
+    })
+    .catch(() => {
+      
+    });
 })();
 </script>
 
@@ -645,18 +694,11 @@ Classic paper on the malachite green–formalin mixture for treatment of ichthyo
   <h2>See also</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/science/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Scientific Method. A Practical<br>Guide.</a>
+        <a href="https://fossamethod.ru/en/posts/medicines_poisons/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Two Sides of One<br>Dosage</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/science.webp" alt="Scientific Method. A Practical Guide." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/nematoda_fish.webp" alt="Two Sides of One Dosage" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Scientific Method. A Practical Guide.</span><span class="hoverlink-desc">How knowledge is formed, why confidence often outpaces understanding, and how the scientific method helps distinguish observation from …</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/index_granulomas/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Traditions Instead of Science<br>IV. Diagnosis.</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/index_granulomas.webp" alt="Traditions Instead of Science IV. Diagnosis." loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Traditions Instead of Science IV. Diagnosis.</span><span class="hoverlink-desc">Granulomas, necrosis, and mycobacteriosis in fish: why similar morphological findings do not imply the same etiology and cannot, on their …</span></span>
+            <span class="hoverlink-title">Two Sides of One Dosage</span><span class="hoverlink-desc">Aquarium medications: remedy or threat? Pros and cons of antibiotics, formalin, methylene blue, malachite green, and the FMC mixture.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/en/posts/ai_forever/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">What Is Your Evidence?</a>
@@ -666,25 +708,32 @@ Classic paper on the malachite green–formalin mixture for treatment of ichthyo
             <span class="hoverlink-title">What Is Your Evidence?</span><span class="hoverlink-desc">Why photographs, videos, and polished explanations are no longer enough in the age of generative AI. A practical look at provenance, …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/smear/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">The Smear Comes First.</a>
+        <a href="https://fossamethod.ru/en/posts/index_metod/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Tradition Instead of Science<br>I. The Method.</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/micro_fish.webp" alt="The Smear Comes First." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/index_metod.webp" alt="Tradition Instead of Science I. The Method." loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">The Smear Comes First.</span><span class="hoverlink-desc">A reflection on why smear microscopy often matters more than bacterial culture in fish pathology. Real cases, logic, and the danger of …</span></span>
+            <span class="hoverlink-title">Tradition Instead of Science I. The Method.</span><span class="hoverlink-desc">What can staining still reveal when the classic Ziehl–Neelsen method cannot be performed in full? Exploring the roles of phenol, heat, and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/ichthyophthirius/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Ichthyophthiriosis Without Myths</a>
+        <a href="https://fossamethod.ru/en/posts/health-is-not-sterility/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Health Does Not Mean<br>Sterility</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Ichthyophthirius.webp" alt="Ichthyophthiriosis Without Myths" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/health-is-not-sterility.webp" alt="Health Does Not Mean Sterility" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Ichthyophthiriosis Without Myths</span><span class="hoverlink-desc">A science-based analysis of Ichthyophthirius multifiliis: life cycle, cyst terminology, the myth of parasite ubiquity, and real mechanisms …</span></span>
+            <span class="hoverlink-title">Health Does Not Mean Sterility</span><span class="hoverlink-desc">Why the presence of microorganisms and parasites does not always mean disease, why immunity does not have to eliminate them completely, and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/cryptocaryon-control/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptocaryonosis: killing the parasite<br>or treating the water?</a>
+        <a href="https://fossamethod.ru/en/posts/bubble_diagnoz/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Gas Bubble Disease. Part<br>II. Consequences.</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/cryptocaryon-treatment.webp" alt="Cryptocaryonosis: killing the parasite or treating the water?" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Bublle2.webp" alt="Gas Bubble Disease. Part II. Consequences." loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Cryptocaryonosis: killing the parasite or treating the water?</span><span class="hoverlink-desc">A practical analysis of cryptocaryonosis treatment in marine fish: why killing the parasite should not become more important than the …</span></span>
+            <span class="hoverlink-title">Gas Bubble Disease. Part II. Consequences.</span><span class="hoverlink-desc">Comparison of normal and pathological findings in fish necropsy: liver, kidney, gills, and brain. How to distinguish acceptable variation …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/en/posts/bublle/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Gas Bubble Disease: It&#39;s<br>Not About the Bubbles</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/jills_fish.webp" alt="Gas Bubble Disease: It&#39;s Not About the Bubbles" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Gas Bubble Disease: It&#39;s Not About the Bubbles</span><span class="hoverlink-desc">Gas Bubble Disease in fish is not caused by air bubbles entering the gills but by dissolved gas supersaturation. This article explains the …</span></span>
         </span>
       </span></div>
 </section>
@@ -1084,6 +1133,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <li><a href="https://fossamethod.ru/en/fo/index_fish_scrab/">Fish Rubbing Against Objects: Behavior, Cause, and Diagnosis</a></li>
       
         <li><a href="https://fossamethod.ru/en/f/index_fish_scrab/">The Fish Is Scratching. But Why?</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/fo/finerosion/">Fin Damage: Erosion, Infection, and Fin-Ray Structure</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/f/finerosion/">Frayed Fins. Who&#39;s to Blame?</a></li>
       
         <li><a href="https://fossamethod.ru/en/posts/health-is-not-sterility/">Health Does Not Mean Sterility</a></li>
       

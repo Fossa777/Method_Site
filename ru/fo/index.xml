@@ -6,7 +6,7 @@
     <description>Recent content in Foes on Fossa Method</description>
     <generator>Hugo -- 0.147.2</generator>
     <language>ru</language>
-    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://fossamethod.ru/ru/fo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Гранулёмы у рыб: что показывает строение и чего оно не доказывает</title>
@@ -35,6 +35,13 @@
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/ru/fo/index_fish_scrab/</guid>
       <description>Почему flashing не позволяет сам по себе различить раздражение кожи, поражение жабр и другие причины. Наблюдение, интерпретация и проверка гипотезы.</description>
+    </item>
+    <item>
+      <title>Разрушение плавников: эрозия, инфекция и строение лучей</title>
+      <link>https://fossamethod.ru/ru/fo/finerosion/</link>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/fo/finerosion/</guid>
+      <description>Почему одинаково обтрёпанные плавники могут иметь разные причины: строение лепидотрихий, неинфекционная эрозия, колумнариоз и роль микроскопии.</description>
     </item>
   </channel>
 </rss>

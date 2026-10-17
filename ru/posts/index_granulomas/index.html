@@ -29,7 +29,7 @@
 <meta name="license" content="Permission required for reuse. See the license page for details.">
 <meta name="language" content="ru">
 <meta name="author" content="Artem Stepankov">
-<title>Традиции вместо науки IV. Диагноз.</title>
+<title>Гранулёмы у рыб: патогенез, микобактериоз и дифференциальная диагностика</title>
 <meta name="description" content="Гранулёмы, некроз и микобактериоз рыб: почему сходные морфологические признаки не означают одинаковую этиологию и не могут служить самостоятельным основанием для диагноза.">
 
 <meta name="keywords" content="гранулёмы у рыб, микобактериоз рыб, дифференциальная диагностика, патоморфология рыб, гранулематозное воспаление, некроз">
@@ -442,24 +442,26 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="fossa-depth">
   <span class="fossa-depth__label">Глубина разбора</span>
   <nav class="fossa-depth__nav" aria-label="Выбор глубины разбора материала">
-    <a href="https://fossamethod.ru/ru/f/index_granulomas/" class="fossa-depth__link" title="Простая история" >F.</a>
-    <a href="https://fossamethod.ru/ru/fo/index_granulomas/" class="fossa-depth__link" title="Объяснение метода" >F.O.</a>
-    <a href="https://fossamethod.ru/ru/posts/index_granulomas/" class="fossa-depth__link is-active" title="Полный разбор с источниками" aria-current="page">F.O.S.</a>
+    <a href="https://fossamethod.ru/ru/f/index_granulomas/" data-fossa-level="f" class="fossa-depth__link" title="Простая история" >F.</a>
+    <a href="https://fossamethod.ru/ru/fo/index_granulomas/" data-fossa-level="fo" class="fossa-depth__link" title="Объяснение метода" >F.O.</a>
+    <a href="https://fossamethod.ru/ru/posts/index_granulomas/" data-fossa-level="fos" class="fossa-depth__link is-active" title="Полный разбор с источниками" aria-current="page">F.O.S.</a>
   </nav>
 </div>
 
 <script>
 (() => {
-  const isFOS = true;
+  const currentLevel = "fos";
+  const switcher = document.currentScript.previousElementSibling;
+  const links = switcher.querySelectorAll("a[data-fossa-level]");
+  const storageKey = "fossa-preferred-depth";
 
   function updateFossaLogo() {
     const myth = document.getElementById("logo-myth");
     const reality = document.getElementById("logo-reality");
-
     if (!myth || !reality) return;
 
-    myth.style.display = isFOS ? "none" : "block";
-    reality.style.display = isFOS ? "block" : "none";
+    myth.style.display = currentLevel === "fos" ? "none" : "block";
+    reality.style.display = currentLevel === "fos" ? "block" : "none";
   }
 
   if (document.readyState === "loading") {
@@ -467,6 +469,53 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     updateFossaLogo();
   }
+
+  
+  for (const link of links) {
+    link.addEventListener("click", (event) => {
+      if (event.defaultPrevented || event.button !== 0 ||
+          event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      try {
+        localStorage.setItem(storageKey, link.dataset.fossaLevel);
+      } catch (_) {
+        
+      }
+    });
+  }
+
+  let preferred;
+  try {
+    preferred = localStorage.getItem(storageKey);
+  } catch (_) {
+    return;
+  }
+  if (!["f", "fo", "fos"].includes(preferred) || preferred === currentLevel) return;
+
+  
+  
+  let fromThisSite = false;
+  try {
+    fromThisSite = Boolean(document.referrer) &&
+      new URL(document.referrer).origin === location.origin;
+  } catch (_) {}
+  if (!fromThisSite) return;
+
+  const target = Array.from(links).find(link => link.dataset.fossaLevel === preferred);
+  if (!target) return;
+
+  
+  fetch(target.href, { method: "HEAD", credentials: "same-origin" })
+    .then(response => {
+      if (!response.ok) return;
+      
+      const wanted = new URL(target.href);
+      const actual = new URL(response.url);
+      if (actual.origin !== wanted.origin || actual.pathname !== wanted.pathname) return;
+      location.replace(target.href);
+    })
+    .catch(() => {
+      
+    });
 })();
 </script>
 
@@ -7806,46 +7855,46 @@ Pagán, A.J., Ramakrishnan, L., 2015. Immunity and Immunopathology in the Tuberc
   <h2>См. также</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/hexa/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Гексамитиды</a>
+        <a href="https://fossamethod.ru/ru/posts/freshfish/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Когда поздно для вскрытия?</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Hexa.webp" alt="Гексамитиды" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/autopsy_fish.jpg" alt="Когда поздно для вскрытия?" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Гексамитиды</span><span class="hoverlink-desc">Почему гексамитиды не являются нормальной микрофлорой кишечника рыб, откуда берётся миф о «внутренних паразитах», и как на самом деле …</span></span>
+            <span class="hoverlink-title">Когда поздно для вскрытия?</span><span class="hoverlink-desc">Развенчиваем миф: почему вскрывать рыбу можно даже спустя несколько часов, а не только в первые 30 минут.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/fossa-method/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fossa Method.</a>
+        <a href="https://fossamethod.ru/ru/posts/index_metod/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Традиции вместо науки I.<br>Метод.</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/fossa-method.webp" alt="Fossa Method." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/index_metod.webp" alt="Традиции вместо науки I. Метод. " loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Fossa Method.</span><span class="hoverlink-desc">Наблюдение, ограничения, модели, понимание и поиск механизмов. Попытка сформулировать принципы, которые лежат в основе диагностики, …</span></span>
+            <span class="hoverlink-title">Традиции вместо науки I. Метод. </span><span class="hoverlink-desc">Что можно получить от окраски, если классический метод Циля–Нильсена невозможно выполнить полностью? Разбираем роль фенола, нагревания и …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/bubble_diagnoz/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Газопузырьковая болезнь. Часть II.<br>Последствия.</a>
+        <a href="https://fossamethod.ru/ru/posts/coming/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Что делать с рыбой<br>после приезда</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Bublle2.webp" alt="Газопузырьковая болезнь. Часть II. Последствия." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/bacter_fish.webp" alt="Что делать с рыбой после приезда" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Газопузырьковая болезнь. Часть II. Последствия.</span><span class="hoverlink-desc">Сравнение нормы и патологии при вскрытии рыб: печень, почки, жабры и головной мозг. Как отличать допустимые варианты от признаков застоя, …</span></span>
+            <span class="hoverlink-title">Что делать с рыбой после приезда</span><span class="hoverlink-desc">Рыбка приехала — достаём микроскоп, делаем мазки, изучаем бактерии и решаем, что делать дальше. Без паники и с умом.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/health-is-not-sterility/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Здоровье не означает стерильность</a>
+        <a href="https://fossamethod.ru/ru/posts/goussia/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Кокцидии у рыб: Goussia</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/health-is-not-sterility.webp" alt="Здоровье не означает стерильность" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Goussia.webp" alt="Кокцидии у рыб: Goussia" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Здоровье не означает стерильность</span><span class="hoverlink-desc">Почему присутствие микроорганизмов и паразитов не всегда означает болезнь, иммунитет не обязан уничтожать их полностью, а применение …</span></span>
+            <span class="hoverlink-title">Кокцидии у рыб: Goussia</span><span class="hoverlink-desc">Кокцидии рода Goussia у рыб. Морфология ооцист, спороцист и споразоитов, диагностика и интерпретация микроскопических находок.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/operation/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Хирургические операции на гидробионтах</a>
+        <a href="https://fossamethod.ru/ru/posts/crypto/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptococcus-like структуры у рыб</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Hirurg.webp" alt="Хирургические операции на гидробионтах" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Crypto.webp" alt="Cryptococcus-like структуры у рыб" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Хирургические операции на гидробионтах</span><span class="hoverlink-desc">Руководство по проведению хирургических операций на рыбах</span></span>
+            <span class="hoverlink-title">Cryptococcus-like структуры у рыб</span><span class="hoverlink-desc">Округлые структуры с выраженным halo, морфологически сходные с криптококками. Разбор морфологии и ограничений интерпретации.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/medicines_poisons/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Две стороны одной дозировки</a>
+        <a href="https://fossamethod.ru/ru/posts/ai_forever/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Какие ваши доказательства?</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/nematoda_fish.webp" alt="Две стороны одной дозировки" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/ai_forever.webp" alt="Какие ваши доказательства?" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Две стороны одной дозировки</span><span class="hoverlink-desc">Лекарства в аквариумистике: спасение или угроза? Разбираем плюсы и минусы антибиотиков, формалина, метиленовой сини и малахитового зелёного.</span></span>
+            <span class="hoverlink-title">Какие ваши доказательства?</span><span class="hoverlink-desc">Почему в эпоху искусственного интеллекта уже недостаточно фотографии, видео и убедительного текста. О происхождении данных, проверяемости …</span></span>
         </span>
       </span></div>
 </section>
@@ -8245,6 +8294,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <li><a href="https://fossamethod.ru/ru/f/index_fish_scrab/">Рыбка чешется. Но от чего?</a></li>
       
         <li><a href="https://fossamethod.ru/ru/posts/science/">Научный метод. Инструкция по применению.</a></li>
+      
+        <li><a href="https://fossamethod.ru/ru/f/finerosion/">Обтрёпанные плавники. Кто виноват?</a></li>
+      
+        <li><a href="https://fossamethod.ru/ru/fo/finerosion/">Разрушение плавников: эрозия, инфекция и строение лучей</a></li>
       
         <li><a href="https://fossamethod.ru/ru/posts/health-is-not-sterility/">Здоровье не означает стерильность</a></li>
       

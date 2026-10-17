@@ -6,7 +6,7 @@
     <description>Recent content in Foes on Fossa Method</description>
     <generator>Hugo -- 0.147.2</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://fossamethod.ru/en/fo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Granulomas in Fish: What Their Structure Reveals—and What It Cannot Prove</title>
@@ -35,6 +35,13 @@
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/fo/index_fish_scrab/</guid>
       <description>Why flashing alone cannot distinguish skin irritation, gill disease, and other possible causes. Observation, interpretation, and hypothesis testing.</description>
+    </item>
+    <item>
+      <title>Fin Damage: Erosion, Infection, and Fin-Ray Structure</title>
+      <link>https://fossamethod.ru/en/fo/finerosion/</link>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/finerosion/</guid>
+      <description>Why similarly frayed fins may have different causes: the structure of lepidotrichia, non-infectious erosion, columnaris disease, and the role of microscopy.</description>
     </item>
   </channel>
 </rss>

@@ -29,7 +29,7 @@
 <meta name="license" content="Permission required for reuse. See the license page for details.">
 <meta name="language" content="en">
 <meta name="author" content="Artem Stepankov">
-<title>Granulomas in Fish: What Their Structure Reveals—and What It Cannot Prove</title>
+<title>Granulomas in Fish: Causes, Necrosis, and Mycobacteriosis Diagnosis</title>
 <meta name="description" content="Granulomatous reactions, mycobacteriosis, and differential diagnosis: how to distinguish a morphological finding from the cause of a lesion.">
 
 <meta name="keywords" content="granulomas in fish, granulomatous inflammation, fish mycobacteriosis, acid-fast bacteria, necrosis, differential diagnosis">
@@ -432,24 +432,26 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="fossa-depth">
   <span class="fossa-depth__label">Depth of analysis</span>
   <nav class="fossa-depth__nav" aria-label="Select the depth of analysis">
-    <a href="https://fossamethod.ru/en/f/index_granulomas/" class="fossa-depth__link" title="Simple story" >F.</a>
-    <a href="https://fossamethod.ru/en/fo/index_granulomas/" class="fossa-depth__link is-active" title="Explanation of the method" aria-current="page">F.O.</a>
-    <a href="https://fossamethod.ru/en/posts/index_granulomas/" class="fossa-depth__link" title="Full analysis with references" >F.O.S.</a>
+    <a href="https://fossamethod.ru/en/f/index_granulomas/" data-fossa-level="f" class="fossa-depth__link" title="Simple story" >F.</a>
+    <a href="https://fossamethod.ru/en/fo/index_granulomas/" data-fossa-level="fo" class="fossa-depth__link is-active" title="Explanation of the method" aria-current="page">F.O.</a>
+    <a href="https://fossamethod.ru/en/posts/index_granulomas/" data-fossa-level="fos" class="fossa-depth__link" title="Full analysis with references" >F.O.S.</a>
   </nav>
 </div>
 
 <script>
 (() => {
-  const isFOS = false;
+  const currentLevel = "fo";
+  const switcher = document.currentScript.previousElementSibling;
+  const links = switcher.querySelectorAll("a[data-fossa-level]");
+  const storageKey = "fossa-preferred-depth";
 
   function updateFossaLogo() {
     const myth = document.getElementById("logo-myth");
     const reality = document.getElementById("logo-reality");
-
     if (!myth || !reality) return;
 
-    myth.style.display = isFOS ? "none" : "block";
-    reality.style.display = isFOS ? "block" : "none";
+    myth.style.display = currentLevel === "fos" ? "none" : "block";
+    reality.style.display = currentLevel === "fos" ? "block" : "none";
   }
 
   if (document.readyState === "loading") {
@@ -457,6 +459,53 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     updateFossaLogo();
   }
+
+  
+  for (const link of links) {
+    link.addEventListener("click", (event) => {
+      if (event.defaultPrevented || event.button !== 0 ||
+          event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      try {
+        localStorage.setItem(storageKey, link.dataset.fossaLevel);
+      } catch (_) {
+        
+      }
+    });
+  }
+
+  let preferred;
+  try {
+    preferred = localStorage.getItem(storageKey);
+  } catch (_) {
+    return;
+  }
+  if (!["f", "fo", "fos"].includes(preferred) || preferred === currentLevel) return;
+
+  
+  
+  let fromThisSite = false;
+  try {
+    fromThisSite = Boolean(document.referrer) &&
+      new URL(document.referrer).origin === location.origin;
+  } catch (_) {}
+  if (!fromThisSite) return;
+
+  const target = Array.from(links).find(link => link.dataset.fossaLevel === preferred);
+  if (!target) return;
+
+  
+  fetch(target.href, { method: "HEAD", credentials: "same-origin" })
+    .then(response => {
+      if (!response.ok) return;
+      
+      const wanted = new URL(target.href);
+      const actual = new URL(response.url);
+      if (actual.origin !== wanted.origin || actual.pathname !== wanted.pathname) return;
+      location.replace(target.href);
+    })
+    .catch(() => {
+      
+    });
 })();
 </script>
 
@@ -607,46 +656,46 @@ document.addEventListener('DOMContentLoaded', () => {
   <h2>See also</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/fungi/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fungal structures in fish:<br>colonization or invasive process</a>
+        <a href="https://fossamethod.ru/en/posts/ai_forever/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">What Is Your Evidence?</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Fungi.webp" alt="Fungal structures in fish: colonization or invasive process" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/ai_forever.webp" alt="What Is Your Evidence?" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Fungal structures in fish: colonization or invasive process</span><span class="hoverlink-desc">Fungal structures in fish may represent either surface colonization or an invasive process. This article discusses morphological features, …</span></span>
+            <span class="hoverlink-title">What Is Your Evidence?</span><span class="hoverlink-desc">Why photographs, videos, and polished explanations are no longer enough in the age of generative AI. A practical look at provenance, …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/hexa/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Hexamitids Without Myths</a>
+        <a href="https://fossamethod.ru/en/posts/fossa-method/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fossa Method</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Hexa.webp" alt="Hexamitids Without Myths" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/fossa-method.webp" alt="Fossa Method" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Hexamitids Without Myths</span><span class="hoverlink-desc">Why hexamitids are not a normal component of fish intestinal microflora, where the myth of 'internal parasites' comes from, and how …</span></span>
+            <span class="hoverlink-title">Fossa Method</span><span class="hoverlink-desc">Observation, constraints, models, understanding, and the search for mechanisms. A collection of principles that gradually emerged from …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/crypt/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptocaryon irritans: Not Just<br>White Spots</a>
+        <a href="https://fossamethod.ru/en/posts/index_fish_scrab/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Traditions Instead of Science.<br>III</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/crypt_fish.webp" alt="Cryptocaryon irritans: Not Just White Spots" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/index_fish_scrab.webp" alt="Traditions Instead of Science. III" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Cryptocaryon irritans: Not Just White Spots</span><span class="hoverlink-desc">Cryptocaryon irritans. is a ciliated protozoan parasite, often visible to the naked eye. Tangs, butterflyfish, and boxfish are particularly …</span></span>
+            <span class="hoverlink-title">Traditions Instead of Science. III</span><span class="hoverlink-desc">A fish rubs against the substrate — but is it really “itching,” let alone “scratching its gills”? We examine where observation ends and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/health-is-not-sterility/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Health Does Not Mean<br>Sterility</a>
+        <a href="https://fossamethod.ru/en/posts/intracellular/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Granulomas and intracellular agents<br>in fish</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/health-is-not-sterility.webp" alt="Health Does Not Mean Sterility" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/intracellular.webp" alt="Granulomas and intracellular agents in fish" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Health Does Not Mean Sterility</span><span class="hoverlink-desc">Why the presence of microorganisms and parasites does not always mean disease, why immunity does not have to eliminate them completely, and …</span></span>
+            <span class="hoverlink-title">Granulomas and intracellular agents in fish</span><span class="hoverlink-desc">A collection of real observations: intracellular yeast-like organisms, coccidia, cryptosporidia, and fungal structures in fish.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/ichthyophthirius/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Ichthyophthiriosis Without Myths</a>
+        <a href="https://fossamethod.ru/en/posts/finerosion/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fin Rot</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Ichthyophthirius.webp" alt="Ichthyophthiriosis Without Myths" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/fish-fin-ray-erosion-lepidotrichia.webp" alt="Fin Rot" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Ichthyophthiriosis Without Myths</span><span class="hoverlink-desc">A science-based analysis of Ichthyophthirius multifiliis: life cycle, cyst terminology, the myth of parasite ubiquity, and real mechanisms …</span></span>
+            <span class="hoverlink-title">Fin Rot</span><span class="hoverlink-desc">Fin damage in fish is not always caused by bacterial infection. Lepidotrichial structure, noninfectious fin erosion, columnaris disease, and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/medicines_poisons/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Two Sides of One<br>Dosage</a>
+        <a href="https://fossamethod.ru/en/posts/histoplasma-like/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Granulomatous lesions in fish:<br>a histoplasma-like case</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/nematoda_fish.webp" alt="Two Sides of One Dosage" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Histoplasma.webp" alt="Granulomatous lesions in fish: a histoplasma-like case" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Two Sides of One Dosage</span><span class="hoverlink-desc">Aquarium medications: remedy or threat? Pros and cons of antibiotics, formalin, methylene blue, malachite green, and the FMC mixture.</span></span>
+            <span class="hoverlink-title">Granulomatous lesions in fish: a histoplasma-like case</span><span class="hoverlink-desc">Granulomas in fish kidneys and spleen with negative results for mycobacteria. Detection of intracellular yeast-like organisms and …</span></span>
         </span>
       </span></div>
 </section>
@@ -1046,6 +1095,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <li><a href="https://fossamethod.ru/en/fo/index_fish_scrab/">Fish Rubbing Against Objects: Behavior, Cause, and Diagnosis</a></li>
       
         <li><a href="https://fossamethod.ru/en/f/index_fish_scrab/">The Fish Is Scratching. But Why?</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/fo/finerosion/">Fin Damage: Erosion, Infection, and Fin-Ray Structure</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/f/finerosion/">Frayed Fins. Who&#39;s to Blame?</a></li>
       
         <li><a href="https://fossamethod.ru/en/posts/health-is-not-sterility/">Health Does Not Mean Sterility</a></li>
       

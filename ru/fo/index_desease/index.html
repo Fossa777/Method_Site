@@ -29,7 +29,7 @@
 <meta name="license" content="Permission required for reuse. See the license page for details.">
 <meta name="language" content="ru">
 <meta name="author" content="Artem Stepankov">
-<title>FMC: почему лечебная ванна ещё не означает лечение</title>
+<title>FMC для рыб: концентрация, время воздействия и эффективность</title>
 <meta name="description" content="Разбор применения FMC у рыб: состав смеси, исторические режимы, концентрация и экспозиция, чувствительность паразита и границы выводов об эффективности.">
 
 <meta name="keywords" content="FMC, формалин, малахитовый зелёный, метиленовый синий, лечение рыб, экспозиция, эктопаразиты">
@@ -425,24 +425,26 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="fossa-depth">
   <span class="fossa-depth__label">Глубина разбора</span>
   <nav class="fossa-depth__nav" aria-label="Выбор глубины разбора материала">
-    <a href="https://fossamethod.ru/ru/f/index_desease/" class="fossa-depth__link" title="Простая история" >F.</a>
-    <a href="https://fossamethod.ru/ru/fo/index_desease/" class="fossa-depth__link is-active" title="Объяснение метода" aria-current="page">F.O.</a>
-    <a href="https://fossamethod.ru/ru/posts/index_desease/" class="fossa-depth__link" title="Полный разбор с источниками" >F.O.S.</a>
+    <a href="https://fossamethod.ru/ru/f/index_desease/" data-fossa-level="f" class="fossa-depth__link" title="Простая история" >F.</a>
+    <a href="https://fossamethod.ru/ru/fo/index_desease/" data-fossa-level="fo" class="fossa-depth__link is-active" title="Объяснение метода" aria-current="page">F.O.</a>
+    <a href="https://fossamethod.ru/ru/posts/index_desease/" data-fossa-level="fos" class="fossa-depth__link" title="Полный разбор с источниками" >F.O.S.</a>
   </nav>
 </div>
 
 <script>
 (() => {
-  const isFOS = false;
+  const currentLevel = "fo";
+  const switcher = document.currentScript.previousElementSibling;
+  const links = switcher.querySelectorAll("a[data-fossa-level]");
+  const storageKey = "fossa-preferred-depth";
 
   function updateFossaLogo() {
     const myth = document.getElementById("logo-myth");
     const reality = document.getElementById("logo-reality");
-
     if (!myth || !reality) return;
 
-    myth.style.display = isFOS ? "none" : "block";
-    reality.style.display = isFOS ? "block" : "none";
+    myth.style.display = currentLevel === "fos" ? "none" : "block";
+    reality.style.display = currentLevel === "fos" ? "block" : "none";
   }
 
   if (document.readyState === "loading") {
@@ -450,6 +452,53 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     updateFossaLogo();
   }
+
+  
+  for (const link of links) {
+    link.addEventListener("click", (event) => {
+      if (event.defaultPrevented || event.button !== 0 ||
+          event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      try {
+        localStorage.setItem(storageKey, link.dataset.fossaLevel);
+      } catch (_) {
+        
+      }
+    });
+  }
+
+  let preferred;
+  try {
+    preferred = localStorage.getItem(storageKey);
+  } catch (_) {
+    return;
+  }
+  if (!["f", "fo", "fos"].includes(preferred) || preferred === currentLevel) return;
+
+  
+  
+  let fromThisSite = false;
+  try {
+    fromThisSite = Boolean(document.referrer) &&
+      new URL(document.referrer).origin === location.origin;
+  } catch (_) {}
+  if (!fromThisSite) return;
+
+  const target = Array.from(links).find(link => link.dataset.fossaLevel === preferred);
+  if (!target) return;
+
+  
+  fetch(target.href, { method: "HEAD", credentials: "same-origin" })
+    .then(response => {
+      if (!response.ok) return;
+      
+      const wanted = new URL(target.href);
+      const actual = new URL(response.url);
+      if (actual.origin !== wanted.origin || actual.pathname !== wanted.pathname) return;
+      location.replace(target.href);
+    })
+    .catch(() => {
+      
+    });
 })();
 </script>
 
@@ -549,6 +598,13 @@ document.addEventListener('DOMContentLoaded', () => {
   <h2>См. также</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/ru/posts/fossa-method/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fossa Method.</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/fossa-method.webp" alt="Fossa Method." loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Fossa Method.</span><span class="hoverlink-desc">Наблюдение, ограничения, модели, понимание и поиск механизмов. Попытка сформулировать принципы, которые лежат в основе диагностики, …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/ru/posts/index_metod/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Традиции вместо науки I.<br>Метод.</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
               <img src="https://fossamethod.ru/images/covers/index_metod.webp" alt="Традиции вместо науки I. Метод. " loading="lazy">
@@ -556,39 +612,32 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="hoverlink-title">Традиции вместо науки I. Метод. </span><span class="hoverlink-desc">Что можно получить от окраски, если классический метод Циля–Нильсена невозможно выполнить полностью? Разбираем роль фенола, нагревания и …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/science/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Научный метод. Инструкция по<br>применению.</a>
+        <a href="https://fossamethod.ru/ru/posts/index_fish_scrab/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Традиции вместо науки III.<br>Интерпретация.</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/science.webp" alt="Научный метод. Инструкция по применению." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/index_fish_scrab.webp" alt="Традиции вместо науки III. Интерпретация." loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Научный метод. Инструкция по применению.</span><span class="hoverlink-desc">О том, как формируется знание, почему уверенность часто опережает понимание и как научный метод помогает не путать наблюдение с объяснением.</span></span>
+            <span class="hoverlink-title">Традиции вместо науки III. Интерпретация.</span><span class="hoverlink-desc">Рыба трётся о грунт — но действительно ли она «чешется», и тем более «чешет жабры»? Разбираем, где заканчивается наблюдение и начинается …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/index_desease/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Традиции вместо науки II.<br>Лечение.</a>
+        <a href="https://fossamethod.ru/ru/posts/ai_forever/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Какие ваши доказательства?</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/index_desease.webp" alt="Традиции вместо науки II. Лечение." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/ai_forever.webp" alt="Какие ваши доказательства?" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Традиции вместо науки II. Лечение.</span><span class="hoverlink-desc">Почему привычная схема лечения ещё не становится обоснованной терапией. На примере FMC разбираем, как концентрация, время экспозиции, …</span></span>
+            <span class="hoverlink-title">Какие ваши доказательства?</span><span class="hoverlink-desc">Почему в эпоху искусственного интеллекта уже недостаточно фотографии, видео и убедительного текста. О происхождении данных, проверяемости …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/size/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Размер пациента не важен<br>/ почему рыбы не<br>умирают от диагностики</a>
+        <a href="https://fossamethod.ru/ru/posts/finerosion/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Плавниковая гниль</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/size.webp" alt="Размер пациента не важен / почему рыбы не умирают от диагностики" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/fish-fin-ray-erosion-lepidotrichia.webp" alt="Плавниковая гниль" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Размер пациента не важен / почему рыбы не умирают от диагностики</span><span class="hoverlink-desc">Разбор мифа о смертельности диагностических процедур у рыб. Почему соскобы, мазки и осмотр являются нелетальными и в каких случаях рыбы …</span></span>
+            <span class="hoverlink-title">Плавниковая гниль</span><span class="hoverlink-desc">Разрушение плавников у рыб не всегда связано с бактериальной инфекцией. Строение лепидотрихий, неинфекционная эрозия, колумнариоз и границы …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/fungi/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Грибные структуры у рыб:<br>колонизация или инвазивный процесс</a>
+        <a href="https://fossamethod.ru/ru/posts/hexa/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Гексамитиды</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Fungi.webp" alt="Грибные структуры у рыб: колонизация или инвазивный процесс" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Hexa.webp" alt="Гексамитиды" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Грибные структуры у рыб: колонизация или инвазивный процесс</span><span class="hoverlink-desc">Грибные структуры у рыб могут отражать как поверхностную колонизацию, так и инвазивный процесс. В статье рассматриваются морфологические …</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/bubble_diagnoz/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Газопузырьковая болезнь. Часть II.<br>Последствия.</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Bublle2.webp" alt="Газопузырьковая болезнь. Часть II. Последствия." loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Газопузырьковая болезнь. Часть II. Последствия.</span><span class="hoverlink-desc">Сравнение нормы и патологии при вскрытии рыб: печень, почки, жабры и головной мозг. Как отличать допустимые варианты от признаков застоя, …</span></span>
+            <span class="hoverlink-title">Гексамитиды</span><span class="hoverlink-desc">Почему гексамитиды не являются нормальной микрофлорой кишечника рыб, откуда берётся миф о «внутренних паразитах», и как на самом деле …</span></span>
         </span>
       </span></div>
 </section>
@@ -988,6 +1037,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <li><a href="https://fossamethod.ru/ru/f/index_fish_scrab/">Рыбка чешется. Но от чего?</a></li>
       
         <li><a href="https://fossamethod.ru/ru/posts/science/">Научный метод. Инструкция по применению.</a></li>
+      
+        <li><a href="https://fossamethod.ru/ru/f/finerosion/">Обтрёпанные плавники. Кто виноват?</a></li>
+      
+        <li><a href="https://fossamethod.ru/ru/fo/finerosion/">Разрушение плавников: эрозия, инфекция и строение лучей</a></li>
       
         <li><a href="https://fossamethod.ru/ru/posts/health-is-not-sterility/">Здоровье не означает стерильность</a></li>
       
