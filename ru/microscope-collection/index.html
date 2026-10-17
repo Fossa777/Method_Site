@@ -2268,79 +2268,80 @@ function initialize() {
 
 
 function updateScaleBar() {
-    if (!currentSpecimen || !currentSpecimen.microns_per_pixel || !viewer) return;
-
-    const mpp = currentSpecimen.microns_per_pixel;
-    const zoom = viewer.viewport.getZoom();
-
-    const scopeWrapper = document.getElementById(`scope-${id}`);
-    const scopeWidth = scopeWrapper.offsetWidth;
-    const scopeHeight = scopeWrapper.offsetHeight;
     
     
-    const scopeScale = scopeWidth / 700;
-
-
-    const currentMPP = mpp / zoom * scopeScale;
     
-    const screenWidth = window.innerWidth;
-    let maxPixels, minPixels;
     
-    if (screenWidth < 480) {
-        maxPixels = scopeWidth * 0.1; 
-        minPixels = scopeWidth * 0.07
-        maxPixels = scopeWidth * 0.1; 
-        minPixels = scopeWidth * 0.07;
-    } else {
-        maxPixels = scopeWidth * 0.4;
-        minPixels = scopeWidth * 0.1;
-    }
-
-    const niceValues = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 1500, 2000, 2500];
-    let targetMicrons = 50;
+    const REFERENCE_SCOPE_WIDTH = 700;
     
-    for (const value of niceValues) {
-        const screenPixels = value / currentMPP;
-        if (screenPixels >= minPixels && screenPixels <= maxPixels) {
-            targetMicrons = value;
-            break;
-        }
-    }
-
-    if (targetMicrons === 50) {
-        for (const value of niceValues) {
-            const screenPixels = value / currentMPP;
-            if (screenPixels >= minPixels) {
-                targetMicrons = value;
-                break;
-            }
-        }
-    }
-
-    const screenPixels = targetMicrons / currentMPP;
-    const clampedPixels = Math.max(minPixels, Math.min(screenPixels, maxPixels));
-
+    
+    
+    
+    const GLOBAL_SCALE_CORRECTION = 164 / 154; 
     const barLine = document.querySelector(`#scale-bar-${id} .scale-bar-line`);
     const barText = document.getElementById(`scale-bar-text-${id}`);
+    if (!barLine || !barText) return;
 
-    if (barLine && barText) {
-        barLine.style.width = `${clampedPixels}px`;
-	let displayValue = targetMicrons;
-let displayUnit = "µm";
+    const hideBar = () => {
+        barLine.style.visibility = 'hidden';
+        barText.textContent = '—';
+    };
 
-if (targetMicrons >= 1000) {
-    displayValue = (targetMicrons / 1000);
-    
-    displayValue = parseFloat(displayValue.toFixed(2));
-    displayUnit = "mm";
-}
-
-barText.textContent = `${displayValue} ${displayUnit}`;
-        
+    if (!viewer || !viewer.viewport || !viewer.world ||
+        !viewer.world.getItemAt(0) || !currentSpecimen) {
+        hideBar();
+        return;
     }
+
+    const legacyMPP = Number(currentSpecimen.microns_per_pixel);
+    const scopeWidth = viewerContainer.getBoundingClientRect().width;
+    
+    const zoom = viewer.viewport.getZoom(true);
+
+    if (!(legacyMPP > 0) || !Number.isFinite(legacyMPP) ||
+        !(scopeWidth > 0) || !(zoom > 0) ||
+        !Number.isFinite(scopeWidth) || !Number.isFinite(zoom)) {
+        hideBar();
+        return;
+    }
+
+    
+    
+    
+    
+    const micronsPerScreenPx =
+        (legacyMPP / zoom) * (REFERENCE_SCOPE_WIDTH / scopeWidth) * GLOBAL_SCALE_CORRECTION;
+
+    
+    
+    const maxWidthPx = scopeWidth * 0.30;
+    const maxMicrons = maxWidthPx * micronsPerScreenPx;
+    if (!(maxMicrons > 0) || !Number.isFinite(maxMicrons)) {
+        hideBar();
+        return;
+    }
+
+    const power = Math.pow(10, Math.floor(Math.log10(maxMicrons)));
+    let shownMicrons = power;
+    for (const factor of [1, 2, 5, 10]) {
+        if (factor * power <= maxMicrons) {
+            shownMicrons = factor * power;
+        }
+    }
+    const lineWidth = shownMicrons / micronsPerScreenPx;
+    if (!(lineWidth > 0) || !Number.isFinite(lineWidth)) {
+        hideBar();
+        return;
+    }
+
+    barLine.style.width = `${lineWidth}px`;
+    barLine.style.visibility = 'visible';
+    const display = value => Number(value.toPrecision(5)).toString();
+    barText.textContent = shownMicrons >= 1000
+        ? `${display(shownMicrons / 1000)} mm`
+        : `${display(shownMicrons)} µm`;
 }
 
- 
     function playLensEffect(isZoomIn) {
         if (isTransitioning) return;
         
@@ -2475,6 +2476,9 @@ barText.textContent = `${displayValue} ${displayUnit}`;
                 const newZoom = event.zoom;
                 handleZoomChange(newZoom);
             });
+
+            
+            viewer.addHandler('animation', updateScaleBar);
 
             
             viewer.addHandler('animation-finish', function(event) {
@@ -2659,6 +2663,11 @@ if (toggleBtn) {
 
     function loadDZIPanorama(dziFile) {
         resetTileStatus();
+        
+        const oldScaleLine = document.querySelector(`#scale-bar-${id} .scale-bar-line`);
+        const oldScaleText = document.getElementById(`scale-bar-text-${id}`);
+        if (oldScaleLine) oldScaleLine.style.visibility = 'hidden';
+        if (oldScaleText) oldScaleText.textContent = '—';
         loaderText.textContent = 'Загрузка панорамы…';
         showLoader();
 

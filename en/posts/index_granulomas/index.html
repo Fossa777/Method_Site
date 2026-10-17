@@ -2525,79 +2525,80 @@ function initialize() {
 
 
 function updateScaleBar() {
-    if (!currentSpecimen || !currentSpecimen.microns_per_pixel || !viewer) return;
-
-    const mpp = currentSpecimen.microns_per_pixel;
-    const zoom = viewer.viewport.getZoom();
-
-    const scopeWrapper = document.getElementById(`scope-${id}`);
-    const scopeWidth = scopeWrapper.offsetWidth;
-    const scopeHeight = scopeWrapper.offsetHeight;
     
     
-    const scopeScale = scopeWidth / 700;
-
-
-    const currentMPP = mpp / zoom * scopeScale;
     
-    const screenWidth = window.innerWidth;
-    let maxPixels, minPixels;
     
-    if (screenWidth < 480) {
-        maxPixels = scopeWidth * 0.1; 
-        minPixels = scopeWidth * 0.07
-        maxPixels = scopeWidth * 0.1; 
-        minPixels = scopeWidth * 0.07;
-    } else {
-        maxPixels = scopeWidth * 0.4;
-        minPixels = scopeWidth * 0.1;
-    }
-
-    const niceValues = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 1500, 2000, 2500];
-    let targetMicrons = 50;
+    const REFERENCE_SCOPE_WIDTH = 700;
     
-    for (const value of niceValues) {
-        const screenPixels = value / currentMPP;
-        if (screenPixels >= minPixels && screenPixels <= maxPixels) {
-            targetMicrons = value;
-            break;
-        }
-    }
-
-    if (targetMicrons === 50) {
-        for (const value of niceValues) {
-            const screenPixels = value / currentMPP;
-            if (screenPixels >= minPixels) {
-                targetMicrons = value;
-                break;
-            }
-        }
-    }
-
-    const screenPixels = targetMicrons / currentMPP;
-    const clampedPixels = Math.max(minPixels, Math.min(screenPixels, maxPixels));
-
+    
+    
+    
+    const GLOBAL_SCALE_CORRECTION = 164 / 154; 
     const barLine = document.querySelector(`#scale-bar-${id} .scale-bar-line`);
     const barText = document.getElementById(`scale-bar-text-${id}`);
+    if (!barLine || !barText) return;
 
-    if (barLine && barText) {
-        barLine.style.width = `${clampedPixels}px`;
-	let displayValue = targetMicrons;
-let displayUnit = "µm";
+    const hideBar = () => {
+        barLine.style.visibility = 'hidden';
+        barText.textContent = '—';
+    };
 
-if (targetMicrons >= 1000) {
-    displayValue = (targetMicrons / 1000);
-    
-    displayValue = parseFloat(displayValue.toFixed(2));
-    displayUnit = "mm";
-}
-
-barText.textContent = `${displayValue} ${displayUnit}`;
-        
+    if (!viewer || !viewer.viewport || !viewer.world ||
+        !viewer.world.getItemAt(0) || !currentSpecimen) {
+        hideBar();
+        return;
     }
+
+    const legacyMPP = Number(currentSpecimen.microns_per_pixel);
+    const scopeWidth = viewerContainer.getBoundingClientRect().width;
+    
+    const zoom = viewer.viewport.getZoom(true);
+
+    if (!(legacyMPP > 0) || !Number.isFinite(legacyMPP) ||
+        !(scopeWidth > 0) || !(zoom > 0) ||
+        !Number.isFinite(scopeWidth) || !Number.isFinite(zoom)) {
+        hideBar();
+        return;
+    }
+
+    
+    
+    
+    
+    const micronsPerScreenPx =
+        (legacyMPP / zoom) * (REFERENCE_SCOPE_WIDTH / scopeWidth) * GLOBAL_SCALE_CORRECTION;
+
+    
+    
+    const maxWidthPx = scopeWidth * 0.30;
+    const maxMicrons = maxWidthPx * micronsPerScreenPx;
+    if (!(maxMicrons > 0) || !Number.isFinite(maxMicrons)) {
+        hideBar();
+        return;
+    }
+
+    const power = Math.pow(10, Math.floor(Math.log10(maxMicrons)));
+    let shownMicrons = power;
+    for (const factor of [1, 2, 5, 10]) {
+        if (factor * power <= maxMicrons) {
+            shownMicrons = factor * power;
+        }
+    }
+    const lineWidth = shownMicrons / micronsPerScreenPx;
+    if (!(lineWidth > 0) || !Number.isFinite(lineWidth)) {
+        hideBar();
+        return;
+    }
+
+    barLine.style.width = `${lineWidth}px`;
+    barLine.style.visibility = 'visible';
+    const display = value => Number(value.toPrecision(5)).toString();
+    barText.textContent = shownMicrons >= 1000
+        ? `${display(shownMicrons / 1000)} mm`
+        : `${display(shownMicrons)} µm`;
 }
 
- 
     function playLensEffect(isZoomIn) {
         if (isTransitioning) return;
         
@@ -2732,6 +2733,9 @@ barText.textContent = `${displayValue} ${displayUnit}`;
                 const newZoom = event.zoom;
                 handleZoomChange(newZoom);
             });
+
+            
+            viewer.addHandler('animation', updateScaleBar);
 
             
             viewer.addHandler('animation-finish', function(event) {
@@ -2916,6 +2920,11 @@ if (toggleBtn) {
 
     function loadDZIPanorama(dziFile) {
         resetTileStatus();
+        
+        const oldScaleLine = document.querySelector(`#scale-bar-${id} .scale-bar-line`);
+        const oldScaleText = document.getElementById(`scale-bar-text-${id}`);
+        if (oldScaleLine) oldScaleLine.style.visibility = 'hidden';
+        if (oldScaleText) oldScaleText.textContent = '—';
         loaderText.textContent = 'Loading image…';
         showLoader();
 
@@ -4809,79 +4818,80 @@ function initialize() {
 
 
 function updateScaleBar() {
-    if (!currentSpecimen || !currentSpecimen.microns_per_pixel || !viewer) return;
-
-    const mpp = currentSpecimen.microns_per_pixel;
-    const zoom = viewer.viewport.getZoom();
-
-    const scopeWrapper = document.getElementById(`scope-${id}`);
-    const scopeWidth = scopeWrapper.offsetWidth;
-    const scopeHeight = scopeWrapper.offsetHeight;
     
     
-    const scopeScale = scopeWidth / 700;
-
-
-    const currentMPP = mpp / zoom * scopeScale;
     
-    const screenWidth = window.innerWidth;
-    let maxPixels, minPixels;
     
-    if (screenWidth < 480) {
-        maxPixels = scopeWidth * 0.1; 
-        minPixels = scopeWidth * 0.07
-        maxPixels = scopeWidth * 0.1; 
-        minPixels = scopeWidth * 0.07;
-    } else {
-        maxPixels = scopeWidth * 0.4;
-        minPixels = scopeWidth * 0.1;
-    }
-
-    const niceValues = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 1500, 2000, 2500];
-    let targetMicrons = 50;
+    const REFERENCE_SCOPE_WIDTH = 700;
     
-    for (const value of niceValues) {
-        const screenPixels = value / currentMPP;
-        if (screenPixels >= minPixels && screenPixels <= maxPixels) {
-            targetMicrons = value;
-            break;
-        }
-    }
-
-    if (targetMicrons === 50) {
-        for (const value of niceValues) {
-            const screenPixels = value / currentMPP;
-            if (screenPixels >= minPixels) {
-                targetMicrons = value;
-                break;
-            }
-        }
-    }
-
-    const screenPixels = targetMicrons / currentMPP;
-    const clampedPixels = Math.max(minPixels, Math.min(screenPixels, maxPixels));
-
+    
+    
+    
+    const GLOBAL_SCALE_CORRECTION = 164 / 154; 
     const barLine = document.querySelector(`#scale-bar-${id} .scale-bar-line`);
     const barText = document.getElementById(`scale-bar-text-${id}`);
+    if (!barLine || !barText) return;
 
-    if (barLine && barText) {
-        barLine.style.width = `${clampedPixels}px`;
-	let displayValue = targetMicrons;
-let displayUnit = "µm";
+    const hideBar = () => {
+        barLine.style.visibility = 'hidden';
+        barText.textContent = '—';
+    };
 
-if (targetMicrons >= 1000) {
-    displayValue = (targetMicrons / 1000);
-    
-    displayValue = parseFloat(displayValue.toFixed(2));
-    displayUnit = "mm";
-}
-
-barText.textContent = `${displayValue} ${displayUnit}`;
-        
+    if (!viewer || !viewer.viewport || !viewer.world ||
+        !viewer.world.getItemAt(0) || !currentSpecimen) {
+        hideBar();
+        return;
     }
+
+    const legacyMPP = Number(currentSpecimen.microns_per_pixel);
+    const scopeWidth = viewerContainer.getBoundingClientRect().width;
+    
+    const zoom = viewer.viewport.getZoom(true);
+
+    if (!(legacyMPP > 0) || !Number.isFinite(legacyMPP) ||
+        !(scopeWidth > 0) || !(zoom > 0) ||
+        !Number.isFinite(scopeWidth) || !Number.isFinite(zoom)) {
+        hideBar();
+        return;
+    }
+
+    
+    
+    
+    
+    const micronsPerScreenPx =
+        (legacyMPP / zoom) * (REFERENCE_SCOPE_WIDTH / scopeWidth) * GLOBAL_SCALE_CORRECTION;
+
+    
+    
+    const maxWidthPx = scopeWidth * 0.30;
+    const maxMicrons = maxWidthPx * micronsPerScreenPx;
+    if (!(maxMicrons > 0) || !Number.isFinite(maxMicrons)) {
+        hideBar();
+        return;
+    }
+
+    const power = Math.pow(10, Math.floor(Math.log10(maxMicrons)));
+    let shownMicrons = power;
+    for (const factor of [1, 2, 5, 10]) {
+        if (factor * power <= maxMicrons) {
+            shownMicrons = factor * power;
+        }
+    }
+    const lineWidth = shownMicrons / micronsPerScreenPx;
+    if (!(lineWidth > 0) || !Number.isFinite(lineWidth)) {
+        hideBar();
+        return;
+    }
+
+    barLine.style.width = `${lineWidth}px`;
+    barLine.style.visibility = 'visible';
+    const display = value => Number(value.toPrecision(5)).toString();
+    barText.textContent = shownMicrons >= 1000
+        ? `${display(shownMicrons / 1000)} mm`
+        : `${display(shownMicrons)} µm`;
 }
 
- 
     function playLensEffect(isZoomIn) {
         if (isTransitioning) return;
         
@@ -5016,6 +5026,9 @@ barText.textContent = `${displayValue} ${displayUnit}`;
                 const newZoom = event.zoom;
                 handleZoomChange(newZoom);
             });
+
+            
+            viewer.addHandler('animation', updateScaleBar);
 
             
             viewer.addHandler('animation-finish', function(event) {
@@ -5200,6 +5213,11 @@ if (toggleBtn) {
 
     function loadDZIPanorama(dziFile) {
         resetTileStatus();
+        
+        const oldScaleLine = document.querySelector(`#scale-bar-${id} .scale-bar-line`);
+        const oldScaleText = document.getElementById(`scale-bar-text-${id}`);
+        if (oldScaleLine) oldScaleLine.style.visibility = 'hidden';
+        if (oldScaleText) oldScaleText.textContent = '—';
         loaderText.textContent = 'Loading image…';
         showLoader();
 
@@ -7137,79 +7155,80 @@ function initialize() {
 
 
 function updateScaleBar() {
-    if (!currentSpecimen || !currentSpecimen.microns_per_pixel || !viewer) return;
-
-    const mpp = currentSpecimen.microns_per_pixel;
-    const zoom = viewer.viewport.getZoom();
-
-    const scopeWrapper = document.getElementById(`scope-${id}`);
-    const scopeWidth = scopeWrapper.offsetWidth;
-    const scopeHeight = scopeWrapper.offsetHeight;
     
     
-    const scopeScale = scopeWidth / 700;
-
-
-    const currentMPP = mpp / zoom * scopeScale;
     
-    const screenWidth = window.innerWidth;
-    let maxPixels, minPixels;
     
-    if (screenWidth < 480) {
-        maxPixels = scopeWidth * 0.1; 
-        minPixels = scopeWidth * 0.07
-        maxPixels = scopeWidth * 0.1; 
-        minPixels = scopeWidth * 0.07;
-    } else {
-        maxPixels = scopeWidth * 0.4;
-        minPixels = scopeWidth * 0.1;
-    }
-
-    const niceValues = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 1500, 2000, 2500];
-    let targetMicrons = 50;
+    const REFERENCE_SCOPE_WIDTH = 700;
     
-    for (const value of niceValues) {
-        const screenPixels = value / currentMPP;
-        if (screenPixels >= minPixels && screenPixels <= maxPixels) {
-            targetMicrons = value;
-            break;
-        }
-    }
-
-    if (targetMicrons === 50) {
-        for (const value of niceValues) {
-            const screenPixels = value / currentMPP;
-            if (screenPixels >= minPixels) {
-                targetMicrons = value;
-                break;
-            }
-        }
-    }
-
-    const screenPixels = targetMicrons / currentMPP;
-    const clampedPixels = Math.max(minPixels, Math.min(screenPixels, maxPixels));
-
+    
+    
+    
+    const GLOBAL_SCALE_CORRECTION = 164 / 154; 
     const barLine = document.querySelector(`#scale-bar-${id} .scale-bar-line`);
     const barText = document.getElementById(`scale-bar-text-${id}`);
+    if (!barLine || !barText) return;
 
-    if (barLine && barText) {
-        barLine.style.width = `${clampedPixels}px`;
-	let displayValue = targetMicrons;
-let displayUnit = "µm";
+    const hideBar = () => {
+        barLine.style.visibility = 'hidden';
+        barText.textContent = '—';
+    };
 
-if (targetMicrons >= 1000) {
-    displayValue = (targetMicrons / 1000);
-    
-    displayValue = parseFloat(displayValue.toFixed(2));
-    displayUnit = "mm";
-}
-
-barText.textContent = `${displayValue} ${displayUnit}`;
-        
+    if (!viewer || !viewer.viewport || !viewer.world ||
+        !viewer.world.getItemAt(0) || !currentSpecimen) {
+        hideBar();
+        return;
     }
+
+    const legacyMPP = Number(currentSpecimen.microns_per_pixel);
+    const scopeWidth = viewerContainer.getBoundingClientRect().width;
+    
+    const zoom = viewer.viewport.getZoom(true);
+
+    if (!(legacyMPP > 0) || !Number.isFinite(legacyMPP) ||
+        !(scopeWidth > 0) || !(zoom > 0) ||
+        !Number.isFinite(scopeWidth) || !Number.isFinite(zoom)) {
+        hideBar();
+        return;
+    }
+
+    
+    
+    
+    
+    const micronsPerScreenPx =
+        (legacyMPP / zoom) * (REFERENCE_SCOPE_WIDTH / scopeWidth) * GLOBAL_SCALE_CORRECTION;
+
+    
+    
+    const maxWidthPx = scopeWidth * 0.30;
+    const maxMicrons = maxWidthPx * micronsPerScreenPx;
+    if (!(maxMicrons > 0) || !Number.isFinite(maxMicrons)) {
+        hideBar();
+        return;
+    }
+
+    const power = Math.pow(10, Math.floor(Math.log10(maxMicrons)));
+    let shownMicrons = power;
+    for (const factor of [1, 2, 5, 10]) {
+        if (factor * power <= maxMicrons) {
+            shownMicrons = factor * power;
+        }
+    }
+    const lineWidth = shownMicrons / micronsPerScreenPx;
+    if (!(lineWidth > 0) || !Number.isFinite(lineWidth)) {
+        hideBar();
+        return;
+    }
+
+    barLine.style.width = `${lineWidth}px`;
+    barLine.style.visibility = 'visible';
+    const display = value => Number(value.toPrecision(5)).toString();
+    barText.textContent = shownMicrons >= 1000
+        ? `${display(shownMicrons / 1000)} mm`
+        : `${display(shownMicrons)} µm`;
 }
 
- 
     function playLensEffect(isZoomIn) {
         if (isTransitioning) return;
         
@@ -7344,6 +7363,9 @@ barText.textContent = `${displayValue} ${displayUnit}`;
                 const newZoom = event.zoom;
                 handleZoomChange(newZoom);
             });
+
+            
+            viewer.addHandler('animation', updateScaleBar);
 
             
             viewer.addHandler('animation-finish', function(event) {
@@ -7528,6 +7550,11 @@ if (toggleBtn) {
 
     function loadDZIPanorama(dziFile) {
         resetTileStatus();
+        
+        const oldScaleLine = document.querySelector(`#scale-bar-${id} .scale-bar-line`);
+        const oldScaleText = document.getElementById(`scale-bar-text-${id}`);
+        if (oldScaleLine) oldScaleLine.style.visibility = 'hidden';
+        if (oldScaleText) oldScaleText.textContent = '—';
         loaderText.textContent = 'Loading image…';
         showLoader();
 
@@ -7652,46 +7679,46 @@ Pagán, A.J., Ramakrishnan, L., 2015. Immunity and Immunopathology in the Tuberc
   <h2>See also</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/elephantfly/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Flying Elephants</a>
+        <a href="https://fossamethod.ru/en/posts/index_desease/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Traditions Instead of Science.<br>II</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/elephantfly.webp" alt="Flying Elephants" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/index_desease.webp" alt="Traditions Instead of Science. II" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Flying Elephants</span><span class="hoverlink-desc">Why science requires more than an elegant hypothesis. The role of photographs, videos, specimens, and primary data in building and verifying …</span></span>
+            <span class="hoverlink-title">Traditions Instead of Science. II</span><span class="hoverlink-desc">Why a familiar treatment protocol does not automatically become evidence-based therapy. Using FMC as an example, we examine how …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/ai_forever/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">What Is Your Evidence?</a>
+        <a href="https://fossamethod.ru/en/posts/index_metod/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Tradition Instead of Science<br>I. The Method.</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/ai_forever.webp" alt="What Is Your Evidence?" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/index_metod.webp" alt="Tradition Instead of Science I. The Method." loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">What Is Your Evidence?</span><span class="hoverlink-desc">Why photographs, videos, and polished explanations are no longer enough in the age of generative AI. A practical look at provenance, …</span></span>
+            <span class="hoverlink-title">Tradition Instead of Science I. The Method.</span><span class="hoverlink-desc">What can staining still reveal when the classic Ziehl–Neelsen method cannot be performed in full? Exploring the roles of phenol, heat, and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/science/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Scientific Method. A Practical<br>Guide.</a>
+        <a href="https://fossamethod.ru/en/posts/finerosion/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fin Rot</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/science.webp" alt="Scientific Method. A Practical Guide." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/fish-fin-ray-erosion-lepidotrichia.webp" alt="Fin Rot" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Scientific Method. A Practical Guide.</span><span class="hoverlink-desc">How knowledge is formed, why confidence often outpaces understanding, and how the scientific method helps distinguish observation from …</span></span>
+            <span class="hoverlink-title">Fin Rot</span><span class="hoverlink-desc">Fin damage in fish is not always caused by bacterial infection. Lepidotrichial structure, noninfectious fin erosion, columnaris disease, and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/rules/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Simple Rules for Working<br>with Aquarium Fish</a>
+        <a href="https://fossamethod.ru/en/posts/fossa-method/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fossa Method</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/rules.webp" alt="Simple Rules for Working with Aquarium Fish" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/fossa-method.webp" alt="Fossa Method" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Simple Rules for Working with Aquarium Fish</span><span class="hoverlink-desc">Basic guidelines for diagnosing and caring for aquarium fish: what to do in case of mortality, how to interpret appetite, and when to treat …</span></span>
+            <span class="hoverlink-title">Fossa Method</span><span class="hoverlink-desc">Observation, constraints, models, understanding, and the search for mechanisms. A collection of principles that gradually emerged from …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/crypt/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptocaryon irritans: Not Just<br>White Spots</a>
+        <a href="https://fossamethod.ru/en/posts/hexa/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Hexamitids Without Myths</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/crypt_fish.webp" alt="Cryptocaryon irritans: Not Just White Spots" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Hexa.webp" alt="Hexamitids Without Myths" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Cryptocaryon irritans: Not Just White Spots</span><span class="hoverlink-desc">Cryptocaryon irritans. is a ciliated protozoan parasite, often visible to the naked eye. Tangs, butterflyfish, and boxfish are particularly …</span></span>
+            <span class="hoverlink-title">Hexamitids Without Myths</span><span class="hoverlink-desc">Why hexamitids are not a normal component of fish intestinal microflora, where the myth of 'internal parasites' comes from, and how …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/cryptocaryon-control/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptocaryonosis: killing the parasite<br>or treating the water?</a>
+        <a href="https://fossamethod.ru/en/posts/operation/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Surgical Procedures on Aquatic<br>Animals</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/cryptocaryon-treatment.webp" alt="Cryptocaryonosis: killing the parasite or treating the water?" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Hirurg.webp" alt="Surgical Procedures on Aquatic Animals" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Cryptocaryonosis: killing the parasite or treating the water?</span><span class="hoverlink-desc">A practical analysis of cryptocaryonosis treatment in marine fish: why killing the parasite should not become more important than the …</span></span>
+            <span class="hoverlink-title">Surgical Procedures on Aquatic Animals</span><span class="hoverlink-desc">A Guide on performing surgical procedures on fish.</span></span>
         </span>
       </span></div>
 </section>
