@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Foes on Fossa Method</title>
+    <link>https://fossamethod.ru/en/fo/</link>
+    <description>Recent content in Foes on Fossa Method</description>
+    <generator>Hugo -- 0.147.2</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 17 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://fossamethod.ru/en/fo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Granulomas in Fish: What Their Structure Reveals—and What It Cannot Prove</title>
+      <link>https://fossamethod.ru/en/fo/index_granulomas/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_granulomas/</guid>
+      <description>Granulomatous reactions, mycobacteriosis, and differential diagnosis: how to distinguish a morphological finding from the cause of a lesion.</description>
+    </item>
+    <item>
+      <title>Phenol-Free Staining: What Changes in the Method and the Conclusions</title>
+      <link>https://fossamethod.ru/en/fo/index_metod/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_metod/</guid>
+      <description>Why omitting phenol does not necessarily prevent bacteria from being detected, while skipping acid decolorization changes the diagnostic question itself.</description>
+    </item>
+    <item>
+      <title>FMC: Why a Treatment Bath Is Not the Same as Effective Treatment</title>
+      <link>https://fossamethod.ru/en/fo/index_desease/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_desease/</guid>
+      <description>An examination of FMC use in fish: mixture composition, historical treatment regimens, concentration and exposure time, parasite susceptibility, and the limits of claims about efficacy.</description>
+    </item>
+    <item>
+      <title>Fish Rubbing Against Objects: Behavior, Cause, and Diagnosis</title>
+      <link>https://fossamethod.ru/en/fo/index_fish_scrab/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_fish_scrab/</guid>
+      <description>Why flashing alone cannot distinguish skin irritation, gill disease, and other possible causes. Observation, interpretation, and hypothesis testing.</description>
+    </item>
+    <item>
+      <title>Fin Damage: Erosion, Infection, and Fin-Ray Structure</title>
+      <link>https://fossamethod.ru/en/fo/finerosion/</link>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/finerosion/</guid>
+      <description>Why similarly frayed fins may have different causes: the structure of lepidotrichia, non-infectious erosion, columnaris disease, and the role of microscopy.</description>
+    </item>
+  </channel>
+</rss>

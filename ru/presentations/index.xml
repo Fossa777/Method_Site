@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Презентации on Fossa Method</title>
+    <link>https://fossamethod.ru/ru/presentations/</link>
+    <description>Recent content in Презентации on Fossa Method</description>
+    <generator>Hugo -- 0.147.2</generator>
+    <language>ru</language>
+    <atom:link href="https://fossamethod.ru/ru/presentations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Интеграция биологических и экологических параметров в базе данных.</title>
+      <link>https://fossamethod.ru/ru/presentations/base_2025/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/presentations/base_2025/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Клинические случаи нетипичной формы криптокарионоза</title>
+      <link>https://fossamethod.ru/ru/presentations/crypt_2024/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/presentations/crypt_2024/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Показания и ограничения к применению лекарственных препаратов в аквариумных системах</title>
+      <link>https://fossamethod.ru/ru/presentations/medicines_2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/presentations/medicines_2026/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Прижизненная диагностика рыб в условиях океанариума: мониторинг здоровья и современные методы</title>
+      <link>https://fossamethod.ru/ru/presentations/parasite_2025/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/presentations/parasite_2025/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

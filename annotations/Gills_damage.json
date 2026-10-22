@@ -1,0 +1,16 @@
+{
+  "id": "Gills_damage",
+  "labels": {
+    "ru": "Моногенея",
+    "en": "Monogenean"
+  },
+  "description": {
+    "ru": "Прикреплённая моногенея, сохранившаяся на жаберной ткани после гибели хозяина.",
+    "en": "An attached monogenean remaining on the gill tissue after host death."
+  },
+  "points": [
+    {"x": 0.0564, "y": 0.8114},
+    {"x": 0.02864, "y": 0.7176},
+    {"x": 0.4454, "y": 0.1666}
+  ]
+}

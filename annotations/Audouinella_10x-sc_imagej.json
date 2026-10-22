@@ -1,0 +1,56 @@
+
+
+[
+  {
+    "id": "rhizoids",
+    "labels": {
+      "ru": "Ризоиды",
+      "en": "Rhizoids"
+    },
+    "description": {
+      "ru": "Нитевидные структуры в области основания таллома, обеспечивающие прикрепление водоросли к субстрату. Расположены в верхней части изображения, где сходятся многочисленные нити.",
+      "en": "Filamentous structures at the base of the thallus that anchor the alga to the substrate. Located in the upper part of the image, where numerous filaments converge."
+    },
+    "color": "#15DB29",
+    "points": [{"x": 0.55179011, "y": 0.08912630}]
+  },
+  {
+    "id": "thallus",
+    "labels": {
+      "ru": "Нить таллома",
+      "en": "Thallus filament"
+    },
+    "description": {
+      "ru": "Многочисленные ветвящиеся многоклеточные нити формируют кустистый таллом. При увеличении различимы отдельные клетки и поперечные перегородки.",
+      "en": "Numerous branching multicellular filaments form a bush-like thallus. Individual cells and transverse septa can be distinguished at higher zoom levels."
+    },
+    "color": "#0F92EF",
+    "points": [{"x": 0.24514895, "y": 0.15893458}]
+  },
+  {
+    "id": "branching",
+    "labels": {
+      "ru": "Боковое ветвление",
+      "en": "Lateral branching"
+    },
+    "description": {
+      "ru": "От основных нитей отходят боковые ответвления. Их расположение и строение хорошо прослеживаются при увеличении отдельных участков панорамы.",
+      "en": "Lateral branches arise from the main filaments. Their arrangement and structure can be examined by zooming into individual regions of the panorama."
+    },
+    "color": "#EDED0E",
+    "points": [{"x": 0.53757857, "y": 0.53797746}]
+  },
+  {
+    "id": "monosporangium",
+    "labels": {
+      "ru": "Предполагаемый моноспорангий",
+      "en": "Putative monosporangium"
+    },
+    "description": {
+      "ru": "Округлое образование на коротком боковом ответвлении. По морфологии и расположению предположительно соответствует моноспорангию.",
+      "en": "A rounded structure on a short lateral branch. Its morphology and position suggest a possible monosporangium."
+    },
+    "color": "#990C39",
+    "points": [{"x": 0.19820989, "y": 0.73895068}]
+  }
+]

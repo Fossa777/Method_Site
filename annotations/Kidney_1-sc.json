@@ -1,0 +1,51 @@
+[
+  {
+    "id": "preserved_tubules",
+    "labels": {
+      "ru": "Относительно сохранённые канальцы",
+      "en": "Relatively preserved tubules"
+    },
+    "description": {
+      "ru": "Участок, где просветы канальцев различимы лучше и выглядят более светлыми. В норме просвет канальца должен оставаться сравнительно прозрачным.",
+      "en": "An area where the tubular lumina are better preserved and appear lighter. Normally, the tubular lumen should remain relatively clear and should not be filled with dense dark material."
+    },
+    "color": "#44cc66",
+    "points": [{"x": 0.03657062, "y": 0.47747380},
+    {"x": 0.16250252, "y": 0.51667347},
+    {"x": 0.54357244, "y": 0.61079352},
+    {"x": 0.60679025, "y": 0.42146454}]
+  },
+  {
+    "id": "dark_tubular_contents",
+    "labels": {
+      "ru": "Канальцы с тёмным содержимым",
+      "en": "Tubules with dark luminal contents"
+    },
+    "description": {
+      "ru": "Просветы канальцев заполнены плотным тёмным содержимым и утрачивают обычную прозрачность. Это соответствует выраженным патологическим изменениям канальцев.",
+      "en": "The tubular lumina are filled with dense dark material and lose their usual transparency. This corresponds to marked pathological changes in the tubules."
+    },
+    "color": "#ff8844",
+    "points": [{"x": 0.37018940, "y": 0.33455832},
+    {"x": 0.32691920, "y": 0.62855587},
+    {"x": 0.40781785, "y": 0.36531918},
+    {"x": 0.51944388, "y": 0.74207159},
+    {"x": 0.18013298, "y": 0.72519396}]
+  },
+  {
+    "id": "tubular_destruction",
+    "labels": {
+      "ru": "Деструкция канальцев",
+      "en": "Tubular destruction"
+    },
+    "description": {
+      "ru": "Участки с выраженным нарушением структуры канальцев, где просветы и стенки становятся плохо различимыми.",
+      "en": "Areas with marked disruption of tubular structure, where lumina and walls become poorly distinguishable. Such changes may be associated with dark material within the lumen."
+    },
+    "color": "#ff4444",
+    "points": [{"x": 0.81387266, "y": 0.32782088},
+    {"x": 0.74733024, "y": 0.26745610},
+    {"x": 0.87200282, "y": 0.30808493},
+    {"x": 0.49254483, "y": 0.30801688}]
+  }
+]
