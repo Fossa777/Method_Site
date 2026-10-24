@@ -6,7 +6,7 @@
     <description>Recent content on Fossa Method</description>
     <generator>Hugo -- 0.147.2</generator>
     <language>ru</language>
-    <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://fossamethod.ru/ru/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Летающие слоны</title>
@@ -30,9 +30,16 @@
       <description>Наблюдение, ограничения, модели, понимание и поиск механизмов. Попытка сформулировать принципы, которые лежат в основе диагностики, исследований и принятия решений.</description>
     </item>
     <item>
+      <title>Научный метод. Инструкция по применению.</title>
+      <link>https://fossamethod.ru/ru/posts/science/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/posts/science/</guid>
+      <description>О том, как формируется знание, почему уверенность часто опережает понимание и как научный метод помогает не путать наблюдение с объяснением.</description>
+    </item>
+    <item>
       <title>Традиции вместо науки I. Метод. </title>
       <link>https://fossamethod.ru/ru/posts/index_metod/</link>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/ru/posts/index_metod/</guid>
       <description>Что можно получить от окраски, если классический метод Циля–Нильсена невозможно выполнить полностью? Разбираем роль фенола, нагревания и кислотного обесцвечивания и учимся отделять наблюдение от того, что метод действительно доказывает.</description>
     </item>
@@ -114,11 +121,25 @@
       <description>Рыба трётся о камни — значит, у неё паразиты? Почему по одному движению нельзя определить, что происходит с кожей и жабрами.</description>
     </item>
     <item>
-      <title>Научный метод. Инструкция по применению.</title>
-      <link>https://fossamethod.ru/ru/posts/science/</link>
-      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://fossamethod.ru/ru/posts/science/</guid>
-      <description>О том, как формируется знание, почему уверенность часто опережает понимание и как научный метод помогает не путать наблюдение с объяснением.</description>
+      <title>Веточки и палочки. Кого мы видим в препарате?</title>
+      <link>https://fossamethod.ru/ru/posts/twigs_and_sticks/</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/posts/twigs_and_sticks/</guid>
+      <description>Нокардии и микобактерии у рыб: сравнение морфологии, кислотоустойчивости, патогенности и антибиотикорезистентности, границы диагностики.</description>
+    </item>
+    <item>
+      <title>Веточки и палочки. Можно ли узнать бактерию по форме?</title>
+      <link>https://fossamethod.ru/ru/f/twigs_and_sticks/</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/f/twigs_and_sticks/</guid>
+      <description>Красные палочки в препарате рыбы: почему это не обязательно микобактерии, чем опасен нокардиоз и почему окраска не заменяет подбор лечения.</description>
+    </item>
+    <item>
+      <title>Веточки и палочки. Что говорят форма и окраска?</title>
+      <link>https://fossamethod.ru/ru/fo/twigs_and_sticks/</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/fo/twigs_and_sticks/</guid>
+      <description>Сравнение Nocardia и Mycobacterium у рыб: морфология, патогенность, частичная кислотоустойчивость и лекарственная чувствительность.</description>
     </item>
     <item>
       <title>Виртуальный микроскоп — широкий режим</title>

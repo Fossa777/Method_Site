@@ -458,6 +458,10 @@ updateThemeText();
 
 
 
+
+
+
+
 <style>
  
 .microscope-collection {
@@ -1367,9 +1371,98 @@ updateThemeText();
     }
 }
 
+
+ 
+.microscope-collection--compact {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: var(--fossa-compact-width, 48%);
+    max-width: 100%;
+    margin: 0 .45% 20px;
+    padding: 0;
+}
+
+.microscope-collection--compact .scope-container {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    max-width: none;
+    margin: 0 auto 10px;
+    padding: 0;
+}
+
+.microscope-collection--compact .scope-with-glow {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+}
+
+.microscope-collection--compact .scope-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+}
+
+.microscope-collection--compact .scale-bar-line {
+    height: 2px;
+    border-radius: 1px;
+    margin-top: 3px;
+}
+
+.microscope-collection--compact .scale-bar-text {
+    font-size: clamp(10px, 1.15vw, 12px);
+    line-height: 1.2;
+}
+
+.microscope-collection--compact .scope-glow {
+    inset: -16px;
+    filter: blur(16px);
+    opacity: .75;
+}
+
+.microscope-collection--compact .scope-loader .loader-spinner {
+    width: 28px;
+    height: 28px;
+    border-width: 3px;
+}
+
+.microscope-collection--compact .scope-loader .loader-text {
+    font-size: 11px;
+}
+
+.microscope-collection--compact .annotation-toggle-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.microscope-collection--compact .collection-controls {
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .microscope-collection--compact {
+        display: block;
+        width: min(100%, 480px);
+        max-width: 100%;
+        margin: 0 auto 22px;
+    }
+}
+
 </style>
 
-<div class="microscope-collection" id="collection-0">
+<div class="microscope-collection"
+     id="collection-0">
     <div class="scope-container">
         
         <div class="specimen-info">
@@ -1477,6 +1570,7 @@ updateThemeText();
     const id = "0";
     const shortcodeSlide = "";
     const singleMode = false;
+    const compactMode = false;
     const loader = document.getElementById("loader-" + id);
     const loaderText = document.getElementById("loader-text-" + id);
     const tileStatus = document.getElementById("tile-status-" + id);
@@ -1749,8 +1843,8 @@ updateThemeText();
         
         {
             id:  23 ,
-            name: "Mycobacteria 40x",
-            description: "Spleen touch smear. Ziehl–Neelsen stain. Objective 40x.",
+            name: "Branching rod-shaped bacteria — 40×",
+            description: "Spleen impression smear. Ziehl–Neelsen staining. 40× objective. Fuchsin-positive rod-shaped and elongated structures showing apparent branching. The morphology is compatible with Nocardia or other actinomycetes.",
             buttonImage: "\/dzi\/images\/mico2Pano.webp",
             dzi: "mico2Pano.dzi",
             unit: "",
@@ -1760,8 +1854,8 @@ updateThemeText();
         
         {
             id:  24 ,
-            name: "Mycobacteria 100x",
-            description: "Spleen touch smear. Ziehl–Neelsen stain. Objective 100x.",
+            name: "Branching filamentous bacteria — 100×",
+            description: "Spleen impression smear. Ziehl–Neelsen staining. 100× objective. Fuchsin-positive rod-shaped and filamentous structures showing prominent branching and uneven staining. The morphology is suggestive of branching actinomycetes, including Nocardia.",
             buttonImage: "\/dzi\/images\/micoPano.webp",
             dzi: "micoPano.dzi",
             unit: "",
@@ -1903,8 +1997,8 @@ updateThemeText();
         
         {
             id:  37 ,
-            name: "Thin mycobacteria",
-            description: "Thin, small mycobacteria. More common in marine tropical fish.",
+            name: "Thin fuchsin-positive bacteria",
+            description: "Impression smear. Ziehl–Neelsen staining. Numerous slender rod-shaped bacteria are observed among cellular elements. Morphological features alone do not allow identification at the genus level.",
             buttonImage: "\/dzi\/images\/MikiSm.webp",
             dzi: "MikiSm.dzi",
             unit: "",
@@ -1926,6 +2020,8 @@ updateThemeText();
     ];
 
     let viewer = null;
+    
+    let compactLastWidth = 0;
     let currentSpecimen = null;
     let isTransitioning = false;
     let currentZoomLevel = 1;
@@ -2319,6 +2415,41 @@ function initialize() {
 
 
 
+
+
+function compactClampZoom(value) {
+    return Math.max(1, Math.min(50, value));
+}
+
+function applyCompactInitialZoom() {
+    if (!compactMode || !viewer || !viewer.viewport) return;
+    const width = viewerContainer.getBoundingClientRect().width;
+    if (!(width > 0)) return;
+    compactLastWidth = width;
+    
+    
+    const zoom = viewer.viewport.getZoom(true);
+    const targetZoom = compactClampZoom(zoom * 700 / width);
+    viewer.viewport.zoomTo(targetZoom, null, true);
+    updateScaleBar();
+}
+
+function handleCompactResize() {
+    if (!compactMode || !viewer || !viewer.viewport || !currentSpecimen) return;
+    const width = viewerContainer.getBoundingClientRect().width;
+    if (!(width > 0)) return;
+    if (compactLastWidth > 0 && Math.abs(width - compactLastWidth) > 0.5) {
+        
+        const previousWidth = compactLastWidth;
+        compactLastWidth = width;
+        const zoom = viewer.viewport.getZoom(true);
+        viewer.viewport.zoomTo(compactClampZoom(zoom * previousWidth / width), null, true);
+    } else {
+        compactLastWidth = width;
+    }
+    updateScaleBar();
+}
+
 function updateScaleBar() {
     
     
@@ -2520,6 +2651,10 @@ function updateScaleBar() {
                 }
                 
                 
+                
+                applyCompactInitialZoom();
+
+                
                 setTimeout(updateScaleBar, 300);
             });
 
@@ -2540,6 +2675,7 @@ function updateScaleBar() {
 
             
             viewer.addHandler('resize', function() {
+                handleCompactResize();
                 updateScaleBar();
             });
 
@@ -2748,6 +2884,14 @@ if (toggleBtn) {
         }
 
         initOpenSeadragon();
+        if (compactMode && typeof ResizeObserver !== 'undefined') {
+            
+            
+            const compactResizeObserver = new ResizeObserver(() => {
+                requestAnimationFrame(handleCompactResize);
+            });
+            compactResizeObserver.observe(viewerContainer);
+        }
         if (!singleMode) {
             initSpecimenButtons();
         }
@@ -3171,13 +3315,15 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/en/posts/fossa-method/">Fossa Method</a></li>
       
+        <li><a href="https://fossamethod.ru/en/posts/science/">Scientific Method. A Practical Guide.</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/posts/index_metod/">Tradition Instead of Science I. Method</a></li>
+      
         <li><a href="https://fossamethod.ru/en/posts/index_desease/">Traditions Instead of Science. II</a></li>
       
         <li><a href="https://fossamethod.ru/en/posts/index_fish_scrab/">Traditions Instead of Science. III</a></li>
       
-        <li><a href="https://fossamethod.ru/en/posts/science/">Scientific Method. A Practical Guide.</a></li>
-      
-        <li><a href="https://fossamethod.ru/en/posts/index_metod/">Tradition Instead of Science I. The Method.</a></li>
+        <li><a href="https://fossamethod.ru/en/posts/index_granulomas/">Traditions Instead of Science IV. Diagnosis.</a></li>
       
         <li><a href="https://fossamethod.ru/en/fo/index_granulomas/">Granulomas in Fish: What Their Structure Reveals—and What It Cannot Prove</a></li>
       
@@ -3187,8 +3333,6 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/en/f/index_granulomas/">White Spots in Fish Organs: Is It Tuberculosis?</a></li>
       
-        <li><a href="https://fossamethod.ru/en/posts/index_granulomas/">Traditions Instead of Science IV. Diagnosis.</a></li>
-      
         <li><a href="https://fossamethod.ru/en/fo/index_desease/">FMC: Why a Treatment Bath Is Not the Same as Effective Treatment</a></li>
       
         <li><a href="https://fossamethod.ru/en/f/index_desease/">We Gave the Fish a Bath. But Did We Cure It?</a></li>
@@ -3196,6 +3340,12 @@ document.addEventListener("DOMContentLoaded", function () {
         <li><a href="https://fossamethod.ru/en/fo/index_fish_scrab/">Fish Rubbing Against Objects: Behavior, Cause, and Diagnosis</a></li>
       
         <li><a href="https://fossamethod.ru/en/f/index_fish_scrab/">The Fish Is Scratching. But Why?</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/f/twigs_and_sticks/">Twigs and Rods. Can We Identify Bacteria by Their Shape?</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/fo/twigs_and_sticks/">Twigs and Rods. What Can Shape and Staining Tell Us?</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/posts/twigs_and_sticks/">Twigs and Rods. Who Are We Looking at in This Specimen?</a></li>
       
         <li><a href="https://fossamethod.ru/en/microscope-app/">Virtual Microscope — Wide View</a></li>
       

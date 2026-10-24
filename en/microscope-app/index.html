@@ -440,6 +440,59 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="fossa-microscope-page__fullscreen-label">Fullscreen</span>
       </button>
     
+    <div class="scope-adjust" id="scopeAdjust" role="group"
+         aria-label="Image adjustments">
+      <div class="scope-knob scope-knob--brightness" data-control="brightness" tabindex="0"
+           role="slider" aria-valuemin="70" aria-valuemax="130" aria-valuenow="100"
+           aria-valuetext="100%" aria-label="Brightness"
+           title="Mouse wheel or turn the dial; tap the center to reset">
+        <svg class="scope-knob__dial" viewBox="0 0 120 110" aria-hidden="true">
+          <path class="scope-knob__arc" d="M12 68 A48 48 0 0 1 108 68" />
+          <path class="scope-knob__arc-mark" d="M12 68 A48 48 0 0 1 108 68" />
+          <circle class="scope-knob__inner" cx="60" cy="68" r="30" />
+          <g class="scope-knob__needle">
+            <path d="M60 68 L60 42" />
+          </g>
+          <circle class="scope-knob__center" cx="60" cy="68" r="3" />
+        </svg>
+        <span class="scope-knob__info">
+          <span>Brightness</span>
+          <output>100%</output>
+        </span>
+      </div>
+      <div class="scope-knob scope-knob--contrast" data-control="contrast" tabindex="0"
+           role="slider" aria-valuemin="40" aria-valuemax="200" aria-valuenow="100"
+           aria-valuetext="100%" aria-label="Contrast"
+           title="Mouse wheel or turn the dial; tap the center to reset">
+        <svg class="scope-knob__dial" viewBox="0 0 120 110" aria-hidden="true">
+          <path class="scope-knob__arc" d="M12 68 A48 48 0 0 1 108 68" />
+          <path class="scope-knob__arc-mark" d="M12 68 A48 48 0 0 1 108 68" />
+          <circle class="scope-knob__inner" cx="60" cy="68" r="30" />
+          <g class="scope-knob__needle">
+            <path d="M60 68 L60 42" />
+          </g>
+          <circle class="scope-knob__center" cx="60" cy="68" r="3" />
+        </svg>
+        <span class="scope-knob__info">
+          <span>Contrast</span>
+          <output>100%</output>
+        </span>
+      </div>
+    </div>
+    <button type="button" class="scope-photo-button"
+      title="Save current field of view with scale bar as PNG"
+      aria-label="Capture specimen image">
+      <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 7h4l2-3h4l2 3h4a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/>
+        <circle cx="12" cy="13" r="3.5"/>
+      </svg>
+      <span>Capture</span>
+    </button>
+    
+
+
+
+
 
 
 <style>
@@ -1351,9 +1404,98 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 }
 
+
+ 
+.microscope-collection--compact {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: var(--fossa-compact-width, 48%);
+    max-width: 100%;
+    margin: 0 .45% 20px;
+    padding: 0;
+}
+
+.microscope-collection--compact .scope-container {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    max-width: none;
+    margin: 0 auto 10px;
+    padding: 0;
+}
+
+.microscope-collection--compact .scope-with-glow {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+}
+
+.microscope-collection--compact .scope-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+}
+
+.microscope-collection--compact .scale-bar-line {
+    height: 2px;
+    border-radius: 1px;
+    margin-top: 3px;
+}
+
+.microscope-collection--compact .scale-bar-text {
+    font-size: clamp(10px, 1.15vw, 12px);
+    line-height: 1.2;
+}
+
+.microscope-collection--compact .scope-glow {
+    inset: -16px;
+    filter: blur(16px);
+    opacity: .75;
+}
+
+.microscope-collection--compact .scope-loader .loader-spinner {
+    width: 28px;
+    height: 28px;
+    border-width: 3px;
+}
+
+.microscope-collection--compact .scope-loader .loader-text {
+    font-size: 11px;
+}
+
+.microscope-collection--compact .annotation-toggle-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.microscope-collection--compact .collection-controls {
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .microscope-collection--compact {
+        display: block;
+        width: min(100%, 480px);
+        max-width: 100%;
+        margin: 0 auto 22px;
+    }
+}
+
 </style>
 
-<div class="microscope-collection" id="collection-0">
+<div class="microscope-collection"
+     id="collection-0">
     <div class="scope-container">
         
         <div class="specimen-info">
@@ -1461,6 +1603,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = "0";
     const shortcodeSlide = "";
     const singleMode = false;
+    const compactMode = false;
     const loader = document.getElementById("loader-" + id);
     const loaderText = document.getElementById("loader-text-" + id);
     const tileStatus = document.getElementById("tile-status-" + id);
@@ -1733,8 +1876,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         {
             id:  23 ,
-            name: "Mycobacteria 40x",
-            description: "Spleen touch smear. Ziehl–Neelsen stain. Objective 40x.",
+            name: "Branching rod-shaped bacteria — 40×",
+            description: "Spleen impression smear. Ziehl–Neelsen staining. 40× objective. Fuchsin-positive rod-shaped and elongated structures showing apparent branching. The morphology is compatible with Nocardia or other actinomycetes.",
             buttonImage: "\/dzi\/images\/mico2Pano.webp",
             dzi: "mico2Pano.dzi",
             unit: "",
@@ -1744,8 +1887,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         {
             id:  24 ,
-            name: "Mycobacteria 100x",
-            description: "Spleen touch smear. Ziehl–Neelsen stain. Objective 100x.",
+            name: "Branching filamentous bacteria — 100×",
+            description: "Spleen impression smear. Ziehl–Neelsen staining. 100× objective. Fuchsin-positive rod-shaped and filamentous structures showing prominent branching and uneven staining. The morphology is suggestive of branching actinomycetes, including Nocardia.",
             buttonImage: "\/dzi\/images\/micoPano.webp",
             dzi: "micoPano.dzi",
             unit: "",
@@ -1887,8 +2030,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         {
             id:  37 ,
-            name: "Thin mycobacteria",
-            description: "Thin, small mycobacteria. More common in marine tropical fish.",
+            name: "Thin fuchsin-positive bacteria",
+            description: "Impression smear. Ziehl–Neelsen staining. Numerous slender rod-shaped bacteria are observed among cellular elements. Morphological features alone do not allow identification at the genus level.",
             buttonImage: "\/dzi\/images\/MikiSm.webp",
             dzi: "MikiSm.dzi",
             unit: "",
@@ -1910,6 +2053,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let viewer = null;
+    
+    let compactLastWidth = 0;
     let currentSpecimen = null;
     let isTransitioning = false;
     let currentZoomLevel = 1;
@@ -2303,6 +2448,41 @@ function initialize() {
 
 
 
+
+
+function compactClampZoom(value) {
+    return Math.max(1, Math.min(50, value));
+}
+
+function applyCompactInitialZoom() {
+    if (!compactMode || !viewer || !viewer.viewport) return;
+    const width = viewerContainer.getBoundingClientRect().width;
+    if (!(width > 0)) return;
+    compactLastWidth = width;
+    
+    
+    const zoom = viewer.viewport.getZoom(true);
+    const targetZoom = compactClampZoom(zoom * 700 / width);
+    viewer.viewport.zoomTo(targetZoom, null, true);
+    updateScaleBar();
+}
+
+function handleCompactResize() {
+    if (!compactMode || !viewer || !viewer.viewport || !currentSpecimen) return;
+    const width = viewerContainer.getBoundingClientRect().width;
+    if (!(width > 0)) return;
+    if (compactLastWidth > 0 && Math.abs(width - compactLastWidth) > 0.5) {
+        
+        const previousWidth = compactLastWidth;
+        compactLastWidth = width;
+        const zoom = viewer.viewport.getZoom(true);
+        viewer.viewport.zoomTo(compactClampZoom(zoom * previousWidth / width), null, true);
+    } else {
+        compactLastWidth = width;
+    }
+    updateScaleBar();
+}
+
 function updateScaleBar() {
     
     
@@ -2504,6 +2684,10 @@ function updateScaleBar() {
                 }
                 
                 
+                
+                applyCompactInitialZoom();
+
+                
                 setTimeout(updateScaleBar, 300);
             });
 
@@ -2524,6 +2708,7 @@ function updateScaleBar() {
 
             
             viewer.addHandler('resize', function() {
+                handleCompactResize();
                 updateScaleBar();
             });
 
@@ -2732,6 +2917,14 @@ if (toggleBtn) {
         }
 
         initOpenSeadragon();
+        if (compactMode && typeof ResizeObserver !== 'undefined') {
+            
+            
+            const compactResizeObserver = new ResizeObserver(() => {
+                requestAnimationFrame(handleCompactResize);
+            });
+            compactResizeObserver.observe(viewerContainer);
+        }
         if (!singleMode) {
             initSpecimenButtons();
         }
@@ -2781,10 +2974,21 @@ if (specimens.length > 0) {
 
 
 (() => {
+  const adjust = document.querySelector('.fossa-microscope-page__content > .scope-adjust');
   document.querySelectorAll('.fossa-microscope-page .microscope-collection').forEach(collection => {
     const scope = collection.querySelector('.scope-container');
-    const button = collection.querySelector('.collection-controls .annotation-toggle-btn');
-    if (scope && button) scope.appendChild(button);
+    const glow = scope?.querySelector('.scope-with-glow');
+    const annotation = collection.querySelector('.collection-controls .annotation-toggle-btn');
+    if (glow && adjust) glow.appendChild(adjust);
+    
+    const photoButton = document.querySelector('.fossa-microscope-page__content > .scope-photo-button');
+    if (scope && (annotation || photoButton)) {
+      const actions = document.createElement('div');
+      actions.className = 'scope-photo-actions';
+      scope.appendChild(actions);
+      if (annotation) actions.appendChild(annotation);
+      if (photoButton) actions.appendChild(photoButton);
+    }
   });
 })();
 
@@ -2839,9 +3043,203 @@ if (specimens.length > 0) {
   document.addEventListener('fullscreenchange', updateButton);
   updateButton();
 })();
+
+
+
+(() => {
+  document.querySelectorAll('.fossa-microscope-page .microscope-collection').forEach(collection => {
+    const scope = collection.querySelector('.scope-container');
+    if (!scope) return;
+
+    let previous = 0;
+    const update = () => {
+      const height = Math.ceil(scope.getBoundingClientRect().height);
+      if (height > 0 && height !== previous) {
+        previous = height;
+        collection.style.setProperty('--fossa-scope-column-height', `${height}px`);
+      }
+    };
+
+    if (typeof ResizeObserver !== 'undefined') {
+      const observer = new ResizeObserver(update);
+      observer.observe(scope);
+    }
+    window.addEventListener('resize', update);
+    requestAnimationFrame(update);
+  });
+})();
 </script>
 
+
+
 <style>
+
+ 
+.fossa-microscope-page .dzi-viewer {
+  filter: brightness(var(--scope-brightness, 1)) contrast(var(--scope-contrast, 1));
+  transition: filter 70ms linear;
+}
+
+ 
+.fossa-microscope-page .scope-adjust {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+}
+.fossa-microscope-page .scope-knob {
+  --scope-knob-angle: 0deg;
+  position: absolute;
+  bottom: -3px;
+  width: 116px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--secondary);
+  font: 500 12px/1.25 system-ui, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  pointer-events: auto;
+  outline-offset: 4px;
+}
+.fossa-microscope-page .scope-knob:active { cursor: grabbing; }
+.fossa-microscope-page .scope-knob--brightness { left: -32px; }
+.fossa-microscope-page .scope-knob--contrast { right: -32px; }
+.fossa-microscope-page .scope-knob__dial {
+  display: block;
+  width: 112px;
+  height: 102px;
+  overflow: visible;
+  touch-action: none;
+}
+.fossa-microscope-page .scope-knob__arc {
+  fill: none;
+  stroke: color-mix(in srgb, var(--primary) 50%, transparent);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.fossa-microscope-page .scope-knob__arc-mark {
+  fill: none;
+  stroke: color-mix(in srgb, var(--primary) 32%, transparent);
+  stroke-width: 2;
+  stroke-dasharray: 1 11;
+}
+.fossa-microscope-page .scope-knob__inner {
+  fill: rgba(29, 30, 32, .80);
+  stroke: color-mix(in srgb, var(--primary) 50%, transparent);
+  stroke-width: 3;
+}
+.fossa-microscope-page .scope-knob__needle {
+  transform-origin: 60px 68px;
+  transform: rotate(var(--scope-knob-angle));
+  transition: transform 75ms linear;
+}
+.fossa-microscope-page .scope-knob__needle path {
+  fill: none;
+  stroke: #bdc6d3;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.fossa-microscope-page .scope-knob__center {
+  fill: #bdc6d3;
+}
+.fossa-microscope-page .scope-knob__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -2px;
+  gap: 2px;
+  color: var(--secondary);
+  text-shadow: 0 1px 3px var(--theme);
+}
+.fossa-microscope-page .scope-knob__info output {
+  color: var(--primary);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.fossa-microscope-page .scope-knob:focus-visible {
+  outline: 2px solid var(--primary);
+  border-radius: 10px;
+}
+
+ 
+.fossa-microscope-page .scope-photo-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin: 14px auto 0;
+  position: relative;
+  z-index: 45;
+}
+.fossa-microscope-page .scope-photo-actions > .annotation-toggle-btn {
+  position: static;
+  margin: 0;
+  flex-shrink: 0;
+}
+.fossa-microscope-page .scope-photo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 7px 13px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--entry);
+  color: var(--primary);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.fossa-microscope-page .scope-photo-button:hover { background: var(--tertiary); }
+.fossa-microscope-page .scope-photo-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.fossa-microscope-page .scope-photo-button:disabled {
+  opacity: .55;
+  cursor: progress;
+}
+ 
+.fossa-microscope-page .scope-wrapper.scope-photo-flash::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #fff;
+  pointer-events: none;
+  z-index: 60;
+  animation: scope-photo-flash .32s ease-out both;
+}
+@keyframes scope-photo-flash {
+  0% { opacity: .65; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fossa-microscope-page .scope-wrapper.scope-photo-flash::after { animation: none; opacity: 0; }
+}
+
+@media (max-width: 700px) {
+  .fossa-microscope-page .scope-knob {
+    width: 83px;
+    bottom: -3px;
+    font-size: 11px;
+  }
+  .fossa-microscope-page .scope-knob__dial {
+    width: 79px;
+    height: 72px;
+  }
+  .fossa-microscope-page .scope-knob--brightness { left: -8px; }
+  .fossa-microscope-page .scope-knob--contrast { right: -8px; }
+  .fossa-microscope-page .scope-knob__info { gap: 0; }
+  .fossa-microscope-page .scope-knob__info output { font-size: 10px; }
+}
+
  
 body:has(.fossa-microscope-page) main.main {
   width: 100%;
@@ -2995,8 +3393,9 @@ body:has(.fossa-microscope-page) main.main {
 .fossa-microscope-page .collection-controls {
   width: 100%;
   min-width: 0;
-  height: calc(100dvh - 270px);
-  min-height: 380px;
+   
+  height: var(--fossa-scope-column-height, calc(100dvh - 270px));
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -3008,11 +3407,11 @@ body:has(.fossa-microscope-page) main.main {
 .fossa-microscope-page__collection-toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
   min-width: 0;
   width: 100%;
   min-height: 38px;
+  margin: 0 0 0 2%;
 }
 
 .fossa-microscope-page .collection-title {
@@ -3025,17 +3424,11 @@ body:has(.fossa-microscope-page) main.main {
 
 .fossa-microscope-page__collection-toolbar .fossa-microscope-page__fullscreen {
   flex-shrink: 0;
-  font-size: 12px;
+  font-size: 16px;
   padding: 7px 9px;
 }
 
  
-.fossa-microscope-page .scope-container > .annotation-toggle-btn {
-  flex-shrink: 0;
-  margin: 14px auto 0;
-  position: relative;
-  z-index: 1;
-}
 
 .fossa-microscope-page .buttons-scroll-container {
   flex: 1 1 auto;
@@ -3157,8 +3550,10 @@ body:has(.fossa-microscope-page) main.main {
 }
 
 .fossa-microscope-page:fullscreen .scope-with-glow {
-  width: min(100%, calc(100dvh - 170px), 850px);
-  margin-top: 0;
+    width: min(100%, calc(82dvh - 40px));
+    max-width: none;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
 }
 
 .fossa-microscope-page:fullscreen .collection-controls {
@@ -3180,6 +3575,269 @@ body:has(.fossa-microscope-page) main.main {
   }
 }
 </style>
+
+
+<script>
+
+
+(() => {
+  const page = document.querySelector('.fossa-microscope-page');
+  const scope = page?.querySelector('.microscope-collection .scope-container');
+  const panel = page?.querySelector('#scopeAdjust');
+  if (!scope || !panel) return;
+
+  const specs = {
+    brightness: { min: 0.70, max: 1.30, step: 0.01, wheelStep: 0.01 },
+    contrast:   { min: 0.40, max: 2.00, step: 0.01, wheelStep: 0.02 }
+  };
+  const settings = { brightness: 1, contrast: 1 };
+  const clamp = (x, min, max) => Math.max(min, Math.min(max, x));
+
+  function setValue(kind, next) {
+    const s = specs[kind];
+    if (!s || !Number.isFinite(next)) return;
+    const value = Math.round(clamp(next, s.min, s.max) / s.step) * s.step;
+    settings[kind] = Number(value.toFixed(2));
+    const dial = panel.querySelector('[data-control="' + kind + '"]');
+    if (!dial) return;
+    const percent = Math.round(settings[kind] * 100);
+    const angle = -65 + (settings[kind] - s.min) / (s.max - s.min) * 130;
+    dial.style.setProperty('--scope-knob-angle', angle.toFixed(2) + 'deg');
+    dial.querySelector('output').textContent = percent + '%';
+    dial.setAttribute('aria-valuenow', String(percent));
+    dial.setAttribute('aria-valuetext', percent + '%');
+
+    scope.style.setProperty('--scope-brightness', String(settings.brightness));
+    scope.style.setProperty('--scope-contrast', String(settings.contrast));
+  }
+
+  panel.querySelectorAll('.scope-knob').forEach(dial => {
+    const kind = dial.dataset.control;
+    const s = specs[kind];
+    const svg = dial.querySelector('svg');
+    if (!s || !svg) return;
+
+    
+    let wheelTotal = 0;
+    dial.addEventListener('wheel', event => {
+      if (event.ctrlKey) return; 
+      event.preventDefault();
+      const multiplier = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? 400 : 1;
+      wheelTotal -= event.deltaY * multiplier;
+      const ticks = Math.trunc(wheelTotal / 45);
+      if (!ticks) return;
+      wheelTotal -= ticks * 45;
+      setValue(kind, settings[kind] + ticks * s.wheelStep);
+    }, { passive: false });
+
+    
+    const rotaryValue = event => {
+      const rect = svg.getBoundingClientRect();
+      const centerX = rect.left + rect.width * 0.5;
+      const centerY = rect.top + rect.height * (68 / 110);
+      const dx = event.clientX - centerX;
+      const dy = event.clientY - centerY;
+      const distance = Math.hypot(dx, dy);
+      if (distance < rect.width * 0.13) return null;
+      let degrees = Math.atan2(dy, dx) * 180 / Math.PI;
+      if (degrees > 90) degrees -= 360;
+      const angle = clamp(degrees + 90, -65, 65);
+      return s.min + (angle + 65) / 130 * (s.max - s.min);
+    };
+    let dragging = false;
+    svg.addEventListener('pointerdown', event => {
+      if (event.button !== 0 && event.pointerType === 'mouse') return;
+      const value = rotaryValue(event);
+      if (value === null) {
+        setValue(kind, 1); 
+        return;
+      }
+      dragging = true;
+      svg.setPointerCapture(event.pointerId);
+      setValue(kind, value);
+      event.preventDefault();
+    });
+    svg.addEventListener('pointermove', event => {
+      if (!dragging) return;
+      const value = rotaryValue(event);
+      if (value !== null) setValue(kind, value);
+    });
+    const release = () => { dragging = false; };
+    svg.addEventListener('pointerup', release);
+    svg.addEventListener('pointercancel', release);
+    svg.addEventListener('lostpointercapture', release);
+
+    
+    dial.addEventListener('keydown', event => {
+      const key = event.key;
+      let value = settings[kind];
+      if (key === 'ArrowUp' || key === 'ArrowRight') value += s.wheelStep;
+      else if (key === 'ArrowDown' || key === 'ArrowLeft') value -= s.wheelStep;
+      else if (key === 'Home') value = s.min;
+      else if (key === 'End') value = s.max;
+      else if (key === '0' || key === 'Enter') value = 1;
+      else return;
+      event.preventDefault();
+      setValue(kind, value);
+    });
+
+    setValue(kind, 1);
+  });
+})();
+</script>
+
+
+
+
+
+
+<script>
+
+
+(() => {
+  const page = document.querySelector('.fossa-microscope-page');
+  if (!page) return;
+  const russian = document.documentElement.lang.startsWith('ru') ||
+    location.pathname.startsWith('/ru/');
+  const message = (ru, en) => russian ? ru : en;
+
+  page.querySelectorAll('.microscope-collection').forEach(collection => {
+    const button = collection.querySelector('.scope-photo-button');
+    const scope = collection.querySelector('.scope-container');
+    const wrapper = scope?.querySelector('.scope-wrapper');
+    const viewport = wrapper?.querySelector('.dzi-viewer');
+    if (!button || !wrapper || !viewport) return;
+
+    function showError(reason) {
+      console.warn('Microscope photo:', reason);
+      alert(message(
+        'Не удалось сохранить снимок. Убедитесь, что препарат загружен; если ошибка повторяется, проверьте доступность DZI-файлов на этом сайте.',
+        'Could not save the image. Check that the specimen has loaded and its DZI tiles are accessible.'
+      ));
+    }
+
+    function exportPhoto() {
+      
+      const canvases = Array.from(viewport.querySelectorAll('canvas'))
+        .filter(node => node.width > 0 && node.height > 0 && node.getClientRects().length);
+      const source = canvases.sort((a, b) => b.width * b.height - a.width * a.height)[0];
+      if (!source) throw new Error('No rendered OSD canvas');
+
+      const bounds = viewport.getBoundingClientRect();
+      if (bounds.width < 10 || bounds.height < 10) throw new Error('Viewport not ready');
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      const factor = Math.max(1, ratio);
+      const width = Math.round(bounds.width * factor);
+      const height = Math.round(bounds.height * factor);
+      const photo = document.createElement('canvas');
+      photo.width = width;
+      photo.height = height;
+      const ctx = photo.getContext('2d', { alpha: false });
+      if (!ctx) throw new Error('Canvas 2D unavailable');
+      ctx.scale(width / bounds.width, height / bounds.height);
+
+      
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(0, 0, bounds.width, bounds.height);
+
+      
+      ctx.save();
+      ctx.beginPath();
+      ctx.ellipse(bounds.width / 2, bounds.height / 2,
+        bounds.width / 2, bounds.height / 2, 0, 0, Math.PI * 2);
+      ctx.clip();
+      ctx.fillStyle = '#000';
+      ctx.fillRect(0, 0, bounds.width, bounds.height);
+
+      
+      const b = getComputedStyle(scope).getPropertyValue('--scope-brightness').trim() || '1';
+      const c = getComputedStyle(scope).getPropertyValue('--scope-contrast').trim() || '1';
+      ctx.filter = `brightness(${b}) contrast(${c})`;
+      const layer = source.getBoundingClientRect();
+      ctx.drawImage(source, layer.left - bounds.left, layer.top - bounds.top,
+        layer.width, layer.height);
+      ctx.filter = 'none';
+
+      
+      const line = wrapper.querySelector('.scale-bar-line');
+      const text = wrapper.querySelector('.scale-bar-text');
+      if (line && text && text.textContent.trim() !== '—') {
+        const lineStyle = getComputedStyle(line);
+        const lineRect = line.getBoundingClientRect();
+        if (lineRect.width && lineRect.height && lineStyle.display !== 'none') {
+          ctx.save();
+          ctx.globalAlpha = Number.parseFloat(lineStyle.opacity) || 1;
+          ctx.fillStyle = lineStyle.backgroundColor || '#fff';
+          const x = lineRect.left - bounds.left;
+          const y = lineRect.top - bounds.top;
+          const r = Math.min(lineRect.height / 2, 3);
+          ctx.beginPath();
+          ctx.roundRect(x, y, lineRect.width, lineRect.height, r);
+          ctx.fill();
+          ctx.restore();
+        }
+        const textStyle = getComputedStyle(text);
+        const textRect = text.getBoundingClientRect();
+        if (textRect.width && textStyle.display !== 'none') {
+          ctx.save();
+          ctx.font = `${textStyle.fontWeight} ${textStyle.fontSize} ${textStyle.fontFamily}`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillStyle = textStyle.color || '#fff';
+          ctx.shadowColor = 'rgba(0,0,0,.85)';
+          ctx.shadowBlur = 6;
+          ctx.fillText(text.textContent.trim(),
+            textRect.left + textRect.width / 2 - bounds.left,
+            textRect.top + textRect.height / 2 - bounds.top);
+          ctx.restore();
+        }
+      }
+
+      
+      wrapper.querySelectorAll('.annotation-marker').forEach(marker => {
+        const cs = getComputedStyle(marker);
+        if (cs.display === 'none' || cs.visibility === 'hidden' || Number(cs.opacity) === 0) return;
+        const r = marker.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(r.left + r.width/2 - bounds.left, r.top + r.height/2 - bounds.top,
+          r.width/2 - 1, 0, 2*Math.PI);
+        ctx.strokeStyle = cs.borderTopColor || '#f44';
+        ctx.lineWidth = Number.parseFloat(cs.borderTopWidth) || 2;
+        ctx.stroke();
+        ctx.restore();
+      });
+      ctx.restore();
+
+      
+      const dataURL = photo.toDataURL('image/png');
+      const name = scope.querySelector('.specimen-name')?.textContent.trim() || 'specimen';
+      const safe = name.replace(/[^\p{L}\p{N}._-]+/gu, '_').slice(0, 55);
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+      const link = document.createElement('a');
+      link.href = dataURL;
+      link.download = `FossaMicroscope_${safe}_${timestamp}.png`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      wrapper.classList.remove('scope-photo-flash');
+      void wrapper.offsetWidth;
+      wrapper.classList.add('scope-photo-flash');
+      wrapper.addEventListener('animationend', () => wrapper.classList.remove('scope-photo-flash'), { once: true });
+    }
+
+    button.addEventListener('click', () => {
+      if (button.disabled) return;
+      button.disabled = true;
+      try { exportPhoto(); }
+      catch (error) { showError(error); }
+      finally { button.disabled = false; }
+    });
+  });
+})();
+</script>
   </main>
 
 
@@ -3530,13 +4188,15 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/en/posts/fossa-method/">Fossa Method</a></li>
       
+        <li><a href="https://fossamethod.ru/en/posts/science/">Scientific Method. A Practical Guide.</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/posts/index_metod/">Tradition Instead of Science I. Method</a></li>
+      
         <li><a href="https://fossamethod.ru/en/posts/index_desease/">Traditions Instead of Science. II</a></li>
       
         <li><a href="https://fossamethod.ru/en/posts/index_fish_scrab/">Traditions Instead of Science. III</a></li>
       
-        <li><a href="https://fossamethod.ru/en/posts/science/">Scientific Method. A Practical Guide.</a></li>
-      
-        <li><a href="https://fossamethod.ru/en/posts/index_metod/">Tradition Instead of Science I. The Method.</a></li>
+        <li><a href="https://fossamethod.ru/en/posts/index_granulomas/">Traditions Instead of Science IV. Diagnosis.</a></li>
       
         <li><a href="https://fossamethod.ru/en/fo/index_granulomas/">Granulomas in Fish: What Their Structure Reveals—and What It Cannot Prove</a></li>
       
@@ -3546,8 +4206,6 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/en/f/index_granulomas/">White Spots in Fish Organs: Is It Tuberculosis?</a></li>
       
-        <li><a href="https://fossamethod.ru/en/posts/index_granulomas/">Traditions Instead of Science IV. Diagnosis.</a></li>
-      
         <li><a href="https://fossamethod.ru/en/fo/index_desease/">FMC: Why a Treatment Bath Is Not the Same as Effective Treatment</a></li>
       
         <li><a href="https://fossamethod.ru/en/f/index_desease/">We Gave the Fish a Bath. But Did We Cure It?</a></li>
@@ -3555,6 +4213,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <li><a href="https://fossamethod.ru/en/fo/index_fish_scrab/">Fish Rubbing Against Objects: Behavior, Cause, and Diagnosis</a></li>
       
         <li><a href="https://fossamethod.ru/en/f/index_fish_scrab/">The Fish Is Scratching. But Why?</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/posts/twigs_and_sticks/">Twigs and Rods. Who Are We Looking at in This Specimen?</a></li>
       
         <li><a href="https://fossamethod.ru/en/microscope-app/">Virtual Microscope — Wide View</a></li>
       

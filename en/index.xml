@@ -6,7 +6,7 @@
     <description>Recent content on Fossa Method</description>
     <generator>Hugo -- 0.147.2</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://fossamethod.ru/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Flying Elephants</title>
@@ -30,6 +30,20 @@
       <description>Observation, constraints, models, understanding, and the search for mechanisms. A collection of principles that gradually emerged from diagnostics, research, and everyday problem-solving.</description>
     </item>
     <item>
+      <title>Scientific Method. A Practical Guide.</title>
+      <link>https://fossamethod.ru/en/posts/science/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/science/</guid>
+      <description>How knowledge is formed, why confidence often outpaces understanding, and how the scientific method helps distinguish observation from interpretation.</description>
+    </item>
+    <item>
+      <title>Tradition Instead of Science I. Method</title>
+      <link>https://fossamethod.ru/en/posts/index_metod/</link>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/index_metod/</guid>
+      <description>What can staining reveal when the classical Ziehl–Neelsen method cannot be performed in full? We examine the roles of phenol, heating and acid decolorization, and learn to distinguish observations from what the method actually demonstrates.</description>
+    </item>
+    <item>
       <title>Traditions Instead of Science. II</title>
       <link>https://fossamethod.ru/en/posts/index_desease/</link>
       <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
@@ -44,18 +58,11 @@
       <description>A fish rubs against the substrate — but is it really “itching,” let alone “scratching its gills”? We examine where observation ends and interpretation of behavior begins.</description>
     </item>
     <item>
-      <title>Scientific Method. A Practical Guide.</title>
-      <link>https://fossamethod.ru/en/posts/science/</link>
-      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://fossamethod.ru/en/posts/science/</guid>
-      <description>How knowledge is formed, why confidence often outpaces understanding, and how the scientific method helps distinguish observation from interpretation.</description>
-    </item>
-    <item>
-      <title>Tradition Instead of Science I. The Method.</title>
-      <link>https://fossamethod.ru/en/posts/index_metod/</link>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
-      <guid>https://fossamethod.ru/en/posts/index_metod/</guid>
-      <description>What can staining still reveal when the classic Ziehl–Neelsen method cannot be performed in full? Exploring the roles of phenol, heat, and acid decolorization—and learning to distinguish what we observe from what the method actually demonstrates.</description>
+      <title>Traditions Instead of Science IV. Diagnosis.</title>
+      <link>https://fossamethod.ru/en/posts/index_granulomas/</link>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/index_granulomas/</guid>
+      <description>Granulomas, necrosis, and mycobacteriosis in fish: why similar morphological findings do not imply the same etiology and cannot, on their own, establish a diagnosis.</description>
     </item>
     <item>
       <title>Granulomas in Fish: What Their Structure Reveals—and What It Cannot Prove</title>
@@ -86,13 +93,6 @@
       <description>Two fish spleens have similar-looking white nodules. Why appearance alone cannot tell us whether mycobacteria are responsible.</description>
     </item>
     <item>
-      <title>Traditions Instead of Science IV. Diagnosis.</title>
-      <link>https://fossamethod.ru/en/posts/index_granulomas/</link>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 +0000</pubDate>
-      <guid>https://fossamethod.ru/en/posts/index_granulomas/</guid>
-      <description>Granulomas, necrosis, and mycobacteriosis in fish: why similar morphological findings do not imply the same etiology and cannot, on their own, establish a diagnosis.</description>
-    </item>
-    <item>
       <title>FMC: Why a Treatment Bath Is Not the Same as Effective Treatment</title>
       <link>https://fossamethod.ru/en/fo/index_desease/</link>
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
@@ -119,6 +119,13 @@
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/en/f/index_fish_scrab/</guid>
       <description>A fish rubs against rocks — does that mean it has parasites? Why a single movement cannot tell us what is happening to its skin or gills.</description>
+    </item>
+    <item>
+      <title>Twigs and Rods. Who Are We Looking at in This Specimen?</title>
+      <link>https://fossamethod.ru/en/posts/twigs_and_sticks/</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/twigs_and_sticks/</guid>
+      <description>Nocardia and Mycobacterium in fish: comparing morphology, acid-fastness, pathogenicity, and antibiotic resistance, and understanding the limits of diagnosis.</description>
     </item>
     <item>
       <title>Virtual Microscope — Wide View</title>

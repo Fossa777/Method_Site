@@ -1,13 +1,13 @@
 {
   "id": "Micbacteria",
   "labels": {
-    "ru": "Микобактерии",
-    "en": "Micbacteria"
-  },
-  "description": {
-    "ru": "Род кислотоустойчивых бактерий, включающий возбудителей туберкулёза и других заболеваний. Наблюдаются как тонкие палочковидные клетки.",
-    "en": "A genus of acid-fast bacteria, including pathogens causing tuberculosis and other diseases. Appear as thin rod-shaped cells."
-  },
+  "ru": "Ветвящиеся палочковидные бактерии — 100×",
+  "en": "Branching rod-shaped bacteria — 100×"
+},
+"description": {
+  "ru": "Мазок-отпечаток селезёнки. Окраска по Цилю — Нильсену. Обнаружены фуксин-положительные палочковидные и нитевидные структуры с участками предполагаемого ветвления и неравномерным окрашиванием. Морфология допускает принадлежность к роду Nocardia.",
+  "en": "Spleen impression smear. Ziehl–Neelsen staining. Fuchsin-positive rod-shaped and filamentous structures with areas of apparent branching and uneven staining are observed. Their morphology is compatible with the genus Nocardia."
+},
   "points": [
     {"x": 0.2246, "y": 0.5772},
     {"x": 0.2495, "y": 0.5431},

@@ -1,11 +1,11 @@
 {
   "id": "Micbacteria",
   "labels": {
-    "ru": "Микобактерии",
+    "ru": "Кислотоустойчивые бактерии",
     "en": "Micbacteria"
   },
   "description": {
-    "ru": "Тонкие мелкие микобактерии. Чаще у морских тропических рыб.",
+    "ru": "Тонкие кислотоустойчивые бактерии. Чаще у морских тропических рыб.",
     "en": "Thin, small mycobacteria. More common in marine tropical fish."
   },
   "points": [

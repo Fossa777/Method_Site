@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Fossa Method</description>
     <generator>Hugo -- 0.147.2</generator>
     <language>ru</language>
-    <lastBuildDate>Wed, 07 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://fossamethod.ru/ru/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Летающие слоны</title>
@@ -30,9 +30,16 @@
       <description>Наблюдение, ограничения, модели, понимание и поиск механизмов. Попытка сформулировать принципы, которые лежат в основе диагностики, исследований и принятия решений.</description>
     </item>
     <item>
+      <title>Научный метод. Инструкция по применению.</title>
+      <link>https://fossamethod.ru/ru/posts/science/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/posts/science/</guid>
+      <description>О том, как формируется знание, почему уверенность часто опережает понимание и как научный метод помогает не путать наблюдение с объяснением.</description>
+    </item>
+    <item>
       <title>Традиции вместо науки I. Метод. </title>
       <link>https://fossamethod.ru/ru/posts/index_metod/</link>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://fossamethod.ru/ru/posts/index_metod/</guid>
       <description>Что можно получить от окраски, если классический метод Циля–Нильсена невозможно выполнить полностью? Разбираем роль фенола, нагревания и кислотного обесцвечивания и учимся отделять наблюдение от того, что метод действительно доказывает.</description>
     </item>
@@ -58,11 +65,11 @@
       <description>Гранулёмы, некроз и микобактериоз рыб: почему сходные морфологические признаки не означают одинаковую этиологию и не могут служить самостоятельным основанием для диагноза.</description>
     </item>
     <item>
-      <title>Научный метод. Инструкция по применению.</title>
-      <link>https://fossamethod.ru/ru/posts/science/</link>
-      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://fossamethod.ru/ru/posts/science/</guid>
-      <description>О том, как формируется знание, почему уверенность часто опережает понимание и как научный метод помогает не путать наблюдение с объяснением.</description>
+      <title>Веточки и палочки. Кого мы видим в препарате?</title>
+      <link>https://fossamethod.ru/ru/posts/twigs_and_sticks/</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/ru/posts/twigs_and_sticks/</guid>
+      <description>Нокардии и микобактерии у рыб: сравнение морфологии, кислотоустойчивости, патогенности и антибиотикорезистентности, границы диагностики.</description>
     </item>
     <item>
       <title>Здоровье не означает стерильность</title>
