@@ -978,7 +978,112 @@
   </url><url>
     <loc>https://fossamethod.ru/en/tags/aquatic-animal-health/</loc>
   </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/algaepano/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/algaepano/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/algaepano/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/audouinella_10x-sc_imagej/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/audouinella_10x-sc_imagej/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/audouinella_10x-sc_imagej/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/audouinella_20x-sc/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/audouinella_20x-sc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/audouinella_20x-sc/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/audouinella_40x-sc/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/audouinella_40x-sc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/audouinella_40x-sc/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/bolbitis_40x/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/bolbitis_40x/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/bolbitis_40x/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/bolbitis_10x/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/bolbitis_10x/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/bolbitis_10x/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/micopano/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/micopano/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/micopano/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/mico2pano/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/mico2pano/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/mico2pano/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/video/buble/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -990,7 +1095,73 @@
                 href="https://fossamethod.ru/en/video/buble/"
                 />
   </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/capsalidae_10x-sc/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/capsalidae_10x-sc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/capsalidae_10x-sc/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/capsalidae_2_10x-sc/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/capsalidae_2_10x-sc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/capsalidae_2_10x-sc/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/chromatophores/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/chromatophores/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/chromatophores/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/chromis/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/chromis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/chromis/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/keta_kidney_4x-sc/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/keta_kidney_4x-sc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/keta_kidney_4x-sc/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/video/ciliated-epithelium/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1003,6 +1174,7 @@
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/video/ciliate-and-bacter/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1012,6 +1184,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://fossamethod.ru/en/video/ciliate-and-bacter/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/kokki/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/kokki/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/kokki/"
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/tags/cognitive-biases/</loc>
@@ -1029,6 +1214,7 @@
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/video/cryptobia-run/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1041,6 +1227,7 @@
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/video/cryptocaryon/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1050,6 +1237,45 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://fossamethod.ru/en/video/cryptocaryon/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/cryptopano/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/cryptopano/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/cryptopano/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/crypto2pano/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/crypto2pano/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/crypto2pano/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/gills_damage/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/gills_damage/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/gills_damage/"
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/tags/diagnostic-thinking/</loc>
@@ -1066,7 +1292,21 @@
                 href="https://fossamethod.ru/en/test/reasoning-test/"
                 />
   </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/discus/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/discus/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/discus/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/video/ichthyophthirius/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1078,7 +1318,34 @@
                 href="https://fossamethod.ru/en/video/ichthyophthirius/"
                 />
   </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/eritrocite40/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/eritrocite40/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/eritrocite40/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/fibrosus_peskar_10x-sc/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/fibrosus_peskar_10x-sc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/fibrosus_peskar_10x-sc/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/video/fin-erosion/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1091,6 +1358,7 @@
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/video/autopsy/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1103,6 +1371,7 @@
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/video/fungi-in-fish/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1114,7 +1383,21 @@
                 href="https://fossamethod.ru/en/video/fungi-in-fish/"
                 />
   </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/fungal_structures_40x/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/fungal_structures_40x/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/fungal_structures_40x/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/video/fungi-native/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1124,6 +1407,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://fossamethod.ru/en/video/fungi-native/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/gadus/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/gadus/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/gadus/"
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/gallery/</loc>
@@ -1138,7 +1434,21 @@
                 href="https://fossamethod.ru/en/gallery/"
                 />
   </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/jillsnecrozpano/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/jillsnecrozpano/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/jillsnecrozpano/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/video/heat-fish/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1150,7 +1460,21 @@
                 href="https://fossamethod.ru/en/video/heat-fish/"
                 />
   </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/yeast_like_fungal_cells_100/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/yeast_like_fungal_cells_100/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/yeast_like_fungal_cells_100/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/video/ichtiobodo/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1164,6 +1488,32 @@
   </url><url>
     <loc>https://fossamethod.ru/en/tags/interactive-training/</loc>
   </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/gistopano/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/gistopano/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/gistopano/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/labidochromis/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/labidochromis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/labidochromis/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/license/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1176,7 +1526,34 @@
                 href="https://fossamethod.ru/en/license/"
                 />
   </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/granulomaapteronotus/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/granulomaapteronotus/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/granulomaapteronotus/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/liver_lipid_10x/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/liver_lipid_10x/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/liver_lipid_10x/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/video/ziehl/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1200,9 +1577,75 @@
                 href="https://fossamethod.ru/en/microscope/"
                 />
   </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/nematodpano/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/nematodpano/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/nematodpano/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/miki_without_acid_40x/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/miki_without_acid_40x/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/miki_without_acid_40x/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/monodactil/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/monodactil/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/monodactil/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/monodactylus/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/monodactylus/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/monodactylus/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/eggsnematpano/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/eggsnematpano/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/eggsnematpano/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/tags/observation/</loc>
   </url><url>
     <loc>https://fossamethod.ru/en/video/color/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1212,6 +1655,32 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://fossamethod.ru/en/video/color/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/mold/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/mold/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/mold/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/pleurogrammus/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/pleurogrammus/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/pleurogrammus/"
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/poster/</loc>
@@ -1227,6 +1696,7 @@
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/video/praziquantel/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1236,6 +1706,32 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://fossamethod.ru/en/video/praziquantel/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/pterophyllum/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/pterophyllum/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/pterophyllum/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/kidney_neon_granulema_%d1%81ontrast-sc/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/kidney_neon_granulema_%d1%81ontrast-sc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/kidney_neon_granulema_%d1%81ontrast-sc/"
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/search/</loc>
@@ -1250,6 +1746,19 @@
                 href="https://fossamethod.ru/en/search/"
                 />
   </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/secret/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/secret/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/secret/"
+                />
+  </url><url>
     <loc>https://fossamethod.ru/en/test/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1260,6 +1769,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://fossamethod.ru/en/test/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/mikism/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/mikism/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/mikism/"
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/video/</loc>
@@ -1275,6 +1797,7 @@
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/video/hexamitids/</loc>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
@@ -1284,6 +1807,32 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://fossamethod.ru/en/video/hexamitids/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/yeast_like_fungal_cells_40/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/yeast_like_fungal_cells_40/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/yeast_like_fungal_cells_40/"
+                />
+  </url><url>
+    <loc>https://fossamethod.ru/en/microscope-collection/kidney_1-sc/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://fossamethod.ru/ru/microscope-collection/kidney_1-sc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fossamethod.ru/en/microscope-collection/kidney_1-sc/"
                 />
   </url><url>
     <loc>https://fossamethod.ru/en/categories/test/</loc>
