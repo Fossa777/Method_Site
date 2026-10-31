@@ -499,8 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
     padding: 5px 5px 14px;
-     
-    border: 0;
+    border: 1px solid var(--specimen-border);
     border-radius: 12px;
     background: transparent;
     scrollbar-width: thin;
@@ -512,6 +511,30 @@ document.addEventListener('DOMContentLoaded', () => {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 14px;
     align-items: stretch;
+}
+
+ 
+.microscope-collection .fossa-specimen-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.microscope-collection .fossa-specimen-card > .specimen-btn {
+    height: auto;
+    flex: 1;
+}
+
+.microscope-collection .fossa-specimen-page-link {
+    display: block;
+    text-align: center;
+    padding: 5px 4px 7px;
+    color: var(--secondary, #777);
+    font-size: 11px;
+    line-height: 1.35;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
 }
 
 .specimen-btn {
@@ -1297,6 +1320,54 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
  
+.annotation-polygons {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.annotation-polygons .annotation-polygon {
+    fill: none;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+    pointer-events: none;
+}
+
+.annotation-polygons .annotation-polygon.is-hovered {
+    stroke-width: 3;
+}
+
+.annotation-polygon-tooltip.is-visible {
+    opacity: 1;
+}
+
+ 
+.scope-ruler-button { position:absolute; top:-12px; left:10%; z-index:70; width:38px; height:38px; border:1px solid #73869a; border-radius:50%; padding:8px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button:hover, .scope-ruler-button[aria-pressed="true"] { background:#284560; border-color:#8bbff4; }
+.scope-ruler-button:disabled { opacity:.45; cursor:default; }
+.scope-ruler-button:focus-visible { outline:2px solid #81b8ff; outline-offset:3px; }
+.scope-measurement-panel { position:absolute; z-index:75; top:34px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
+.scope-measurement-panel[hidden] { display:none; }
+.scope-measurement-panel output { display:block; margin:8px 0; font-size:15px; }
+.scope-measurement-panel small { display:block; color:#a9bacf; }
+.scope-measurement-panel > div { display:flex; gap:8px; margin-top:10px; }
+.scope-measurement-panel button { border:1px solid #425873; border-radius:5px; padding:5px 8px; color:inherit; background:#223247; cursor:pointer; }
+.scope-measurement-overlay { position:absolute; inset:0; z-index:36; width:100%; height:100%; overflow:hidden; pointer-events:none; }
+.scope-measurement-overlay[hidden] { display:none; }
+.scope-measurement-overlay line { stroke:#fff; stroke-width:2; vector-effect:non-scaling-stroke; filter:drop-shadow(0 1px 2px #000); }
+.scope-measurement-overlay circle { fill:#163f60; stroke:#fff; stroke-width:2; cursor:move; pointer-events:all; }
+.scope-measurement-overlay circle:focus { fill:#4589c1; outline:none; stroke:#92d4ff; }
+.scope-measurement-overlay text { fill:white; stroke:#000; stroke-width:3px; paint-order:stroke; stroke-linejoin:round; font:13px "Segoe UI",Arial,sans-serif; }
+.scope-wrapper.is-measuring .openseadragon-canvas { cursor:crosshair; }
+.scope-wrapper.is-measuring .annotations-layer, .scope-wrapper.is-measuring .annotation-marker { pointer-events:none; }
+.fossa-microscope-page:fullscreen .scope-ruler-button { top:0; }
+.fossa-microscope-page:fullscreen .scope-measurement-panel { top:46px; }
+
+ 
 .annotation-toggle-btn {
     background: var(--entry, #f8f9fa);
     border: 1px solid var(--border, #dee2e6);
@@ -1632,537 +1703,770 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let currentAnnotations = [];
     let showAnnotations = false;
+    let annotationDisposers = [];
     
     const specimens = [
         
         {
             id:  0 ,
+            name: "Common carp (Cyprinus carpio) — gills",
+            description: "Gill filaments with numerous transverse lamellae, the principal sites of gas exchange, are clearly visible. Zooming in reveals the thin walls of the lamellae, blood capillaries, and blood cells within them.",
+            buttonImage: "/dzi/images/Жабры_сазана-sc.webp",
+            dzi: "Жабры_сазана-sc.dzi",
+            unit: "µm",
+            microns_per_pixel:  2.233662263419819 ,
+            image_microns_per_pixel:  0.12827936343190993 ,
+            calibration_unit: "µm",
+            roi_file: "/annotations/Жабры_сазана-sc.json",
+            previewAlt: "Gill filaments and secondary lamellae of common carp (Cyprinus carpio) under a microscope",
+            pageUrl: "/en/microscope-collection/%D0%B6%D0%B0%D0%B1%D1%80%D1%8B_%D1%81%D0%B0%D0%B7%D0%B0%D0%BD%D0%B0-sc/"
+        },
+        
+        {
+            id:  1 ,
+            name: "Arrowhead (Sagittaria sp.)",
+            description: "Panoramic view of part of an aquarium arrowhead leaf. Numerous plant cells containing green chloroplasts, longitudinal veins, and a toothed leaf margin are visible. Zooming in reveals individual cell shapes, cell walls, and the arrangement of chloroplasts.",
+            buttonImage: "/dzi/images/Стрелолист_10x-cs.webp",
+            dzi: "Стрелолист_10x-cs.dzi",
+            unit: "mm",
+            microns_per_pixel:  18.916237413562584 ,
+            image_microns_per_pixel:  0.8765361044623654 ,
+            calibration_unit: "mm",
+            roi_file: "/annotations/Стрелолист_10x-cs.json",
+            previewAlt: "Part of an arrowhead leaf (Sagittaria sp.) showing cells with chloroplasts, longitudinal veins, and a toothed margin",
+            pageUrl: "/en/microscope-collection/%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BE%D0%BB%D0%B8%D1%81%D1%82_10x-cs/"
+        },
+        
+        {
+            id:  2 ,
+            name: "Arrowhead (Sagittaria sp.) — 20×",
+            description: "Panoramic view of part of an aquarium arrowhead leaf. Numerous plant cells with distinct walls and green chloroplasts are clearly visible. The image shows individual cell shapes, chloroplasts arranged along the cell walls, and pale central regions occupied by large vacuoles.",
+            buttonImage: "/dzi/images/Стрелолист_20x-sc.webp",
+            dzi: "Стрелолист_20x-sc.dzi",
+            unit: "µm",
+            microns_per_pixel:  7.112456452178724 ,
+            image_microns_per_pixel:  0.24449663886791137 ,
+            calibration_unit: "µm",
+            roi_file: "/annotations/Стрелолист_20x-sc.json",
+            previewAlt: "Arrowhead leaf cells (Sagittaria sp.) with distinct cell walls and green chloroplasts",
+            pageUrl: "/en/microscope-collection/%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BE%D0%BB%D0%B8%D1%81%D1%82_20x-sc/"
+        },
+        
+        {
+            id:  3 ,
+            name: "Arrowhead (Sagittaria sp.) — 20×, polarized light",
+            description: "Panoramic view of part of an aquarium arrowhead leaf in polarized light. Numerous plant cells, longitudinal veins, and pointed teeth along the leaf margin are visible. Polarized illumination produces golden tones and emphasizes cell boundaries, offering a different view of the leaf structure.",
+            buttonImage: "/dzi/images/Стрелолист_Поляризация_20x-sc.webp",
+            dzi: "Стрелолист_Поляризация_20x-sc.dzi",
+            unit: "µm",
+            microns_per_pixel:  15.667938362779354 ,
+            image_microns_per_pixel:  0.5116672619557627 ,
+            calibration_unit: "µm",
+            roi_file: "/annotations/Стрелолист_Поляризация_20x-sc.json",
+            previewAlt: "Arrowhead leaf (Sagittaria sp.) in polarized light, showing cells, longitudinal veins, and marginal teeth",
+            pageUrl: "/en/microscope-collection/%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BE%D0%BB%D0%B8%D1%81%D1%82_%D0%BF%D0%BE%D0%BB%D1%8F%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F_20x-sc/"
+        },
+        
+        {
+            id:  4 ,
+            name: "Duckweed — dark-field illumination",
+            description: "Panoramic view of the small green fronds of duckweed, one of the smallest flowering plants. Their rounded outlines, numerous cells, and paler tissue regions are visible. Duckweed floats freely on the water surface and can multiply rapidly by producing daughter plants.",
+            buttonImage: "/dzi/images/PANO_20261028_122120.webp",
+            dzi: "PANO_20261028_122120.dzi",
+            unit: "mm",
+            microns_per_pixel:  9.397577162957717 ,
+            image_microns_per_pixel:  0.5726761485434831 ,
+            calibration_unit: "mm",
+            roi_file: "/annotations/PANO_20261028_122120.json",
+            previewAlt: "Rounded green duckweed fronds in dark-field illumination, showing parent and daughter plants",
+            pageUrl: "/en/microscope-collection/pano_20261028_122120/"
+        },
+        
+        {
+            id:  5 ,
+            name: "Bolbitis fern — leaf, 10×",
+            description: "Bolbitis fern leaf under a microscope, 10×: veins and polygonal cell outlines.",
+            buttonImage: "/dzi/images/Bolbitis_10x_2.webp",
+            dzi: "Bolbitis_10x_2.dzi",
+            unit: "µm",
+            microns_per_pixel:  11.254374437526021 ,
+            image_microns_per_pixel:  0.6665163404207515 ,
+            calibration_unit: "µm",
+            roi_file: "/annotations/Bolbitis_10x_2.json",
+            previewAlt: "Bolbitis fern leaf under a microscope, 10×: veins and polygonal cell outlines",
+            pageUrl: "/en/microscope-collection/bolbitis_10x_2/"
+        },
+        
+        {
+            id:  6 ,
+            name: "Bolbitis fern — leaf cells, 40×",
+            description: "Panoramic view of part of an aquarium Bolbitis fern leaf. Plant cells of different shapes containing numerous green chloroplasts are clearly visible. Zooming in reveals the cell walls, the arrangement of chloroplasts, and details of the leaf tissue structure.",
+            buttonImage: "/dzi/images/Bolbitis_40x_2.webp",
+            dzi: "Bolbitis_40x_2.dzi",
+            unit: "µm",
+            microns_per_pixel:  5.638616473646889 ,
+            image_microns_per_pixel:  0.23899375162098732 ,
+            calibration_unit: "µm",
+            roi_file: "/annotations/Bolbitis_40x_2.json",
+            previewAlt: "Bolbitis leaf cells with numerous green chloroplasts and visible cell walls",
+            pageUrl: "/en/microscope-collection/bolbitis_40x_2/"
+        },
+        
+        {
+            id:  7 ,
+            name: "Clownfish larva (Amphiprion sp.) — polarized light",
+            description: "Panoramic view of a clownfish larva approximately 3 mm long. Its transparent body reveals internal structures, large eyes, the vertebral column, pigment cells, and developing fins. Polarized light emphasizes tissue structure and produces distinctive colors.",
+            buttonImage: "/dzi/images/PANO_Амфиприон_поляризация_sc-3мм.webp",
+            dzi: "PANO_Амфиприон_поляризация_sc-3мм.dzi",
+            unit: "mm",
+            microns_per_pixel:  4.964314679637671 ,
+            image_microns_per_pixel:  0.4476957313073557 ,
+            calibration_unit: "mm",
+            roi_file: "/annotations/PANO_Амфиприон_поляризация_sc-3мм.json",
+            previewAlt: "Clownfish larva (Amphiprion sp.), approximately 3 mm long, in polarized light",
+            pageUrl: "/en/microscope-collection/pano_%D0%B0%D0%BC%D1%84%D0%B8%D0%BF%D1%80%D0%B8%D0%BE%D0%BD_%D0%BF%D0%BE%D0%BB%D1%8F%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F_sc-3%D0%BC%D0%BC/"
+        },
+        
+        {
+            id:  8 ,
+            name: "Clownfish larva (Amphiprion sp.) — dark-field illumination",
+            description: "Panoramic view of a clownfish larva approximately 3 mm long. Its transparent body reveals internal structures, large eyes, the vertebral column, pigment cells, and developing fins.",
+            buttonImage: "/dzi/images/PANO_Амфиприон_темное_поле_3мм-sc.webp",
+            dzi: "PANO_Амфиприон_темное_поле_3мм-sc.dzi",
+            unit: "mm",
+            microns_per_pixel:  4.980983308888304 ,
+            image_microns_per_pixel:  0.4040100778575707 ,
+            calibration_unit: "mm",
+            roi_file: "/annotations/PANO_Амфиприон_темное_поле_3мм-sc.json",
+            previewAlt: "Transparent clownfish larva (Amphiprion sp.), approximately 3 mm long, in dark-field illumination",
+            pageUrl: "/en/microscope-collection/pano_%D0%B0%D0%BC%D1%84%D0%B8%D0%BF%D1%80%D0%B8%D0%BE%D0%BD_%D1%82%D0%B5%D0%BC%D0%BD%D0%BE%D0%B5_%D0%BF%D0%BE%D0%BB%D0%B5_3%D0%BC%D0%BC-sc/"
+        },
+        
+        {
+            id:  9 ,
+            name: "Omul (Coregonus sp.) — gill anatomy",
+            description: "Panoramic preparation of the gill apparatus of an omul (Coregonus sp.). The gill arch, numerous gill filaments (primary lamellae), and secondary gill lamellae are visible. At higher magnification, the regularly arranged secondary lamellae can be clearly distinguished; they provide the principal surface for gas exchange.",
+            buttonImage: "/dzi/images/Jills_Coregonus.webp",
+            dzi: "Jills_Coregonus.dzi",
+            unit: "µm",
+            microns_per_pixel:  14.393876010418436 ,
+            image_microns_per_pixel:  1.3796461451459918 ,
+            calibration_unit: "",
+            roi_file: "/annotations/Jills_Coregonus.json",
+            previewAlt: "Microscopic view of omul (Coregonus sp.) gills showing the gill arch, primary gill filaments, and numerous secondary gill lamellae.",
+            pageUrl: "/en/microscope-collection/jills_coregonus/"
+        },
+        
+        {
+            id:  10 ,
             name: "Bolbitis fern — leaf, 10×",
             description: "Leaf blade fragment of Bolbitis sp. Transmitted light, 10× objective. Vein regions and a mosaic-like tissue pattern with polygonal cell outlines are visible.",
             buttonImage: "/dzi/images/Bolbitis_10x.webp",
             dzi: "Bolbitis_10x.dzi",
             unit: "µm",
             microns_per_pixel:  11 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Bolbitis_10x.json",
             previewAlt: "Bolbitis fern leaf under a microscope, 10×: veins and polygonal cell outlines",
             pageUrl: "/en/microscope-collection/bolbitis_10x/"
         },
         
         {
-            id:  1 ,
+            id:  11 ,
             name: "Bolbitis fern — leaf cells, 40×",
             description: "Leaf blade fragment of Bolbitis sp. Transmitted light, 40× objective. Cell outlines, numerous green structures presumed to be chloroplasts, and branching regions of leaf venation are visible.",
             buttonImage: "/dzi/images/Bolbitis_40x.webp",
             dzi: "Bolbitis_40x.dzi",
             unit: "µm",
             microns_per_pixel:  5.5 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Bolbitis_40x.json",
             previewAlt: "Bolbitis fern leaf cells, 40×: cell walls and green intracellular structures",
             pageUrl: "/en/microscope-collection/bolbitis_40x/"
         },
         
         {
-            id:  2 ,
+            id:  12 ,
             name: "Black brush algae (presumably Audouinella) — 40×",
             description: "Detailed structure of the branching filaments of a red alga. Individual cells, transverse septa, and rounded structures on lateral branches, presumably monosporangia, are clearly visible.",
             buttonImage: "/dzi/images/Audouinella_40x-sc.webp",
             dzi: "Audouinella_40x-sc.dzi",
             unit: "µm",
             microns_per_pixel:  3 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Audouinella_40x-sc.json",
             previewAlt: "Branching cellular filaments of a red alga, possibly Audouinella, at 40× magnification",
             pageUrl: "/en/microscope-collection/audouinella_40x-sc/"
         },
         
         {
-            id:  3 ,
+            id:  13 ,
             name: "Black brush algae (presumably Audouinella) — 20×",
             description: "A branching network of multicellular filaments. The branching pattern, cellular segmentation, and rounded reproductive structures on short lateral branches are clearly visible.",
             buttonImage: "/dzi/images/Audouinella_20x-sc.webp",
             dzi: "Audouinella_20x-sc.dzi",
             unit: "µm",
             microns_per_pixel:  4.1 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Audouinella_20x-sc.json",
             previewAlt: "Branched red algal filaments with transverse septa and rounded lateral structures, 20×",
             pageUrl: "/en/microscope-collection/audouinella_20x-sc/"
         },
         
         {
-            id:  4 ,
+            id:  14 ,
             name: "Black brush algae (presumably Audouinella) — 10×",
             description: "General view of the bush-like thallus of a red alga, provisionally identified as Audouinella sp. The attachment region with rhizoids is visible at the top of the image. Zooming in reveals branching cellular filaments, transverse septa, and putative monosporangia.",
             buttonImage: "/dzi/images/Audouinella_10x-sc_imagej.webp",
             dzi: "Audouinella_10x-sc_imagej.dzi",
             unit: "µm",
             microns_per_pixel:  5.5 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Audouinella_10x-sc_imagej.json",
             previewAlt: "Bush-like thallus of a red alga, possibly Audouinella, showing branching filaments, 10×",
             pageUrl: "/en/microscope-collection/audouinella_10x-sc_imagej/"
         },
         
         {
-            id:  5 ,
+            id:  15 ,
             name: "Renal concretions in neon tetra",
             description: "Microscopic preparation of neon tetra kidney. Rounded and oval structures of varying sizes with distinct boundaries and heterogeneous contents, presumably mineral concretions. Some are surrounded by cellular structures resembling a granulomatous reaction. No mycobacteria were detected, and similar lesions were not observed in other organs.",
             buttonImage: "/dzi/images/Kidney_neon_granulema_сontrast-sc.webp",
             dzi: "Kidney_neon_granulema_сontrast-sc.dzi",
             unit: "µm",
             microns_per_pixel:  8 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Kidney_neon_granulema_сontrast-sc.json",
             previewAlt: "Neon tetra kidney preparation with rounded structures of various sizes, possibly concretions",
             pageUrl: "/en/microscope-collection/kidney_neon_granulema_%D1%81ontrast-sc/"
         },
         
         {
-            id:  6 ,
+            id:  16 ,
             name: "Fibrous granulomas in gudgeon",
             description: "Squash preparation of gudgeon (Gobio gobio) tissue. Multiple rounded structures of varying sizes with concentric arrangements of connective tissue fibers, consistent with fibrous granulomas.",
             buttonImage: "/dzi/images/Fibrosus_Peskar_10x-sc.webp",
             dzi: "Fibrosus_Peskar_10x-sc.dzi",
             unit: "µm",
             microns_per_pixel:  8 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Fibrosus_Peskar_10x-sc.json",
             previewAlt: "Squash preparation of gudgeon tissue with multiple rounded fibrous nodular structures",
             pageUrl: "/en/microscope-collection/fibrosus_peskar_10x-sc/"
         },
         
         {
-            id:  7 ,
+            id:  17 ,
             name: "Capsalid — internal structures in relief",
             description: "A second panorama of the same specimen with more pronounced relief. The outlines and spatial relationships of the internal organs are more clearly visible, especially the reproductive structures, intestinal ceca, and structures of the posterior body region.",
             buttonImage: "/dzi/images/Capsalidae_10x-sc.webp",
             dzi: "Capsalidae_10x-sc.dzi",
             unit: "µm",
             microns_per_pixel:  5 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Capsalidae_10x-sc.json",
             previewAlt: "Whole-mount image of a capsalid monogenean with visible internal anatomical structures",
             pageUrl: "/en/microscope-collection/capsalidae_10x-sc/"
         },
         
         {
-            id:  8 ,
+            id:  18 ,
             name: "Capsalid — whole mount",
             description: "Panoramic whole-mount preparation of a capsalid monogenean. The pharynx, intestinal ceca, vitellaria, ovary, testes, and posterior attachment organ — the haptor — are clearly visible.",
             buttonImage: "/dzi/images/Capsalidae_2_10x-sc.webp",
             dzi: "Capsalidae_2_10x-sc.dzi",
             unit: "µm",
             microns_per_pixel:  6 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Capsalidae_2_10x-sc.json",
             previewAlt: "Capsalid monogenean under a microscope: body, internal organs and posterior attachment organ",
             pageUrl: "/en/microscope-collection/capsalidae_2_10x-sc/"
         },
         
         {
-            id:  9 ,
+            id:  19 ,
             name: "Chum salmon kidney — relatively preserved structure",
             description: "Panoramic compression preparation of the kidney from a clinically healthy chum salmon after euthanasia. The renal tubules retain their usual structure and relatively clear lumina, while blood is distributed comparatively evenly throughout the tissue. The specimen serves as a control for comparison with pathological tubular changes.",
             buttonImage: "/dzi/images/Keta_kidney_4x-sc.webp",
             dzi: "Keta_kidney_4x-sc.dzi",
             unit: "µm",
             microns_per_pixel:  17 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Keta_kidney_4x-sc.json",
             previewAlt: "Chum salmon kidney squash preparation with relatively preserved renal tubules and lumina",
             pageUrl: "/en/microscope-collection/keta_kidney_4x-sc/"
         },
         
         {
-            id:  10 ,
+            id:  20 ,
             name: "Yellowtail kidney — tubular destruction",
             description: "Panoramic compression preparation of yellowtail kidney. Areas with relatively preserved lighter tubular lumina can be compared with zones where the lumina are filled with dark material, corresponding to marked pathological change.",
             buttonImage: "/dzi/images/Kidney_1-sc.webp",
             dzi: "Kidney_1-sc.dzi",
             unit: "µm",
             microns_per_pixel:  18.5 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Kidney_1-sc.json",
             previewAlt: "Yellowtail kidney microscopy showing clear and dark-material-filled renal tubular lumina",
             pageUrl: "/en/microscope-collection/kidney_1-sc/"
         },
         
         {
-            id:  11 ,
+            id:  21 ,
             name: "Modified carbol fuchsin staining without acid decolorization",
             description: "Intensely stained red-pink rod-shaped bacteria are visible in the tissue material against a contrasting background. Acid decolorization was not performed, so acid-fastness was not assessed. Try to find them all...",
             buttonImage: "/dzi/images/miki_without_acid_40x.webp",
             dzi: "miki_without_acid_40x.dzi",
             unit: "µm",
             microns_per_pixel:  1.25 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/miki_without_acid_40x.json",
             previewAlt: "Red-pink rod-shaped bacteria stained with fuchsin without acid decolorization",
             pageUrl: "/en/microscope-collection/miki_without_acid_40x/"
         },
         
         {
-            id:  12 ,
+            id:  22 ,
             name: "Degenerated Gills of a Dead Fish",
             description: "Even markedly postmortem-altered gills may retain diagnostically relevant findings. Attached monogeneans can still be detected, helping to reveal potential parasitic threats and indicating what should be looked for in living fish.",
             buttonImage: "/dzi/images/Gills_damage.webp",
             dzi: "Gills_damage.dzi",
             unit: "µm",
             microns_per_pixel:  20 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Gills_damage.json",
             previewAlt: "Postmortem-altered fish gills with attached monogenean parasites in a microscopy preparation",
             pageUrl: "/en/microscope-collection/gills_damage/"
         },
         
         {
-            id:  13 ,
+            id:  23 ,
             name: "Pigmented fungal structures on crab gills",
             description: "Panorama fragment of crab gills showing branching septate hyphae and numerous pigmented rounded structures. Macroscopically, affected areas of the gills were black and showed tissue destruction.",
             buttonImage: "/dzi/images/Mold.webp",
             dzi: "Mold.dzi",
             unit: "µm",
             microns_per_pixel:  3 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Crab gills with branching pigmented fungal hyphae and rounded structures",
             pageUrl: "/en/microscope-collection/mold/"
         },
         
         {
-            id:  14 ,
+            id:  24 ,
             name: "Liver with lipid inclusions",
             description: "A squash preparation of the liver of a neon tetra (Paracheirodon innesi). Numerous rounded lipid inclusions, uneven tissue coloration, and areas of marked blood filling are visible. This pattern reflects severe hepatic alteration and should be interpreted together with other findings. Captured with a 10× objective.",
             buttonImage: "/dzi/images/Liver_lipid_10x.webp",
             dzi: "Liver_lipid_10x.dzi",
             unit: "µm",
             microns_per_pixel:  7 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Neon tetra liver squash preparation with numerous rounded lipid inclusions, 10×",
             pageUrl: "/en/microscope-collection/liver_lipid_10x/"
         },
         
         {
-            id:  15 ,
+            id:  25 ,
             name: "Fungal structures",
             description: "A preparation of mucus and contents from the empty stomach of a black ghost knifefish (Apteronotus albifrons). Numerous filamentous fungal structures are visible among mucus, detritus, and small rounded elements. This finding indicates a marked presence of fungal forms in the gastric lumen and is pathologically significant. Captured with a 40× objective.",
             buttonImage: "/dzi/images/Fungal_structures_40x.webp",
             dzi: "Fungal_structures_40x.dzi",
             unit: "µm",
             microns_per_pixel:  3 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Filamentous fungal structures among mucus and stomach contents of a black ghost knifefish, 40×",
             pageUrl: "/en/microscope-collection/fungal_structures_40x/"
         },
         
         {
-            id:  16 ,
+            id:  26 ,
             name: "Hyphal and sporangial structures",
             description: "A high-magnification May–Grünwald-stained preparation of intestinal contents. Hyphal structures and rounded sporangial forms are visible among mucus and fragments of food material. Together with the massive presence of yeast-like cells in the gastric contents, this finding indicates marked fungal involvement of the digestive tract. Captured with a 100× objective.",
             buttonImage: "/dzi/images/yeast_like_fungal_cells_100.webp",
             dzi: "yeast_like_fungal_cells_100.dzi",
             unit: "µm",
             microns_per_pixel:  1.2 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Hyphal and rounded structures in a May–Grünwald-stained preparation of intestinal contents, 100×",
             pageUrl: "/en/microscope-collection/yeast_like_fungal_cells_100/"
         },
         
         {
-            id:  17 ,
+            id:  27 ,
             name: "Yeast-like structures",
             description: "A May–Grünwald-stained preparation of gastric contents from a neon tetra (Paracheirodon innesi). Numerous rounded pink-purple structures with a clear capsule-like halo are visible. Morphologically, they are consistent with yeast-like fungal cells mixed with food material. Captured with a 40× objective.",
             buttonImage: "/dzi/images/yeast_like_fungal_cells_40.webp",
             dzi: "yeast_like_fungal_cells_40.dzi",
             unit: "µm",
             microns_per_pixel:  3 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/yeast_like_fungal_cells_40.json",
             previewAlt: "Rounded pink-purple yeast-like structures in neon tetra stomach contents, 40×",
             pageUrl: "/en/microscope-collection/yeast_like_fungal_cells_40/"
         },
         
         {
-            id:  18 ,
+            id:  28 ,
             name: "Liver of Apteronotus albifrons with granulomatous lesions",
             description: "A squash preparation from the intestine of Apteronotus albifrons. Multiple granulomatous lesions associated with a mycobacterial infection are visible among mucus and sloughed mucosal material. However, the etiology of such lesions cannot be determined from morphology alone without additional investigations.",
             buttonImage: "/dzi/images/Granuloma_Apteronotus.webp",
             dzi: "GranulomaApteronotus.dzi",
             unit: "µm",
             microns_per_pixel:  7 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/GranulomaApteronotus.json",
             previewAlt: "Microscopy preparation of Apteronotus albifrons tissue with multiple granulomatous lesions",
             pageUrl: "/en/microscope-collection/granulomaapteronotus/"
         },
         
         {
-            id:  19 ,
+            id:  29 ,
             name: "Chromatophores",
             description: "Fragment of octopus skin. Chromatophores—pigment organs—are visible in different states, ranging from fully expanded (lighter, reddish-orange areas) to contracted (dark, dense spots).",
             buttonImage: "/dzi/images/Chromatophores.webp",
             dzi: "Chromatophores.dzi",
             unit: "µm",
             microns_per_pixel:  7 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Chromatophores.json",
             previewAlt: "Octopus skin chromatophores in different states of expansion and contraction",
             pageUrl: "/en/microscope-collection/chromatophores/"
         },
         
         {
-            id:  20 ,
+            id:  30 ,
             name: "Secret",
             description: "What?",
             buttonImage: "/dzi/images/Secret.webp",
             dzi: "Secret.dzi",
             unit: "µm",
             microns_per_pixel:  1.2 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Microscopy specimen from the Secret collection, intended for independent exploration",
             pageUrl: "/en/microscope-collection/secret/"
         },
         
         {
-            id:  21 ,
+            id:  31 ,
             name: "Monodactyl's Tail",
             description: "The caudal fin of a Monodactylus. Note the soft tissue and ray segments.",
             buttonImage: "/dzi/images/monodactil.webp",
             dzi: "monodactil.dzi",
             unit: "µm",
             microns_per_pixel:  25 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Monodactylus caudal fin under a microscope, showing soft tissue and segmented fin rays",
             pageUrl: "/en/microscope-collection/monodactil/"
         },
         
         {
-            id:  22 ,
+            id:  32 ,
             name: "Cryptosporidia 100x",
             description: "Danio liver smear. May–Grünwald stain. Objective 100x.",
             buttonImage: "/dzi/images/cryptoPano.webp",
             dzi: "cryptoPano.dzi",
             unit: "µm",
             microns_per_pixel:  0.34 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/cryptoPano.json",
             previewAlt: "May–Grünwald-stained zebrafish liver smear with suspected parasitic structures, 100×",
             pageUrl: "/en/microscope-collection/cryptopano/"
         },
         
         {
-            id:  23 ,
+            id:  33 ,
             name: "Cryptosporidia 100x (ZN)",
             description: "Danio liver smear. Ziehl–Neelsen stain. Objective 100x.",
             buttonImage: "/dzi/images/crypto2Pano.webp",
             dzi: "crypto2Pano.dzi",
             unit: "µm",
             microns_per_pixel:  0.34 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/crypto2Pano.json",
             previewAlt: "Ziehl–Neelsen-stained zebrafish liver smear with suspected parasitic structures, 100×",
             pageUrl: "/en/microscope-collection/crypto2pano/"
         },
         
         {
-            id:  24 ,
+            id:  34 ,
             name: "Intracellular parasites 100x",
             description: "Chrysiptera liver smear 100x. May–Grünwald stain. Parasites in histiocytes.",
             buttonImage: "/dzi/images/gistoPano.webp",
             dzi: "gistoPano.dzi",
             unit: "µm",
             microns_per_pixel:  1.5 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Chromis liver smear with suspected intracellular parasites in histiocytes, 100×",
             pageUrl: "/en/microscope-collection/gistopano/"
         },
         
         {
-            id:  25 ,
+            id:  35 ,
             name: "Branching rod-shaped bacteria — 40×",
             description: "Spleen impression smear. Ziehl–Neelsen staining. 40× objective. Fuchsin-positive rod-shaped and elongated structures showing apparent branching. The morphology is compatible with Nocardia or other actinomycetes.",
             buttonImage: "/dzi/images/mico2Pano.webp",
             dzi: "mico2Pano.dzi",
             unit: "µm",
             microns_per_pixel:  3 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/mico2Pano.json",
             previewAlt: "Fuchsin-positive elongated and apparently branching bacteria in a fish spleen smear, 40×",
             pageUrl: "/en/microscope-collection/mico2pano/"
         },
         
         {
-            id:  26 ,
+            id:  36 ,
             name: "Branching filamentous bacteria — 100×",
             description: "Spleen impression smear. Ziehl–Neelsen staining. 100× objective. Fuchsin-positive rod-shaped and filamentous structures showing prominent branching and uneven staining. The morphology is suggestive of branching actinomycetes, including Nocardia.",
             buttonImage: "/dzi/images/micoPano.webp",
             dzi: "micoPano.dzi",
             unit: "µm",
             microns_per_pixel:  0.9 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Branching filamentous fuchsin-positive bacteria in a fish spleen smear, 100×",
             pageUrl: "/en/microscope-collection/micopano/"
         },
         
         {
-            id:  27 ,
+            id:  37 ,
             name: "Black beard algae",
             description: "Red algae commonly found on aquarium plants...",
             buttonImage: "/dzi/images/algaePano.webp",
             dzi: "algaePano.dzi",
             unit: "µm",
             microns_per_pixel:  0.9 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Filamentous red algae forming black beard algae growth in an aquarium",
             pageUrl: "/en/microscope-collection/algaepano/"
         },
         
         {
-            id:  28 ,
+            id:  38 ,
             name: "Gills",
             description: "Necrosis of gill lamellae.",
             buttonImage: "/dzi/images/jillsNecrozPano.webp",
             dzi: "jillsNecrozPano.dzi",
             unit: "µm",
             microns_per_pixel:  10 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Fish gill microscopy preparation showing damaged and necrotic gill lamellae",
             pageUrl: "/en/microscope-collection/jillsnecrozpano/"
         },
         
         {
-            id:  29 ,
+            id:  39 ,
             name: "Nematode eggs",
             description: "Capillaria eggs from Danio intestine.",
             buttonImage: "/dzi/images/eggsNematPano.webp",
             dzi: "eggsNematPano.dzi",
             unit: "µm",
             microns_per_pixel:  1.6 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Nematode eggs, possibly capillariids, from zebrafish intestine under a microscope",
             pageUrl: "/en/microscope-collection/eggsnematpano/"
         },
         
         {
-            id:  30 ,
+            id:  40 ,
             name: "Microworms",
             description: "Microworms in the brain membrane of a ray, 20x. Small nematodes.",
             buttonImage: "/dzi/images/nematodPano.webp",
             dzi: "nematodPano.dzi",
             unit: "µm",
             microns_per_pixel:  5 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Small nematodes in a ray meningeal preparation, 20× objective",
             pageUrl: "/en/microscope-collection/nematodpano/"
         },
         
         {
-            id:  31 ,
+            id:  41 ,
             name: "Chromis",
             description: "Scales of the fish Chromis viridis.",
             buttonImage: "/dzi/images/Chromis.webp",
             dzi: "Chromis.dzi",
             unit: "µm",
             microns_per_pixel:  6 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Microscopy preparation of scales from Chromis viridis",
             pageUrl: "/en/microscope-collection/chromis/"
         },
         
         {
-            id:  32 ,
+            id:  42 ,
             name: "Discus",
             description: "Scales of the fish Discus.",
             buttonImage: "/dzi/images/Discus.webp",
             dzi: "Discus.dzi",
             unit: "µm",
             microns_per_pixel:  4 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Microscopy preparation of discus fish scales",
             pageUrl: "/en/microscope-collection/discus/"
         },
         
         {
-            id:  33 ,
+            id:  43 ,
             name: "Gadus",
             description: "Scales of the fish Gadus.",
             buttonImage: "/dzi/images/Gadus.webp",
             dzi: "Gadus.dzi",
             unit: "µm",
             microns_per_pixel:  3.5 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Microscopy preparation of pollock fish scales",
             pageUrl: "/en/microscope-collection/gadus/"
         },
         
         {
-            id:  34 ,
+            id:  44 ,
             name: "Labidochromis",
             description: "Scales of the fish Labidochromis yellow.",
             buttonImage: "/dzi/images/Labidochromis.webp",
             dzi: "Labidochromis.dzi",
             unit: "µm",
             microns_per_pixel:  8.5 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Microscopy preparation of Labidochromis cichlid scales",
             pageUrl: "/en/microscope-collection/labidochromis/"
         },
         
         {
-            id:  35 ,
+            id:  45 ,
             name: "Monodactylus",
             description: "Scales of the fish Monodactylus.",
             buttonImage: "/dzi/images/Monodactylus.webp",
             dzi: "Monodactylus.dzi",
             unit: "µm",
             microns_per_pixel:  4.5 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Monodactylus fish scales under a microscope",
             pageUrl: "/en/microscope-collection/monodactylus/"
         },
         
         {
-            id:  36 ,
+            id:  46 ,
             name: "Pleurogrammus",
             description: "Scales of the fish Pleurogrammus.",
             buttonImage: "/dzi/images/Pleurogrammus.webp",
             dzi: "Pleurogrammus.dzi",
             unit: "µm",
             microns_per_pixel:  5 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Microscopy preparation of Pleurogrammus greenling scales",
             pageUrl: "/en/microscope-collection/pleurogrammus/"
         },
         
         {
-            id:  37 ,
+            id:  47 ,
             name: "Pterophyllum",
             description: "Scales of the fish Pterophyllum scalare.",
             buttonImage: "/dzi/images/Pterophyllum.webp",
             dzi: "Pterophyllum.dzi",
             unit: "µm",
             microns_per_pixel:  3 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "",
             previewAlt: "Pterophyllum scalare angelfish scales under a microscope",
             pageUrl: "/en/microscope-collection/pterophyllum/"
         },
         
         {
-            id:  38 ,
+            id:  48 ,
             name: "Erythrocytes",
             description: "Erythrocytes showing signs of osmotic alteration.",
             buttonImage: "/dzi/images/Eritrocite40.webp",
             dzi: "Eritrocite40.dzi",
             unit: "µm",
             microns_per_pixel:  1.72 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Eritrocite40.json",
             previewAlt: "Erythrocytes showing signs of osmotic alteration in a microscopy preparation",
             pageUrl: "/en/microscope-collection/eritrocite40/"
         },
         
         {
-            id:  39 ,
+            id:  49 ,
             name: "Thin fuchsin-positive bacteria",
             description: "Impression smear. Ziehl–Neelsen staining. Numerous slender rod-shaped bacteria are observed among cellular elements. Morphological features alone do not allow identification at the genus level.",
             buttonImage: "/dzi/images/MikiSm.webp",
             dzi: "MikiSm.dzi",
             unit: "µm",
             microns_per_pixel:  1.6 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/MikiSm.json",
             previewAlt: "Numerous slender fuchsin-positive rod-shaped bacteria among cellular elements in a smear",
             pageUrl: "/en/microscope-collection/mikism/"
         },
         
         {
-            id:  40 ,
+            id:  50 ,
             name: "Cocci",
             description: "Coccoid bacteria.",
             buttonImage: "/dzi/images/Kokki.webp",
             dzi: "Kokki.dzi",
             unit: "µm",
             microns_per_pixel:  0.63 ,
+            image_microns_per_pixel:  0 ,
+            calibration_unit: "",
             roi_file: "/annotations/Kokki.json",
             previewAlt: "Coccoid bacteria in a microscopy preparation",
             pageUrl: "/en/microscope-collection/kokki/"
@@ -2304,16 +2608,382 @@ async function loadAnnotations(roiFilePath) {
     }
 }
 
+
+function originalMicronsPerPixel(specimen, imageWidth) {
+  const direct = Number(specimen?.image_microns_per_pixel);
+  if (Number.isFinite(direct) && direct > 0) return direct;
+  const legacy = Number(specimen?.microns_per_pixel);
+  return Number.isFinite(legacy) && legacy > 0 && Number.isFinite(imageWidth) && imageWidth > 0
+    ? legacy * 700 * (149 / 154) / imageWidth : null;
+}
+
+function measureSegment(start, end, specimen, imageWidth) {
+  const pixels = Math.hypot(end.x - start.x, end.y - start.y);
+  const scale = originalMicronsPerPixel(specimen, imageWidth);
+  return { pixels, microns: scale === null ? null : pixels * scale };
+}
+
+function formatMeasurement(measurement, preferredUnit = '', missingScaleText = 'масштаб не задан') {
+  if (measurement.microns === null) return `${Number(measurement.pixels.toFixed(2))} px · ${missingScaleText}`;
+  const mm = preferredUnit === 'mm' || (!preferredUnit && measurement.microns >= 1000);
+  return `${Number((measurement.microns / (mm ? 1000 : 1)).toPrecision(5))} ${mm ? 'mm' : 'µm'}`;
+}
+
+
+
+
+function bindImagePointDrag({ element, viewer, blocked, move, click }) {
+  let drag = null;
+  let suppressClick = false;
+  const press = event => {
+    if (blocked() || event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const rect = element.getBoundingClientRect();
+    suppressClick = false;
+    drag = {
+      id: event.pointerId, x: event.clientX, y: event.clientY,
+      offsetX: event.clientX - rect.left - rect.width / 2,
+      offsetY: event.clientY - rect.top - rect.height / 2,
+      navigation: viewer.isMouseNavEnabled(), moved: false,
+    };
+    viewer.setMouseNavEnabled(false);
+    element.setPointerCapture(event.pointerId);
+  };
+  const update = event => {
+    if (!drag || event.pointerId !== drag.id || blocked()) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (Math.hypot(event.clientX - drag.x, event.clientY - drag.y) > 2) drag.moved = true;
+    if (!drag.moved) return;
+    const rect = viewer.element.getBoundingClientRect();
+    move({ x: event.clientX - rect.left - drag.offsetX, y: event.clientY - rect.top - drag.offsetY });
+  };
+  const release = event => {
+    if (!drag || (event && event.pointerId !== drag.id)) return;
+    event?.stopPropagation();
+    const previous = drag;
+    drag = null;
+    suppressClick = previous.moved;
+    if (element.hasPointerCapture(previous.id)) element.releasePointerCapture(previous.id);
+    viewer.setMouseNavEnabled(previous.navigation && !blocked());
+  };
+  const activate = event => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!blocked() && !suppressClick) click();
+    suppressClick = false;
+  };
+  element.addEventListener('pointerdown', press);
+  element.addEventListener('pointermove', update);
+  element.addEventListener('click', activate);
+  for (const name of ['pointerup', 'pointercancel', 'lostpointercapture']) element.addEventListener(name, release);
+  return { destroy() {
+    release();
+    element.removeEventListener('pointerdown', press);
+    element.removeEventListener('pointermove', update);
+    element.removeEventListener('click', activate);
+    for (const name of ['pointerup', 'pointercancel', 'lostpointercapture']) element.removeEventListener(name, release);
+  } };
+}
+
+function installMeasurementTool({ viewer, getSpecimen }) {
+  const russian = false;
+  const text = russian ? {
+    title: 'Измерить расстояние', name: 'Измерительная линейка',
+    prompt: 'Протяни линию по изображению.',
+    help: 'Колесо — масштаб. Концы линии можно передвигать.',
+    newLine: 'Новая линия', close: 'Убрать',
+    start: 'Начало измерения', end: 'Конец измерения', missingScale: 'масштаб не задан'
+  } : {
+    title: 'Measure distance', name: 'Measurement ruler',
+    prompt: 'Drag a line across the image.',
+    help: 'Scroll to zoom. Drag the endpoints to adjust the line.',
+    newLine: 'New line', close: 'Hide',
+    start: 'Start of measurement', end: 'End of measurement', missingScale: 'scale not set'
+  };
+  const container = viewer.element;
+  const lens = container.closest('.scope-with-glow');
+  const wrapper = container.closest('.scope-wrapper');
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'scope-ruler-button';
+  button.title = text.title;
+  button.setAttribute('aria-label', text.name);
+  button.setAttribute('aria-pressed', 'false');
+  button.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 16 13-13 5 5L8 21z"/><path d="m7 12 2 2m2-6 2 2m2-6 2 2"/></svg>';
+  const panel = document.createElement('section');
+  panel.className = 'scope-measurement-panel';
+  panel.hidden = true;
+  panel.innerHTML = '<strong>Измерительная линейка</strong><output aria-live="polite">Протяни линию по изображению.</output><small>Колесо — масштаб. Концы линии можно передвигать.</small><div><button type="button" data-new>Новая линия</button><button type="button" data-close>Убрать</button></div>';
+  panel.querySelector('strong').textContent = text.name;
+  panel.querySelector('output').textContent = text.prompt;
+  panel.querySelector('small').textContent = text.help;
+  panel.querySelector('[data-new]').textContent = text.newLine;
+  panel.querySelector('[data-close]').textContent = text.close;
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.classList.add('scope-measurement-overlay');
+  svg.innerHTML = '<line/><circle r="7" data-endpoint="start" tabindex="0" role="button" aria-label="Начало измерения"/><circle r="7" data-endpoint="end" tabindex="0" role="button" aria-label="Конец измерения"/><text/>';
+  svg.querySelector('[data-endpoint="start"]').setAttribute('aria-label', text.start);
+  svg.querySelector('[data-endpoint="end"]').setAttribute('aria-label', text.end);
+  svg.setAttribute('hidden', '');
+  wrapper.append(svg);
+  lens.append(button, panel);
+  const output = panel.querySelector('output');
+  const line = svg.querySelector('line');
+  const label = svg.querySelector('text');
+  const handles = [...svg.querySelectorAll('circle')];
+  let active = false;
+  let drawing = false;
+  let dragging = false;
+  let segment = null;
+  let navigation = [];
+  let labelText = '';
+
+  function setDrawing(value) {
+    if (value === drawing) return;
+    drawing = value;
+    const settings = [viewer.gestureSettingsMouse, viewer.gestureSettingsTouch, viewer.gestureSettingsPen];
+    if (drawing) { navigation = settings.map(s => s.dragToPan); settings.forEach(s => { s.dragToPan = false; }); }
+    else settings.forEach((s, i) => { s.dragToPan = navigation[i]; });
+    wrapper.classList.toggle('is-measuring', drawing);
+  }
+  function pointAt(pixel, clamp = false) {
+    const item = viewer.world.getItemAt(0);
+    if (!item) return null;
+    const size = item.getContentSize();
+    const p = item.viewportToImageCoordinates(viewer.viewport.pointFromPixel(pixel, true));
+    if (!clamp && (p.x < 0 || p.y < 0 || p.x > size.x || p.y > size.y)) return null;
+    return { x: Math.max(0, Math.min(size.x, p.x)), y: Math.max(0, Math.min(size.y, p.y)) };
+  }
+  function update() {
+    const item = viewer.world.getItemAt(0);
+    svg.toggleAttribute('hidden', !active || !segment || !item);
+    if (svg.hasAttribute('hidden')) return;
+    const project = point => viewer.viewport.pixelFromPoint(item.imageToViewportCoordinates(point.x, point.y, true), true);
+    const start = project(segment.start), end = project(segment.end);
+    line.setAttribute('x1', start.x); line.setAttribute('y1', start.y);
+    line.setAttribute('x2', end.x); line.setAttribute('y2', end.y);
+    handles.forEach((handle, i) => {
+      const point = i ? end : start;
+      handle.setAttribute('cx', point.x); handle.setAttribute('cy', point.y);
+      handle.style.pointerEvents = drawing ? 'none' : 'all';
+    });
+    const specimen = getSpecimen();
+    labelText = formatMeasurement(measureSegment(segment.start, segment.end, specimen, item.getContentSize().x), specimen?.calibration_unit, text.missingScale);
+    output.textContent = labelText;
+    label.textContent = labelText;
+    label.setAttribute('x', (start.x + end.x) / 2);
+    label.setAttribute('y', (start.y + end.y) / 2 - 13);
+    label.setAttribute('text-anchor', 'middle');
+  }
+  function reset() {
+    segment = null;
+    svg.setAttribute('hidden', '');
+    output.textContent = text.prompt;
+    setDrawing(active);
+  }
+  function enable(value) {
+    active = value;
+    button.setAttribute('aria-pressed', String(value));
+    panel.hidden = !value;
+    if (value) reset();
+    else { setDrawing(false); segment = null; svg.setAttribute('hidden', ''); }
+  }
+  button.addEventListener('click', () => enable(!active));
+  panel.querySelector('[data-new]').addEventListener('click', reset);
+  panel.querySelector('[data-close]').addEventListener('click', () => enable(false));
+  viewer.addHandler('canvas-press', event => {
+    if (!drawing || event.originalEvent?.button > 0) return;
+    const point = pointAt(event.position);
+    if (!point) return;
+    event.preventDefaultAction = true;
+    segment = { start: point, end: point };
+    dragging = true;
+    update();
+  });
+  viewer.addHandler('canvas-drag', event => {
+    if (!drawing || !dragging) return;
+    event.preventDefaultAction = true;
+    segment.end = pointAt(event.position, true);
+    update();
+  });
+  viewer.addHandler('canvas-release', event => {
+    if (!drawing || !dragging) return;
+    event.preventDefaultAction = true;
+    dragging = false;
+    segment.end = pointAt(event.position, true);
+    setDrawing(false);
+    update();
+  });
+  for (const handle of handles) {
+    const key = handle.dataset.endpoint;
+    bindImagePointDrag({ element: handle, viewer, blocked: () => !active || drawing || !segment,
+      move: position => { segment[key] = pointAt(new OpenSeadragon.Point(position.x, position.y), true); update(); },
+      click: () => handle.focus(),
+    });
+    handle.addEventListener('keydown', event => {
+      if (!active || drawing || !segment) return;
+      const delta = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[event.key];
+      if (!delta) return;
+      event.preventDefault(); event.stopPropagation();
+      const size = viewer.world.getItemAt(0).getContentSize(), step = event.shiftKey ? 10 : 1;
+      segment[key] = { x: Math.max(0, Math.min(size.x, segment[key].x + delta[0] * step)), y: Math.max(0, Math.min(size.y, segment[key].y + delta[1] * step)) };
+      update();
+    });
+  }
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && active && !event.target.closest('input,textarea,select')) enable(false);
+  });
+  viewer.addHandler('open', () => { button.disabled = false; enable(false); });
+  viewer.addHandler('close', () => { button.disabled = true; enable(false); });
+  button.disabled = !viewer.world.getItemAt(0);
+  for (const name of ['animation', 'zoom', 'pan', 'resize']) viewer.addHandler(name, update);
+}
+
+const EPS = 1e-12;
+const cross = (a, b, c) => (b.x-a.x)*(c.y-a.y) - (b.y-a.y)*(c.x-a.x);
+const onSegment = (point, a, b) => Math.abs(cross(a, b, point)) <= EPS &&
+  point.x >= Math.min(a.x,b.x)-EPS && point.x <= Math.max(a.x,b.x)+EPS &&
+  point.y >= Math.min(a.y,b.y)-EPS && point.y <= Math.max(a.y,b.y)+EPS;
+
+function polygonArea(vertices) {
+  return Math.abs(vertices.reduce((sum, point, i) => {
+    const next = vertices[(i+1)%vertices.length];
+    return sum + point.x*next.y - next.x*point.y;
+  }, 0))/2;
+}
+
+function validPolygon(vertices) {
+  if (!Array.isArray(vertices) || vertices.length < 3 || vertices.length > 1000 ||
+      vertices.some(p => !p || !Number.isFinite(p.x) || !Number.isFinite(p.y) || p.x < 0 || p.x > 1 || p.y < 0 || p.y > 1) ||
+      polygonArea(vertices) <= EPS) return false;
+  for (let i=0; i<vertices.length; i++) {
+    const a = vertices[i], b = vertices[(i+1)%vertices.length];
+    if (Math.hypot(a.x-b.x, a.y-b.y) <= EPS) return false;
+    for (let j=i+1; j<vertices.length; j++) {
+      if (j === i+1 || (i === 0 && j === vertices.length-1)) continue;
+      const c = vertices[j], d = vertices[(j+1)%vertices.length];
+      const abC = cross(a,b,c), abD = cross(a,b,d), cdA = cross(c,d,a), cdB = cross(c,d,b);
+      if ((abC*abD < -EPS*EPS && cdA*cdB < -EPS*EPS) ||
+          onSegment(c,a,b) || onSegment(d,a,b) || onSegment(a,c,d) || onSegment(b,c,d)) return false;
+    }
+  }
+  return true;
+}
+
+
+function pointInPolygon(point, vertices) {
+  let inside = false;
+  for (let i=0, j=vertices.length-1; i<vertices.length; j=i++) {
+    const a = vertices[j], b = vertices[i];
+    if (onSegment(point,a,b)) return true;
+    if ((a.y > point.y) !== (b.y > point.y) && point.x < (b.x-a.x)*(point.y-a.y)/(b.y-a.y)+a.x) inside = !inside;
+  }
+  return inside;
+}
+
+const NS = 'http://www.w3.org/2000/svg';
+
+
+
+function renderPolygonAnnotations({ viewer, container, layer, groups }) {
+  const svg = document.createElementNS(NS, 'svg');
+  svg.classList.add('annotation-polygons');
+  svg.setAttribute('aria-hidden', 'true');
+  const regions = [];
+  for (const group of groups) {
+    for (const vertices of Array.isArray(group.polygons) ? group.polygons : []) {
+      if (!validPolygon(vertices)) continue;
+      const polygon = document.createElementNS(NS, 'polygon');
+      polygon.classList.add('annotation-polygon');
+      polygon.dataset.groupId = group.id;
+      polygon.style.stroke = group.color || '#ff4444';
+      svg.append(polygon);
+      const tooltip = document.createElement('div');
+      tooltip.className = 'annotation-tooltip annotation-polygon-tooltip';
+      tooltip.style.borderLeftColor = group.color || '#ff4444';
+      const lang = document.documentElement.lang || 'ru';
+      const heading = document.createElement('strong');
+      heading.textContent = group.labels?.[lang] || group.labels?.ru || group.label || 'Область';
+      const description = group.description?.[lang] || group.description?.ru ||
+        (typeof group.description === 'string' ? group.description : '');
+      tooltip.append(heading, document.createElement('br'), document.createTextNode(description));
+      regions.push({ vertices, polygon, tooltip });
+    }
+  }
+  if (!regions.length) return () => {};
+  layer.append(svg, ...regions.map(region => region.tooltip));
+  let pointer = null;
+  function hide() {
+    regions.forEach(region => {
+      region.tooltip.classList.remove('is-visible');
+      region.polygon.classList.remove('is-hovered');
+    });
+  }
+  function hover() {
+    hide();
+    const item = viewer.world.getItemAt(0);
+    if (!pointer || !item) return;
+    const rect = container.getBoundingClientRect();
+    const pixel = new OpenSeadragon.Point(pointer.x-rect.left, pointer.y-rect.top);
+    const image = item.viewportToImageCoordinates(viewer.viewport.pointFromPixel(pixel, true));
+    const size = item.getContentSize();
+    const point = { x: image.x/size.x, y: image.y/size.y };
+    const region = regions.findLast(candidate => pointInPolygon(point, candidate.vertices));
+    if (!region) return;
+    region.polygon.classList.add('is-hovered');
+    region.tooltip.classList.add('is-visible');
+    region.tooltip.style.left = Math.max(6, Math.min(pixel.x+14, rect.width-region.tooltip.offsetWidth-6))+'px';
+    region.tooltip.style.top = Math.max(6, Math.min(pixel.y+14, rect.height-region.tooltip.offsetHeight-6))+'px';
+  }
+  function update() {
+    const item = viewer.world.getItemAt(0);
+    if (!item) return;
+    const size = item.getContentSize();
+    for (const region of regions) {
+      region.polygon.setAttribute('points', region.vertices.map(point => {
+        const screen = viewer.viewport.viewportToViewerElementCoordinates(item.imageToViewportCoordinates(point.x*size.x, point.y*size.y));
+        return `${screen.x},${screen.y}`;
+      }).join(' '));
+    }
+    hover();
+  }
+  const move = event => { pointer = { x: event.clientX, y: event.clientY }; hover(); };
+  const leave = () => { pointer = null; hide(); };
+  container.addEventListener('pointermove', move);
+  container.addEventListener('pointerleave', leave);
+  const events = ['open', 'animation', 'zoom', 'pan', 'resize'];
+  events.forEach(name => viewer.addHandler(name, update));
+  update();
+  return () => {
+    container.removeEventListener('pointermove', move);
+    container.removeEventListener('pointerleave', leave);
+    events.forEach(name => viewer.removeHandler(name, update));
+    svg.remove();
+    regions.forEach(region => region.tooltip.remove());
+  };
+}
+
+function clearAnnotations() {
+    annotationDisposers.forEach(dispose => dispose());
+    annotationDisposers = [];
+    document.getElementById(`annotations-${id}`)?.replaceChildren();
+}
+
 function renderAnnotations() {
         const annotationsLayer = document.getElementById(`annotations-${id}`);
     
     if (!annotationsLayer || !viewer) return;
     if (!currentAnnotations.length) {
-        annotationsLayer.innerHTML = '';
+        clearAnnotations();
         return;
     }
 
-    annotationsLayer.innerHTML = '';
+    clearAnnotations();
+    annotationDisposers.push(renderPolygonAnnotations({
+        viewer, container: viewerContainer, layer: annotationsLayer, groups: currentAnnotations
+    }));
 
     currentAnnotations.forEach((group, groupIndex) => {
         if (!group.points || !Array.isArray(group.points)) return;
@@ -2484,6 +3154,11 @@ marker.addEventListener('wheel', (e) => {
             viewer.addHandler('pan', updateMarkerPosition);
             viewer.addHandler('resize', updateMarkerPosition);
             viewer.addHandler('animation', updateMarkerPosition);
+            annotationDisposers.push(() => {
+                ['zoom', 'pan', 'resize', 'animation'].forEach(name => {
+                    viewer.removeHandler(name, updateMarkerPosition);
+                });
+            });
         });
     });
     
@@ -2516,7 +3191,7 @@ marker.addEventListener('wheel', (e) => {
         
 
         if (viewer && annotationsLayer) {
-            annotationsLayer.innerHTML = '';
+            clearAnnotations();
         }
     }
 }
@@ -2628,11 +3303,13 @@ function updateScaleBar() {
     }
 
     const legacyMPP = Number(currentSpecimen.microns_per_pixel);
+    const imageMPP = Number(currentSpecimen.image_microns_per_pixel);
     const scopeWidth = viewerContainer.getBoundingClientRect().width;
     
     const zoom = viewer.viewport.getZoom(true);
 
-    if (!(legacyMPP > 0) || !Number.isFinite(legacyMPP) ||
+    if ((!((legacyMPP > 0) && Number.isFinite(legacyMPP)) &&
+         !((imageMPP > 0) && Number.isFinite(imageMPP))) ||
         !(scopeWidth > 0) || !(zoom > 0) ||
         !Number.isFinite(scopeWidth) || !Number.isFinite(zoom)) {
         hideBar();
@@ -2644,7 +3321,9 @@ function updateScaleBar() {
     
     
     const micronsPerScreenPx =
-        (legacyMPP / zoom) * (REFERENCE_SCOPE_WIDTH / scopeWidth) * GLOBAL_SCALE_CORRECTION;
+        imageMPP > 0 && Number.isFinite(imageMPP)
+            ? imageMPP / viewer.world.getItemAt(0).viewportToImageZoom(zoom)
+            : (legacyMPP / zoom) * (REFERENCE_SCOPE_WIDTH / scopeWidth) * GLOBAL_SCALE_CORRECTION;
 
     
     
@@ -2671,7 +3350,9 @@ function updateScaleBar() {
     barLine.style.width = `${lineWidth}px`;
     barLine.style.visibility = 'visible';
     const display = value => Number(value.toPrecision(5)).toString();
-    barText.textContent = shownMicrons >= 1000
+    const inMillimeters = currentSpecimen.calibration_unit === 'mm' ||
+        (!currentSpecimen.calibration_unit && shownMicrons >= 1000);
+    barText.textContent = inMillimeters
         ? `${display(shownMicrons / 1000)} mm`
         : `${display(shownMicrons)} µm`;
 }
@@ -2755,6 +3436,8 @@ function updateScaleBar() {
                 loadTilesWithAjax: false
             });
 
+
+            installMeasurementTool({ viewer, getSpecimen: () => currentSpecimen });
 
             
             
@@ -2973,7 +3656,7 @@ if (toggleBtn) {
     
     const annotationsLayer = document.getElementById(`annotations-${id}`);
     if (annotationsLayer) {
-        annotationsLayer.innerHTML = '';
+        clearAnnotations();
     }
     currentAnnotations = [];
 
@@ -3006,7 +3689,7 @@ if (toggleBtn) {
 
         currentAnnotations = [];
         if (annotationsLayer) {
-            annotationsLayer.innerHTML = '';
+            clearAnnotations();
         }
     }
     
@@ -3101,6 +3784,7 @@ if (specimens.length > 0) {
 
 })();
 </script>
+
 
   </div>
   <p class="fossa-specimen-page__footer"><a href="https://fossamethod.ru/en/microscope-collection/">← Back to the virtual microscope</a></p>
@@ -3550,6 +4234,12 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/en/posts/crypt/">Cryptocaryon irritans: Not Just White Spots</a></li>
       
+        <li><a href="https://fossamethod.ru/en/microscope-collection/%d1%81%d1%82%d1%80%d0%b5%d0%bb%d0%be%d0%bb%d0%b8%d1%81%d1%82_10x-cs/">Arrowhead (Sagittaria sp.)</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/microscope-collection/%d1%81%d1%82%d1%80%d0%b5%d0%bb%d0%be%d0%bb%d0%b8%d1%81%d1%82_20x-sc/">Arrowhead (Sagittaria sp.) — 20×</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/microscope-collection/%d1%81%d1%82%d1%80%d0%b5%d0%bb%d0%be%d0%bb%d0%b8%d1%81%d1%82_%d0%bf%d0%be%d0%bb%d1%8f%d1%80%d0%b8%d0%b7%d0%b0%d1%86%d0%b8%d1%8f_20x-sc/">Arrowhead (Sagittaria sp.) — 20×, polarized light</a></li>
+      
         <li><a href="https://fossamethod.ru/en/microscope-collection/algaepano/">Black beard algae</a></li>
       
         <li><a href="https://fossamethod.ru/en/microscope-collection/audouinella_10x-sc_imagej/">Black brush algae (presumably Audouinella) — 10×</a></li>
@@ -3560,7 +4250,11 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/en/microscope-collection/bolbitis_40x/">Bolbitis fern — leaf cells, 40×</a></li>
       
+        <li><a href="https://fossamethod.ru/en/microscope-collection/bolbitis_40x_2/">Bolbitis fern — leaf cells, 40×</a></li>
+      
         <li><a href="https://fossamethod.ru/en/microscope-collection/bolbitis_10x/">Bolbitis fern — leaf, 10×</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/microscope-collection/bolbitis_10x_2/">Bolbitis fern — leaf, 10×</a></li>
       
         <li><a href="https://fossamethod.ru/en/microscope-collection/micopano/">Branching filamentous bacteria — 100×</a></li>
       
@@ -3582,7 +4276,13 @@ document.addEventListener("DOMContentLoaded", function () {
       
         <li><a href="https://fossamethod.ru/en/video/ciliate-and-bacter/">Ciliates and Bacteria on Fish Surfaces</a></li>
       
+        <li><a href="https://fossamethod.ru/en/microscope-collection/pano_%d0%b0%d0%bc%d1%84%d0%b8%d0%bf%d1%80%d0%b8%d0%be%d0%bd_%d1%82%d0%b5%d0%bc%d0%bd%d0%be%d0%b5_%d0%bf%d0%be%d0%bb%d0%b5_3%d0%bc%d0%bc-sc/">Clownfish larva (Amphiprion sp.) — dark-field illumination</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/microscope-collection/pano_%d0%b0%d0%bc%d1%84%d0%b8%d0%bf%d1%80%d0%b8%d0%be%d0%bd_%d0%bf%d0%be%d0%bb%d1%8f%d1%80%d0%b8%d0%b7%d0%b0%d1%86%d0%b8%d1%8f_sc-3%d0%bc%d0%bc/">Clownfish larva (Amphiprion sp.) — polarized light</a></li>
+      
         <li><a href="https://fossamethod.ru/en/microscope-collection/kokki/">Cocci</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/microscope-collection/%d0%b6%d0%b0%d0%b1%d1%80%d1%8b_%d1%81%d0%b0%d0%b7%d0%b0%d0%bd%d0%b0-sc/">Common carp (Cyprinus carpio) — gills</a></li>
       
         <li><a href="https://fossamethod.ru/en/video/cryptobia-run/">Cryptobia Moving Through Detritus</a></li>
       
@@ -3599,6 +4299,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <li><a href="https://fossamethod.ru/en/microscope-collection/discus/">Discus</a></li>
       
         <li><a href="https://fossamethod.ru/en/video/ichthyophthirius/">Division of Ichthyophthirius multifiliis</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/microscope-collection/pano_20261028_122120/">Duckweed — dark-field illumination</a></li>
       
         <li><a href="https://fossamethod.ru/en/microscope-collection/eritrocite40/">Erythrocytes</a></li>
       
@@ -3643,6 +4345,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <li><a href="https://fossamethod.ru/en/microscope-collection/monodactylus/">Monodactylus</a></li>
       
         <li><a href="https://fossamethod.ru/en/microscope-collection/eggsnematpano/">Nematode eggs</a></li>
+      
+        <li><a href="https://fossamethod.ru/en/microscope-collection/jills_coregonus/">Omul (Coregonus sp.) — gill anatomy</a></li>
       
         <li><a href="https://fossamethod.ru/en/video/color/">Pigment or Cocci?</a></li>
       
