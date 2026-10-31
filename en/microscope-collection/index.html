@@ -475,6 +475,7 @@ updateThemeText();
     --specimen-border: var(--border, #d8d8d8);
     --specimen-fg: var(--primary, #222222);
     --specimen-accent: #da695d;
+    --scope-control-axis: 26px;  
 }
 
 .scope-container {
@@ -1378,11 +1379,12 @@ updateThemeText();
 }
 
  
-.scope-ruler-button { position:absolute; top:-12px; left:10%; z-index:70; width:38px; height:38px; border:1px solid #73869a; border-radius:50%; padding:8px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button { position:absolute; top:20px; left:calc(var(--scope-control-axis, 26px) - 38px); z-index:70; width:76px; height:76px; border:2px solid #73869a; border-radius:50%; padding:16px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button svg { width:40px; height:40px; }
 .scope-ruler-button:hover, .scope-ruler-button[aria-pressed="true"] { background:#284560; border-color:#8bbff4; }
 .scope-ruler-button:disabled { opacity:.45; cursor:default; }
 .scope-ruler-button:focus-visible { outline:2px solid #81b8ff; outline-offset:3px; }
-.scope-measurement-panel { position:absolute; z-index:75; top:34px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
+.scope-measurement-panel { position:absolute; z-index:75; top:104px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
 .scope-measurement-panel[hidden] { display:none; }
 .scope-measurement-panel output { display:block; margin:8px 0; font-size:15px; }
 .scope-measurement-panel small { display:block; color:#a9bacf; }
@@ -1396,8 +1398,25 @@ updateThemeText();
 .scope-measurement-overlay text { fill:white; stroke:#000; stroke-width:3px; paint-order:stroke; stroke-linejoin:round; font:13px "Segoe UI",Arial,sans-serif; }
 .scope-wrapper.is-measuring .openseadragon-canvas { cursor:crosshair; }
 .scope-wrapper.is-measuring .annotations-layer, .scope-wrapper.is-measuring .annotation-marker { pointer-events:none; }
-.fossa-microscope-page:fullscreen .scope-ruler-button { top:0; }
-.fossa-microscope-page:fullscreen .scope-measurement-panel { top:46px; }
+ 
+.microscope-collection .scope-container .scope-with-glow > .fossa-specimen-info-control {
+    top: 20px;
+    right: calc(var(--scope-control-axis, 26px) - 38px);
+    width: 76px;
+    height: 76px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-control > .fossa-specimen-info-button {
+    width: 76px;
+    height: 76px;
+    border-width: 2px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-button > svg {
+    width: 48px;
+    height: 48px;
+}
+.microscope-collection .scope-container .scope-with-glow .fossa-specimen-info-panel {
+    top: 84px;
+}
 
  
 .annotation-toggle-btn {
@@ -1524,6 +1543,8 @@ updateThemeText();
 }
 
 @media (max-width: 700px) {
+    .microscope-collection { --scope-control-axis: 33.5px; }  
+    .microscope-collection--modern { --scope-control-axis: 35.5px; }  
     .microscope-collection--compact {
         display: block;
         width: min(100%, 480px);

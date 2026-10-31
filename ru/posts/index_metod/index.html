@@ -805,6 +805,7 @@ document.addEventListener('DOMContentLoaded', () => {
     --specimen-border: var(--border, #d8d8d8);
     --specimen-fg: var(--primary, #222222);
     --specimen-accent: #da695d;
+    --scope-control-axis: 26px;  
 }
 
 .scope-container {
@@ -1708,11 +1709,12 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
  
-.scope-ruler-button { position:absolute; top:-12px; left:10%; z-index:70; width:38px; height:38px; border:1px solid #73869a; border-radius:50%; padding:8px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button { position:absolute; top:20px; left:calc(var(--scope-control-axis, 26px) - 38px); z-index:70; width:76px; height:76px; border:2px solid #73869a; border-radius:50%; padding:16px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button svg { width:40px; height:40px; }
 .scope-ruler-button:hover, .scope-ruler-button[aria-pressed="true"] { background:#284560; border-color:#8bbff4; }
 .scope-ruler-button:disabled { opacity:.45; cursor:default; }
 .scope-ruler-button:focus-visible { outline:2px solid #81b8ff; outline-offset:3px; }
-.scope-measurement-panel { position:absolute; z-index:75; top:34px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
+.scope-measurement-panel { position:absolute; z-index:75; top:104px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
 .scope-measurement-panel[hidden] { display:none; }
 .scope-measurement-panel output { display:block; margin:8px 0; font-size:15px; }
 .scope-measurement-panel small { display:block; color:#a9bacf; }
@@ -1726,8 +1728,25 @@ document.addEventListener('DOMContentLoaded', () => {
 .scope-measurement-overlay text { fill:white; stroke:#000; stroke-width:3px; paint-order:stroke; stroke-linejoin:round; font:13px "Segoe UI",Arial,sans-serif; }
 .scope-wrapper.is-measuring .openseadragon-canvas { cursor:crosshair; }
 .scope-wrapper.is-measuring .annotations-layer, .scope-wrapper.is-measuring .annotation-marker { pointer-events:none; }
-.fossa-microscope-page:fullscreen .scope-ruler-button { top:0; }
-.fossa-microscope-page:fullscreen .scope-measurement-panel { top:46px; }
+ 
+.microscope-collection .scope-container .scope-with-glow > .fossa-specimen-info-control {
+    top: 20px;
+    right: calc(var(--scope-control-axis, 26px) - 38px);
+    width: 76px;
+    height: 76px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-control > .fossa-specimen-info-button {
+    width: 76px;
+    height: 76px;
+    border-width: 2px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-button > svg {
+    width: 48px;
+    height: 48px;
+}
+.microscope-collection .scope-container .scope-with-glow .fossa-specimen-info-panel {
+    top: 84px;
+}
 
  
 .annotation-toggle-btn {
@@ -1854,6 +1873,8 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 @media (max-width: 700px) {
+    .microscope-collection { --scope-control-axis: 33.5px; }  
+    .microscope-collection--modern { --scope-control-axis: 35.5px; }  
     .microscope-collection--compact {
         display: block;
         width: min(100%, 480px);
@@ -4711,18 +4732,11 @@ World Health Organization, n.d. <em>Ziehl–Neelsen procedure: fundamentals.</em
   <h2>См. также</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/ichthyophthirius/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Ихтиофтириоз без мифов</a>
+        <a href="https://fossamethod.ru/ru/posts/twigs_and_sticks/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Веточки и палочки. Кого<br>мы видим в препарате?</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Ichthyophthirius.webp" alt="Ихтиофтириоз без мифов" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/twigs_and_sticks.webp" alt="Веточки и палочки. Кого мы видим в препарате?" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Ихтиофтириоз без мифов</span><span class="hoverlink-desc">Разбор биологии Ichthyophthirius multifiliis жизненный цикл, терминология цисты, миф о вездесущем паразите и реальные механизмы …</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/bublle/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Газопузырьковая болезнь. Не в<br>пузырьках дело...</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/jills_fish.webp" alt="Газопузырьковая болезнь. Не в пузырьках дело..." loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Газопузырьковая болезнь. Не в пузырьках дело...</span><span class="hoverlink-desc">Газопузырьковая болезнь у рыб — не результат попадания пузырьков в жабры, а следствие перенасыщения воды растворёнными газами. В статье …</span></span>
+            <span class="hoverlink-title">Веточки и палочки. Кого мы видим в препарате?</span><span class="hoverlink-desc">Нокардии и микобактерии у рыб: сравнение морфологии, кислотоустойчивости, патогенности и антибиотикорезистентности, границы диагностики.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/ru/posts/science/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Научный метод. Инструкция по<br>применению.</a>
@@ -4732,11 +4746,18 @@ World Health Organization, n.d. <em>Ziehl–Neelsen procedure: fundamentals.</em
             <span class="hoverlink-title">Научный метод. Инструкция по применению.</span><span class="hoverlink-desc">О том, как формируется знание, почему уверенность часто опережает понимание и как научный метод помогает не путать наблюдение с объяснением.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/intracellular/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Гранулёмы и внутриклеточные агенты<br>у рыб</a>
+        <a href="https://fossamethod.ru/ru/posts/bublle/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Газопузырьковая болезнь. Не в<br>пузырьках дело...</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/intracellular.webp" alt="Гранулёмы и внутриклеточные агенты у рыб" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/jills_fish.webp" alt="Газопузырьковая болезнь. Не в пузырьках дело..." loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Гранулёмы и внутриклеточные агенты у рыб</span><span class="hoverlink-desc">Подборка реальных наблюдений: дрожжеподобные внутриклеточные структуры, эймерии, криптоспоридии и грибные формы у рыб.</span></span>
+            <span class="hoverlink-title">Газопузырьковая болезнь. Не в пузырьках дело...</span><span class="hoverlink-desc">Газопузырьковая болезнь у рыб — не результат попадания пузырьков в жабры, а следствие перенасыщения воды растворёнными газами. В статье …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/ru/posts/medicines_poisons/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Две стороны одной дозировки</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/nematoda_fish.webp" alt="Две стороны одной дозировки" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Две стороны одной дозировки</span><span class="hoverlink-desc">Лекарства в аквариумистике: спасение или угроза? Разбираем плюсы и минусы антибиотиков, формалина, метиленовой сини и малахитового зелёного.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/ru/posts/crypto/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptococcus-like структуры у рыб</a>
@@ -4746,11 +4767,11 @@ World Health Organization, n.d. <em>Ziehl–Neelsen procedure: fundamentals.</em
             <span class="hoverlink-title">Cryptococcus-like структуры у рыб</span><span class="hoverlink-desc">Округлые структуры с выраженным halo, морфологически сходные с криптококками. Разбор морфологии и ограничений интерпретации.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/health-is-not-sterility/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Здоровье не означает стерильность</a>
+        <a href="https://fossamethod.ru/ru/posts/ai_forever/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Какие ваши доказательства?</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/health-is-not-sterility.webp" alt="Здоровье не означает стерильность" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/ai_forever.webp" alt="Какие ваши доказательства?" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Здоровье не означает стерильность</span><span class="hoverlink-desc">Почему присутствие микроорганизмов и паразитов не всегда означает болезнь, иммунитет не обязан уничтожать их полностью, а применение …</span></span>
+            <span class="hoverlink-title">Какие ваши доказательства?</span><span class="hoverlink-desc">Почему в эпоху искусственного интеллекта уже недостаточно фотографии, видео и убедительного текста. О происхождении данных, проверяемости …</span></span>
         </span>
       </span></div>
 </section>

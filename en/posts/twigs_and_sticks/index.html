@@ -586,6 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
     --specimen-border: var(--border, #d8d8d8);
     --specimen-fg: var(--primary, #222222);
     --specimen-accent: #da695d;
+    --scope-control-axis: 26px;  
 }
 
 .scope-container {
@@ -1489,11 +1490,12 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
  
-.scope-ruler-button { position:absolute; top:-12px; left:10%; z-index:70; width:38px; height:38px; border:1px solid #73869a; border-radius:50%; padding:8px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button { position:absolute; top:20px; left:calc(var(--scope-control-axis, 26px) - 38px); z-index:70; width:76px; height:76px; border:2px solid #73869a; border-radius:50%; padding:16px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button svg { width:40px; height:40px; }
 .scope-ruler-button:hover, .scope-ruler-button[aria-pressed="true"] { background:#284560; border-color:#8bbff4; }
 .scope-ruler-button:disabled { opacity:.45; cursor:default; }
 .scope-ruler-button:focus-visible { outline:2px solid #81b8ff; outline-offset:3px; }
-.scope-measurement-panel { position:absolute; z-index:75; top:34px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
+.scope-measurement-panel { position:absolute; z-index:75; top:104px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
 .scope-measurement-panel[hidden] { display:none; }
 .scope-measurement-panel output { display:block; margin:8px 0; font-size:15px; }
 .scope-measurement-panel small { display:block; color:#a9bacf; }
@@ -1507,8 +1509,25 @@ document.addEventListener('DOMContentLoaded', () => {
 .scope-measurement-overlay text { fill:white; stroke:#000; stroke-width:3px; paint-order:stroke; stroke-linejoin:round; font:13px "Segoe UI",Arial,sans-serif; }
 .scope-wrapper.is-measuring .openseadragon-canvas { cursor:crosshair; }
 .scope-wrapper.is-measuring .annotations-layer, .scope-wrapper.is-measuring .annotation-marker { pointer-events:none; }
-.fossa-microscope-page:fullscreen .scope-ruler-button { top:0; }
-.fossa-microscope-page:fullscreen .scope-measurement-panel { top:46px; }
+ 
+.microscope-collection .scope-container .scope-with-glow > .fossa-specimen-info-control {
+    top: 20px;
+    right: calc(var(--scope-control-axis, 26px) - 38px);
+    width: 76px;
+    height: 76px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-control > .fossa-specimen-info-button {
+    width: 76px;
+    height: 76px;
+    border-width: 2px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-button > svg {
+    width: 48px;
+    height: 48px;
+}
+.microscope-collection .scope-container .scope-with-glow .fossa-specimen-info-panel {
+    top: 84px;
+}
 
  
 .annotation-toggle-btn {
@@ -1635,6 +1654,8 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 @media (max-width: 700px) {
+    .microscope-collection { --scope-control-axis: 33.5px; }  
+    .microscope-collection--modern { --scope-control-axis: 35.5px; }  
     .microscope-collection--compact {
         display: block;
         width: min(100%, 480px);
@@ -3950,6 +3971,7 @@ if (specimens.length > 0) {
     --specimen-border: var(--border, #d8d8d8);
     --specimen-fg: var(--primary, #222222);
     --specimen-accent: #da695d;
+    --scope-control-axis: 26px;  
 }
 
 .scope-container {
@@ -4853,11 +4875,12 @@ if (specimens.length > 0) {
 }
 
  
-.scope-ruler-button { position:absolute; top:-12px; left:10%; z-index:70; width:38px; height:38px; border:1px solid #73869a; border-radius:50%; padding:8px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button { position:absolute; top:20px; left:calc(var(--scope-control-axis, 26px) - 38px); z-index:70; width:76px; height:76px; border:2px solid #73869a; border-radius:50%; padding:16px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button svg { width:40px; height:40px; }
 .scope-ruler-button:hover, .scope-ruler-button[aria-pressed="true"] { background:#284560; border-color:#8bbff4; }
 .scope-ruler-button:disabled { opacity:.45; cursor:default; }
 .scope-ruler-button:focus-visible { outline:2px solid #81b8ff; outline-offset:3px; }
-.scope-measurement-panel { position:absolute; z-index:75; top:34px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
+.scope-measurement-panel { position:absolute; z-index:75; top:104px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
 .scope-measurement-panel[hidden] { display:none; }
 .scope-measurement-panel output { display:block; margin:8px 0; font-size:15px; }
 .scope-measurement-panel small { display:block; color:#a9bacf; }
@@ -4871,8 +4894,25 @@ if (specimens.length > 0) {
 .scope-measurement-overlay text { fill:white; stroke:#000; stroke-width:3px; paint-order:stroke; stroke-linejoin:round; font:13px "Segoe UI",Arial,sans-serif; }
 .scope-wrapper.is-measuring .openseadragon-canvas { cursor:crosshair; }
 .scope-wrapper.is-measuring .annotations-layer, .scope-wrapper.is-measuring .annotation-marker { pointer-events:none; }
-.fossa-microscope-page:fullscreen .scope-ruler-button { top:0; }
-.fossa-microscope-page:fullscreen .scope-measurement-panel { top:46px; }
+ 
+.microscope-collection .scope-container .scope-with-glow > .fossa-specimen-info-control {
+    top: 20px;
+    right: calc(var(--scope-control-axis, 26px) - 38px);
+    width: 76px;
+    height: 76px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-control > .fossa-specimen-info-button {
+    width: 76px;
+    height: 76px;
+    border-width: 2px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-button > svg {
+    width: 48px;
+    height: 48px;
+}
+.microscope-collection .scope-container .scope-with-glow .fossa-specimen-info-panel {
+    top: 84px;
+}
 
  
 .annotation-toggle-btn {
@@ -4999,6 +5039,8 @@ if (specimens.length > 0) {
 }
 
 @media (max-width: 700px) {
+    .microscope-collection { --scope-control-axis: 33.5px; }  
+    .microscope-collection--modern { --scope-control-axis: 35.5px; }  
     .microscope-collection--compact {
         display: block;
         width: min(100%, 480px);
@@ -7455,25 +7497,32 @@ if (specimens.length > 0) {
   <h2>See also</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/bubble_diagnoz/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Gas Bubble Disease. Part<br>II. Consequences.</a>
+        <a href="https://fossamethod.ru/en/posts/fungi/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Fungal structures in fish:<br>colonization or invasive process</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Bublle2.webp" alt="Gas Bubble Disease. Part II. Consequences." loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Fungi.webp" alt="Fungal structures in fish: colonization or invasive process" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Gas Bubble Disease. Part II. Consequences.</span><span class="hoverlink-desc">Comparison of normal and pathological findings in fish necropsy: liver, kidney, gills, and brain. How to distinguish acceptable variation …</span></span>
+            <span class="hoverlink-title">Fungal structures in fish: colonization or invasive process</span><span class="hoverlink-desc">Fungal structures in fish may represent either surface colonization or an invasive process. This article discusses morphological features, …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/hexa/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Hexamitids Without Myths</a>
+        <a href="https://fossamethod.ru/en/posts/intracellular/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Granulomas and intracellular agents<br>in fish</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Hexa.webp" alt="Hexamitids Without Myths" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/intracellular.webp" alt="Granulomas and intracellular agents in fish" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Hexamitids Without Myths</span><span class="hoverlink-desc">Why hexamitids are not a normal component of fish intestinal microflora, where the myth of 'internal parasites' comes from, and how …</span></span>
+            <span class="hoverlink-title">Granulomas and intracellular agents in fish</span><span class="hoverlink-desc">A collection of real observations: intracellular yeast-like organisms, coccidia, cryptosporidia, and fungal structures in fish.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/elephantfly/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Flying Elephants</a>
+        <a href="https://fossamethod.ru/en/posts/ai_forever/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">What Is Your Evidence?</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/elephantfly.webp" alt="Flying Elephants" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/ai_forever.webp" alt="What Is Your Evidence?" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Flying Elephants</span><span class="hoverlink-desc">Why science requires more than an elegant hypothesis. The role of photographs, videos, specimens, and primary data in building and verifying …</span></span>
+            <span class="hoverlink-title">What Is Your Evidence?</span><span class="hoverlink-desc">Why photographs, videos, and polished explanations are no longer enough in the age of generative AI. A practical look at provenance, …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/en/posts/health-is-not-sterility/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Health Does Not Mean<br>Sterility</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/health-is-not-sterility.webp" alt="Health Does Not Mean Sterility" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Health Does Not Mean Sterility</span><span class="hoverlink-desc">Why the presence of microorganisms and parasites does not always mean disease, why immunity does not have to eliminate them completely, and …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/en/posts/operation/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Surgical Procedures on Aquatic<br>Animals</a>
@@ -7483,18 +7532,11 @@ if (specimens.length > 0) {
             <span class="hoverlink-title">Surgical Procedures on Aquatic Animals</span><span class="hoverlink-desc">A Guide on performing surgical procedures on fish.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/cryptocaryon-control/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptocaryonosis: killing the parasite<br>or treating the water?</a>
+        <a href="https://fossamethod.ru/en/posts/medicines_poisons/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Two Sides of One<br>Dosage</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/cryptocaryon-treatment.webp" alt="Cryptocaryonosis: killing the parasite or treating the water?" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/nematoda_fish.webp" alt="Two Sides of One Dosage" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Cryptocaryonosis: killing the parasite or treating the water?</span><span class="hoverlink-desc">A practical analysis of cryptocaryonosis treatment in marine fish: why killing the parasite should not become more important than the …</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/en/posts/ichthyophthirius/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Ichthyophthiriosis Without Myths</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Ichthyophthirius.webp" alt="Ichthyophthiriosis Without Myths" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Ichthyophthiriosis Without Myths</span><span class="hoverlink-desc">A science-based analysis of Ichthyophthirius multifiliis: life cycle, cyst terminology, the myth of parasite ubiquity, and real mechanisms …</span></span>
+            <span class="hoverlink-title">Two Sides of One Dosage</span><span class="hoverlink-desc">Aquarium medications: remedy or threat? Pros and cons of antibiotics, formalin, methylene blue, malachite green, and the FMC mixture.</span></span>
         </span>
       </span></div>
 </section>

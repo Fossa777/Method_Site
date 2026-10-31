@@ -759,6 +759,7 @@ document.addEventListener('DOMContentLoaded', () => {
     --specimen-border: var(--border, #d8d8d8);
     --specimen-fg: var(--primary, #222222);
     --specimen-accent: #da695d;
+    --scope-control-axis: 26px;  
 }
 
 .scope-container {
@@ -1662,11 +1663,12 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
  
-.scope-ruler-button { position:absolute; top:-12px; left:10%; z-index:70; width:38px; height:38px; border:1px solid #73869a; border-radius:50%; padding:8px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button { position:absolute; top:20px; left:calc(var(--scope-control-axis, 26px) - 38px); z-index:70; width:76px; height:76px; border:2px solid #73869a; border-radius:50%; padding:16px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button svg { width:40px; height:40px; }
 .scope-ruler-button:hover, .scope-ruler-button[aria-pressed="true"] { background:#284560; border-color:#8bbff4; }
 .scope-ruler-button:disabled { opacity:.45; cursor:default; }
 .scope-ruler-button:focus-visible { outline:2px solid #81b8ff; outline-offset:3px; }
-.scope-measurement-panel { position:absolute; z-index:75; top:34px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
+.scope-measurement-panel { position:absolute; z-index:75; top:104px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
 .scope-measurement-panel[hidden] { display:none; }
 .scope-measurement-panel output { display:block; margin:8px 0; font-size:15px; }
 .scope-measurement-panel small { display:block; color:#a9bacf; }
@@ -1680,8 +1682,25 @@ document.addEventListener('DOMContentLoaded', () => {
 .scope-measurement-overlay text { fill:white; stroke:#000; stroke-width:3px; paint-order:stroke; stroke-linejoin:round; font:13px "Segoe UI",Arial,sans-serif; }
 .scope-wrapper.is-measuring .openseadragon-canvas { cursor:crosshair; }
 .scope-wrapper.is-measuring .annotations-layer, .scope-wrapper.is-measuring .annotation-marker { pointer-events:none; }
-.fossa-microscope-page:fullscreen .scope-ruler-button { top:0; }
-.fossa-microscope-page:fullscreen .scope-measurement-panel { top:46px; }
+ 
+.microscope-collection .scope-container .scope-with-glow > .fossa-specimen-info-control {
+    top: 20px;
+    right: calc(var(--scope-control-axis, 26px) - 38px);
+    width: 76px;
+    height: 76px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-control > .fossa-specimen-info-button {
+    width: 76px;
+    height: 76px;
+    border-width: 2px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-button > svg {
+    width: 48px;
+    height: 48px;
+}
+.microscope-collection .scope-container .scope-with-glow .fossa-specimen-info-panel {
+    top: 84px;
+}
 
  
 .annotation-toggle-btn {
@@ -1808,6 +1827,8 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 @media (max-width: 700px) {
+    .microscope-collection { --scope-control-axis: 33.5px; }  
+    .microscope-collection--modern { --scope-control-axis: 35.5px; }  
     .microscope-collection--compact {
         display: block;
         width: min(100%, 480px);
@@ -4124,6 +4145,7 @@ if (specimens.length > 0) {
     --specimen-border: var(--border, #d8d8d8);
     --specimen-fg: var(--primary, #222222);
     --specimen-accent: #da695d;
+    --scope-control-axis: 26px;  
 }
 
 .scope-container {
@@ -5027,11 +5049,12 @@ if (specimens.length > 0) {
 }
 
  
-.scope-ruler-button { position:absolute; top:-12px; left:10%; z-index:70; width:38px; height:38px; border:1px solid #73869a; border-radius:50%; padding:8px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button { position:absolute; top:20px; left:calc(var(--scope-control-axis, 26px) - 38px); z-index:70; width:76px; height:76px; border:2px solid #73869a; border-radius:50%; padding:16px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button svg { width:40px; height:40px; }
 .scope-ruler-button:hover, .scope-ruler-button[aria-pressed="true"] { background:#284560; border-color:#8bbff4; }
 .scope-ruler-button:disabled { opacity:.45; cursor:default; }
 .scope-ruler-button:focus-visible { outline:2px solid #81b8ff; outline-offset:3px; }
-.scope-measurement-panel { position:absolute; z-index:75; top:34px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
+.scope-measurement-panel { position:absolute; z-index:75; top:104px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
 .scope-measurement-panel[hidden] { display:none; }
 .scope-measurement-panel output { display:block; margin:8px 0; font-size:15px; }
 .scope-measurement-panel small { display:block; color:#a9bacf; }
@@ -5045,8 +5068,25 @@ if (specimens.length > 0) {
 .scope-measurement-overlay text { fill:white; stroke:#000; stroke-width:3px; paint-order:stroke; stroke-linejoin:round; font:13px "Segoe UI",Arial,sans-serif; }
 .scope-wrapper.is-measuring .openseadragon-canvas { cursor:crosshair; }
 .scope-wrapper.is-measuring .annotations-layer, .scope-wrapper.is-measuring .annotation-marker { pointer-events:none; }
-.fossa-microscope-page:fullscreen .scope-ruler-button { top:0; }
-.fossa-microscope-page:fullscreen .scope-measurement-panel { top:46px; }
+ 
+.microscope-collection .scope-container .scope-with-glow > .fossa-specimen-info-control {
+    top: 20px;
+    right: calc(var(--scope-control-axis, 26px) - 38px);
+    width: 76px;
+    height: 76px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-control > .fossa-specimen-info-button {
+    width: 76px;
+    height: 76px;
+    border-width: 2px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-button > svg {
+    width: 48px;
+    height: 48px;
+}
+.microscope-collection .scope-container .scope-with-glow .fossa-specimen-info-panel {
+    top: 84px;
+}
 
  
 .annotation-toggle-btn {
@@ -5173,6 +5213,8 @@ if (specimens.length > 0) {
 }
 
 @media (max-width: 700px) {
+    .microscope-collection { --scope-control-axis: 33.5px; }  
+    .microscope-collection--modern { --scope-control-axis: 35.5px; }  
     .microscope-collection--compact {
         display: block;
         width: min(100%, 480px);
@@ -7533,6 +7575,7 @@ if (specimens.length > 0) {
     --specimen-border: var(--border, #d8d8d8);
     --specimen-fg: var(--primary, #222222);
     --specimen-accent: #da695d;
+    --scope-control-axis: 26px;  
 }
 
 .scope-container {
@@ -8436,11 +8479,12 @@ if (specimens.length > 0) {
 }
 
  
-.scope-ruler-button { position:absolute; top:-12px; left:10%; z-index:70; width:38px; height:38px; border:1px solid #73869a; border-radius:50%; padding:8px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button { position:absolute; top:20px; left:calc(var(--scope-control-axis, 26px) - 38px); z-index:70; width:76px; height:76px; border:2px solid #73869a; border-radius:50%; padding:16px; display:grid; place-items:center; background:#151d28e6; color:#e4edf8; cursor:pointer; box-shadow:0 2px 8px #0005; }
+.scope-ruler-button svg { width:40px; height:40px; }
 .scope-ruler-button:hover, .scope-ruler-button[aria-pressed="true"] { background:#284560; border-color:#8bbff4; }
 .scope-ruler-button:disabled { opacity:.45; cursor:default; }
 .scope-ruler-button:focus-visible { outline:2px solid #81b8ff; outline-offset:3px; }
-.scope-measurement-panel { position:absolute; z-index:75; top:34px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
+.scope-measurement-panel { position:absolute; z-index:75; top:104px; left:0; width:255px; max-width:80%; padding:12px; border:1px solid #526c86; border-radius:9px; background:#101721f5; box-shadow:0 6px 25px #0008; color:#e2e8f0; font:12px/1.45 "Segoe UI",Arial,sans-serif; }
 .scope-measurement-panel[hidden] { display:none; }
 .scope-measurement-panel output { display:block; margin:8px 0; font-size:15px; }
 .scope-measurement-panel small { display:block; color:#a9bacf; }
@@ -8454,8 +8498,25 @@ if (specimens.length > 0) {
 .scope-measurement-overlay text { fill:white; stroke:#000; stroke-width:3px; paint-order:stroke; stroke-linejoin:round; font:13px "Segoe UI",Arial,sans-serif; }
 .scope-wrapper.is-measuring .openseadragon-canvas { cursor:crosshair; }
 .scope-wrapper.is-measuring .annotations-layer, .scope-wrapper.is-measuring .annotation-marker { pointer-events:none; }
-.fossa-microscope-page:fullscreen .scope-ruler-button { top:0; }
-.fossa-microscope-page:fullscreen .scope-measurement-panel { top:46px; }
+ 
+.microscope-collection .scope-container .scope-with-glow > .fossa-specimen-info-control {
+    top: 20px;
+    right: calc(var(--scope-control-axis, 26px) - 38px);
+    width: 76px;
+    height: 76px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-control > .fossa-specimen-info-button {
+    width: 76px;
+    height: 76px;
+    border-width: 2px;
+}
+.microscope-collection .scope-container .fossa-specimen-info-button > svg {
+    width: 48px;
+    height: 48px;
+}
+.microscope-collection .scope-container .scope-with-glow .fossa-specimen-info-panel {
+    top: 84px;
+}
 
  
 .annotation-toggle-btn {
@@ -8582,6 +8643,8 @@ if (specimens.length > 0) {
 }
 
 @media (max-width: 700px) {
+    .microscope-collection { --scope-control-axis: 33.5px; }  
+    .microscope-collection--modern { --scope-control-axis: 35.5px; }  
     .microscope-collection--compact {
         display: block;
         width: min(100%, 480px);
@@ -10928,39 +10991,25 @@ Pagán, A.J., Ramakrishnan, L., 2015. Immunity and Immunopathology in the Tuberc
   <h2>См. также</h2><br>
   
   <div class="related-links-items" style="display:flex; flex-wrap:wrap; align-items:flex-start; column-gap:16px; row-gap:12px;"><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/hexa/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Гексамитиды</a>
+        <a href="https://fossamethod.ru/ru/posts/coming/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Что делать с рыбой<br>после приезда</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/Hexa.webp" alt="Гексамитиды" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/bacter_fish.webp" alt="Что делать с рыбой после приезда" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Гексамитиды</span><span class="hoverlink-desc">Почему гексамитиды не являются нормальной микрофлорой кишечника рыб, откуда берётся миф о «внутренних паразитах», и как на самом деле …</span></span>
+            <span class="hoverlink-title">Что делать с рыбой после приезда</span><span class="hoverlink-desc">Рыбка приехала — достаём микроскоп, делаем мазки, изучаем бактерии и решаем, что делать дальше. Без паники и с умом.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/rules/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Простые правила при работе<br>с аквариумной рыбой</a>
+        <a href="https://fossamethod.ru/ru/posts/freshfish/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Когда поздно для вскрытия?</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/rules.webp" alt="Простые правила при работе с аквариумной рыбой" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/autopsy_fish.jpg" alt="Когда поздно для вскрытия?" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Простые правила при работе с аквариумной рыбой</span><span class="hoverlink-desc">Базовые рекомендации по диагностике и уходу за аквариумными рыбами: что делать при падеже, как интерпретировать аппетит, когда лечить …</span></span>
+            <span class="hoverlink-title">Когда поздно для вскрытия?</span><span class="hoverlink-desc">Развенчиваем миф: почему вскрывать рыбу можно даже спустя несколько часов, а не только в первые 30 минут.</span></span>
         </span>
       </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/twigs_and_sticks/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Веточки и палочки. Кого<br>мы видим в препарате?</a>
+        <a href="https://fossamethod.ru/ru/posts/fungi/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Грибные структуры у рыб:<br>колонизация или инвазивный процесс</a>
         <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/twigs_and_sticks.webp" alt="Веточки и палочки. Кого мы видим в препарате?" loading="lazy">
+              <img src="https://fossamethod.ru/images/covers/Fungi.webp" alt="Грибные структуры у рыб: колонизация или инвазивный процесс" loading="lazy">
             </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Веточки и палочки. Кого мы видим в препарате?</span><span class="hoverlink-desc">Нокардии и микобактерии у рыб: сравнение морфологии, кислотоустойчивости, патогенности и антибиотикорезистентности, границы диагностики.</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/ai_forever/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Какие ваши доказательства?</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/ai_forever.webp" alt="Какие ваши доказательства?" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Какие ваши доказательства?</span><span class="hoverlink-desc">Почему в эпоху искусственного интеллекта уже недостаточно фотографии, видео и убедительного текста. О происхождении данных, проверяемости …</span></span>
-        </span>
-      </span><span class="hoverlink-wrap">
-        <a href="https://fossamethod.ru/ru/posts/smear/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Когда микроскопия мазка важнее<br>бакпосева?</a>
-        <span class="hoverlink-card"><span class="hoverlink-thumb">
-              <img src="https://fossamethod.ru/images/covers/micro_fish.webp" alt="Когда микроскопия мазка важнее бакпосева?" loading="lazy">
-            </span><span class="hoverlink-content">
-            <span class="hoverlink-title">Когда микроскопия мазка важнее бакпосева?</span><span class="hoverlink-desc">История о том, почему микроскопия мазка не менее важна, чем бактериологический посев, и как отсутствие воспаления не всегда означает …</span></span>
+            <span class="hoverlink-title">Грибные структуры у рыб: колонизация или инвазивный процесс</span><span class="hoverlink-desc">Грибные структуры у рыб могут отражать как поверхностную колонизацию, так и инвазивный процесс. В статье рассматриваются морфологические …</span></span>
         </span>
       </span><span class="hoverlink-wrap">
         <a href="https://fossamethod.ru/ru/posts/histoplasma-like/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Гранулематозные поражения у рыб:<br>histoplasma-like случай</a>
@@ -10968,6 +11017,20 @@ Pagán, A.J., Ramakrishnan, L., 2015. Immunity and Immunopathology in the Tuberc
               <img src="https://fossamethod.ru/images/covers/Histoplasma.webp" alt="Гранулематозные поражения у рыб: histoplasma-like случай" loading="lazy">
             </span><span class="hoverlink-content">
             <span class="hoverlink-title">Гранулематозные поражения у рыб: histoplasma-like случай</span><span class="hoverlink-desc">Гранулемы в почках и селезенке рыб при отрицательной реакции на микобактерии. Выявление внутриклеточных дрожжеподобных грибов и разбор …</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/ru/posts/operation/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Хирургические операции на гидробионтах</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/Hirurg.webp" alt="Хирургические операции на гидробионтах" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Хирургические операции на гидробионтах</span><span class="hoverlink-desc">Руководство по проведению хирургических операций на рыбах</span></span>
+        </span>
+      </span><span class="hoverlink-wrap">
+        <a href="https://fossamethod.ru/ru/posts/crypto/" class="hoverlink-trigger" style="display:inline-block; white-space:normal; line-height:1.4; text-align:left;">Cryptococcus-like структуры у рыб</a>
+        <span class="hoverlink-card"><span class="hoverlink-thumb">
+              <img src="https://fossamethod.ru/images/covers/Crypto.webp" alt="Cryptococcus-like структуры у рыб" loading="lazy">
+            </span><span class="hoverlink-content">
+            <span class="hoverlink-title">Cryptococcus-like структуры у рыб</span><span class="hoverlink-desc">Округлые структуры с выраженным halo, морфологически сходные с криптококками. Разбор морфологии и ограничений интерпретации.</span></span>
         </span>
       </span></div>
 </section>
