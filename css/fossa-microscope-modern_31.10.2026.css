@@ -1,0 +1,285 @@
+/* FossaMethod modern controls for embedded microscope and specimen pages.
+   The standalone microscope-app intentionally retains its existing UI. */
+.microscope-collection--modern { position:relative; }
+.microscope-collection--modern .dzi-viewer {
+  filter:brightness(var(--scope-brightness,1)) contrast(var(--scope-contrast,1));
+  transition:filter 70ms linear;
+}
+.microscope-collection--modern .scope-with-glow {position:relative;}
+.microscope-collection--modern .scope-adjust {position:absolute;inset:0;z-index:40;pointer-events:none;}
+.microscope-collection--modern .scope-knob {
+  --scope-knob-angle: 0deg;
+  position: absolute;
+  bottom: -3px;
+  width: 116px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--secondary);
+  font: 500 12px/1.25 system-ui, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  pointer-events: auto;
+  outline-offset: 4px;
+}
+.microscope-collection--modern .scope-knob:active { cursor: grabbing; }
+.microscope-collection--modern .scope-knob--brightness { left: -32px; }
+.microscope-collection--modern .scope-knob--contrast { right: -32px; }
+.microscope-collection--modern .scope-knob__dial {
+  display: block;
+  width: 112px;
+  height: 102px;
+  overflow: visible;
+  touch-action: none;
+}
+.microscope-collection--modern .scope-knob__arc {
+  fill: none;
+  stroke: color-mix(in srgb, var(--primary) 50%, transparent);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.microscope-collection--modern .scope-knob__arc-mark {
+  fill: none;
+  stroke: color-mix(in srgb, var(--primary) 32%, transparent);
+  stroke-width: 2;
+  stroke-dasharray: 1 11;
+}
+.microscope-collection--modern .scope-knob__inner {
+  fill: rgba(29, 30, 32, .80);
+  stroke: color-mix(in srgb, var(--primary) 50%, transparent);
+  stroke-width: 3;
+}
+.microscope-collection--modern .scope-knob__needle {
+  transform-origin: 60px 68px;
+  transform: rotate(var(--scope-knob-angle));
+  transition: transform 75ms linear;
+}
+.microscope-collection--modern .scope-knob__needle path {
+  fill: none;
+  stroke: #bdc6d3;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.microscope-collection--modern .scope-knob__center {
+  fill: #bdc6d3;
+}
+.microscope-collection--modern .scope-knob__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -2px;
+  gap: 2px;
+  color: var(--secondary);
+  text-shadow: 0 1px 3px var(--theme);
+}
+.microscope-collection--modern .scope-knob__info output {
+  color: var(--primary);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.microscope-collection--modern .scope-knob:focus-visible {
+  outline: 2px solid var(--primary);
+  border-radius: 10px;
+}
+
+/* A compact pair of independent actions; no additional settings panel. */
+.microscope-collection--modern .scope-photo-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin: 14px auto 0;
+  position: relative;
+  z-index: 45;
+}
+.microscope-collection--modern .scope-photo-actions > .annotation-toggle-btn { position:static; margin:0; flex-shrink:0; }
+.microscope-collection--modern .scope-photo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 7px 13px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--entry);
+  color: var(--primary);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.microscope-collection--modern .scope-photo-button:hover { background: var(--tertiary); }
+.microscope-collection--modern .scope-photo-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.microscope-collection--modern .scope-photo-button:disabled {
+  opacity: .55;
+  cursor: progress;
+}
+/* Camera flash is shown only AFTER the pixels have been captured. */
+.microscope-collection--modern .scope-wrapper.scope-photo-flash::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #fff;
+  pointer-events: none;
+  z-index: 60;
+  animation: scope-photo-flash .32s ease-out both;
+}
+@keyframes scope-photo-flash {
+  0% { opacity: .65; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .microscope-collection--modern .scope-wrapper.scope-photo-flash::after { animation: none; opacity: 0; }
+}
+
+@media (max-width: 700px) {
+  .microscope-collection--modern .scope-knob {
+    width: 83px;
+    bottom: -3px;
+    font-size: 11px;
+  }
+  .microscope-collection--modern .scope-knob__dial {
+    width: 79px;
+    height: 72px;
+  }
+  .microscope-collection--modern .scope-knob--brightness { left: -8px; }
+  .microscope-collection--modern .scope-knob--contrast { right: -8px; }
+  .microscope-collection--modern .scope-knob__info { gap: 0; }
+  .microscope-collection--modern .scope-knob__info output { font-size: 10px; }
+}
+
+
+.microscope-collection--modern .fossa-specimen-info-button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(200,215,235,.5);
+  border-radius: 50%;
+  background: rgba(27,32,41,.88);
+  color: #d8e4f2;
+  box-shadow: 0 3px 12px rgba(0,0,0,.32);
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease;
+}
+.microscope-collection--modern .fossa-specimen-info-button:hover,
+.microscope-collection--modern .fossa-specimen-info-button[aria-expanded="true"] {
+  background: rgba(50,76,100,.96);
+  border-color: rgba(190,220,255,.85);
+}
+.microscope-collection--modern .fossa-specimen-info-button:focus-visible {
+  outline: 2px solid #bddbff;
+  outline-offset: 3px;
+}
+.microscope-collection--modern .fossa-specimen-info-panel {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 1;
+  top: 46px;
+  right: 0;
+  width: min(440px, 80vw);
+  max-height: min(42dvh, 340px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  padding: 14px 18px;
+  border-radius: 13px;
+  border: 1px solid rgba(180,205,230,.32);
+  background: rgba(21,26,33,.94);
+  color: #eef3f9;
+  box-shadow: 0 12px 36px rgba(0,0,0,.45);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  font: 400 clamp(12px, 1.1vw, 15px)/1.5 system-ui, sans-serif;
+  text-align: left;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-7px);
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+.microscope-collection--modern .fossa-specimen-info-control.is-open .fossa-specimen-info-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+@media (max-width: 1100px) {
+  .microscope-collection--modern:fullscreen .scope-with-glow {
+    width: min(100%, var(--fossa-fullscreen-lens, 74dvh), 90vw);
+  }
+  .microscope-collection--modern:fullscreen .fossa-specimen-info-panel {
+    width: min(350px, 78vw);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .microscope-collection--modern .fossa-specimen-info-panel { transition: none; }
+}
+
+
+.microscope-collection--modern .fossa-specimen-info-control {
+  display:block;position:absolute;z-index:75;top:-12px;right:10%;width:38px;height:38px;overflow:visible;
+}
+.microscope-collection--modern .scope-photo-actions {
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:10px;margin:14px auto 0;width:100%;position:relative;z-index:45;
+}
+.microscope-collection--modern .fossa-shortcode-fullscreen {
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:7px 12px;min-height:34px;border-radius:8px;border:1px solid var(--border);
+  background:var(--entry);color:var(--primary);font:inherit;font-size:13px;cursor:pointer;
+}
+.microscope-collection--modern .fossa-shortcode-fullscreen:hover {background:var(--tertiary)}
+.microscope-collection--modern .fossa-shortcode-fullscreen:focus-visible {outline:2px solid var(--primary);outline-offset:3px}
+.microscope-collection--modern .fossa-shortcode-fullscreen[hidden] {display:none}
+.microscope-collection--modern .fossa-specimen-card {display:flex;flex-direction:column;min-width:0;}
+.microscope-collection--modern .fossa-specimen-page-link,
+.microscope-collection:not(.microscope-collection--modern) .fossa-specimen-page-link {
+  display:block;text-align:center;padding:5px 4px 7px;color:var(--secondary);font-size:11px;text-decoration:underline;text-underline-offset:3px;
+}
+.microscope-collection .fossa-specimen-card {display:flex;flex-direction:column;min-width:0}
+.microscope-collection .fossa-specimen-card > .specimen-btn {height:auto;flex:1}
+/* A standalone fullscreen viewer: the microscope, not the entire site. */
+.microscope-collection--modern:fullscreen {
+  box-sizing:border-box;width:100%;max-width:none;height:100dvh;
+  margin:0;padding:10px clamp(12px,2vw,32px);overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;
+  background:var(--theme,#1d1e20);color:var(--primary,#eee);
+}
+.microscope-collection--modern:fullscreen .scope-container {
+  position:relative;box-sizing:border-box;width:100%;max-width:none;height:100%;min-height:0;
+  display:flex;flex-direction:column;align-items:center;margin:0;
+}
+.microscope-collection--modern:fullscreen .specimen-info {
+  display:block;flex:0 0 auto;min-height:0;margin:0 auto 5px;
+}
+.microscope-collection--modern:fullscreen .specimen-name {
+  display:block!important;font-size:clamp(14px,1.5vw,21px);margin:0;text-align:center;
+}
+.microscope-collection--modern:fullscreen .specimen-description {display:none!important}
+.microscope-collection--modern:fullscreen .scope-with-glow {
+  flex:0 1 auto;min-width:0;min-height:0;
+  width:min(100%,calc(100dvh - 132px),1000px)!important;
+  max-width:none;height:auto!important;aspect-ratio:1/1;margin:auto;
+}
+.microscope-collection--modern:fullscreen .scope-wrapper {position:absolute;inset:0;width:100%;height:100%}
+.microscope-collection--modern:fullscreen .scope-photo-actions {flex:0 0 auto;margin:8px 0 4px}
+.microscope-collection--modern:fullscreen .collection-controls {display:none}
+@media(max-width:700px){
+  .microscope-collection--modern .scope-knob--brightness{left:-6px}
+  .microscope-collection--modern .scope-knob--contrast{right:-6px}
+  .microscope-collection--modern:fullscreen .scope-with-glow{width:min(95vw,calc(100dvh - 140px))!important}
+  .microscope-collection--modern .fossa-specimen-info-panel{width:min(320px,76vw)}
+  .microscope-collection--modern:fullscreen .fossa-shortcode-fullscreen-text {display:none}
+}

@@ -1,0 +1,1196 @@
+{
+  "profiles": {
+    "surgeonfish": {
+      "title": "Хирурговый тип",
+      "multipliers": {
+        "hepatic_lipid_disorder": 1.4,
+        "splenic_dark_dense_state": 0.7,
+        "splenic_pale_or_light_state": 1.0
+      }
+    },
+    "cichlid": {
+      "title": "Цихлидный тип",
+      "multipliers": {
+        "hepatic_lipid_disorder": 0.6,
+        "splenic_dark_dense_state": 0.3,
+        "splenic_pale_or_light_state": 1.4
+      }
+    }
+  },
+  "mechanisms": {
+    "hepatic_lipid_disorder": "Жировое изменение печени",
+    "hepatic_blood_filling": "Усиленное кровенаполнение печени",
+    "hepatic_depletion": "Истощение / уменьшение печени",
+    "splenic_dark_dense_state": "Тёмная плотная селезёнка",
+    "splenic_pale_or_light_state": "Светлая / малопигментированная селезёнка",
+    "splenic_focal_changes": "Очаговые изменения селезёнки",
+    "gill_mucus_problem": "Ослизнение жабр / нарушение газообмена",
+    "gill_necrosis": "Некротические изменения жабр",
+    "gill_structure_change": "Повреждение жаберного аппарата",
+    "gill_bacterial_colonization": "Бактериальная колонизация жабр",
+    "intestinal_atony": "Снижение тонуса кишечника",
+    "intestinal_depletion": "Опустевший / истощённый кишечник",
+    "intestinal_chronic_disturbance": "Длительное нарушение функции ЖКТ",
+    "skin_large_white_spots": "Крупные белые точки на коже",
+    "skin_many_white_spots": "Множественные белые точки на коже",
+    "skin_fine_gold_dust": "Мелкая золотистая пыль на коже",
+    "skin_mucus_excess": "Сильное ослизнение кожи",
+    "skin_trauma": "Кровоподтёки / механическое повреждение кожи",
+    "external_irritation": "Внешнее раздражение покровов",
+    "fin_damage": "Разрушение плавников",
+    "head_kidney_blood_filling": "Кровенаполнение головной почки",
+    "trunk_kidney_blood_filling": "Кровенаполнение туловищной почки",
+    "gill_bacterial_colonization": "Бактериальная колонизация жабр",
+    "gill_filamentous_bacteria": "Нитчатые бактерии в мазке жабр",
+    "gill_aneurysm": "Аневризмы жаберных ламелл",
+    "gill_parasite_in_lamellae": "Паразиты в жаберных ламеллах",
+    "gill_lamellae_destruction": "Деструкция жаберных ламелл",
+    "skin_wound": "Повреждение кожных покровов",
+    "skin_trauma": "Травматическое повреждение",
+    "skin_bacterial_colonization": "Бактериальная колонизация кожи",
+    "secondary_bacterial_colonization": "Язвенное бактериальное поражение кожи",
+    "fin_bacterial_colonization": "Бактериальная колонизация плавников",
+    "intestinal_flagellates": "Жгутиконосцы в кишечнике",
+    "skin_monogeneans": "Моногенеи",
+    "skin_flagellates": "Жгутиконосцы",
+    "skin_ciliates": "Инфузории",
+    "renal_coccidia": "Кокцидии",
+    "renal_parasitic_damage": "Паразитарное поражение почки",
+    "renal_circulatory_disorders": "Нарушения кровообращения",
+    "renal_tissue_damage": "Повреждение тканей почки",
+    "intestinal_flagellates": "Жгутиконосцы в кишечнике",
+    "intestinal_opalinids": "Опалиниды",
+    "intestinal_fungal_structures": "Грибные структуры",
+    "intestinal_chronic_disturbance": "Хроническое нарушение функций кишечника",
+    "hepatic_blood_stasis": "Нарушения кровообращения в печени",
+    "hepatic_circulatory_disorders": "Нарушения микроциркуляции",
+    "hepatic_lipid_accumulation": "Накопление липидов",
+    "hepatic_bacterial_colonization": "Бактериальная колонизация печени",
+    "hepatic_lipid_accumulation": "Накопление липидов",
+    "gill_fine_gold_dust": "Мелкая золотистая пыль на жабрах",
+    "gill_parasitic_invasion": "Паразитарное поражение жабр",
+    "splenic_circulatory_disorders": "Нарушения кровообращения в селезёнке",
+    "intracellular_parasites": "Внутриклеточные паразиты",
+    "granulomatous_process": "Гранулематозный процесс",
+    "acid_fast_bacteria": "Кислотоустойчивые бактерии",
+    "intestinal_ciliates": "Инфузории в кишечнике",
+    "intestinal_protozoans": "Простейшие кишечника",
+    "intestinal_nematodes": "Нематоды кишечника",
+    "intestinal_parasites": "Паразиты кишечника",
+    "intestinal_normal_microflora": "Нормальная микрофлора кишечника",
+    "intestinal_bacterial_overgrowth": "Массовая бактериальная колонизация",
+    "intestinal_microflora_disruption": "Нарушение микрофлоры кишечника",
+    "intestinal_fungal_structures": "Грибные структуры",
+    "intestinal_spore_formers": "Спорообразующие бактерии",
+    "intestinal_severe_dysbiosis": "Тяжёлое нарушение микрофлоры кишечника",
+    "renal_bacterial_colonization": "Бактериальная колонизация почки",
+    "renal_lipid_accumulation": "Накопление липидов в почке"
+  },
+    
+    "patterns": [
+  {
+    "id": "crypt_ich_like",
+    "title": "Крипт / ихтиофтириус",
+    "match": {
+      "any": [
+        ["zone-skin:effect-ciliate-many"],
+        ["zone-skin:effect-ciliate-few"]
+      ]
+    },
+    "reinforcement": {
+      "any": [
+        "native:zone-skin:cryptocaryon_theront",
+        "native:zone-skin:cryptocaryon_trophont",
+        "native:zone-skin:ichthyophthirius"
+      ]
+    },
+    "meaning": "Белые точки на коже могут указывать на инфузорное поражение покровов. При вовлечении жабр возрастает риск нарушения газообмена.",
+    "next_steps": [
+      "Микроскопия слизи с тела",
+      "Микроскопия слизи с жабр",
+      "Окрашивание мазка с тела"
+    ]
+  },
+        {
+  "id": "mucus_response",
+  "title": "Ослизнение",
+  "match": {
+    "all": [
+      "zone-skin:effect-mucus",
+      "zone-gills:bacterial_mucus_1"
+    ]
+  },
+  "meaning": "Тело и жабры покрыты мутной слизью. Вероятна реакция на неблагоприятные условия среды или раздражающий фактор.",
+  "next_steps": [
+    "Микроскопия компрессионного препарата слизи",
+    "Соскобы с тела и жабр",
+    "Оценка дыхания и признаков асфиксии"
+  ]
+},
+        {
+  "id": "granulomatosis",
+  "title": "Гранулематоз",
+  "match": {
+    "any": [
+      ["zone-spleen:granulomas"]
+    ]
+  },
+  "reinforcement": {
+    "all": [
+      "native:zone-spleen:splenic_granulomas"
+    ]
+  },
+  "meaning": "Гранулематозное поражение селезёнки. Требуется уточнение природы гранулём.",
+  "next_steps": [
+    "Микроскопия компрессионного препарата селезёнки",
+    "Окраска по Цилю–Нильсену",
+    "Поиск внутриклеточных паразитов"
+  ]
+},
+        {
+  "id": "acid_fast_granulomatosis",
+  "title": "Гранулематоз с кислотоустойчивыми бактериями",
+  "match": {
+    "all": [
+      "zone-spleen:granulomas",
+      "stained:zone-spleen:acid_fast_bacteria"
+    ]
+  },
+  "meaning": "Гранулематозное поражение селезёнки сопровождается обнаружением кислотоустойчивых бактерий. Микобактериальная природа процесса становится более вероятной.",
+  "next_steps": [
+    "Проверить другие органы на гранулёмы",
+    "Окрасить мазки почки и печени по Цилю–Нильсену",
+    "Сопоставить с истощением, хроническим течением и очаговыми изменениями"
+  ]
+},
+        
+        {
+  "id": "intracellular_parasites_pattern",
+  "title": "Внутриклеточные паразиты",
+  "match": {
+    "any": [
+      ["zone-spleen:granulomas"]
+    ]
+  },
+  "reinforcement": {
+    "any": [
+      "stained:zone-spleen:intracellular_structures_1",
+      "stained:zone-spleen:intracellular_structures_2"
+    ]
+  },
+  "meaning": "Гранулематозное поражение селезёнки может быть связано с внутриклеточными паразитами.",
+  "next_steps": [
+    "Микроскопия компрессионного препарата селезёнки",
+    "Окраска по Цилю–Нильсену",
+    "Поиск внутриклеточных структур"
+  ]
+},
+        
+        {
+  "id": "microcirculation_disorder",
+  "title": "Системное нарушение микроциркуляции",
+  "match": {
+    "all": [
+      "zone-gills:dark-red",
+      "zone-liver:hyperemia",
+      "zone-spleen:hyperemia-severe",
+      "zone-intestine:white-crystalline-masses"
+    ]
+  },
+  "reinforcement": {
+    "any": [
+      [
+        "native:zone-liver:hepatic_erythrocyte_clusters",
+        "native:zone-spleen:splenic_hyperemia",
+        "zone-kidney_g:hyperemia"
+      ],
+      [
+        "native:zone-liver:hepatic_focal_erythrocyte_clusters",
+        "native:zone-spleen:splenic_hyperemia",
+        "zone-kidney_g:hyperemia"
+      ],
+      [
+        "native:zone-liver:hepatic_ischemic_zone",
+        "native:zone-spleen:splenic_hyperemia",
+        "zone-kidney_g:hyperemia"
+      ]
+    ]
+  },
+  "meaning": "Признаки системного нарушения кровообращения и микроциркуляции. Возможны интоксикация, гипоксия, нарушение газообмена или другие тяжёлые нарушения внутренней среды.",
+  "next_steps": [
+    "Микроскопия компрессионного препарата жабр",
+    "Окрашенные мазки с жаберных лепестков",
+    "Окрашенные мазки внутренних органов",
+    "Микроскопия содержимого кишечника"
+  ]
+},
+        
+        {
+  "id": "intestinal_infection",
+  "title": "Кишечная инфекция",
+  "match": {
+    "any": [
+      ["zone-intestine:transparent-intestinal-wall"],
+      ["zone-intestine:white-crystalline-masses"]
+    ]
+  },
+  "reinforcement": {
+    "any": [
+      "stained:zone-intestine:intestinal_spore_forming_bacteria",
+      "stained:zone-intestine:intestinal_yeast_like_structures",
+      "stained:zone-intestine:intestinal_bacterial_overgrowth"
+    ]
+  },
+  "meaning": "Изменения кишечника сопровождаются нарушением микрофлоры или инфекционным процессом.",
+  "next_steps": [
+    "Окрашенный мазок содержимого кишечника",
+    "Микроскопия содержимого кишечника",
+    "Оценка состояния печени и почек"
+  ]
+},
+        
+        
+  {
+    "id": "dinoflagellate_like",
+    "title": "Динофлагелляты",
+    "match": {
+      "any": [
+        ["zone-skin:effect-dinoflag"]
+      ]
+    },
+    "reinforcement": {
+      "any": [
+        "native:zone-skin:amyloodinium"
+      ]
+    },
+    "meaning": "Мелкая пылевидная сыпь на коже может соответствовать поражению динофлагеллятами. При поражении жабр возможен быстрый риск асфиксии.",
+    "next_steps": [
+      "Микроскопия слизи с тела",
+      "Микроскопия слизи с жабр",
+      "Окрашивание мазка с тела"
+    ]
+  },
+  {
+    "id": "gill_bacterial_problem",
+    "title": "Бактериальное поражение жабр",
+    "match": {
+      "any": [
+        ["zone-gills:bacterial_mucus_1"],
+        ["zone-gills:bacterial_mucus_2"],
+        ["zone-gills:necrosis"]
+      ]
+    },
+    "reinforcement": {
+      "any": [
+        "stained:zone-gills:gill_filamentous_bacteria"
+      ]
+    },
+    "meaning": "Жабры покрыты плотной мутной слизью или имеют выраженные повреждения. Приоритет — оценка газообмена и микроскопия жаберного материала.",
+    "next_steps": [
+      "Микроскопия компрессионного препарата жаберных лепестков",
+      "Микроскопия слизи с жабр",
+      "Окрашивание препарата слизи жабр"
+    ]
+  },
+  {
+    "id": "ulcerative_skin_lesion",
+    "title": "Язвенное бактериальное поражение кожи",
+    "match": {
+      "any": [
+        ["zone-skin:effect-wound"]
+      ]
+    },
+    "reinforcement": {
+      "any": [
+        "stained:zone-wound:wound_bacterial_colonization"
+      ]
+    },
+    "meaning": "Незаживающая язвенная поверхность с выраженной бактериальной колонизацией. Бактериальный процесс может быть одним из ведущих факторов поражения покровов.",
+    "next_steps": [
+      "Окрашенный мазок с раневой поверхности",
+      "Окрашенный мазок слизи тела"
+    ]
+  }
+],
+    
+    
+    "microscopy_native": {
+        "zone-spleen": {
+  "title": "Селезёнка",
+  "folder": "micro_spleen_native",
+  "references": [
+    {
+      "id": "splenic_hyperemia",
+      "image": "splenic_hyperemia.webp",
+      "label": "Гиперемия",
+      "effects": {
+        "splenic_circulatory_disorders": 7
+      }
+    },
+    {
+      "id": "splenic_granulomas",
+      "image": "splenic_granulomas.webp",
+      "label": "Гранулемы",
+      "effects": {
+        "granulomatous_process": 3
+      }
+    }
+  ]
+},
+        "zone-liver": {
+  "title": "Печень",
+  "folder": "micro_liver_native",
+  "references": [
+
+    {
+      "id": "hepatic_erythrocyte_clusters",
+      "image": "hepatic_erythrocyte_clusters.webp",
+      "label": "Скопления эритроцитов",
+      "effects": {
+        "hepatic_blood_stasis": 5
+      }
+    },
+
+    {
+      "id": "hepatic_focal_erythrocyte_clusters",
+      "image": "hepatic_focal_erythrocyte_clusters.webp",
+      "label": "Очаговые скопления эритроцитов",
+      "effects": {
+        "hepatic_blood_stasis": 6
+      }
+    },
+
+    {
+      "id": "hepatic_ischemic_zone",
+      "image": "hepatic_ischemic_zone.webp",
+      "label": "Бескровные участки ткани",
+      "effects": {
+        "hepatic_circulatory_disorders": 7
+      }
+    },
+
+    {
+      "id": "hepatic_fat_droplets",
+      "image": "hepatic_fat_droplets.webp",
+      "label": "Жировые включения",
+      "effects": {
+        "hepatic_lipid_accumulation": 7
+      }
+    },
+
+    {
+      "id": "hepatic_vacuolar_degeneration",
+      "image": "hepatic_vacuolar_degeneration.webp",
+      "label": "Вакуолизация ткани",
+      "effects": {
+        "hepatic_lipid_accumulation": 8
+      }
+    }
+
+  ]
+},
+        
+        "zone-intestine": {
+  "title": "Кишечник",
+  "folder": "micro_intestine_native",
+  "references": [
+
+    {
+      "id": "cryptobia",
+      "image": "cryptobia.gif",
+      "label": "Cryptobia",
+      "effects": {
+        "intestinal_flagellates": 6
+      }
+    },
+
+    {
+      "id": "hexamitids",
+      "image": "hexamitids.gif",
+      "label": "Hexamitids",
+      "effects": {
+        "intestinal_flagellates": 8,
+        "intestinal_chronic_disturbance": 4
+      }
+    },
+
+    {
+      "id": "trichomonads",
+      "image": "trichomonads.gif",
+      "label": "Trichomonads",
+      "effects": {
+        "intestinal_flagellates": 6
+      }
+    },
+      {
+  "id": "nictotherus",
+  "image": "nictotherus.gif",
+  "label": "Nictotherus",
+  "effects": {
+    "intestinal_ciliates": 7,
+    "intestinal_protozoans": 5
+  }
+},
+      {
+  "id": "capillaria",
+  "image": "capillaria.webp",
+  "label": "Capillaria",
+  "effects": {
+    "intestinal_nematodes": 9,
+    "intestinal_parasites": 7,
+    "intestinal_chronic_disturbance": 5
+  }
+},
+
+    {
+      "id": "zelleriella",
+      "image": "zelleriella.webp",
+      "label": "Zelleriella",
+      "effects": {
+        "intestinal_opalinids": 8
+      }
+    },
+
+    {
+      "id": "intestinal_fungal_hyphae",
+      "image": "intestinal_fungal_hyphae.webp",
+      "label": "Fungal hyphae",
+      "effects": {
+        "intestinal_fungal_structures": 8
+      }
+    },
+
+    {
+      "id": "intestinal_fungal_spores",
+      "image": "intestinal_fungal_spores.webp",
+      "label": "Fungal spores",
+      "effects": {
+        "intestinal_fungal_structures": 5
+      }
+    },
+
+    {
+      "id": "intestinal_fungal_spores_dense",
+      "image": "intestinal_fungal_spores_dense.webp",
+      "label": "Abundant fungal spores",
+      "effects": {
+        "intestinal_fungal_structures": 7
+      }
+    }
+
+  ]
+},
+        
+        "zone-skin": {
+  "title": "Кожа",
+  "folder": "micro_skin_native",
+  "references": [
+        {
+  "id": "dactylogyrus",
+  "image": "dactylogyrus.gif",
+  "label": "Dactylogyrus",
+  "effects": {
+    "skin_monogeneans": 8,
+    "external_irritation": 5
+  }
+},
+{
+  "id": "ichthyobodo",
+  "image": "ichthyobodo.gif",
+  "label": "Ichthyobodo",
+  "effects": {
+    "skin_flagellates": 8,
+    "external_irritation": 6
+  }
+},
+{
+  "id": "capsalid",
+  "image": "capsalid.gif",
+  "label": "Capsalid",
+  "effects": {
+    "skin_monogeneans": 8,
+    "external_irritation": 5
+  }
+},
+{
+  "id": "cryptocaryon_theront",
+  "image": "cryptocaryon_theront.gif",
+  "label": "Cryptocaryon theront",
+  "effects": {
+    "skin_large_white_spots": 7,
+    "external_irritation": 4
+  }
+},
+{
+  "id": "cryptocaryon_trophont",
+  "image": "cryptocaryon_trophont.gif",
+  "label": "Cryptocaryon trophont",
+  "effects": {
+    "skin_large_white_spots": 8,
+    "external_irritation": 5
+  }
+},
+      {
+  "id": "ichthyophthirius",
+  "image": "ichthyophthirius.gif",
+  "label": "Ichthyophthirius",
+  "effects": {
+    "skin_large_white_spots": 8,
+    "external_irritation": 5,
+    "skin_ciliates": 7
+  }
+},
+      
+{
+  "id": "amyloodinium",
+  "image": "amyloodinium.webp",
+  "label": "Amyloodinium",
+  "effects": {
+    "skin_fine_gold_dust": 8,
+    "external_irritation": 5
+  }
+},
+{
+  "id": "trichodina",
+  "image": "trichodina.gif",
+  "label": "Trichodina",
+  "effects": {
+    "skin_ciliates": 7,
+    "external_irritation": 5
+  }
+}
+        ]
+},
+
+        "zone-kidney_t": {
+  "title": "Почка т.",
+  "folder": "micro_kidney_t_native",
+  "references": [
+    {
+      "id": "goussia",
+      "image": "goussia.webp",
+      "label": "Goussia",
+      "effects": {
+        "renal_coccidia": 8,
+        "renal_parasitic_damage": 5
+      }
+    },
+    {
+      "id": "renal_hyperemia",
+      "image": "renal_hyperemia.webp",
+      "label": "Гиперемия",
+      "effects": {
+        "renal_circulatory_disorders": 6
+      }
+    },
+    {
+      "id": "renal_tissue_destruction",
+      "image": "renal_tissue_destruction.webp",
+      "label": "Деструкция тканей",
+      "effects": {
+        "renal_tissue_damage": 8
+      }
+    }
+  ]
+},
+        
+  "zone-gills": {
+    "title": "Жабры",
+    "folder": "micro_gills_native",
+    "references": [
+      {
+        "id": "gill_aneurysm",
+        "image": "gill_aneurysm.webp",
+        "label": "Аневризмы ламелл",
+        "effects": {
+          "gill_aneurysm": 6,
+          "gill_structure_change": 4
+        }
+      },
+      {
+        "id": "gill_crypt_in_lamellae",
+        "image": "gill_crypt_in_lamellae.webp",
+        "label": "Крипт в жаберных ламеллах",
+        "effects": {
+          "gill_parasite_in_lamellae": 8,
+          "gill_structure_change": 5,
+          "gill_mucus_problem": 4
+        }
+      },
+        {
+  "id": "amyloodinium",
+  "image": "amyloodinium.webp",
+  "label": "Amyloodinium",
+  "effects": {
+    "gill_fine_gold_dust": 8,
+    "gill_parasitic_invasion": 7,
+    "gill_mucus_problem": 5
+  }
+},
+      {
+        "id": "gill_lamellae_destruction",
+        "image": "gill_lamellae_destruction.webp",
+        "label": "Деструкция ламелл",
+        "effects": {
+          "gill_lamellae_destruction": 9,
+          "gill_structure_change": 7,
+          "gill_mucus_problem": 5
+        }
+      }
+    ]
+  }
+},
+
+    
+    
+    
+    "microscopy_stained": {
+        "zone-kidney_g": {
+  "title": "Головная почка",
+  "folder": "micro_kidney_g_stained",
+  "references": [
+    {
+      "id": "renal_bacteria",
+      "image": "renal_bacteria.webp",
+      "label": "Бактерии",
+      "effects": {
+        "renal_bacterial_colonization": 7
+      }
+    },
+    {
+      "id": "renal_lipid_vacuoles",
+      "image": "renal_lipid_vacuoles.webp",
+      "label": "Липидные вакуоли",
+      "effects": {
+        "renal_lipid_accumulation": 8
+      }
+    }
+  ]
+},
+        
+        "zone-kidney_t": {
+  "title": "Туловищная почка",
+  "folder": "micro_kidney_t_stained",
+  "references": [
+    {
+      "id": "renal_bacteria",
+      "image": "renal_bacteria.webp",
+      "label": "Бактерии",
+      "effects": {
+        "renal_bacterial_colonization": 7
+      }
+    },
+    {
+      "id": "renal_lipid_vacuoles",
+      "image": "renal_lipid_vacuoles.webp",
+      "label": "Липидные вакуоли",
+      "effects": {
+        "renal_lipid_accumulation": 8
+      }
+    }
+  ]
+},
+        
+        "zone-intestine": {
+    "title": "Кишечник",
+    "folder": "micro_intestine_stained",
+    "references": [
+
+      {
+        "id": "intestinal_bacilli",
+        "image": "intestinal_bacilli.webp",
+        "label": "Бациллы",
+        "effects": {
+          "intestinal_normal_microflora": 0
+        }
+      },
+
+      {
+        "id": "intestinal_bacterial_overgrowth",
+        "image": "intestinal_bacterial_overgrowth.webp",
+        "label": "Массовая бактериальная колонизация",
+        "effects": {
+          "intestinal_bacterial_overgrowth": 8,
+          "intestinal_microflora_disruption": 6
+        }
+      },
+
+      {
+        "id": "intestinal_yeast_like_structures",
+        "image": "intestinal_yeast_like_structures.webp",
+        "label": "Дрожжеподобные структуры",
+        "effects": {
+          "intestinal_fungal_structures": 7
+        }
+      },
+
+      {
+        "id": "intestinal_spore_forming_bacteria",
+        "image": "intestinal_spore_forming_bacteria.webp",
+        "label": "Спорообразующие бактерии",
+        "effects": {
+          "intestinal_spore_formers": 10,
+          "intestinal_severe_dysbiosis": 8
+        }
+      }
+
+    ]
+  },
+        
+        "zone-spleen": {
+  "title": "Селезёнка",
+  "folder": "micro_spleen_stained",
+  "references": [
+    {
+      "id": "intracellular_structures_1",
+      "image": "intracellular_structures_1.webp",
+      "label": "Внутриклеточные структуры",
+      "effects": {
+        "intracellular_parasites": 10,
+        "granulomatous_process": 8
+      }
+    },
+    {
+      "id": "intracellular_structures_2",
+      "image": "intracellular_structures_2.webp",
+      "label": "Внутриклеточные структуры",
+      "effects": {
+        "intracellular_parasites": 10,
+        "granulomatous_process": 8
+      }
+    },
+    {
+      "id": "acid_fast_bacteria",
+      "image": "acid_fast_bacteria.webp",
+      "label": "Кислотоустойчивые бактерии",
+      "effects": {
+        "acid_fast_bacteria": 10,
+        "granulomatous_process": 8
+      }
+    }
+  ]
+},
+        
+        "zone-liver": {
+  "title": "Печень",
+  "folder": "micro_liver_stained",
+  "references": [
+    {
+      "id": "hepatic_bacteria",
+      "image": "hepatic_bacteria.webp",
+      "label": "Бактерии",
+      "effects": {
+        "hepatic_bacterial_colonization": 7
+      }
+    },
+    {
+      "id": "hepatic_lipid_vacuoles",
+      "image": "hepatic_lipid_vacuoles.webp",
+      "label": "Липидные вакуоли",
+      "effects": {
+        "hepatic_lipid_accumulation": 9
+      }
+    }
+  ]
+},
+  "zone-gills": {
+    "title": "Жабры",
+    "folder": "micro_gills_stained",
+    "references": [
+      {
+        "id": "gill_filamentous_bacteria",
+        "image": "gill_filamentous_bacteria.webp",
+        "label": "Нитчатые бактерии",
+        "effects": {
+          "gill_bacterial_colonization": 7,
+          "gill_structure_change": 3
+        }
+      }
+    ]
+  },
+        "zone-skin": {
+    "title": "Кожа",
+    "folder": "micro_skin_stained",
+    "references": [
+      {
+        "id": "skin_filamentous_bacteria",
+        "image": "skin_filamentous_bacteria.webp",
+        "label": "Нитчатые бактерии",
+        "effects": {
+          "skin_bacterial_colonization": 7,
+          "external_irritation": 4
+        }
+      },
+      {
+        "id": "skin_bacteria_present",
+        "image": "skin_bacteria_present.webp",
+        "label": "Бактерии",
+        "effects": {
+          "skin_bacterial_colonization": 3
+        }
+      }
+    ]
+  },
+        
+        "zone-fin": {
+  "title": "Плавники",
+  "folder": "micro_fin_stained",
+  "references": [
+    {
+      "id": "fin_filamentous_bacteria",
+      "image": "fin_filamentous_bacteria.webp",
+      "label": "Нитчатые бактерии",
+      "effects": {
+        "fin_bacterial_colonization": 7,
+        "fin_damage": 3
+      }
+    },
+    {
+      "id": "fin_bacteria_present",
+      "image": "fin_bacteria_present.webp",
+      "label": "Бактерии",
+      "effects": {
+        "fin_bacterial_colonization": 3
+      }
+    }
+  ]
+},
+         "zone-wound": {
+    "title": "Язва",
+    "folder": "micro_wound_stained",
+    "references": [
+     {
+  "id": "wound_bacterial_colonization",
+  "image": "wound_bacterial_colonization.webp",
+  "label": "Нитчатые бактерии",
+  "effects": {
+    "secondary_bacterial_colonization": 8
+  }
+},
+{
+  "id": "wound_bacteria_present",
+  "image": "wound_bacteria_present.webp",
+  "label": "Бактерии",
+  "effects": {
+    "secondary_bacterial_colonization": 3
+  }
+}
+    ]
+  }
+        
+        
+},
+    
+    
+    
+    
+    
+  "organs": {
+      "zone-kidney_g": {
+  "title": "Почка г.",
+  "folder": "kidney_g",
+  "references": [
+    {
+      "id": "normal",
+      "image": "normal.webp",
+      "label": "Похоже на норму",
+      "effects": {}
+    },
+    {
+      "id": "hyperemia",
+      "image": "hyperemia.webp",
+      "label": "Выраженное кровенаполнение",
+      "effects": {
+        "head_kidney_blood_filling": 5
+      }
+    }
+  ]
+},
+"zone-kidney_t": {
+  "title": "Почка т.",
+  "folder": "kidney_t",
+  "references": [
+    {
+      "id": "normal",
+      "image": "normal.webp",
+      "label": "Похоже на норму",
+      "effects": {}
+    },
+    {
+      "id": "hyperemia",
+      "image": "hyperemia.webp",
+      "label": "Выраженное кровенаполнение",
+      "effects": {
+        "trunk_kidney_blood_filling": 5
+      }
+    }
+  ]
+},
+      "zone-fin": {
+  "title": "Плавники",
+  "folder": "fin",
+  "references": [
+    {
+      "id": "effect-fin_normal",
+      "image": "effect-fin_normal.webp",
+      "label": "Плавники без выраженного разрушения",
+      "effects": {}
+    },
+    {
+      "id": "effect-fin_damage",
+      "image": "effect-fin_damage.webp",
+      "label": "Разрушение плавников",
+      "effects": {
+        "fin_damage": 5
+      }
+    }
+  ]
+},
+      "zone-skin": {
+  "title": "Кожа",
+  "folder": "skin",
+  "references": [
+    {
+      "id": "normal",
+      "image": "normal.webp",
+      "label": "Без выраженных изменений",
+      "effects": {}
+    },
+    {
+      "id": "effect-blood",
+      "image": "effect-blood.webp",
+      "label": "Кровоподтёки / травма",
+      "effects": {
+        "skin_trauma": 6
+      }
+    },
+    {
+      "id": "effect-ciliate-few",
+      "image": "effect-ciliate-few.webp",
+      "label": "Редкие крупные белые точки",
+      "effects": {
+        "skin_large_white_spots": 5
+      }
+    },
+    {
+      "id": "effect-ciliate-many",
+      "image": "effect-ciliate-many.webp",
+      "label": "Много белых точек",
+      "effects": {
+        "skin_many_white_spots": 5
+      }
+    },
+    {
+      "id": "effect-dinoflag",
+      "image": "effect-dinoflag.webp",
+      "label": "Мелкая золотистая пыль",
+      "effects": {
+        "skin_fine_gold_dust": 5
+      }
+    },
+      {
+  "id": "effect-wound",
+  "image": "effect-wound.webp",
+  "label": "Рана / язва",
+  "effects": {
+    "skin_wound": 7,
+    "skin_trauma": 6
+  }
+},
+    {
+      "id": "effect-mucus",
+      "image": "effect-mucus.webp",
+      "label": "Сильное ослизнение",
+      "effects": {
+        "external_irritation": 8
+      }
+    }
+  ]
+},
+       
+    "zone-gills": {
+      "title": "Жабры",
+      "folder": "gills",
+      "references": [
+        {
+          "id": "normal",
+          "image": "normal.webp",
+          "label": "Норма",
+          "effects": {}
+        },
+        {
+          "id": "dark_red",
+          "image": "dark-red.webp",
+          "label": "Тёмно-красные",
+          "effects": {
+            "gill_mucus_problem": 2
+          }
+        },
+        {
+          "id": "mucus_high",
+          "image": "mucus-high.webp",
+          "label": "Ослизнение",
+          "effects": {
+            "gill_mucus_problem": 5
+          }
+        },
+        {
+          "id": "necrosis",
+          "image": "necrosis.webp",
+          "label": "Некроз",
+          "effects": {
+            "gill_structure_change": 10
+          }
+        },
+        {
+          "id": "lamellae_damage",
+          "image": "lamellae-damage.webp",
+          "label": "Изменённая структура",
+          "effects": {
+            "gill_structure_change": 6,
+            "gill_mucus_problem": 3
+          }
+        }
+          ,
+{
+  "id": "normal_2",
+  "image": "normal_2.webp",
+  "label": "Норма (вариант 2)",
+  "effects": {}
+},
+{
+  "id": "bacterial_mucus_1",
+  "image": "bacterial_mucus_1.webp",
+  "label": "Плотная слизь с бактериями",
+  "effects": {
+    "gill_mucus_problem": 4,
+    "gill_bacterial_colonization": 5
+  }
+},
+{
+  "id": "bacterial_mucus_2",
+  "image": "bacterial_mucus_2.webp",
+  "label": "Плотная слизь с бактериями",
+  "effects": {
+    "gill_mucus_problem": 4,
+    "gill_bacterial_colonization": 5
+  }
+}
+      ]
+    },
+    "zone-liver": {
+      "title": "Печень",
+      "folder": "liver",
+      "references": [
+        {
+          "id": "normal",
+          "image": "normal.webp",
+          "label": "Похоже на норму",
+          "effects": {}
+        },
+        {
+          "id": "hyperemia",
+          "image": "hyperemia.webp",
+          "label": "Выраженное кровенаполнение",
+          "effects": {
+            "hepatic_blood_filling": 5
+          }
+        },
+        {
+          "id": "depletion",
+          "image": "depletion.webp",
+          "label": "Истощение / уменьшение",
+          "effects": {
+            "hepatic_depletion": 6
+          }
+        },
+        {
+          "id": "degeneration",
+          "image": "degeneration.webp",
+          "label": "Перерождение / жировое изменение",
+          "effects": {
+            "hepatic_lipid_disorder": 5
+          }
+        },
+        {
+          "id": "degeneration_spotted",
+          "image": "degeneration-spotted.webp",
+          "label": "Пятнистое перерождение",
+          "effects": {
+            "hepatic_lipid_disorder": 6
+          }
+        }
+      ]
+    },
+    "zone-spleen": {
+      "title": "Селезёнка",
+      "folder": "spleen",
+      "references": [
+        {
+          "id": "normal",
+          "image": "normal.webp",
+          "label": "Похоже на норму",
+          "effects": {
+            "splenic_pale_or_light_state": 1
+          }
+        },
+        {
+          "id": "hyperemia",
+          "image": "hyperemia.webp",
+          "label": "Тёмная селезёнка",
+          "effects": {
+            "splenic_dark_dense_state": 3
+          }
+        },
+        {
+          "id": "hyperemia_severe",
+          "image": "hyperemia-severe.webp",
+          "label": "Выраженное кровенаполнение",
+          "effects": {
+            "splenic_dark_dense_state": 5
+          }
+        },
+        {
+          "id": "granulomas",
+          "image": "granulomas.webp",
+          "label": "Очаговые изменения",
+          "effects": {
+            "splenic_focal_changes": 7
+          }
+        }
+      ]
+    },
+      
+      "zone-intestine": {
+  "title": "Кишечник",
+  "folder": "intestine",
+  "references": [
+    {
+      "id": "normal_like",
+      "image": "normal-intestinal-content.webp",
+      "label": "Ближе к норме",
+      "effects": {}
+    },
+    {
+      "id": "transparent",
+      "image": "transparent-intestinal-wall.webp",
+      "label": "Прозрачная стенка кишечника",
+      "effects": {
+        "intestinal_atony": 4,
+        "intestinal_depletion": 3
+      }
+    },
+    {
+      "id": "white_crystalline_masses",
+      "image": "white-crystalline-masses.webp",
+      "label": "Белые кристаллические массы",
+      "effects": {
+        "intestinal_atony": 5,
+        "intestinal_depletion": 4,
+        "intestinal_chronic_disturbance": 5
+      }
+    }
+  ]
+}
+  }
+}

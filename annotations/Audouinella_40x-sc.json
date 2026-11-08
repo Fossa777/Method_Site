@@ -1,0 +1,62 @@
+[
+  {
+    "id": "monosporangium",
+    "labels": {
+      "ru": "Предполагаемый моноспорангий",
+      "en": "Putative monosporangium"
+    },
+    "description": {
+      "ru": "Округлое пигментированное образование на коротком боковом ответвлении. По расположению и морфологии предположительно соответствует моноспорангию — структуре бесполого размножения.",
+      "en": "A rounded, pigmented structure on a short lateral branch. Its position and morphology suggest a monosporangium, a structure involved in asexual reproduction."
+    },
+    "color": "#990C39",
+    "points": [{"x": 0.27458482, "y": 0.23392195},
+    {"x": 0.80688019, "y": 0.48201439},
+    {"x": 0.14614472, "y": 0.35884020}]
+  },
+  {
+    "id": "filament",
+    "labels": {
+      "ru": "Клеточная нить",
+      "en": "Cellular filament"
+    },
+    "description": {
+      "ru": "Однорядная многоклеточная нить таллома. Последовательно расположенные клетки разделены поперечными перегородками.",
+      "en": "A uniseriate multicellular filament of the thallus. Successive cells are separated by transverse septa."
+    },
+    "color": "#994BE1",
+    "points": [{"x": 0.25385528, "y": 0.53717026},
+    {"x": 0.38837485, "y": 0.04512753},
+    {"x": 0.46975089, "y": 0.17593198}]
+  },
+  {
+    "id": "septum",
+    "labels": {
+      "ru": "Поперечная перегородка",
+      "en": "Transverse septum"
+    },
+    "description": {
+      "ru": "Граница между соседними клетками нити, хорошо различимая при большом увеличении.",
+      "en": "A boundary between adjacent filament cells, clearly visible at higher magnification."
+    },
+    "color": "#A4C20F",
+    "points": [{"x": 0.03609134, "y": 0.45094833},
+    {"x": 0.19762752, "y": 0.64028777},
+    {"x": 0.20421115, "y": 0.18563331}]
+  },
+  {
+    "id": "lateral_branch",
+    "labels": {
+      "ru": "Боковое ответвление",
+      "en": "Lateral branch"
+    },
+    "description": {
+      "ru": "Ответвление клеточной нити. На некоторых коротких ответвлениях располагаются округлые образования, предположительно моноспорангии.",
+      "en": "A branch arising from a filament. Some short lateral branches bear rounded structures, provisionally identified as monosporangia."
+    },
+    "color": "#0C6399",
+    "points": [{"x": 0.41201068, "y": 0.49934598},
+    {"x": 0.42348754, "y": 0.42685851},
+    {"x": 0.44866548, "y": 0.07085241}]
+  }
+]

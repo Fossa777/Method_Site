@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Fossa Method</title>
+    <link>https://fossamethod.ru/en/</link>
+    <description>Recent content on Fossa Method</description>
+    <generator>Hugo -- 0.147.2</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 23 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://fossamethod.ru/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flying Elephants</title>
+      <link>https://fossamethod.ru/en/posts/elephantfly/</link>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/elephantfly/</guid>
+      <description>Why science requires more than an elegant hypothesis. The role of photographs, videos, specimens, and primary data in building and verifying scientific conclusions.</description>
+    </item>
+    <item>
+      <title>What Is Your Evidence?</title>
+      <link>https://fossamethod.ru/en/posts/ai_forever/</link>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/ai_forever/</guid>
+      <description>Why photographs, videos, and polished explanations are no longer enough in the age of generative AI. A practical look at provenance, documentation, and trust in scientific evidence.</description>
+    </item>
+    <item>
+      <title>Fossa Method</title>
+      <link>https://fossamethod.ru/en/posts/fossa-method/</link>
+      <pubDate>Sun, 31 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/fossa-method/</guid>
+      <description>Observation, constraints, models, understanding, and the search for mechanisms. A collection of principles that gradually emerged from diagnostics, research, and everyday problem-solving.</description>
+    </item>
+    <item>
+      <title>Scientific Method. A Practical Guide.</title>
+      <link>https://fossamethod.ru/en/posts/science/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/science/</guid>
+      <description>How knowledge is formed, why confidence often outpaces understanding, and how the scientific method helps distinguish observation from interpretation.</description>
+    </item>
+    <item>
+      <title>Tradition Instead of Science I. Method</title>
+      <link>https://fossamethod.ru/en/posts/index_metod/</link>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/index_metod/</guid>
+      <description>What can staining reveal when the classical Ziehl–Neelsen method cannot be performed in full? We examine the roles of phenol, heating and acid decolorization, and learn to distinguish observations from what the method actually demonstrates.</description>
+    </item>
+    <item>
+      <title>Traditions Instead of Science. II</title>
+      <link>https://fossamethod.ru/en/posts/index_desease/</link>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/index_desease/</guid>
+      <description>Why a familiar treatment protocol does not automatically become evidence-based therapy. Using FMC as an example, we examine how concentration, exposure time, the suspected pathogen, and the condition of the fish determine whether a treatment makes sense.</description>
+    </item>
+    <item>
+      <title>Traditions Instead of Science. III</title>
+      <link>https://fossamethod.ru/en/posts/index_fish_scrab/</link>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/index_fish_scrab/</guid>
+      <description>A fish rubs against the substrate — but is it really “itching,” let alone “scratching its gills”? We examine where observation ends and interpretation of behavior begins.</description>
+    </item>
+    <item>
+      <title>Traditions Instead of Science IV. Diagnosis.</title>
+      <link>https://fossamethod.ru/en/posts/index_granulomas/</link>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/index_granulomas/</guid>
+      <description>Granulomas, necrosis, and mycobacteriosis in fish: why similar morphological findings do not imply the same etiology and cannot, on their own, establish a diagnosis.</description>
+    </item>
+    <item>
+      <title>Granulomas in Fish: What Their Structure Reveals—and What It Cannot Prove</title>
+      <link>https://fossamethod.ru/en/fo/index_granulomas/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_granulomas/</guid>
+      <description>Granulomatous reactions, mycobacteriosis, and differential diagnosis: how to distinguish a morphological finding from the cause of a lesion.</description>
+    </item>
+    <item>
+      <title>Phenol-Free Staining: What Changes in the Method and the Conclusions</title>
+      <link>https://fossamethod.ru/en/fo/index_metod/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_metod/</guid>
+      <description>Why omitting phenol does not necessarily prevent bacteria from being detected, while skipping acid decolorization changes the diagnostic question itself.</description>
+    </item>
+    <item>
+      <title>Red Rods: Why I Changed the Usual Method</title>
+      <link>https://fossamethod.ru/en/f/index_metod/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_metod/</guid>
+      <description>How three staining methods applied to samples from the same angelfish spleen helped reveal bacteria—and why seeing them is not the same as making a diagnosis.</description>
+    </item>
+    <item>
+      <title>White Spots in Fish Organs: Is It Tuberculosis?</title>
+      <link>https://fossamethod.ru/en/f/index_granulomas/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_granulomas/</guid>
+      <description>Two fish spleens have similar-looking white nodules. Why appearance alone cannot tell us whether mycobacteria are responsible.</description>
+    </item>
+    <item>
+      <title>FMC: Why a Treatment Bath Is Not the Same as Effective Treatment</title>
+      <link>https://fossamethod.ru/en/fo/index_desease/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_desease/</guid>
+      <description>An examination of FMC use in fish: mixture composition, historical treatment regimens, concentration and exposure time, parasite susceptibility, and the limits of claims about efficacy.</description>
+    </item>
+    <item>
+      <title>We Gave the Fish a Bath. But Did We Cure It?</title>
+      <link>https://fossamethod.ru/en/f/index_desease/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_desease/</guid>
+      <description>Why ten minutes in a medicated bath does not necessarily mean a fish has recovered. A simple story about FMC, parasites, and the habit of treating fish by following a routine.</description>
+    </item>
+    <item>
+      <title>Fish Rubbing Against Objects: Behavior, Cause, and Diagnosis</title>
+      <link>https://fossamethod.ru/en/fo/index_fish_scrab/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/index_fish_scrab/</guid>
+      <description>Why flashing alone cannot distinguish skin irritation, gill disease, and other possible causes. Observation, interpretation, and hypothesis testing.</description>
+    </item>
+    <item>
+      <title>The Fish Is Scratching. But Why?</title>
+      <link>https://fossamethod.ru/en/f/index_fish_scrab/</link>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/index_fish_scrab/</guid>
+      <description>A fish rubs against rocks — does that mean it has parasites? Why a single movement cannot tell us what is happening to its skin or gills.</description>
+    </item>
+    <item>
+      <title>Twigs and Rods. Can We Identify Bacteria by Their Shape?</title>
+      <link>https://fossamethod.ru/en/f/twigs_and_sticks/</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/twigs_and_sticks/</guid>
+      <description>Red rods in a fish specimen: why they are not necessarily mycobacteria, how dangerous nocardiosis can be, and why staining cannot guide treatment on its own.</description>
+    </item>
+    <item>
+      <title>Twigs and Rods. What Can Shape and Staining Tell Us?</title>
+      <link>https://fossamethod.ru/en/fo/twigs_and_sticks/</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/twigs_and_sticks/</guid>
+      <description>Nocardia and Mycobacterium in fish: morphology, pathogenicity, partial acid-fastness, and antimicrobial susceptibility.</description>
+    </item>
+    <item>
+      <title>Twigs and Rods. Who Are We Looking at in This Specimen?</title>
+      <link>https://fossamethod.ru/en/posts/twigs_and_sticks/</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/twigs_and_sticks/</guid>
+      <description>Nocardia and Mycobacterium in fish: comparing morphology, acid-fastness, pathogenicity, and antibiotic resistance, and understanding the limits of diagnosis.</description>
+    </item>
+    <item>
+      <title>Virtual Microscope — Wide View</title>
+      <link>https://fossamethod.ru/en/microscope-app/</link>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-app/</guid>
+      <description>Explore FossaMethod&amp;#39;s interactive microscopy slides in a wide two-panel interface with Deep Zoom and annotations.</description>
+    </item>
+    <item>
+      <title>Fin Damage: Erosion, Infection, and Fin-Ray Structure</title>
+      <link>https://fossamethod.ru/en/fo/finerosion/</link>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/fo/finerosion/</guid>
+      <description>Why similarly frayed fins may have different causes: the structure of lepidotrichia, non-infectious erosion, columnaris disease, and the role of microscopy.</description>
+    </item>
+    <item>
+      <title>Frayed Fins. Who&#39;s to Blame?</title>
+      <link>https://fossamethod.ru/en/f/finerosion/</link>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/f/finerosion/</guid>
+      <description>A fish&amp;#39;s fins are breaking down. Does that mean bacterial fin rot? A simple demonstration with a fin ray shows why appearance alone cannot reveal the cause.</description>
+    </item>
+    <item>
+      <title>Health Does Not Mean Sterility</title>
+      <link>https://fossamethod.ru/en/posts/health-is-not-sterility/</link>
+      <pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/health-is-not-sterility/</guid>
+      <description>Why the presence of microorganisms and parasites does not always mean disease, why immunity does not have to eliminate them completely, and why the use of medications requires an assessment of the animal, the environment, and the consequences of intervention.</description>
+    </item>
+    <item>
+      <title>Cryptocaryonosis: killing the parasite or treating the water?</title>
+      <link>https://fossamethod.ru/en/posts/cryptocaryon-control/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/cryptocaryon-control/</guid>
+      <description>A practical analysis of cryptocaryonosis treatment in marine fish: why killing the parasite should not become more important than the condition of the fish itself, how to reduce the parasite burden quickly, and how to limit reinfection.</description>
+    </item>
+    <item>
+      <title>Publications</title>
+      <link>https://fossamethod.ru/en/publications/</link>
+      <pubDate>Sun, 26 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/publications/</guid>
+      <description>Scientific articles, conference materials, and supplementary resources on fish pathology, fish disease diagnostics, and aquarium systems.</description>
+    </item>
+    <item>
+      <title>Gas Bubble Disease. Part II. Consequences.</title>
+      <link>https://fossamethod.ru/en/posts/bubble_diagnoz/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/bubble_diagnoz/</guid>
+      <description>Comparison of normal and pathological findings in fish necropsy: liver, kidney, gills, and brain. How to distinguish acceptable variation from signs of congestion, tissue damage, and hypoxia.</description>
+    </item>
+    <item>
+      <title>Fish coccidia: Goussia</title>
+      <link>https://fossamethod.ru/en/posts/goussia/</link>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/goussia/</guid>
+      <description>Coccidia of the genus Goussia in fish. Morphology of oocysts, sporocysts, and sporozoites, with diagnostic interpretation of microscopic findings.</description>
+    </item>
+    <item>
+      <title>Cryptococcus-like structures in fish</title>
+      <link>https://fossamethod.ru/en/posts/crypto/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/crypto/</guid>
+      <description>Round structures with a distinct halo, morphologically resembling cryptococci. Morphological analysis and limitations of interpretation.</description>
+    </item>
+    <item>
+      <title>Fungal structures in fish: colonization or invasive process</title>
+      <link>https://fossamethod.ru/en/posts/fungi/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/fungi/</guid>
+      <description>Fungal structures in fish may represent either surface colonization or an invasive process. This article discusses morphological features, localization, and diagnostic interpretation.</description>
+    </item>
+    <item>
+      <title>Granulomatous lesions in fish: a histoplasma-like case</title>
+      <link>https://fossamethod.ru/en/posts/histoplasma-like/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/histoplasma-like/</guid>
+      <description>Granulomas in fish kidneys and spleen with negative results for mycobacteria. Detection of intracellular yeast-like organisms and differential interpretation.</description>
+    </item>
+    <item>
+      <title>Granulomas and intracellular agents in fish</title>
+      <link>https://fossamethod.ru/en/posts/intracellular/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/intracellular/</guid>
+      <description>A collection of real observations: intracellular yeast-like organisms, coccidia, cryptosporidia, and fungal structures in fish.</description>
+    </item>
+    <item>
+      <title>Fin Rot</title>
+      <link>https://fossamethod.ru/en/posts/finerosion/</link>
+      <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/finerosion/</guid>
+      <description>Fin damage in fish is not always caused by bacterial infection. Lepidotrichial structure, noninfectious fin erosion, columnaris disease, and the limits of diagnosis.</description>
+    </item>
+    <item>
+      <title>Hexamitids Without Myths</title>
+      <link>https://fossamethod.ru/en/posts/hexa/</link>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/hexa/</guid>
+      <description>Why hexamitids are not a normal component of fish intestinal microflora, where the myth of &amp;#39;internal parasites&amp;#39; comes from, and how intestinal pathology actually develops.</description>
+    </item>
+    <item>
+      <title>Ichthyophthiriosis Without Myths</title>
+      <link>https://fossamethod.ru/en/posts/ichthyophthirius/</link>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/ichthyophthirius/</guid>
+      <description>A science-based analysis of Ichthyophthirius multifiliis: life cycle, cyst terminology, the myth of parasite ubiquity, and real mechanisms of transmission.</description>
+    </item>
+    <item>
+      <title>Patient Size Doesn’t Matter — Why Fish Don’t Die From Diagnostics</title>
+      <link>https://fossamethod.ru/en/posts/size/</link>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/size/</guid>
+      <description>Debunking the myth that diagnostic procedures kill fish. Non-lethal examination techniques, compensatory physiology, and why mortality sometimes follows handling.</description>
+    </item>
+    <item>
+      <title>Simple Rules for Working with Aquarium Fish</title>
+      <link>https://fossamethod.ru/en/posts/rules/</link>
+      <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/rules/</guid>
+      <description>Basic guidelines for diagnosing and caring for aquarium fish: what to do in case of mortality, how to interpret appetite, and when to treat bacterial infections.</description>
+    </item>
+    <item>
+      <title>Surgical Procedures on Aquatic Animals</title>
+      <link>https://fossamethod.ru/en/posts/operation/</link>
+      <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/operation/</guid>
+      <description>A Guide on performing surgical procedures on fish.</description>
+    </item>
+    <item>
+      <title>Is It Ever Too Late for a Fish Autopsy?</title>
+      <link>https://fossamethod.ru/en/posts/fish-autopsy-myth/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/fish-autopsy-myth/</guid>
+      <description>Debunking the myth: why you can examine a fish hours after death—not just in the first 30 minutes.</description>
+    </item>
+    <item>
+      <title>Two Sides of One Dosage</title>
+      <link>https://fossamethod.ru/en/posts/medicines_poisons/</link>
+      <pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/medicines_poisons/</guid>
+      <description>Aquarium medications: remedy or threat? Pros and cons of antibiotics, formalin, methylene blue, malachite green, and the FMC mixture.</description>
+    </item>
+    <item>
+      <title>Initial Diagnostics After Fish Transportation</title>
+      <link>https://fossamethod.ru/en/posts/coming/</link>
+      <pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/coming/</guid>
+      <description>Microscopy, smears, staining methods, and common mistakes in early diagnostics.</description>
+    </item>
+    <item>
+      <title>Gas Bubble Disease: It&#39;s Not About the Bubbles</title>
+      <link>https://fossamethod.ru/en/posts/bublle/</link>
+      <pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/bublle/</guid>
+      <description>Gas Bubble Disease in fish is not caused by air bubbles entering the gills but by dissolved gas supersaturation. This article explains the true mechanism, common misconceptions, and how to prevent the condition.</description>
+    </item>
+    <item>
+      <title>The Smear Comes First.</title>
+      <link>https://fossamethod.ru/en/posts/smear/</link>
+      <pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/smear/</guid>
+      <description>A reflection on why smear microscopy often matters more than bacterial culture in fish pathology. Real cases, logic, and the danger of trusting paperwork over tissue.</description>
+    </item>
+    <item>
+      <title>Cryptocaryon irritans: Not Just White Spots</title>
+      <link>https://fossamethod.ru/en/posts/crypt/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/posts/crypt/</guid>
+      <description>Cryptocaryon irritans. is a ciliated protozoan parasite, often visible to the naked eye. Tangs, butterflyfish, and boxfish are particularly susceptible and typically among the first to become infected. The free-swimming infectious stage — theront — most often attaches to gills and fins. That’s why these areas should always be examined first</description>
+    </item>
+    <item>
+      <title>Arrowhead (Sagittaria sp.)</title>
+      <link>https://fossamethod.ru/en/microscope-collection/sagittaria_10x-cs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/sagittaria_10x-cs/</guid>
+      <description>Panoramic view of part of an aquarium arrowhead leaf. Numerous plant cells containing green chloroplasts, longitudinal veins, and a toothed leaf margin are visible. Zooming in reveals individual cell shapes, cell walls, and the arrangement of chloroplasts.</description>
+    </item>
+    <item>
+      <title>Arrowhead (Sagittaria sp.) — 20×</title>
+      <link>https://fossamethod.ru/en/microscope-collection/sagittaria_20x-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/sagittaria_20x-sc/</guid>
+      <description>Panoramic view of part of an aquarium arrowhead leaf. Numerous plant cells with distinct walls and green chloroplasts are clearly visible. The image shows individual cell shapes, chloroplasts arranged along the cell walls, and pale central regions occupied by large vacuoles.</description>
+    </item>
+    <item>
+      <title>Arrowhead (Sagittaria sp.) — 20×, polarized light</title>
+      <link>https://fossamethod.ru/en/microscope-collection/sagittaria_pol_20x-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/sagittaria_pol_20x-sc/</guid>
+      <description>Panoramic view of part of an aquarium arrowhead leaf in polarized light. Numerous plant cells, longitudinal veins, and pointed teeth along the leaf margin are visible. Polarized illumination produces golden tones and emphasizes cell boundaries, offering a different view of the leaf structure.</description>
+    </item>
+    <item>
+      <title>Black beard algae</title>
+      <link>https://fossamethod.ru/en/microscope-collection/algaepano/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/algaepano/</guid>
+      <description>Red algae commonly found on aquarium plants...</description>
+    </item>
+    <item>
+      <title>Black brush algae (presumably Audouinella) — 10×</title>
+      <link>https://fossamethod.ru/en/microscope-collection/audouinella_10x-sc_imagej/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/audouinella_10x-sc_imagej/</guid>
+      <description>General view of the bush-like thallus of a red alga, provisionally identified as Audouinella sp. The attachment region with rhizoids is visible at the top of the image. Zooming in reveals branching cellular filaments, transverse septa, and putative monosporangia.</description>
+    </item>
+    <item>
+      <title>Black brush algae (presumably Audouinella) — 20×</title>
+      <link>https://fossamethod.ru/en/microscope-collection/audouinella_20x-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/audouinella_20x-sc/</guid>
+      <description>A branching network of multicellular filaments. The branching pattern, cellular segmentation, and rounded reproductive structures on short lateral branches are clearly visible.</description>
+    </item>
+    <item>
+      <title>Black brush algae (presumably Audouinella) — 40×</title>
+      <link>https://fossamethod.ru/en/microscope-collection/audouinella_40x-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/audouinella_40x-sc/</guid>
+      <description>Detailed structure of the branching filaments of a red alga. Individual cells, transverse septa, and rounded structures on lateral branches, presumably monosporangia, are clearly visible.</description>
+    </item>
+    <item>
+      <title>Bolbitis fern — leaf cells, 40×</title>
+      <link>https://fossamethod.ru/en/microscope-collection/bolbitis_40x_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/bolbitis_40x_2/</guid>
+      <description>Panoramic view of part of an aquarium Bolbitis fern leaf. Plant cells of different shapes containing numerous green chloroplasts are clearly visible. Zooming in reveals the cell walls, the arrangement of chloroplasts, and details of the leaf tissue structure.</description>
+    </item>
+    <item>
+      <title>Bolbitis fern — leaf, 10×</title>
+      <link>https://fossamethod.ru/en/microscope-collection/bolbitis_10x_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/bolbitis_10x_2/</guid>
+      <description>Bolbitis fern leaf under a microscope, 10×: veins and polygonal cell outlines.</description>
+    </item>
+    <item>
+      <title>Branching filamentous bacteria — 100×</title>
+      <link>https://fossamethod.ru/en/microscope-collection/micopano/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/micopano/</guid>
+      <description>Spleen impression smear. Ziehl–Neelsen staining. 100× objective. Fuchsin-positive rod-shaped and filamentous structures showing prominent branching and uneven staining. The morphology is suggestive of branching actinomycetes, including Nocardia.</description>
+    </item>
+    <item>
+      <title>Branching rod-shaped bacteria — 40×</title>
+      <link>https://fossamethod.ru/en/microscope-collection/mico2pano/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/mico2pano/</guid>
+      <description>Spleen impression smear. Ziehl–Neelsen staining. 40× objective. Fuchsin-positive rod-shaped and elongated structures showing apparent branching. The morphology is compatible with Nocardia or other actinomycetes.</description>
+    </item>
+    <item>
+      <title>Bubble formation</title>
+      <link>https://fossamethod.ru/en/video/buble/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/buble/</guid>
+      <description>3D visualization of bubble formation in supersaturated water.</description>
+    </item>
+    <item>
+      <title>Capsalid — internal structures in relief</title>
+      <link>https://fossamethod.ru/en/microscope-collection/capsalidae_10x-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/capsalidae_10x-sc/</guid>
+      <description>A second panorama of the same specimen with more pronounced relief. The outlines and spatial relationships of the internal organs are more clearly visible, especially the reproductive structures, intestinal ceca, and structures of the posterior body region.</description>
+    </item>
+    <item>
+      <title>Capsalid — whole mount</title>
+      <link>https://fossamethod.ru/en/microscope-collection/capsalidae_2_10x-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/capsalidae_2_10x-sc/</guid>
+      <description>Panoramic whole-mount preparation of a capsalid monogenean. The pharynx, intestinal ceca, vitellaria, ovary, testes, and posterior attachment organ — the haptor — are clearly visible.</description>
+    </item>
+    <item>
+      <title>Chromatophores</title>
+      <link>https://fossamethod.ru/en/microscope-collection/chromatophores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/chromatophores/</guid>
+      <description>Fragment of octopus skin. Chromatophores—pigment organs—are visible in different states, ranging from fully expanded (lighter, reddish-orange areas) to contracted (dark, dense spots).</description>
+    </item>
+    <item>
+      <title>Chromis</title>
+      <link>https://fossamethod.ru/en/microscope-collection/chromis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/chromis/</guid>
+      <description>Scales of the fish Chromis viridis.</description>
+    </item>
+    <item>
+      <title>Chum salmon kidney — relatively preserved structure</title>
+      <link>https://fossamethod.ru/en/microscope-collection/keta_kidney_4x-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/keta_kidney_4x-sc/</guid>
+      <description>Panoramic compression preparation of the kidney from a clinically healthy chum salmon after euthanasia. The renal tubules retain their usual structure and relatively clear lumina, while blood is distributed comparatively evenly throughout the tissue. The specimen serves as a control for comparison with pathological tubular changes.</description>
+    </item>
+    <item>
+      <title>Ciliated Epithelium of the Kidney</title>
+      <link>https://fossamethod.ru/en/video/ciliated-epithelium/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/ciliated-epithelium/</guid>
+      <description>Ciliated epithelium within the renal tubules of a fish. The video shows ciliary motion in real time and then in slow motion, allowing the beating pattern to be observed in greater detail.</description>
+    </item>
+    <item>
+      <title>Ciliates and Bacteria on Fish Surfaces</title>
+      <link>https://fossamethod.ru/en/video/ciliate-and-bacter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/ciliate-and-bacter/</guid>
+      <description>The video shows free-living ciliates found on the surface of a fish together with bacterial aggregates among which they occur. Attention is often focused on the conspicuous and motile ciliates, whereas the bacterial component may remain unnoticed. Both native and stained preparations are presented to illustrate the spatial relationship between ciliates and bacteria. The footage demonstrates that the presence of ciliates alone does not explain the cause of a lesion and should be interpreted together with tissue condition and associated microbial communities.</description>
+    </item>
+    <item>
+      <title>Clownfish larva (Amphiprion sp.) — dark-field illumination</title>
+      <link>https://fossamethod.ru/en/microscope-collection/amphiprion_black_3%d0%bc%d0%bc-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/amphiprion_black_3%d0%bc%d0%bc-sc/</guid>
+      <description>Panoramic view of a clownfish larva approximately 3 mm long. Its transparent body reveals internal structures, large eyes, the vertebral column, pigment cells, and developing fins.</description>
+    </item>
+    <item>
+      <title>Clownfish larva (Amphiprion sp.) — polarized light</title>
+      <link>https://fossamethod.ru/en/microscope-collection/amphiprion_pol_sc-3%d0%bc%d0%bc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/amphiprion_pol_sc-3%d0%bc%d0%bc/</guid>
+      <description>Panoramic view of a clownfish larva approximately 3 mm long. Its transparent body reveals internal structures, large eyes, the vertebral column, pigment cells, and developing fins. Polarized light emphasizes tissue structure and produces distinctive colors.</description>
+    </item>
+    <item>
+      <title>Cocci</title>
+      <link>https://fossamethod.ru/en/microscope-collection/kokki/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/kokki/</guid>
+      <description>Coccoid bacteria.</description>
+    </item>
+    <item>
+      <title>Common carp (Cyprinus carpio) — gills</title>
+      <link>https://fossamethod.ru/en/microscope-collection/gills_ciprinus-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/gills_ciprinus-sc/</guid>
+      <description>Gill filaments with numerous transverse lamellae, the principal sites of gas exchange, are clearly visible. Zooming in reveals the thin walls of the lamellae, blood capillaries, and blood cells within them.</description>
+    </item>
+    <item>
+      <title>Cryptobia Moving Through Detritus</title>
+      <link>https://fossamethod.ru/en/video/cryptobia-run/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/cryptobia-run/</guid>
+      <description>The video shows flagellates of the genus Cryptobia actively moving between particles of detritus and mucus. Their characteristic locomotion, frequent changes in direction, and ability to pass through narrow spaces are clearly visible. Internal structures, including food vacuoles, can be observed in some individuals. The footage illustrates how these protozoans navigate through their natural microenvironment.</description>
+    </item>
+    <item>
+      <title>Cryptocaryon irritans in gills</title>
+      <link>https://fossamethod.ru/en/video/cryptocaryon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/cryptocaryon/</guid>
+      <description>Cryptocaryon irritans trophonts within the gill epithelium. The video demonstrates the gill-dominant form of cryptocaryoniasis, which may occur without the typical white spots on the skin.</description>
+    </item>
+    <item>
+      <title>Cryptosporidia 100x</title>
+      <link>https://fossamethod.ru/en/microscope-collection/cryptopano/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/cryptopano/</guid>
+      <description>Danio liver smear. May–Grünwald stain. Objective 100x.</description>
+    </item>
+    <item>
+      <title>Cryptosporidia 100x (ZN)</title>
+      <link>https://fossamethod.ru/en/microscope-collection/crypto2pano/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/crypto2pano/</guid>
+      <description>Danio liver smear. Ziehl–Neelsen stain. Objective 100x.</description>
+    </item>
+    <item>
+      <title>Degenerated Gills of a Dead Fish</title>
+      <link>https://fossamethod.ru/en/microscope-collection/gills_damage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/gills_damage/</guid>
+      <description>Even markedly postmortem-altered gills may retain diagnostically relevant findings. Attached monogeneans can still be detected, helping to reveal potential parasitic threats and indicating what should be looked for in living fish.</description>
+    </item>
+    <item>
+      <title>Diagnostic Thinking</title>
+      <link>https://fossamethod.ru/en/test/reasoning-test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/test/reasoning-test/</guid>
+      <description>An interactive reasoning trainer: observations, conclusions, and the limits of evidence.</description>
+    </item>
+    <item>
+      <title>Diatoms from a Marine Aquarium</title>
+      <link>https://fossamethod.ru/en/microscope-collection/diatoms_braun_40x-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/diatoms_braun_40x-sc/</guid>
+      <description>Microscopic panorama of a brown film collected from the glass of a marine aquarium. Numerous diatoms of different shapes, sizes, and structures are visible. Most have elongated or oval cells. Their golden-brown chloroplasts are enclosed within transparent silica shells, which display fine lines and intricate patterns.</description>
+    </item>
+    <item>
+      <title>Discus</title>
+      <link>https://fossamethod.ru/en/microscope-collection/discus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/discus/</guid>
+      <description>Scales of the fish Discus.</description>
+    </item>
+    <item>
+      <title>Division of Ichthyophthirius multifiliis</title>
+      <link>https://fossamethod.ru/en/video/ichthyophthirius/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/ichthyophthirius/</guid>
+      <description>Palintomic division of a tomont after leaving the fish.</description>
+    </item>
+    <item>
+      <title>Duckweed — dark-field illumination</title>
+      <link>https://fossamethod.ru/en/microscope-collection/pano_20261028_122120/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/pano_20261028_122120/</guid>
+      <description>Panoramic view of the small green fronds of duckweed, one of the smallest flowering plants. Their rounded outlines, numerous cells, and paler tissue regions are visible. Duckweed floats freely on the water surface and can multiply rapidly by producing daughter plants.</description>
+    </item>
+    <item>
+      <title>Feather-like Green Algae from a Marine Aquarium</title>
+      <link>https://fossamethod.ru/en/microscope-collection/%d0%b2%d0%be%d0%b4%d0%be%d1%80%d0%be%d1%81%d0%bb%d0%b8_%d0%be%d0%b1%d1%80%d0%b0%d1%81%d1%82%d0%b0%d0%bd%d0%b8%d0%b5_%d0%bc%d0%be%d1%80%d0%b5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/%d0%b2%d0%be%d0%b4%d0%be%d1%80%d0%be%d1%81%d0%bb%d0%b8_%d0%be%d0%b1%d1%80%d0%b0%d1%81%d1%82%d0%b0%d0%bd%d0%b8%d0%b5_%d0%bc%d0%be%d1%80%d0%b5/</guid>
+      <description>Microscopic panorama of green algal growth from a marine aquarium, tentatively identified as Bryopsis. Delicate branching filaments form structures resembling tiny fir trees or feathers. Numerous green lateral branchlets extend from a central axis. A distinctive feature of these algae is their siphonous organization, without the usual transverse cell partitions.</description>
+    </item>
+    <item>
+      <title>Fibrous granulomas in gudgeon</title>
+      <link>https://fossamethod.ru/en/microscope-collection/fibrosus_peskar_10x-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/fibrosus_peskar_10x-sc/</guid>
+      <description>Squash preparation of gudgeon (Gobio gobio) tissue. Multiple rounded structures of varying sizes with concentric arrangements of connective tissue fibers, consistent with fibrous granulomas.</description>
+    </item>
+    <item>
+      <title>Filamentous Bacteria in a Fish Gill Smear</title>
+      <link>https://fossamethod.ru/en/microscope-collection/filamentous_bacteria_2-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/filamentous_bacteria_2-sc/</guid>
+      <description>Microscopic panorama of a fish gill smear stained with May–Grünwald stain. Numerous thin filamentous and rod-shaped structures are visible, occasionally forming dense aggregates. Their morphology resembles bacteria associated with columnaris-like gill lesions. The microorganisms have not been identified to species level.</description>
+    </item>
+    <item>
+      <title>Fin ray structure</title>
+      <link>https://fossamethod.ru/en/video/fin-erosion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/fin-erosion/</guid>
+      <description>A fin ray consists of two paired halves separated by living tissue. This video demonstrates fin ray anatomy and helps explain the mechanisms of fin erosion.</description>
+    </item>
+    <item>
+      <title>Fish necropsy</title>
+      <link>https://fossamethod.ru/en/video/autopsy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/autopsy/</guid>
+      <description>Fish necropsy with examination of internal organs and pathological findings.</description>
+    </item>
+    <item>
+      <title>Fungal Hyphae in Fish Tissues</title>
+      <link>https://fossamethod.ru/en/video/fungi-in-fish/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/fungi-in-fish/</guid>
+      <description>Free spores alone do not prove tissue invasion. The video demonstrates the diagnostic sequence from external examination and hemorrhages to the detection of fungal hyphae actively growing within fish tissues.</description>
+    </item>
+    <item>
+      <title>Fungal structures</title>
+      <link>https://fossamethod.ru/en/microscope-collection/fungal_structures_40x/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/fungal_structures_40x/</guid>
+      <description>A preparation of mucus and contents from the empty stomach of a black ghost knifefish (Apteronotus albifrons). Numerous filamentous fungal structures are visible among mucus, detritus, and small rounded elements. This finding indicates a marked presence of fungal forms in the gastric lumen and is pathologically significant. Captured with a 40× objective.</description>
+    </item>
+    <item>
+      <title>Fungal Structures in a Native Preparation</title>
+      <link>https://fossamethod.ru/en/video/fungi-native/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/fungi-native/</guid>
+      <description>Native preparation of fungal structures within fish tissue. The video shows hyphae, spores, and their arrangement without fixation, drying, or staining. This approach preserves the natural size and morphology of fungal elements, facilitating their recognition and comparison with stained preparations. The footage complements diagnostic materials on fungal lesions and demonstrates the appearance of spores and hyphae before artefacts associated with smear preparation are introduced.</description>
+    </item>
+    <item>
+      <title>Gadus</title>
+      <link>https://fossamethod.ru/en/microscope-collection/gadus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/gadus/</guid>
+      <description>Scales of the fish Gadus.</description>
+    </item>
+    <item>
+      <title>Gills</title>
+      <link>https://fossamethod.ru/en/microscope-collection/jillsnecrozpano/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/jillsnecrozpano/</guid>
+      <description>Necrosis of gill lamellae.</description>
+    </item>
+    <item>
+      <title>Granulomas in the Kidney of a Freshwater Angelfish</title>
+      <link>https://fossamethod.ru/en/microscope-collection/kidney_scalare_20x/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/kidney_scalare_20x/</guid>
+      <description>Microscopic panorama of kidney tissue from a freshwater angelfish (Pterophyllum scalare) showing granulomatous lesions. Areas of altered cellular material and darkly stained inclusions are visible among the renal structures. Acid-fast bacteria were detected during examination, suggesting a possible mycobacterial origin of the lesions. The bacterial species has not been identified.</description>
+    </item>
+    <item>
+      <title>Green Algal Growth in a Marine Aquarium</title>
+      <link>https://fossamethod.ru/en/microscope-collection/seaweed_20x-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/seaweed_20x-sc/</guid>
+      <description>Algal growth collected from the outer surface of a water supply pipe in a marine aquarium. Under the microscope, long green filaments are visible among numerous golden-brown diatoms. These diatoms vary in shape and size, forming a diverse underwater community together with the filamentous algae.</description>
+    </item>
+    <item>
+      <title>Green Microalgae on Freshwater Aquarium Glass</title>
+      <link>https://fossamethod.ru/en/microscope-collection/green_algal-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/green_algal-sc/</guid>
+      <description>Microscopic panorama of green algal growth collected from the glass of a freshwater aquarium. To the naked eye, these algae appear as small green spots firmly attached to the glass. Under the microscope, numerous rounded cells form dense clusters. Green chloroplasts responsible for photosynthesis are visible inside the cells.</description>
+    </item>
+    <item>
+      <title>Heart of an Amur Sleeper Larva Under the Microscope</title>
+      <link>https://fossamethod.ru/en/video/heat-fish/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/heat-fish/</guid>
+      <description>The video shows the functioning heart of a rotan larva (Perccottus glenii). Due to the transparency of larval tissues, contractions of the atrium and ventricle, blood flow, and the operation of a two-chambered teleost heart can be observed directly. The footage illustrates basic aspects of fish circulation and provides a rare opportunity to observe cardiac activity without dissection or staining.</description>
+    </item>
+    <item>
+      <title>Hyphal and sporangial structures</title>
+      <link>https://fossamethod.ru/en/microscope-collection/yeast_like_fungal_cells_100/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/yeast_like_fungal_cells_100/</guid>
+      <description>A high-magnification May–Grünwald-stained preparation of intestinal contents. Hyphal structures and rounded sporangial forms are visible among mucus and fragments of food material. Together with the massive presence of yeast-like cells in the gastric contents, this finding indicates marked fungal involvement of the digestive tract. Captured with a 100× objective.</description>
+    </item>
+    <item>
+      <title>Ichthyobodo spp.: Comparing Morphotypes</title>
+      <link>https://fossamethod.ru/en/video/ichtiobodo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/ichtiobodo/</guid>
+      <description>The video compares two morphotypes of flagellates traditionally identified as Ichthyobodo spp. Differences in cell morphology and flagellar arrangement become apparent at high magnification. However, the available morphological features are insufficient for reliable species identification, and the taxonomic status of these forms remains uncertain.</description>
+    </item>
+    <item>
+      <title>Intracellular parasites 100x</title>
+      <link>https://fossamethod.ru/en/microscope-collection/gistopano/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/gistopano/</guid>
+      <description>Chrysiptera liver smear 100x. May–Grünwald stain. Parasites in histiocytes.</description>
+    </item>
+    <item>
+      <title>Labidochromis</title>
+      <link>https://fossamethod.ru/en/microscope-collection/labidochromis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/labidochromis/</guid>
+      <description>Scales of the fish Labidochromis yellow.</description>
+    </item>
+    <item>
+      <title>Leaf-like Brown Algae from a Marine Aquarium</title>
+      <link>https://fossamethod.ru/en/microscope-collection/fouling_10x-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/fouling_10x-sc/</guid>
+      <description>Small leaf-like growths collected from the wall of a tropical marine aquarium. Under the microscope, thin brown blades composed of numerous cells are visible. The cells form rows that spread out in fan-shaped patterns. Unlike filamentous algae, these algae form broad thalli resembling tiny leaves.</description>
+    </item>
+    <item>
+      <title>Liver of Apteronotus albifrons with granulomatous lesions</title>
+      <link>https://fossamethod.ru/en/microscope-collection/granulomaapteronotus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/granulomaapteronotus/</guid>
+      <description>A squash preparation from the intestine of Apteronotus albifrons. Multiple granulomatous lesions associated with a mycobacterial infection are visible among mucus and sloughed mucosal material. However, the etiology of such lesions cannot be determined from morphology alone without additional investigations.</description>
+    </item>
+    <item>
+      <title>Liver with lipid inclusions</title>
+      <link>https://fossamethod.ru/en/microscope-collection/liver_lipid_10x/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/liver_lipid_10x/</guid>
+      <description>A squash preparation of the liver of a neon tetra (Paracheirodon innesi). Numerous rounded lipid inclusions, uneven tissue coloration, and areas of marked blood filling are visible. This pattern reflects severe hepatic alteration and should be interpreted together with other findings. Captured with a 10× objective.</description>
+    </item>
+    <item>
+      <title>Loeffler vs Ziehl–Neelsen</title>
+      <link>https://fossamethod.ru/en/video/ziehl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/ziehl/</guid>
+      <description>The same smear is shown sequentially after Loeffler’s methylene blue stain and Ziehl–Neelsen staining. The video demonstrates how acid-fast bacteria become visible following a specialized staining procedure.</description>
+    </item>
+    <item>
+      <title>Microworms</title>
+      <link>https://fossamethod.ru/en/microscope-collection/nematodpano/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/nematodpano/</guid>
+      <description>Microworms in the brain membrane of a ray, 20x. Small nematodes.</description>
+    </item>
+    <item>
+      <title>Modified carbol fuchsin staining without acid decolorization</title>
+      <link>https://fossamethod.ru/en/microscope-collection/miki_without_acid_40x/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/miki_without_acid_40x/</guid>
+      <description>Intensely stained red-pink rod-shaped bacteria are visible in the tissue material against a contrasting background. Acid decolorization was not performed, so acid-fastness was not assessed. Try to find them all...</description>
+    </item>
+    <item>
+      <title>Monodactyl&#39;s Tail</title>
+      <link>https://fossamethod.ru/en/microscope-collection/monodactil/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/monodactil/</guid>
+      <description>The caudal fin of a Monodactylus. Note the soft tissue and ray segments.</description>
+    </item>
+    <item>
+      <title>Monodactylus</title>
+      <link>https://fossamethod.ru/en/microscope-collection/monodactylus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/monodactylus/</guid>
+      <description>Scales of the fish Monodactylus.</description>
+    </item>
+    <item>
+      <title>Nematode eggs</title>
+      <link>https://fossamethod.ru/en/microscope-collection/eggsnematpano/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/eggsnematpano/</guid>
+      <description>Capillaria eggs from Danio intestine.</description>
+    </item>
+    <item>
+      <title>Omul (Coregonus sp.) — gill anatomy</title>
+      <link>https://fossamethod.ru/en/microscope-collection/gills_coregonus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/gills_coregonus/</guid>
+      <description>Panoramic preparation of the gill apparatus of an omul (Coregonus sp.). The gill arch, numerous gill filaments (primary lamellae), and secondary gill lamellae are visible. At higher magnification, the regularly arranged secondary lamellae can be clearly distinguished; they provide the principal surface for gas exchange.</description>
+    </item>
+    <item>
+      <title>Pigment or Cocci?</title>
+      <link>https://fossamethod.ru/en/video/color/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/color/</guid>
+      <description>Not every dark particle in a smear is a coccus. The same microscopic field is shown after staining and subsequent alcohol decolorization, illustrating the difference between bacterial structures and pigment granules.</description>
+    </item>
+    <item>
+      <title>Pigmented fungal structures on crab gills</title>
+      <link>https://fossamethod.ru/en/microscope-collection/mold/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/mold/</guid>
+      <description>Panorama fragment of crab gills showing branching septate hyphae and numerous pigmented rounded structures. Macroscopically, affected areas of the gills were black and showed tissue destruction.</description>
+    </item>
+    <item>
+      <title>Pleurogrammus</title>
+      <link>https://fossamethod.ru/en/microscope-collection/pleurogrammus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/pleurogrammus/</guid>
+      <description>Scales of the fish Pleurogrammus.</description>
+    </item>
+    <item>
+      <title>Praziquantel in Water</title>
+      <link>https://fossamethod.ru/en/video/praziquantel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/praziquantel/</guid>
+      <description>Behavior of praziquantel after addition to water. Despite prior dissolution in alcohol, the compound forms a fine suspension and gradually settles. The video illustrates why the term &amp;#34;dispersion&amp;#34; is often more appropriate than &amp;#34;dissolution&amp;#34; in aquarium treatments.</description>
+    </item>
+    <item>
+      <title>Pterophyllum</title>
+      <link>https://fossamethod.ru/en/microscope-collection/pterophyllum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/pterophyllum/</guid>
+      <description>Scales of the fish Pterophyllum scalare.</description>
+    </item>
+    <item>
+      <title>Ray Blood Cells</title>
+      <link>https://fossamethod.ru/en/microscope-collection/blood_stingray/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/blood_stingray/</guid>
+      <description>Microscopic panorama of a stained ray blood smear. Most cells are oval, nucleated erythrocytes. Various leukocytes are also present, including eosinophilic granulocytes and large cells with abundant cytoplasm. The panorama allows comparison of the shapes, sizes, and structural features of different blood cells.
+</description>
+    </item>
+    <item>
+      <title>Renal concretions in neon tetra</title>
+      <link>https://fossamethod.ru/en/microscope-collection/kidney_neon_granulema_%d1%81ontrast-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/kidney_neon_granulema_%d1%81ontrast-sc/</guid>
+      <description>Microscopic preparation of neon tetra kidney. Rounded and oval structures of varying sizes with distinct boundaries and heterogeneous contents, presumably mineral concretions. Some are surrounded by cellular structures resembling a granulomatous reaction. No mycobacteria were detected, and similar lesions were not observed in other organs.</description>
+    </item>
+    <item>
+      <title>Secret</title>
+      <link>https://fossamethod.ru/en/microscope-collection/secret/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/secret/</guid>
+      <description>What?</description>
+    </item>
+    <item>
+      <title>Thin fuchsin-positive bacteria</title>
+      <link>https://fossamethod.ru/en/microscope-collection/mikism/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/mikism/</guid>
+      <description>Impression smear. Ziehl–Neelsen staining. Numerous slender rod-shaped bacteria are observed among cellular elements. Morphological features alone do not allow identification at the genus level.</description>
+    </item>
+    <item>
+      <title>What &#39;many hexamitids&#39; actually looks like</title>
+      <link>https://fossamethod.ru/en/video/hexamitids/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/video/hexamitids/</guid>
+      <description>Dense aggregation of flagellated protozoans in a wet mount. The video demonstrates a parasite burden that is difficult to appreciate from still images alone.</description>
+    </item>
+    <item>
+      <title>Yeast-like structures</title>
+      <link>https://fossamethod.ru/en/microscope-collection/yeast_like_fungal_cells_40/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/yeast_like_fungal_cells_40/</guid>
+      <description>A May–Grünwald-stained preparation of gastric contents from a neon tetra (Paracheirodon innesi). Numerous rounded pink-purple structures with a clear capsule-like halo are visible. Morphologically, they are consistent with yeast-like fungal cells mixed with food material. Captured with a 40× objective.</description>
+    </item>
+    <item>
+      <title>Yellowtail kidney — tubular destruction</title>
+      <link>https://fossamethod.ru/en/microscope-collection/kidney_1-sc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://fossamethod.ru/en/microscope-collection/kidney_1-sc/</guid>
+      <description>Panoramic compression preparation of yellowtail kidney. Areas with relatively preserved lighter tubular lumina can be compared with zones where the lumina are filled with dark material, corresponding to marked pathological change.</description>
+    </item>
+  </channel>
+</rss>

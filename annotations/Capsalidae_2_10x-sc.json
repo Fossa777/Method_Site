@@ -1,0 +1,117 @@
+[
+  {
+    "id": "pharynx",
+    "labels": {
+      "ru": "Фаринкс",
+      "en": "Pharynx"
+    },
+    "description": {
+      "ru": "Крупный мышечный орган передней части тела, участвующий в захвате и продвижении пищи.",
+      "en": "A large muscular organ in the anterior part of the body, involved in food intake and transport."
+    },
+    "color": "#ff3b5c",
+    "points": [{"x": 0.24712135, "y": 0.20102747}]
+  },
+
+  {
+    "id": "intestinal_ceca",
+    "labels": {
+      "ru": "Кишечные ветви",
+      "en": "Intestinal ceca"
+    },
+    "description": {
+      "ru": "Разветвлённые отделы кишечника, проходящие вдоль тела паразита и распределяющие пищевой материал по его внутренним тканям.",
+      "en": "Branched intestinal ceca extending through the body of the parasite and distributing ingested material through its internal tissues."
+    },
+    "color": "#44ff44",
+    "points": [{"x": 0.39570416, "y": 0.15322761},
+    {"x": 0.46922055, "y": 0.21331249}]
+  },
+
+  {
+    "id": "vitellaria",
+    "labels": {
+      "ru": "Желточники",
+      "en": "Vitellaria"
+    },
+    "description": {
+      "ru": "Многочисленные желточные фолликулы, занимающие значительную часть тела. Образуют клетки и вещества, участвующие в формировании яйца.",
+      "en": "Numerous vitelline follicles occupying a large part of the body. They produce cells and materials involved in egg formation."
+    },
+    "color": "#ffc533",
+    "points": [{"x": 0.36005314, "y": 0.52334152}]
+  },
+
+  {
+    "id": "ovary",
+    "labels": {
+      "ru": "Яичник",
+      "en": "Ovary"
+    },
+    "description": {
+      "ru": "Женская половая железа гермафродитной половой системы моногенеи. Расположена в центральной части тела, впереди семенников.",
+      "en": "The female gonad of the hermaphroditic reproductive system of the monogenean. It is located in the central part of the body, anterior to the testes."
+    },
+    "color": "#ff7a33",
+    "points": [{"x": 0.31222321, "y": 0.25351798}]
+  },
+
+  {
+    "id": "testes",
+    "labels": {
+      "ru": "Семенники",
+      "en": "Testes"
+    },
+    "description": {
+      "ru": "Парные мужские половые железы, хорошо различимые в задней части центральной области тела.",
+      "en": "Paired male gonads, clearly visible in the posterior part of the central body region."
+    },
+    "color": "#3f7cff",
+    "points": [{"x": 0.50000000, "y": 0.38597275},
+    {"x": 0.43976971, "y": 0.43980344}]
+  },
+
+  {
+    "id": "haptor",
+    "labels": {
+      "ru": "Гаптор",
+      "en": "Haptor"
+    },
+    "description": {
+      "ru": "Задний прикрепительный орган моногенеи, обеспечивающий фиксацию паразита на тканях хозяина.",
+      "en": "The posterior attachment organ of the monogenean, used to secure the parasite to host tissues."
+    },
+    "color": "#a64dff",
+    "points": [{"x": 0.84593667, "y": 0.72425732}]
+  },
+
+  {
+    "id": "haptoral_sclerites",
+    "labels": {
+      "ru": "Склериты гаптора",
+      "en": "Haptoral sclerites"
+    },
+    "description": {
+      "ru": "Склеротизированные элементы прикрепительного аппарата, обеспечивающие механическую фиксацию паразита на хозяине.",
+      "en": "Sclerotized elements of the attachment apparatus that provide mechanical fixation of the parasite to the host."
+    },
+    "color": "#00cfe8",
+    "points": [
+      {"x": 0.81465899, "y": 0.79294170},
+    {"x": 0.71191320, "y": 0.78914452}]
+  },
+
+  {
+    "id": "anterior_attachment_organs",
+    "labels": {
+      "ru": "Передние прикрепительные органы",
+      "en": "Anterior attachment organs"
+    },
+    "description": {
+      "ru": "Парные структуры переднего конца тела, участвующие в дополнительной фиксации паразита на поверхности хозяина.",
+      "en": "Paired structures at the anterior end of the body involved in additional attachment of the parasite to the host surface."
+    },
+    "color": "#ff66cc",
+    "points": [{"x": 0.14481842, "y": 0.10721465}]
+  }
+]
