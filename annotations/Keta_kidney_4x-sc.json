@@ -1,0 +1,36 @@
+[
+  {
+    "id": "preserved_renal_tubules",
+    "labels": {
+      "ru": "Почечные канальцы",
+      "en": "Relatively preserved renal tubules"
+    },
+    "description": {
+      "ru": "Почечные канальцы с сохранёнными контурами и сравнительно светлыми просветами. В отличие от патологически изменённых канальцев, просветы не заполнены плотным тёмным содержимым, а структура стенки остаётся хорошо различимой.",
+      "en": "Renal tubules with preserved outlines and relatively clear lumina. Unlike pathologically altered tubules, the lumina are not filled with dense dark material and the tubular walls remain clearly distinguishable."
+    },
+    "color": "#44cc66",
+    "points": [{"x": 0.26775305, "y": 0.33616896},
+    {"x": 0.22741123, "y": 0.42527134},
+    {"x": 0.53490991, "y": 0.78923438}]
+  },
+  {
+    "id": "melanomacrophage_centers",
+    "labels": {
+      "ru": "Меланомакрофаговые центры (MMC)",
+      "en": "Melanomacrophage centers (MMC)"
+    },
+    "description": {
+      "ru": "Скопления пигментированных макрофагов, характерные для кроветворных органов рыб, в том числе почки. Их тёмная окраска связана с накоплением внутриклеточных пигментов.",
+      "en": "Aggregates of pigment-containing macrophages characteristic of hematopoietic organs in fish, including the kidney. Their dark appearance is associated with intracellular pigment accumulation."
+    },
+    "color": "#d6a84b",
+    "points": [{"x": 0.56604399, "y": 0.50432678},
+    {"x": 0.57843137, "y": 0.31988853},
+    {"x": 0.54782724, "y": 0.73628630},
+    {"x": 0.91534181, "y": 0.11198299},
+    {"x": 0.96323529, "y": 0.03058082},
+    {"x": 0.96621622, "y": 0.26356703},
+    {"x": 0.70906200, "y": 0.18722499}]
+  }
+]

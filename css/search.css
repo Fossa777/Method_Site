@@ -1,0 +1,80 @@
+/* Стилизация поисковой формы Google CSE */
+
+.gsc-control-cse {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family: inherit !important;
+  box-shadow: none !important;
+}
+
+.gsc-control-wrapper-cse {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.gsc-search-box {
+  border: none !important;
+  padding: 0.5rem !important;
+  background: transparent !important;
+}
+
+input.gsc-input {
+  border-radius: 10px !important;
+  padding: 0.5rem 1rem !important;
+  border: 1px solid #ccc !important;
+  font-size: 1rem !important;
+  width: 100% !important;
+  background: #fff !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
+
+}
+
+/* Для темной темы */
+html[data-theme='dark'] input.gsc-input {
+  background: #222 !important;
+  color: #fff !important;
+  border: 1px solid #444 !important;
+}
+
+/* Кнопка поиска */
+.gsc-search-button input.gsc-search-button-v2 {
+  border-radius: 10px !important;
+  background: #333 !important;
+  color: #fff !important;
+  padding: 0.4rem 1rem !important;
+  border: none !important;
+  margin-left: 0.5rem;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.gsc-search-button input.gsc-search-button-v2:hover {
+  background: #555 !important;
+}
+
+
+/* Светлая тема: светло-серый фон, тёмный текст */
+html[data-theme='light'] .page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1.5rem 0 1rem;
+  border-left: 5px solid var(--primary);
+  padding-left: 1rem;
+  color: var(--heading-color, #222);
+}
+
+/* Тёмная тема: тёмно-серый фон, светлый текст */
+html[data-theme='dark'] .page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1.5rem 0 1rem;
+  border-left: 5px solid var(--primary);
+  padding-left: 1rem;
+  color: var(--heading-color, #eee);
+}
+
+
+
+

@@ -1,0 +1,42 @@
+
+[
+  {
+    "id": "branching",
+    "labels": {
+      "ru": "Ветвление таллома",
+      "en": "Thallus branching"
+    },
+    "description": {
+      "ru": "Боковые ответвления отходят от основных клеточных нитей. Многочисленные ветвления формируют разветвлённую структуру таллома.",
+      "en": "Lateral branches arise from the main cellular filaments. Numerous branches form the complex structure of the thallus."
+    },
+    "color": "#990C39",
+    "points": [{"x": 0.81136626, "y": 0.54507134}]
+  },
+  {
+    "id": "uniseriate_filament",
+    "labels": {
+      "ru": "Однорядная клеточная нить",
+      "en": "Uniseriate filament"
+    },
+    "description": {
+      "ru": "Нить образована последовательным рядом удлинённых клеток, разделённых поперечными перегородками. Такое строение хорошо различимо на отдельных участках таллома.",
+      "en": "The filament consists of a single row of elongated cells separated by transverse septa. This arrangement is clearly visible in certain regions of the thallus."
+    },
+    "color": "#0ea6cc",
+    "points": [{"x": 0.56684492, "y": 0.25356680}]
+  },
+  {
+    "id": "putative_monosporangium",
+    "labels": {
+      "ru": "Предполагаемый моноспорангий",
+      "en": "Putative monosporangium"
+    },
+    "description": {
+      "ru": "Округлое пигментированное образование на коротком боковом ответвлении. По морфологии и расположению предположительно соответствует моноспорангию — структуре бесполого размножения красных водорослей.",
+      "en": "A rounded, pigmented structure borne on a short lateral branch. Its morphology and position are consistent with a possible monosporangium, an asexual reproductive structure of red algae."
+    },
+    "color": "#0CC218",
+    "points": [{"x": 0.42266960, "y": 0.09160182}]
+  }
+]
